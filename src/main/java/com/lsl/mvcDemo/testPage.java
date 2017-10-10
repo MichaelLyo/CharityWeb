@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
+import sun.misc.Request;
 
 @Controller
 /**
@@ -44,6 +45,7 @@ public class testPage {
 	public String printHello(Model model)
 	{
 		model.addAttribute("message", "hello Spring MVC Framework");
+
 		System.out.println("hello message!");
 		System.out.println(model);
 		return "hello";
@@ -63,14 +65,18 @@ public class testPage {
 	@RequestMapping("/form")
 	public String form(){
 		System.out.println("hello form");
+		System.out.println("just for test");
 		return "form";
 	}
 
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(value = "/user.do", method=RequestMethod.POST)
 	public String registerUser(Model model,String name,Integer age){
-		model.addAttribute("message", "注册一个用户");
-		System.out.println("name:"+name + "age:"+age);
-		System.out.println("UserController.registerUser()");
+		String userInfo = "Hello from the outside";
+		model.addAttribute("message", userInfo);
+		model.addAttribute("name", name);
+		model.addAttribute("age", age);
+
+		System.out.println("name:"+name + "   age:"+age);
 		return "userInfo";
 	}
 
