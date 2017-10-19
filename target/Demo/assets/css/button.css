@@ -642,6 +642,10 @@
 * These buttons have no fill they only have a
 * border to define their hit target.
 */
+.button-login{
+    margin-top: 5px;
+    left: 30px;
+}
 .button-borderless {
     background: none;
     border: none;
