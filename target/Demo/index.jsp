@@ -76,9 +76,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-6">
                                                         <div class="slide-content">
-                                                            <h2>We are awesome</h2>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, dolorem, excepturi. Dolore aliquam quibusdam ut quae iure vero exercitationem ratione!</p>
-                                                            <a href="" class="readmore">Learn more</a>
+                                                            <h2>我们与河西的一次约定 </h2>
+                                                            <p>2015年的夏天，怀着丝丝忐忑而激动的心情，同济大学彩云支南协会河西三队的我们，如期前往了云南省大理白族自治州鹤庆县黄坪镇河西村小，赴，同他们，第三次夏天的约定。</p>
+                                                            <a href="" class="readmore">了解更多</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -96,9 +96,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-6">
                                                         <div class="slide-content">
-                                                            <h2>We are great</h2>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe aspernatur, dolorum harum molestias tempora deserunt voluptas possimus quos eveniet</p>
-                                                            <a href="" class="readmore">Learn more</a>
+                                                            <h2>同济大学猫咪同盟</h2>
+                                                            <p>新一年的领养活动要来啦~由猫咪同盟和@二月猫爱猫驿站-上海 合作的领养日义卖活动正在准备进行中，届时欢迎前来领养小宝贝们~~</p>
+                                                            <a href="" class="readmore">了解更多</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -116,9 +116,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-6">
                                                         <div class="slide-content">
-                                                            <h2>We are superb</h2>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, eius?</p>
-                                                            <a href="" class="readmore">Learn more</a>
+                                                            <h2>四季春晖·爱在黔行</h2>
+                                                            <p>同济志愿者们带领此高中的小小志愿者们来到社区爱心屋开展活动。他们十分开朗，在接受了大哥哥大姐姐指导后，他们也悉心地教社区年龄更小的孩子们折纸，辅导他们课业，大家亲密无间地交流、沟通。</p>
+                                                            <a href="" class="readmore">了解更多</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,7 +156,7 @@
             <!--start-news-->
             <div class="news services-in">
                 <div class="container">
-                    <h3 class="tittle">Our News</h3>
+                    <img src="assets/img/font-hotnew.png">
                     <div class="news-article">
                         <div class="col-md-6 article-post">
                             <a href="single.html" ><img src="assets/img/n1.jpg" alt="img07"/></a>
@@ -167,17 +167,17 @@
                                     </div>
                                 </div>
                                 <ul class="ad-info">
-                                    <li>21 Aug'15</li>
+                                    <li>2017  10.20</li>
                                     <li> <a href="#">John Doe</a></li>
-                                    <li> <a href="#">24 Comments</a></li>
+                                    <li> <a href="#">24 评论</a></li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="col-md-9 post-details">
-                                <a href="single.html"><h3>To Protect Humanity</h3></a>
+                                <a href="single.html"><h3>支教</h3></a>
                                 <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                                 <div>
-                                    <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">Read More</a>
+                                    <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
                                 </div>
                             </div>
                             <!--post-details-->
@@ -192,9 +192,9 @@
                                     </div>
                                 </div>
                                 <ul class="ad-info">
-                                    <li>21 Aug'15</li>
+                                    <li>2017  9.23</li>
                                     <li> <a href="#">John Doe</a></li>
-                                    <li> <a href="#">24 Comments</a></li>
+                                    <li> <a href="#">23 评论</a></li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>
@@ -202,7 +202,7 @@
                                 <a href="single.html"><h3>To Protect Humanity</h3></a>
                                 <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                                 <div>
-                                    <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">Read More</a>
+                                    <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
                                 </div>
                             </div>
                             <!--post-details-->
@@ -222,34 +222,34 @@
             <!-- 聚焦 有态度的公益影像 -->
             <div class="services-in post-details">
                 <div class="container">
-                    <h3 class="tittle">Our Action</h3>
+                    <img src="assets/img/font-action.png">
                     <div class="service-grid">
                         <div class="col-md-4 ser-in post-details">
                             <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><div class="b-line b-line1"></div><div class="b-line b-line2"></div><div class="b-line b-line3"></div><div class="b-line b-line4"></div><div class="b-line b-line5"></div>
                                 <img class="img-responsive" src="assets/img/pic.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
                                 </div></a>
-                            <h3>彩 云 之 南</h3>
+                            <h3>彩 云 支 南</h3>
                             <span>Claritas est etiam</span>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
-                            <a href="#" class="btn  btn-1c btn1 btn-1d">MORE INFO</a>
+                            <a href="#" class="btn  btn-1c btn1 btn-1d">点击加入</a>
                         </div>
                         <div class="col-md-4 ser-in post-details">
                             <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><div class="b-line b-line1"></div><div class="b-line b-line2"></div><div class="b-line b-line3"></div><div class="b-line b-line4"></div><div class="b-line b-line5"></div>
                                 <img class="img-responsive" src="assets/img/pic1.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
                                 </div></a>
-                            <h3>春 晖 之 声</h3>
+                            <h3><b>春 晖 之 声</b></h3>
                             <span>Claritas est etiam</span>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
-                            <a href="#" class="btn  btn-1c btn1 btn-1d">MORE INFO</a>
+                            <a href="#" class="btn  btn-1c btn1 btn-1d">点击加入</a>
                         </div>
                         <div class="col-md-4 ser-in post-details">
                             <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><div class="b-line b-line1"></div><div class="b-line b-line2"></div><div class="b-line b-line3"></div><div class="b-line b-line4"></div><div class="b-line b-line5"></div>
                                 <img class="img-responsive" src="assets/img/pic2.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
                                 </div></a>
-                            <h3>宠 物 之 家</h3>
+                            <h3><b>宠 物 之 家</b></h3>
                             <span>Claritas est etiam</span>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
-                            <a href="#" class="btn  btn-1c btn1 btn-1d">MORE INFO</a>
+                            <a href="#" class="btn  btn-1c btn1 btn-1d">点击加入</a>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -263,8 +263,9 @@
             <!--start-services-->
             <div class="services-in">
                 <!-- container -->
+                <img src="assets/img/font-participate.png">
                 <div class="container">
-                    <h3 class="tittle">Our Services</h3>
+
                     <div class="col-md-5 serve-info">
                         <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Cras porttitor imperdiet volutpat nulla malesuada lectus eros ut convallis felis consectetur ut </h5>
 

@@ -427,9 +427,9 @@ button:active {
     top: 0;
     width: 100%;
 }
-.slide-one {background-image: url(../img/pic2.jpg)}
-.slide-two {background-image: url(../img/banner2.jpg)}
-.slide-three {background-image: url(../img/sin.jpg)}
+.slide-one {background-image: url(../img/caiyun-topnav.jpg)}
+.slide-two {background-image: url(../img/cat-topnav.jpg)}
+.slide-three {background-image: url(../img/chunhui-topnav.jpg)}
 .slide-text {color: #fff;font-size: 18px;font-weight: 200}
 .slide-text h2 {
     font-size: 45px;font-weight: 200
