@@ -34,7 +34,9 @@
                             <span class="animenu__toggle__bar"></span>
                             <span class="animenu__toggle__bar"></span>
                         </button>
+
                         <ul class="animenu__nav">
+                            <li><img src="assets/img/logo.jpg"></li>
                             <li>
                                 <a href="#home">首页</a>
                             </li>
@@ -52,9 +54,8 @@
                             <li>
                                 <a href="#installation">在参与</a>
                             </li>
-                            <li>
-                                <a href="login.jsp">登录</a>
-                            </li>
+                            <button onclick="window.location='Login/regist.jsp'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">注册</button>
+                            <button onclick="window.location='login.jsp'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">登录</button>
                         </ul>
                     </nav>
     <!-- End Navbar -->
@@ -62,8 +63,7 @@
 <!-- START THE COVER -->
 
                 <div class="slider-area">
-                    <div class="zigzag-bottom"></div>
-                    <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
+                    <div id="slide-list" class="carousel-fade slide" data-ride="carousel">
 
 
                         <div class="carousel-inner" role="listbox">
@@ -159,7 +159,7 @@
                     <img src="assets/img/font-hotnew.png">
                     <div class="news-article">
                         <div class="col-md-6 article-post">
-                            <a href="single.html" ><img src="assets/img/n1.jpg" alt="img07"/></a>
+                            <a href="single.html" ><img src="assets/img/cat-top.jpg" alt="img07"/></a>
                             <div class="col-md-3 post-meta">
                                 <div class="meta-icon">
                                     <div class="pic">
@@ -168,14 +168,14 @@
                                 </div>
                                 <ul class="ad-info">
                                     <li>2017  10.20</li>
-                                    <li> <a href="#">John Doe</a></li>
+                                    <li> <a href="#">牛书凉</a></li>
                                     <li> <a href="#">24 评论</a></li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="col-md-9 post-details">
-                                <a href="single.html"><h3>支教</h3></a>
-                                <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
+                                <a href="single.html"><h3>选择领养，选择买不到的爱</h3></a>
+                                <p>上周六（12.6）二月猫与同济猫咪同盟将共同举的办义卖及领养日如约进行，在活动现场有六只猫咪成功领养，找到了属于它们自己的两脚兽，二月猫会持续关注它们进入家庭后的生活，让我们来看看到底是那些宝贝开启了新的喵生呢？</p>
                                 <div>
                                     <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
                                 </div>
@@ -184,7 +184,7 @@
                             <div class="clearfix"> </div>
                         </div>
                         <div class="col-md-6 article-post">
-                            <a href="single.html" ><img src="assets/img/n2.jpg" alt="img07"/></a>
+                            <a href="single.html" ><img src="assets/img/caiyun-top.jpg" alt="img07"/></a>
                             <div class="col-md-3 post-meta">
                                 <div class="meta-icon">
                                     <div class="pic">
@@ -193,14 +193,14 @@
                                 </div>
                                 <ul class="ad-info">
                                     <li>2017  9.23</li>
-                                    <li> <a href="#">John Doe</a></li>
+                                    <li> <a href="#">旺仔牛奶</a></li>
                                     <li> <a href="#">23 评论</a></li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="col-md-9 post-details">
-                                <a href="single.html"><h3>To Protect Humanity</h3></a>
-                                <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
+                                <a href="single.html"><h3>志愿者心语——张媛</h3></a>
+                                <p>写下这些话已是夏令营结束之时，回想过去的十天，仿佛还有些恍惚。第一次作为领队带着十个小伙伴一起前往天池，感觉很幸运。所幸遇到了有趣又努力的小伙伴；所幸遇到了可爱又敢于尝试的孩子们……</p>
                                 <div>
                                     <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
                                 </div>
@@ -226,29 +226,30 @@
                     <div class="service-grid">
                         <div class="col-md-4 ser-in post-details">
                             <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><div class="b-line b-line1"></div><div class="b-line b-line2"></div><div class="b-line b-line3"></div><div class="b-line b-line4"></div><div class="b-line b-line5"></div>
-                                <img class="img-responsive" src="assets/img/pic.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
+                                <img class="img-responsive" src="assets/img/caiyun-participate.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
                                 </div></a>
                             <h3>彩 云 支 南</h3>
-                            <span>Claritas est etiam</span>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
+                            <span>同济大学彩云支南协会</span>
+                            <p>了解公益理念，传播公益思想。同心者同行，彩云支南，圆你一个公益梦！致力于搭建同济大学与云南地区沟通交流的公益平台。通过丰富的活动，让同济学子应用自己的专业知识或特长帮助云南乡村进入更多人视野，得到更多关注。</p>
                             <a href="#" class="btn  btn-1c btn1 btn-1d">点击加入</a>
                         </div>
                         <div class="col-md-4 ser-in post-details">
                             <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><div class="b-line b-line1"></div><div class="b-line b-line2"></div><div class="b-line b-line3"></div><div class="b-line b-line4"></div><div class="b-line b-line5"></div>
-                                <img class="img-responsive" src="assets/img/pic1.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
+                                <img class="img-responsive" src="assets/img/chunhui-participate.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
                                 </div></a>
                             <h3><b>春 晖 之 声</b></h3>
-                            <span>Claritas est etiam</span>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
+                            <span>同济大学春晖社团</span>
+                            <p>传播春晖精神，践行春晖理念。同济大学春晖社是在贵州省团委发起的大型社会公益活动——“春晖行动”的影响下，经同济大学校团委批准成立的学生公益社团。社团致力于传播春晖精神，践行春晖理念，为大学生参与公益、反哺社会创造机会与平台。</p>
                             <a href="#" class="btn  btn-1c btn1 btn-1d">点击加入</a>
                         </div>
                         <div class="col-md-4 ser-in post-details">
                             <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><div class="b-line b-line1"></div><div class="b-line b-line2"></div><div class="b-line b-line3"></div><div class="b-line b-line4"></div><div class="b-line b-line5"></div>
-                                <img class="img-responsive" src="assets/img/pic2.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
+                                <img class="img-responsive" src="assets/img/cat-participate.jpg" style="top: 0px;" alt=" " /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="assets/img/plus.png" alt="" style="top: 0px;"></h2>
                                 </div></a>
                             <h3><b>宠 物 之 家</b></h3>
-                            <span>Claritas est etiam</span>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
+                            <span>同济猫盟</span>
+                            <p>同济猫盟，一个致力于猫咪保护的公益类学生社团，猫盟是一个【公益实践类】社团，致力于改善同济猫咪的生存环境。我们的宗旨是：让同济的猫咪生活得更好，让同济的校园更加有爱。所有猫盟成员可以免费领取猫粮并解锁指定猫咖的优惠。
+                            </p>
                             <a href="#" class="btn  btn-1c btn1 btn-1d">点击加入</a>
                         </div>
                         <div class="clearfix"> </div>
@@ -267,10 +268,11 @@
                 <div class="container">
 
                     <div class="col-md-5 serve-info">
-                        <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Cras porttitor imperdiet volutpat nulla malesuada lectus eros ut convallis felis consectetur ut </h5>
-
+                        <h5>我们会不断更新各类公益活动，在此你可以选择以任何方式参与到公益活动之中。你可以帮助幼儿、残疾人，也可以保护环境、保护自然。</h5>
+                        <h3 style = "color: #2BCFC2;font-size: 40px;">本周最热活动</h3>
+                        <img src="assets/img/action.jpg">
                         <div class="see-button">
-                            <a class="btn btn-primary btn-lg see-button hvr-shutter-out-horizontal serve-button" href="#" role="button">Read More</a>
+                            <a class="btn btn-primary btn-lg see-button hvr-shutter-out-horizontal serve-button" href="#" role="button">查看更多活动</a>
                         </div>
                     </div>
                     <div class="col-md-7 serve-grids">
@@ -279,15 +281,15 @@
                                 <figure class="icon">
                                     <img src="assets/img/s1.png" alt="" />
                                 </figure>
-                                <h5>Kindness</h5>
-                                <p>Sed ut perspiciis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                <h5>儿童服务</h5>
+                                <p>公益活动面向各个地区、各个年龄的的儿童，包括救助孤儿，照顾残疾儿童，去贫困山区支教等活动。</p>
                             </div>
                             <div class="col-md-6 service-box">
                                 <figure class="icon">
                                     <img src="assets/img/s2.png" alt="" />
                                 </figure>
-                                <h5>Humanity</h5>
-                                <p>Sed ut perspiciis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                <h5>残疾人服务</h5>
+                                <p>公益活动同时为残疾人提供保障以及福利，提高残疾人的生活品质，帮助残疾人解决困难。</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -296,15 +298,15 @@
                                 <figure class="icon">
                                     <img src="assets/img/s4.png" alt="" />
                                 </figure>
-                                <h5>Save Food</h5>
-                                <p>Sed ut perspiciis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                <h5>保护环境</h5>
+                                <p>在众多公益活动中你可以为环境保护贡献一份力量，清理垃圾、街道服务，为我们的生活塑造一个优美的环境</p>
                             </div>
                             <div class="col-md-6 service-box">
                                 <figure class="icon">
                                     <img src="assets/img/s3.png" alt="" />
                                 </figure>
-                                <h5>Save Money</h5>
-                                <p>Sed ut perspiciis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                <h5>捐款</h5>
+                                <p>我们同时提供最直接的公益参与方式，为贫困地区捐助自己的一份资金。</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>

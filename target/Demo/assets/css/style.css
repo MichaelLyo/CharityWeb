@@ -235,10 +235,10 @@ button:active {
 .animenu {
     display: block;
 }
+
 .animenu ul {
     padding: 0;
     list-style: none;
-    font: 0px 'Open Sans', Arial, Helvetica;
 }
 .animenu li, .animenu a {
     display: inline-block;
@@ -252,15 +252,29 @@ button:active {
 .animenu__nav {
     background-color: #444444;
     margin-bottom: 0;
+    height: 50px;
 }
+
 .animenu__nav > li {
     position: relative;
-    left: 300px;
+    right: 330px;
 }
 .animenu__nav > li > a {
     padding: 10px 30px;
+    height: 50px;
+    line-height: 30px;
 }
+.animenu__nav > li > button {
+
+}
+.animenu__nav > li > img {
+    padding: 10px 30px;
+    height: 50px;
+    line-height: 30px;
+}
+
 .animenu__nav > li > a:first-child:nth-last-child(2):before {
+    opacity: 0.2;
     content: "";
     position: absolute;
     border: 4px solid transparent;
@@ -279,6 +293,7 @@ button:active {
     background-color: #0186ba;
     border-color: #0186ba;
     color: #fff;
+    height: 50px;
 }
 
 .animenu__nav__child {
@@ -388,11 +403,11 @@ button:active {
 .animenu__nav--open .animenu__nav__child {
     display: block;
 }
-.slider-area {clear: both}
+.slider-area {clear: both;height: 600px;}
 .slider-area, .promo-area, .brands-area, .maincontent-area, .footer-top-area, .product-widget-area, .product-breadcroumb-area, .single-product-area {position: relative;overflow: hidden}
 .zigzag-bottom {}
 .slide-text-wrapper {
-    height: 700px;
+    height: 600px;
 }
 .slide-text-wrapper {
     display: table;width: 100%;
@@ -418,7 +433,6 @@ button:active {
     width: 100%;background-position: center;background-size: cover
 }
 .slide-bg:after {
-    background: none repeat scroll 0 0 #000;
     content: "";
     height: 100%;
     left: 0;
@@ -435,16 +449,16 @@ button:active {
     font-size: 45px;font-weight: 200
 }
 
-.slide-content {position: relative;z-index: 9;padding: 30px}
+.slide-content {position: relative;z-index: 9;width:700px;padding: 160px;top: -60px;}
 .slide-content:before {
     background: none repeat scroll 0 0 #000;
     content: "";
-    height: 100%;
-    left: 0;
+    height: 1000px;
+    left: 100px;
     opacity: 0.6;
     position: absolute;
-    top: 0;
     width: 100%;
+    top: -200px;
     z-index: -1;
 }
 
