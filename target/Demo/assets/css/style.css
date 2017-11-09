@@ -28,7 +28,6 @@ h1 {
 form {
     position: relative;
     width: 305px;
-    margin: 15px auto 0 auto;
     text-align: center;
 }
 
@@ -461,7 +460,6 @@ button:active {
     top: -200px;
     z-index: -1;
 }
-
 
 
 
