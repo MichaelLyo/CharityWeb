@@ -11,6 +11,7 @@ springMVC + hibernate
 
 ### 包管理
 - Maven
+- 只要安装了maven，就可以利用maven把项目中所需的框架的jar包自动引入进来，不需要额外搭环境
 - 请将下面的代码替换到maven的settings.xml里，注释部分可以删掉
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
