@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+
+    <!--&lt;!&ndash;  mysql账户名  &ndash;&gt;-->
+    <!--<property name="connection.username">root</property>-->
+
+    <!--&lt;!&ndash;  mysql密码  &ndash;&gt;-->
+    <!--<property name="connection.password">ibm</property>-->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+    <!--  mysql账户名  -->
+    <property name="connection.username">root</property>
+
+    <!--  mysql密码  -->
+    <property name="connection.password">ibm</property>
+
+
+    <!--  mysql驱动  -->
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+    <!--  mysql连接URL  -->
+    <property name="connection.url">jdbc:mysql://10.60.42.201:3306/CharityWeb</property>
+
+    <!--  数据库方言  -->
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    <!--  显示sql语句  -->
+    <property name="show_sql">true</property>
+
+    <!--  格式化sql语句  -->
+    <property name="format_sql">true</property>
+
+    <!--  根据需要创建数据库  -->
+    <property name="hbm2ddl.auto">update</property>
+    <!--自动提交修改-->
+    <property name="connection.autocommit">true</property>
+
+
+    <mapping class="model.User"/>
+    <mapping resource="model/User.hbm.xml"/>
+
+  </session-factory>
+</hibernate-configuration>
