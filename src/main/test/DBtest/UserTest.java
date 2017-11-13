@@ -22,9 +22,10 @@ public class UserTest extends TestCase
 			session.beginTransaction();
 
 			User user = new User();
-			user.setId(1000);
-			user.setPassword("lsldhr666");
-			user.setUserName("lsl");
+			//id should be unique
+			user.setId(1001);
+			user.setPassword("666");
+			user.setUserName("sjw");
 
 			session.save(user);
 			session.getTransaction().commit();
@@ -36,21 +37,6 @@ public class UserTest extends TestCase
 		}
 	}
 
-	public void myTestSave()
-	{
-		Session session = null;
-
-		session = HibernateUtils.getSession();
-		session.beginTransaction();
-
-		User user = new User();
-		user.setId(1000);
-		user.setPassword("lsldhr666");
-		user.setUserName("lsl");
-
-		session.save(user);
-		session.getTransaction().commit();
-	}
 
 
 	/**
