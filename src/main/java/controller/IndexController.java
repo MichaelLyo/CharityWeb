@@ -27,9 +27,5 @@ public class IndexController
 	{
 		return new ModelAndView("login");
 	}
-	@RequestMapping("/test")
-	public String test()
-	{
-		return "test";
-	}
+
 }
