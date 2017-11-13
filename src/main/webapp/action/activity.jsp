@@ -9,7 +9,7 @@
          pageEncoding="GB18030"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>活动</title>
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href="../assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
 
@@ -68,7 +68,7 @@
 <!--start-news-->
 <div class="news two">
     <div class="container">
-        <h3 class="tittle">Blog</h3>
+        <h3 class="tittle">活动</h3>
         <div class="news-article">
             <div class="article-post">
                 <img style="width: 1100px;height: 500px" src="../assets/img/chunhui-participate.jpg"/>
@@ -94,26 +94,26 @@
 
 
                 <div class="col-md-10 data">
-                    <h5 class="m_26" style="float: left;width: 100px;text-align: center;"> <a href="donate.jsp">Donate</a></h5>
+                    <h5 class="m_26" style="float: left;width: 100px;text-align: center;font-size: 18px;"> <a href="donate.jsp"> 捐 款 </a></h5>
                 </div>
                 <div class="clearfix"> </div>
             </div>
         </div>
         <div class="single">
             <div class="leave">
-                <h4>Leave a comment</h4>
+                <h4>留 下 评 论</h4>
             </div>
             <form id="commentform">
                     <textarea style="width: 1000px"></textarea>
                 <div class="clearfix"></div>
                 <p class="form-submit">
-                    <input name="submit" type="submit" id="submit" value="Send">
+                    <input name="submit" type="submit" id="submit" value="评论">
                 </p>
                 <div class="clearfix"></div>
             </form>
             <div class="single_grid2">
                 <h4 class="tz-title-4 tzcolor-blue">
-                    Comments
+                    其他人的评论
                 </h4>
                 <ul class="list">
                     <li>
@@ -121,7 +121,7 @@
                         <div class="col-md-10 data">
                             <div class="title"><a href="#">donator</a><br><span class="m_14">Aug 30, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
-                            <h5 class="m_26"> <a href="#">reply</a></h5>
+                            <h5 class="m_26"> <a href="#">回复</a></h5>
                         </div>
                         <div class="clearfix"></div>
                     </li>
@@ -130,7 +130,7 @@
                         <div class="col-md-10 data">
                             <div class="title"><a href="#">donator</a><br><span class="m_14">Sep 2, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
-                            <h5 class="m_26"> <a href="#">reply</a></h5>
+                            <h5 class="m_26"> <a href="#">回复</a></h5>
                         </div>
                         <div class="clearfix"></div>
                     </li>
@@ -139,7 +139,7 @@
                         <div class="col-md-10 data">
                             <div class="title"><a href="#">donator</a><br><span class="m_14">Nov 2, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
-                            <h5 class="m_26"> <a href="#">reply</a></h5>
+                            <h5 class="m_26"> <a href="#">回复</a></h5>
                         </div>
                         <div class="clearfix"></div>
                     </li>

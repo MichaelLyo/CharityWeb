@@ -169,7 +169,7 @@
                                 </div>
                                 <ul class="ad-info">
                                     <li>2017  10.20</li>
-                                    <li> <a href="#">≈£ È¡π</a></li>
+                                    <li> <a href="Login/userInfo.jsp">≈£ È¡π</a></li>
                                     <li> <a href="#">24 ∆¿¬€</a></li>
                                 </ul>
                                 <div class="clearfix"> </div>
