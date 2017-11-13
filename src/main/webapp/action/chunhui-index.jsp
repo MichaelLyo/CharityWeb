@@ -194,6 +194,7 @@
     <div class="clearfix"></div>
     <!-- technology-right -->
 </div>
+</div>
 <!--start-smoth-scrolling-->
 <script type="text/javascript">
     jQuery(document).ready(function($) {
