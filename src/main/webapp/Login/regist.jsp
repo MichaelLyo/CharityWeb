@@ -17,7 +17,7 @@
     <div class="wrapper">
         <div class="container">
             <strong><span style="font-weight: bold;font-size: 30px;">注    册</span></strong>
-            <form class="form"  method="post">
+            <form class="form"  method="post" style="margin: auto">
                 <input type="text" name="username" placeholder="用户名">
                 <input type="password" name="password"  placeholder="密码">
                 <input type="password" name="password"  placeholder="再次输入密码">

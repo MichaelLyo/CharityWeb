@@ -26,7 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="../assets/css/style.css" rel="stylesheet">
 <link href="../assets/css/stickup.css" rel="stylesheet">
 <link href="../assets/css/button.css" rel="stylesheet">
-        <div class="navbar-wrapper">
+        <div class="navbar-wrapper" id="home">
 
             <nav class="animenu">
                 <button class="animenu__toggle">
@@ -334,7 +334,7 @@ topMargin: 'auto'
 });
 });
 </script>
-<a href="#" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 </body>
 </html>

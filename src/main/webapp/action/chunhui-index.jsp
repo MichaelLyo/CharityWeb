@@ -9,7 +9,7 @@
          pageEncoding="GB18030"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>春晖之声</title>
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href="../assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
@@ -29,7 +29,7 @@
 <link href="../assets/css/style.css" rel="stylesheet">
 <link href="../assets/css/stickup.css" rel="stylesheet">
 <link href="../assets/css/button.css" rel="stylesheet">
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" id="animenu">
 
     <nav class="animenu">
         <button class="animenu__toggle">
@@ -79,7 +79,7 @@
                         <img src="../assets/img/chunhui-participate.jpg" style="width:1000px;height:450px;">
                     </div>
 
-                    <h3>春晖之声</h3>
+                    <h3>春  晖  之  声</h3>
                     <h6>传播春晖精神，践行春晖理念。
                     </h6>
                     <p>同济大学春晖社是在贵州省团委发起的大型社会公益活动——“春晖行动”的影响下，经同济大学校团委批准成立的学生公益社团。</p>
@@ -197,6 +197,31 @@
     <div class="clearfix"></div>
     <!-- technology-right -->
 </div>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
 
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 </body>
 </html>

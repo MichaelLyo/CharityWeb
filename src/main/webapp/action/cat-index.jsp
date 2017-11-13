@@ -9,7 +9,7 @@
          pageEncoding="GB18030"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>宠物之家</title>
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href="../assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
@@ -29,7 +29,7 @@
 <link href="../assets/css/style.css" rel="stylesheet">
 <link href="../assets/css/stickup.css" rel="stylesheet">
 <link href="../assets/css/button.css" rel="stylesheet">
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" id="animenu">
 
     <nav class="animenu">
         <button class="animenu__toggle">
@@ -79,7 +79,7 @@
                         <img src="../assets/img/cat-participate.jpg" style="width:1000px;height:450px;">
                     </div>
 
-                    <h3>宠物之家</h3>
+                    <h3>宠  物  之  家</h3>
                     <h6>同济大学猫咪同盟
                     </h6>
                     <p>同济猫盟，一个致力于猫咪保护的公益类学生社团。</p>
@@ -197,6 +197,31 @@
     <div class="clearfix"></div>
     <!-- technology-right -->
 </div>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
 
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 </body>
 </html>

@@ -20,8 +20,11 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/layout.css" rel="stylesheet">
     <link href="assets/css/anticipate.css" rel="stylesheet">
+
 </head>
 <body>
+
+
 <div id="home" class="carousel">
         <div class="item active">
 
@@ -54,18 +57,16 @@
                             <li>
                                 <a href="#installation">ÔÚ²ÎÓë</a>
                             </li>
+
                             <button onclick="window.location='Login/regist.jsp'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">×¢²á</button>
                             <button onclick="window.location='login.jsp'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">µÇÂ¼</button>
                         </ul>
                     </nav>
     <!-- End Navbar -->
 </div> <!-- END NAVBAR -->
-<!-- START THE COVER -->
 
-                <div class="slider-area">
+            <div class="slider-area">
                     <div id="slide-list" class="carousel-fade slide" data-ride="carousel">
-
-
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
                                 <div class="single-slide">
@@ -149,8 +150,8 @@
         </div><!-- END COVER -->
 </div>
     <!-- START THE CONTENT -->
-    <div id='contents'>
 
+    <div id='contents'>
         <!-- START THE FEATURES -->
         <div id="features" class="featurette container marketing">
             <!--start-news-->

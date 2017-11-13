@@ -29,7 +29,7 @@
 </head>
 <body>
 
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" id="animenu">
 
     <nav class="animenu">
         <button class="animenu__toggle">
@@ -91,6 +91,12 @@
                 </div>
                 <!--post-details-->
                 <div class="clearfix"> </div>
+
+
+                <div class="col-md-10 data">
+                    <h5 class="m_26" style="float: left;width: 100px;text-align: center;"> <a href="donate.jsp">Donate</a></h5>
+                </div>
+                <div class="clearfix"> </div>
             </div>
         </div>
         <div class="single">
@@ -143,7 +149,32 @@
     </div>
 </div>
 
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
 
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 </body>
 </html>
