@@ -70,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <h3 class="tittle">在参与</h3>
         <div class="news-article">
             <div class="col-md-6 article-post">
-                <a href="single.html" ><img src="images/n1.jpg" alt="img07"/></a>
+                <a href="../action/activity.jsp" ><img src="images/n1.jpg" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
@@ -79,16 +79,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="#">John Doe</a></li>
-                        <li> <a href="#">24 Comments</a></li>
+                        <li> <a href="../Login/userInfo.jsp">旺仔牛奶</a></li>
+                        <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html"><h3>To Protect Humanity</h3></a>
+                    <a href="../action/activity.jsp"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.jsp" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--2-->
             <div class="col-md-6 article-post">
-                <a href="single.html" ><img src="images/n2.jpg" alt="img07"/></a>
+                <a href="../action/activity.jsp" ><img src="images/n2.jpg" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
@@ -105,16 +105,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="#">John Doe</a></li>
-                        <li> <a href="#">24 Comments</a></li>
+                        <li> <a href="../Login/userInfo.jsp">旺仔牛奶</a></li>
+                        <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html"><h3>To Protect Humanity</h3></a>
+                    <a href="../action/activity.jsp"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.jsp" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -122,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--3-->
             <div class="col-md-6 article-post">
-                <a href="single.html" ><img src="images/n3.jpg" alt="img07"/></a>
+                <a href="../action/activity.jsp" ><img src="images/n3.jpg" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
@@ -131,16 +131,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="#">John Doe</a></li>
-                        <li> <a href="#">24 Comments</a></li>
+                        <li> <a href="../Login/userInfo.jsp">旺仔牛奶</a></li>
+                        <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html"><h3>To Protect Humanity</h3></a>
+                    <a href="../action/activity.jsp"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.jsp" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -148,7 +148,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--4-->
             <div class="col-md-6 article-post">
-                <a href="single.html" ><img src="images/n4.jpg" alt="img07"/></a>
+                <a href="../action/activity.jsp" ><img src="images/n4.jpg" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
@@ -157,16 +157,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="#">John Doe</a></li>
-                        <li> <a href="#">24 Comments</a></li>
+                        <li> <a href="../Login/userInfo.jsp">旺仔牛奶</a></li>
+                        <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html"><h3>To Protect Humanity</h3></a>
+                    <a href="../action/activity.jsp"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.jsp" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -174,7 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--5-->
             <div class="col-md-6 article-post">
-                <a href="single.html" ><img src="images/n2.jpg" alt="img07"/></a>
+                <a href="../action/activity.jsp" ><img src="images/n2.jpg" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
@@ -183,16 +183,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="#">John Doe</a></li>
-                        <li> <a href="#">24 Comments</a></li>
+                        <li> <a href="../Login/userInfo.jsp">旺仔牛奶</a></li>
+                        <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html"><h3>To Protect Humanity</h3></a>
+                    <a href="../action/activity.jsp"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.jsp" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -200,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--6-->
             <div class="col-md-6 article-post lost">
-                <a href="single.html" ><img src="images/n3.jpg" alt="img07"/></a>
+                <a href="../action/activity.jsp" ><img src="images/n3.jpg" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
@@ -209,16 +209,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="#">John Doe</a></li>
-                        <li> <a href="#">24 Comments</a></li>
+                        <li> <a href="../Login/userInfo.jsp">旺仔牛奶</a></li>
+                        <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html"><h3>To Protect Humanity</h3></a>
+                    <a href="../action/activity.jsp"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="single.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.jsp" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->

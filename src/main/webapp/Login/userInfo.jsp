@@ -24,14 +24,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
     <link href="css/owl.theme.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/cm-overlay.css" />
-    <!-- font-awesome icons -->
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <!-- //font-awesome icons -->
+
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <!-- menu -->
-    <link rel="stylesheet" href="css/main.css">
+
     <link rel="stylesheet" href="../assets/css/button.css">
     <style type="text/css">
         button {
@@ -308,23 +305,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             display: block;
         }
     </style>
-
-    <script type="text/javascript" src="js/main.js"></script>
-    <!-- //menu -->
-    <script>
-        $(document).ready(function() {
-            $("#owl-demo").owlCarousel({
-
-                autoPlay: 3000, //Set AutoPlay to 3 seconds
-                autoPlay:true,
-                items : 3,
-                itemsDesktop : [640,5],
-                itemsDesktopSmall : [414,4]
-
-            });
-
-        });
-    </script>
 </head>
 
 <body>
@@ -378,6 +358,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p>Donec dolor felis, consectetur eget massa non, mattis euismod est. Nam augue neque, hendrerit nec scelerisque non, ultrices at ligula. Praesent posuere, turpis eget lobortis elementum, ex ante ultricies ligula, sit amet varius lacus dui in magna. Aliquam erat volutpat. Nulla condimentum, enim vitae congue ultrices, nibh erat efficitur sem, vel iaculis lectus eros in turpis. Aliquam venenatis cursus suscipit.</p>
                 </div>
                 <div class="clearfix"> </div>
+                <div class="w3-button">
+                    <div class="w3-button-info m_nav_item">
+                        <a class="hvr-sweep-to-bottom" href="editInfo.jsp">修改个人信息</a>
+                    </div>
+                </div>
 
             </div>
             <div class="col-md-4 w3ls-banner-left">
@@ -399,7 +384,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="w3ls-banner-left-info">
                     <h4>邮箱</h4>
-                    <p><a href="mailto:example@email.com">mail@example.com</a></p>
+                    <p>mail@example.com</p>
                 </div>
             </div>
             <div class="clearfix"> </div>
@@ -423,9 +408,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <section class='wrap'>
                             <div class='wrap_right'>
                                 <div class='bar_group'>
-                                    <div class='bar_group__bar thin' label='参与活动数' show_values='true' tooltip='true' value='343'></div>
+                                    <div class='bar_group__bar thin' label='参与活动数' show_values='true' tooltip='true' value='10'></div>
                                     <div class='bar_group__bar thin' label='发表文章数' show_values='true' tooltip='true' value='235'></div>
-                                    <div class='bar_group__bar thin' label='捐款金额' show_values='true' tooltip='true' value='675'></div>
+                                    <div class='bar_group__bar thin' label='捐款金额' show_values='true' tooltip='true' value='20'></div>
                                     <div class='bar_group__bar thin' label='评论数' show_values='true' tooltip='true' value='456'></div>
                                     <div class='bar_group__bar thin' label='HTML' show_values='true' tooltip='true' value='245'></div>
                                 </div>
@@ -440,200 +425,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!-- //about -->
-<!-- statistics -->
-<div class="jarallax statistics" id="statistics">
-    <div class="container">
-        <div class="w3-agileits-statistics-heading">
-            <h3>My Statistics</h3>
-        </div>
-        <div class="agile-statistics-grids">
-            <div class="col-sm-4 agile-statistics-grid">
-                <h4>1024</h4>
-                <i class="fa fa-desktop" aria-hidden="true"></i>
-                <p>Projects Complete</p>
-            </div>
-            <div class="col-sm-4 agile-statistics-grid statistics-grid2">
-                <h4>2746</h4>
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <p>Clients</p>
-            </div>
-            <div class="col-sm-4 agile-statistics-grid">
-                <h4>575</h4>
-                <i class="fa fa-trophy" aria-hidden="true"></i>
-                <p>Awards</p>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-        <script src="js/jarallax.js"></script>
-        <script src="js/SmoothScroll.min.js"></script>
-        <script type="text/javascript">
-            /* init Jarallax */
-            $('.jarallax').jarallax({
-                speed: 0.5,
-                imgWidth: 1366,
-                imgHeight: 768
-            })
-        </script>
-    </div>
-</div>
-<!-- //statistics -->
-<!-- experience -->
-<div class="experience" id="experience">
-    <div class="container">
-        <div class="w3-agileits-statistics-heading experience-heading">
-            <h3>Work Experience</h3>
-        </div>
-        <div class="w3-agile-experience-grids">
-            <div class="experience-top-grids">
-                <div class="col-md-6 experience-grid">
-                    <div class="experience-grid-icon icon-left hvr-radial-out">
-                        <i class="fa fa-folder-open" aria-hidden="true"></i>
-                    </div>
-                    <div class="experience-grid-info">
-                        <h5>Ut dapibus nisi turpis</h5>
-                        <p>Curabitur augue urna, venenatis vel enim at, sodales tempus diam. Aliquam ornare, magna a cursus tempus, arcu massa accumsan justo, non facilisis risus ante vel ex.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 experience-grid experience-grid1">
-                    <div class="experience-grid-icon icon-left hvr-radial-out">
-                        <i class="fa fa-bell" aria-hidden="true"></i>
-                    </div>
-                    <div class="experience-grid-info">
-                        <h5>Ut dapibus nisi turpis</h5>
-                        <p>Curabitur augue urna, venenatis vel enim at, sodales tempus diam. Aliquam ornare, magna a cursus tempus, arcu massa accumsan justo, non facilisis risus ante vel ex.</p>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="experience-top-grids">
-                <div class="col-md-6 experience-grid experience-grid2">
-                    <div class="experience-grid-icon icon-left hvr-radial-out">
-                        <i class="fa fa-comments" aria-hidden="true"></i>
-                    </div>
-                    <div class="experience-grid-info">
-                        <h5>Ut dapibus nisi turpis</h5>
-                        <p>Curabitur augue urna, venenatis vel enim at, sodales tempus diam. Aliquam ornare, magna a cursus tempus, arcu massa accumsan justo, non facilisis risus ante vel ex.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 experience-grid experience-grid3">
-                    <div class="experience-grid-icon icon-left hvr-radial-out">
-                        <i class="fa fa-asterisk" aria-hidden="true"></i>
-                    </div>
-                    <div class="experience-grid-info">
-                        <h5>Ut dapibus nisi turpis</h5>
-                        <p>Curabitur augue urna, venenatis vel enim at, sodales tempus diam. Aliquam ornare, magna a cursus tempus, arcu massa accumsan justo, non facilisis risus ante vel ex.</p>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- //experience -->
+
 <!-- feedback -->
 <div class="jarallax feedback">
     <div class="container">
-        <div class="w3-agileits-statistics-heading">
-            <h3>Clients Feedback</h3>
-        </div>
-        <div class="agileits-feedback-grids">
-            <div id="owl-demo" class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="feedback-info">
-                        <div class="feedback-top">
-                            <p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-                        </div>
-                        <div class="feedback-grids">
-                            <div class="feedback-img">
-                                <img src="images/f1.jpg" alt="" />
-                            </div>
-                            <div class="feedback-img-info">
-                                <h5>Peter Parker</h5>
-                                <p>Vestibulum</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="feedback-info">
-                        <div class="feedback-top">
-                            <p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-                        </div>
-                        <div class="feedback-grids">
-                            <div class="feedback-img">
-                                <img src="images/f2.jpg" alt="" />
-                            </div>
-                            <div class="feedback-img-info">
-                                <h5>Mary Jane</h5>
-                                <p>Vestibulum</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="feedback-info">
-                        <div class="feedback-top">
-                            <p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-                        </div>
-                        <div class="feedback-grids">
-                            <div class="feedback-img">
-                                <img src="images/f3.jpg" alt="" />
-                            </div>
-                            <div class="feedback-img-info">
-                                <h5>Steven Wilson</h5>
-                                <p>Vestibulum</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="feedback-info">
-                        <div class="feedback-top">
-                            <p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-                        </div>
-                        <div class="feedback-grids">
-                            <div class="feedback-img">
-                                <img src="images/f4.jpg" alt="" />
-                            </div>
-                            <div class="feedback-img-info">
-                                <h5>Peter Parker</h5>
-                                <p>Vestibulum</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            /* init Jarallax */
-            $('.jarallax').jarallax({
-                speed: 0.5,
-                imgWidth: 1366,
-                imgHeight: 768
-            })
-        </script>
-
-    </div>
-</div>
-<!-- //feedback -->
-<!-- projects -->
-<div class="projects" id="projects">
-    <div class="container">
         <div class="w3-agileits-statistics-heading experience-heading">
-            <h3>My Projects</h3>
+            <h3 style="color: #e6f1fa">我   的   参   与</h3>
         </div>
     </div>
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">All</a></li>
-            <li role="presentation"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">Apps</a></li>
-            <li role="presentation"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">Widgets</a></li>
-            <li role="presentation"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">Templates</a></li>
-            <li role="presentation"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">Other</a></li>
+            <li role="presentation" class="active" style="width:80px;"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">所有</a></li>
+            <li role="presentation" style="width:80px;"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">活动</a></li>
+            <li role="presentation" style="width:80px;"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">文章</a></li>
+            <li role="presentation" style="width:80px;"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">评论</a></li>
+            <li role="presentation" style="width:80px;"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">其他</a></li>
         </ul>
         <div id="myTabContent" class="tab-content">
             <div role="tabpanel" class="tab-pane fade in active" id="home-main" aria-labelledby="home-tab">
@@ -641,7 +447,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p1.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p1.jpg" alt=" " class="img-responsive" />
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p1.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'"/>
                                 </figure>
                             </a>
                         </div>
@@ -649,7 +455,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p2.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p2.jpg" alt=" " class="img-responsive" />
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p2.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'"/>
                                 </figure>
                             </a>
                         </div>
@@ -657,7 +463,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p3.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p3.jpg" alt=" " class="img-responsive" />
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p3.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'"/>
                                 </figure>
                             </a>
                         </div>
@@ -665,7 +471,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p4.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p4.jpg" alt=" " class="img-responsive" />
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p4.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'"/>
                                 </figure>
                             </a>
                         </div>
@@ -673,7 +479,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p5.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p5.jpg" alt=" " class="img-responsive" />
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p5.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'"/>
                                 </figure>
                             </a>
                         </div>
@@ -681,7 +487,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p6.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p6.jpg" alt=" " class="img-responsive" />
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p6.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'"/>
                                 </figure>
                             </a>
                         </div>
@@ -689,7 +495,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p7.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p7.jpg" alt=" " class="img-responsive" />
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p7.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'"/>
                                 </figure>
                             </a>
                         </div>
@@ -697,7 +503,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p8.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p8.jpg" alt=" " class="img-responsive" />
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p8.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'"/>
                                 </figure>
                             </a>
                         </div>
@@ -710,7 +516,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p6.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p6.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p6.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -718,7 +524,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p9.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p9.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p9.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -731,7 +537,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p1.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p1.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p1.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -739,7 +545,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p5.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p5.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p5.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -747,7 +553,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p7.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p7.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p7.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -755,7 +561,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p3.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p3.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p3.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -768,7 +574,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p2.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p2.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p2.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -776,7 +582,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p4.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p4.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p4.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -784,7 +590,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p10.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p10.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p10.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -797,7 +603,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" href="images/p8.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p8.jpg" alt=" " class="img-responsive">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img src="images/p8.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.jsp'">
                                 </figure>
                             </a>
                         </div>
@@ -815,9 +621,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $('.cm-overlay').cmOverlay();
         });
     </script>
-
 </div>
-<!-- //projects -->
+<!-- //feedback -->
+
 <script src="js/bars.js"></script>
 <script src="js/owl.carousel.js"></script>
 </body>

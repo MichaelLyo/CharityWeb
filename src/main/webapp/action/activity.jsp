@@ -80,8 +80,8 @@
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="#">John Doe</a></li>
-                        <li> <a href="#">24 Comments</a></li>
+                        <li> <a href="../Login/userInfo.jsp">Íú×ÐÅ£ÄÌ</a></li>
+                        <li style="color:#FCB2B2;"> 23 ÆÀÂÛ</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
@@ -117,27 +117,27 @@
                 </h4>
                 <ul class="list">
                     <li>
-                        <div class="col-md-2 preview"><a href="#"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
+                        <div class="col-md-2 preview"><a href="../Login/userInfo.jsp"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
-                            <div class="title"><a href="#">donator</a><br><span class="m_14">Aug 30, 2015</span></div>
+                            <div class="title"><a href="../Login/userInfo.jsp">donator</a><br><span class="m_14">Aug 30, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
                             <h5 class="m_26"> <a href="#">»Ø¸´</a></h5>
                         </div>
                         <div class="clearfix"></div>
                     </li>
                     <li>
-                        <div class="col-md-2 preview"><a href="#"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
+                        <div class="col-md-2 preview"><a href="../Login/userInfo.jsp"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
-                            <div class="title"><a href="#">donator</a><br><span class="m_14">Sep 2, 2015</span></div>
+                            <div class="title"><a href="../Login/userInfo.jsp">donator</a><br><span class="m_14">Sep 2, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
                             <h5 class="m_26"> <a href="#">»Ø¸´</a></h5>
                         </div>
                         <div class="clearfix"></div>
                     </li>
                     <li>
-                        <div class="col-md-2 preview"><a href="#"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
+                        <div class="col-md-2 preview"><a href="../Login/userInfo.jsp"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
-                            <div class="title"><a href="#">donator</a><br><span class="m_14">Nov 2, 2015</span></div>
+                            <div class="title"><a href="../Login/userInfo.jsp">donator</a><br><span class="m_14">Nov 2, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
                             <h5 class="m_26"> <a href="#">»Ø¸´</a></h5>
                         </div>

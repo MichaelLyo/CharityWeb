@@ -98,20 +98,18 @@
                 </div>
                 <div class="clearfix"></div>
                 <!-- technology-top -->
-
-                <!-- technology-top -->
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="singlepage.html"><img src="images/f1.jpg" class="img-responsive" alt=""></a>
+                            <a href="activity.jsp"><img src="images/f1.jpg" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-                        <h3><a href="singlepage.html">Lorem Ipsum is simply</a></h3>
-                        <h6>BY <a href="singlepage.html">ADAM ROSE </a>JULY 10 2016.</h6>
+                        <h3><a href="activity.jsp">Lorem Ipsum is simply</a></h3>
+                        <h6>BY <a href="../Login/userInfo.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
                         <p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris .</p>
                         <div class="bht1">
-                            <a href="singlepage.html">了解更多</a>
+                            <a href="activity.jsp">了解更多</a>
                         </div>
                         <div class="soci">
                             <ul>
@@ -128,15 +126,15 @@
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
+                            <a href="activity.jsp"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-                        <h3><a href="singlepage.html">Lorem Ipsum is simply</a></h3>
-                        <h6>BY <a href="singlepage.html">ADAM ROSE </a>JULY 10 2016.</h6>
+                        <h3><a href="activity.jsp">Lorem Ipsum is simply</a></h3>
+                        <h6>BY <a href="../Login/userInfo.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
                         <p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris .</p>
                         <div class="bht1">
-                            <a href="singlepage.html">了解更多</a>
+                            <a href="activity.jsp">了解更多</a>
                         </div>
                         <div class="soci">
                             <ul>
@@ -152,15 +150,15 @@
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="singlepage.html"><img src="images/f3.jpg" class="img-responsive" alt=""></a>
+                            <a href="activity.jsp"><img src="images/f3.jpg" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-                        <h3><a href="singlepage.html">Lorem Ipsum is simply</a></h3>
-                        <h6>BY <a href="singlepage.html">ADAM ROSE </a>JULY 10 2016.</h6>
+                        <h3><a href="activity.jsp">Lorem Ipsum is simply</a></h3>
+                        <h6>BY <a href="../Login/userInfo.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
                         <p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris.</p>
                         <div class="bht1">
-                            <a href="singlepage.html">了解更多</a>
+                            <a href="activity.jsp">了解更多</a>
                         </div>
                         <div class="soci">
                             <ul>
@@ -173,7 +171,6 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-            </div>
         </div>
         <!--post-details-->
         <div class="clearfix"> </div>

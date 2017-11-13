@@ -170,7 +170,7 @@
                                 <ul class="ad-info">
                                     <li>2017  10.20</li>
                                     <li> <a href="Login/userInfo.jsp">Å£ÊéÁ¹</a></li>
-                                    <li> <a href="#">24 ÆÀÂÛ</a></li>
+                                    <li style="color:#FCB2B2;"> 24 ÆÀÂÛ</li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>
@@ -194,8 +194,8 @@
                                 </div>
                                 <ul class="ad-info">
                                     <li>2017  9.23</li>
-                                    <li> <a href="#">Íú×ÐÅ£ÄÌ</a></li>
-                                    <li> <a href="#">23 ÆÀÂÛ</a></li>
+                                    <li> <a href="Login/userInfo.jsp">Íú×ÐÅ£ÄÌ</a></li>
+                                    <li style="color:#FCB2B2;"> 23 ÆÀÂÛ</li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>

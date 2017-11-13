@@ -522,7 +522,7 @@ body{
 /*-- feedback --*/
 .feedback{
 	background:url(../images/3.jpg) no-repeat 0px 0px;
-	background:size:cover;
+
 }
 .feedback-top{
     padding: 1em;
@@ -630,7 +630,7 @@ body{
 .map {
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
+
     -o-filter: grayscale(100%);
     filter: grayscale(100%);
 }
