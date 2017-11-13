@@ -13,4 +13,6 @@
 
     <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀   如：http://127.0.0.1:8080/springmvc/jsp/****.jsp-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/jsp/" p:suffix=".jsp"></bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/login/" p:suffix=".jsp"></bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/webapp/" p:suffix=".jsp"></bean>
 </beans>

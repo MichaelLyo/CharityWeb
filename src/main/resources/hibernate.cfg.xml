@@ -21,10 +21,10 @@
 
 
     <!--  mysql驱动  -->
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
     <!--  mysql连接URL  -->
-    <property name="connection.url">jdbc:mysql://10.60.42.201:3306/CharityWeb</property>
+    <property name="connection.url">jdbc:mysql://10.60.42.201:3306/CharityWeb?useSSL=false</property>
 
     <!--  数据库方言  -->
     <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
