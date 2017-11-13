@@ -17,7 +17,7 @@
         <div class="wrapper">
             <div class="container">
                 <strong><span style="font-weight: bold;font-size: 30px;">µÇ    Â¼</span></strong>
-                <form class="form" action="login.do" method="post">
+                <form class="form" action="login.do" method="post" style="margin: auto">
                     <input type="text" name="username" placeholder="ÓÃ»§Ãû">
                     <input type="password" name="password"  placeholder="ÃÜÂë">
                     <button type="submit" id="login-button" class="button button-3d button-plain button-border button-royal">µÇÂ¼</button>

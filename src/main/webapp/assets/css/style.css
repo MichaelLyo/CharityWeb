@@ -177,7 +177,6 @@ button:active {
     -ms-transition: all .2s;
 }
 
-.connect a.facebook { background: url(../img/facebook.png) center center no-repeat; }
 .connect a.twitter { background: url(../img/twitter.png) center center no-repeat; }
 
 .connect a:hover { background-position: center bottom; }
@@ -460,6 +459,3 @@ button:active {
     top: -200px;
     z-index: -1;
 }
-
-
-
