@@ -8,11 +8,20 @@
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <!-- 启用spring mvc注解 -->
     <context:annotation-config></context:annotation-config>
+
     <!--  扫描包 -->
     <context:component-scan base-package="controller"></context:component-scan>
 
     <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀   如：http://127.0.0.1:8080/springmvc/jsp/****.jsp-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/jsp/" p:suffix=".jsp"></bean>
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/login/" p:suffix=".jsp"></bean>
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/webapp/" p:suffix=".jsp"></bean>
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/jsp/" p:suffix=".jsp"></bean>-->
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/login/" p:suffix=".jsp"></bean>-->
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/webapp/" p:suffix=".jsp"></bean>-->
 </beans>
