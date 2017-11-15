@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.tongji</groupId>
-	<artifactId>gongyi</artifactId>
+	<artifactId>charityweb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>gongyi</name>
+	<name>charityweb</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -60,7 +60,15 @@
             <artifactId>json-smart</artifactId>
             <version>RELEASE</version>
         </dependency>
-    </dependencies>
+
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml -->
+		<dependency>
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.22</version>
+		</dependency>
+
+	</dependencies>
 
 
 	<build>
