@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>user administration page</title>
+</head>
+<body>
+<div class="user-list">
+    <table class="user-show-table" th:each="user:${userList}">
+        <tr class="user-item">
+            <td class="user-id" th:text="${user.id}"></td>
+            <td class="user-name" th:text="${user.name}"></td>
+            <td class="user-email" th:text="${user.email}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
