@@ -173,6 +173,12 @@ springBoot + hibernate
 # Java EE 学习笔记
 ## Spring MVC
 ### Genaral
+
+- [Spring boot / hibernate tutorial](https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/)
+
+*************
+以下内容为spring MVC部分，已摒弃
+*************
 - [Spring MVC官方文档](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html)
 - [中文翻译版](https://linesh.gitbooks.io/spring-mvc-documentation-linesh-translation/content/)
 - [中文翻译版PDF下载](https://www.gitbook.com/book/linesh/spring-mvc-documentation-linesh-translation/details)
