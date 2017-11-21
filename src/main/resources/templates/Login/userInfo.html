@@ -1,5 +1,5 @@
 
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>个人信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,20 +8,20 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- bootstrap-css -->
-    <link href="../../static/Login/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link th:href=@"{Login/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--// bootstrap-css -->
     <!-- css -->
-    <link rel="stylesheet" href="../../static/Login/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" th:href=@"{Login/css/style.css" type="text/css" media="all" />
     <!--// css -->
-    <link rel="stylesheet" href="../../static/Login/css/owl.carousel.css" type="text/css" media="all">
-    <link href="../../static/Login/css/owl.theme.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../../static/Login/css/cm-overlay.css" />
+    <link rel="stylesheet" th:href=@"{Login/css/owl.carousel.css" type="text/css" media="all">
+    <link th:href=@"{Login/css/owl.theme.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" th:href=@"{Login/css/cm-overlay.css" />
 
 
-    <script src="../../static/Login/js/jquery-1.11.1.min.js"></script>
-    <script src="../../static/Login/js/bootstrap.js"></script>
+    <script th:src="@{Login/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{Login/js/bootstrap.js}"></script>
 
-    <link rel="stylesheet" href="../../static/assets/css/button.css">
+    <link rel="stylesheet" th:href=@"{assets/css/button.css">
     <style type="text/css">
         button {
             cursor: pointer;
@@ -311,7 +311,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </button>
 
         <ul class="animenu__nav">
-            <li><img src="../../static/assets/img/logo.jpg"></li>
+            <li><img th:src="@{assets/img/logo.jpg}"></li>
             <li>
                 <a href="../index.html">首页</a>
             </li>
@@ -329,8 +329,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <li>
                 <a href="../participate/participate-index.html">在参与</a>
             </li>
-            <button onclick="window.location='regist.html'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">注册</button>
-            <button onclick="window.location='../login.html'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">登录</button>
+            <button th:href="@{../Login/regist.html}" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">注册</button>
+            <button th:href="@{../login.html}" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">登录</button>
         </ul>
     </nav>
     <!-- End Navbar -->
@@ -343,7 +343,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="w3l-banner-grids">
             <div class="col-md-8 w3ls-banner-right">
                 <div class="banner-right-img">
-                    <img src="../../static/Login/images/1.jpg" alt="" />
+                    <img th:src="@{Login/images/1.jpg}" alt="" />
                 </div>
                 <div class="banner-right-info">
                     <h2>简介</h2>
@@ -438,64 +438,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="w3_tab_img">
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p1.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p1.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
+                            <a class="cm-overlay" th:href=@"{Login/images/p1.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p1.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p2.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p2.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
+                            <a class="cm-overlay" th:href=@"{Login/images/p2.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p2.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p3.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p3.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
+                            <a class="cm-overlay" th:href=@"{Login/images/p3.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p3.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p4.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p4.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
+                            <a class="cm-overlay" th:href=@"{Login/images/p4.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p4.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p5.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p5.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
+                            <a class="cm-overlay" th:href=@"{Login/images/p5.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p5.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p6.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p6.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
+                            <a class="cm-overlay" th:href=@"{Login/images/p6.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p6.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p7.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p7.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
+                            <a class="cm-overlay" th:href=@"{Login/images/p7.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p7.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p8.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p8.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
+                            <a class="cm-overlay" th:href=@"{Login/images/p8.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p8.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'"/>
                                 </figure>
                             </a>
                         </div>
@@ -507,16 +507,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="w3_tab_img">
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p6.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p6.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p6.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p6.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p9.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p9.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p9.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p9.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
@@ -528,32 +528,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="w3_tab_img">
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p1.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p1.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p1.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p1.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p5.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p5.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p5.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p5.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p7.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p7.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p7.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p7.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p3.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p3.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p3.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p3.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
@@ -565,24 +565,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="w3_tab_img">
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p2.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p2.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p2.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p2.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p4.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p4.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p4.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p4.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p10.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p10.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p10.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p10.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
@@ -594,8 +594,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="w3_tab_img">
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" href="../../static/Login/images/p8.jpg">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img src="../../static/Login/images/p8.jpg" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
+                            <a class="cm-overlay" th:href=@"{Login/images/p8.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p8.jpg}" alt=" " class="img-responsive" onclick="window.location='../action/activity.html'">
                                 </figure>
                             </a>
                         </div>
@@ -605,9 +605,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-    <script src="../../static/Login/js/jquery.tools.min.js"></script>
-    <script src="../../static/Login/js/jquery.mobile.custom.min.js"></script>
-    <script src="../../static/Login/js/jquery.cm-overlay.js"></script>
+    <script th:src="@{Login/js/jquery.tools.min.js}"></script>
+    <script th:src="@{Login/js/jquery.mobile.custom.min.js}"></script>
+    <script th:src="@{Login/js/jquery.cm-overlay.js}"></script>
     <script>
         $(document).ready(function(){
             $('.cm-overlay').cmOverlay();
@@ -616,8 +616,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- //feedback -->
 
-<script src="../../static/Login/js/bars.js"></script>
-<script src="../../static/Login/js/owl.carousel.js"></script>
+<script th:src="@{Login/js/bars.js}"></script>
+<script th:src="@{Login/js/owl.carousel.js}"></script>
 </body>
 
 </html>

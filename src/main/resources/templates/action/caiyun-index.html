@@ -1,26 +1,26 @@
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>彩云支南</title>
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="../../static/assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
-    <link href="../../static/action/css/communitystyle.css" rel='stylesheet'/>
-    <script src="../../static/assets/js/jquery-2.1.1.min.js"></script>
-    <script src="../../static/assets/js/bootstrap.min.js"></script>
+    <link th:href="@{action/css/communitystyle.css}" rel='stylesheet'/>
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.min.js}"></script>
     <!-- animation-effect -->
-    <link href="../../static/assets/css/animate.min.css" rel="stylesheet">
-    <link href="../../static/assets/css/participateStyle.css" rel="stylesheet">
-    <script src="../../static/assets/js/wow.min.js"></script>
+    <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
+    <script th:src="@{assets/js/wow.min.js}"></script>
     <script>
         new WOW().init();
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<link href="../../static/assets/css/style.css" rel="stylesheet">
-<link href="../../static/assets/css/stickup.css" rel="stylesheet">
-<link href="../../static/assets/css/button.css" rel="stylesheet">
+<link th:src="@{assets/css/style.css}" rel="stylesheet">
+<link th:src="@{assets/css/stickup.css}" rel="stylesheet">
+<link th:src="@{assets/css/button.css}" rel="stylesheet">
 <div class="navbar-wrapper" id="animenu">
 
     <nav class="animenu">
@@ -31,7 +31,7 @@
         </button>
 
         <ul class="animenu__nav">
-            <li><img src="../../static/assets/img/logo.jpg"></li>
+            <li><img th:src="@{assets/img/logo.jpg}"></li>
             <li>
                 <a href="../index.html">首页</a>
             </li>
@@ -49,8 +49,8 @@
             <li>
                 <a href="../participate/participate-index.html">在参与</a>
             </li>
-            <button onclick="window.location='../Login/regist.html'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">注册</button>
-            <button onclick="window.location='../login.html'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">登录</button>
+            <button th:href="@{../Login/regist.html}" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">注册</button>
+            <button th:href="@{../login.html}" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">登录</button>
         </ul>
     </nav>
     <!-- End Navbar -->
@@ -68,7 +68,7 @@
                 <div class="tc-ch wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
 
                     <div class="tch-img">
-                        <img src="../../static/assets/img/caiyun-participate.jpg" style="width:1000px;height:450px;">
+                        <img th:src="@{assets/img/caiyun-participate.jpg}" style="width:1000px;height:450px;">
                     </div>
 
                     <h3>彩 云 支 南</h3>
@@ -95,7 +95,7 @@
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="activity.html"><img src="../../static/action/images/f1.jpg" class="img-responsive" alt=""></a>
+                            <a href="activity.html"><img th:src="@{action/images/f1.jpg}" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
@@ -120,7 +120,7 @@
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="activity.html"><img src="../../static/action/images/f2.jpg" class="img-responsive" alt=""></a>
+                            <a href="activity.html"><img th:src="@{action/images/f2.jpg}" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
@@ -144,7 +144,7 @@
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="activity.html"><img src="../../static/action/images/f3.jpg" class="img-responsive" alt=""></a>
+                            <a href="activity.html"><img th:src="@{action/images/f3.jpg}" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
