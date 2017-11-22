@@ -17,5 +17,48 @@ public class IndexController {
     {
         return "index";
     }
-
+    @RequestMapping(value = "caiyun")
+    public String caiyun(){
+        return "action/caiyun-index";
+    }
+    @RequestMapping(value = "chunhui")
+    public String chunhui(){
+        return "action/chunhui-index";
+    }
+    @RequestMapping(value = "cat")
+    public String cat(){
+        return "action/cat-index";
+    }
+    @RequestMapping(value = "login")
+    public String login(){
+        return "login";
+    }
+    @RequestMapping(value = "regist")
+    public String regist(){
+        return "login/regist";
+    }
+    @RequestMapping(value = "activity")
+    public String activity(){
+        return "action/activity";
+    }
+    @RequestMapping(value = "userInfo")
+    public String userInfo(){
+        return "login/userInfo";
+    }
+    @RequestMapping(value = "hotspot")
+    public String hotspot(){
+        return "hotspot/hotspot-index";
+    }
+    @RequestMapping(value = "participate")
+    public String participate(){
+        return "participate/participate-index";
+    }
+    @RequestMapping(value = "donate")
+    public String donate(){
+        return "action/donate";
+    }
+    @RequestMapping(value = "editInfo")
+    public String editInfo(){
+        return "login/editInfo";
+    }
 }

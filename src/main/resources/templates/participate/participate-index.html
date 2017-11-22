@@ -29,24 +29,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="animenu__nav">
                     <li><img th:src="@{assets/img/logo.jpg}"></li>
                     <li>
-                        <a href="../index.html">首页</a>
+                        <a th:href="@{/me}">首页</a>
                     </li>
                     <li>
-                        <a href="../hotspot/hotspot-index.html">热点</a>
+                        <a th:href="@{/hotspot}">热点</a>
                     </li>
                     <li>
                         <a href="#">在行动</a>
                         <ul class="animenu__nav__child">
-                            <li><a href="../action/caiyun-index.html">彩云之南</a></li>
-                            <li><a href="../action/chunhui-index.html">春晖之声</a></li>
-                            <li><a href="../action/cat-index.html">宠物之家</a></li>
+                            <li><a th:href="@{/caiyun}">彩云之南</a></li>
+                            <li><a th:href="@{/chunhui}">春晖之声</a></li>
+                            <li><a th:href="@{/cat}">宠物之家</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="participate-index.html">在参与</a>
                     </li>
-                    <button th:href="@{../Login/regist.html}" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">注册</button>
-                    <button th:href="@{../login.html}" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">登录</button>
+                    <a th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
+                    <a th:href="@{/login}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
                 </ul>
             </nav>
             <!-- End Navbar -->
@@ -61,25 +61,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <h3 class="tittle">在参与</h3>
         <div class="news-article">
             <div class="col-md-6 article-post">
-                <a href="../action/activity.html" ><img th:src="@{participate/images/n1.jpg}" alt="img07"/></a>
+                <a th:href="@{/activity}" ><img th:src="@{participate/images/n1.jpg}" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="../Login/userInfo.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a th:href="@{/userInfo}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="../Login/userInfo.html">旺仔牛奶</a></li>
+                        <li> <a th:href="@{/userInfo}">旺仔牛奶</a></li>
                         <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="../action/activity.html"><h3>To Protect Humanity</h3></a>
+                    <a th:href="@{/activity}"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity}" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -87,25 +87,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--2-->
             <div class="col-md-6 article-post">
-                <a href="../action/activity.html" ><img th:src="@{participate/images/n2.jpg}" alt="img07"/></a>
+                <a th:href="@{/activity}" ><img th:src="@{participate/images/n2.jpg}" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="../Login/userInfo.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a th:href="@{/userInfo}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="../Login/userInfo.html">旺仔牛奶</a></li>
+                        <li> <a th:href="@{/userInfo}">旺仔牛奶</a></li>
                         <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="../action/activity.html"><h3>To Protect Humanity</h3></a>
+                    <a th:href="@{/activity}"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity}" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -113,25 +113,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--3-->
             <div class="col-md-6 article-post">
-                <a href="../action/activity.html" ><img th:src="@{participate/images/n3.jpg}" alt="img07"/></a>
+                <a th:href="@{/activity}" ><img th:src="@{participate/images/n3.jpg}" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="../Login/userInfo.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a th:href="@{/userInfo}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="../Login/userInfo.html">旺仔牛奶</a></li>
+                        <li> <a th:href="@{/userInfo}">旺仔牛奶</a></li>
                         <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="../action/activity.html"><h3>To Protect Humanity</h3></a>
+                    <a th:href="@{/activity}"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity}" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -139,25 +139,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--4-->
             <div class="col-md-6 article-post">
-                <a href="../action/activity.html" ><img th:src="@{participate/images/n4.jpg}" alt="img07"/></a>
+                <a th:href="@{/activity}" ><img th:src="@{participate/images/n4.jpg}" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="../Login/userInfo.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a th:href="@{/userInfo}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="../Login/userInfo.html">旺仔牛奶</a></li>
+                        <li> <a th:href="@{/userInfo}">旺仔牛奶</a></li>
                         <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="../action/activity.html"><h3>To Protect Humanity</h3></a>
+                    <a th:href="@{/activity}"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity}" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -165,25 +165,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--5-->
             <div class="col-md-6 article-post">
-                <a href="../action/activity.html" ><img th:src="@{participate/images/n2.jpg}" alt="img07"/></a>
+                <a th:href="@{/activity}" ><img th:src="@{participate/images/n2.jpg}" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="../Login/userInfo.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a th:href="@{/userInfo}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="../Login/userInfo.html">旺仔牛奶</a></li>
+                        <li> <a th:href="@{/userInfo}">旺仔牛奶</a></li>
                         <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="../action/activity.html"><h3>To Protect Humanity</h3></a>
+                    <a th:href="@{/activity}"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity}" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -191,25 +191,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--6-->
             <div class="col-md-6 article-post lost">
-                <a href="../action/activity.html" ><img th:src="@{participate/images/n3.jpg}" alt="img07"/></a>
+                <a th:href="@{/activity}" ><img th:src="@{participate/images/n3.jpg}" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="../Login/userInfo.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a th:href="@{/userInfo}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
                         <li>21 Aug'15</li>
-                        <li> <a href="../Login/userInfo.html">旺仔牛奶</a></li>
+                        <li> <a th:href="@{/userInfo}">旺仔牛奶</a></li>
                         <li style="color:#FCB2B2;"> 23 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="../action/activity.html"><h3>To Protect Humanity</h3></a>
+                    <a th:href="@{/activity}"><h3>To Protect Humanity</h3></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>
-                        <a class="blog hvr-shutter-out-horizontal" href="../action/activity.html" role="button">查看详情</a>
+                        <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity}" role="button">查看详情</a>
                     </div>
                 </div>
                 <!--post-details-->

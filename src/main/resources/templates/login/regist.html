@@ -7,7 +7,6 @@
     <link rel="stylesheet" th:href="@{assets/css/supersized.css}">
     <link rel="stylesheet" th:href="@{assets/css/style.css}">
     <link rel="stylesheet" th:href="@{assets/css/button.css}">
-
 </head>
 <body>
 
@@ -15,11 +14,11 @@
     <div class="wrapper">
         <div class="container">
             <strong><span style="font-weight: bold;font-size: 30px;">注    册</span></strong>
-            <form class="form"  method="post" style="margin: auto">
+            <form class="form" method="post" style="margin: auto">
                 <input type="text" name="username" placeholder="用户名">
                 <input type="password" name="password"  placeholder="密码">
                 <input type="password" name="password"  placeholder="再次输入密码">
-                <button type="submit" id="regist-button" class="button button-3d button-plain button-border button-royal" onclick="window.location='editInfo.html'">注册</button>
+                <a th:href="@{/editInfo}"><input type="button" class="button button-3d button-plain button-border button-royal"  value="注册"></a>
             </form>
         </div>
     </div>

@@ -10,25 +10,25 @@
 </head>
 <body>
 
-    <div class="page-container">
-        <div class="wrapper">
-            <div class="container">
-                <strong><span style="font-weight: bold;font-size: 30px;">登    录</span></strong>
-                <form class="form" method="post" style="margin: auto">
-                    <input type="text" name="username" placeholder="用户名">
-                    <input type="password" name="password"  placeholder="密码">
-                    <button th:href="@{Login/regist.html}" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">注册</button>
-                    <button th:href="@{login.html}" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">登录</button>
-                </form>
-            </div>
+<div class="page-container">
+    <div class="wrapper">
+        <div class="container">
+            <strong><span style="font-weight: bold;font-size: 30px;">登    录</span></strong>
+            <form class="form" method="post" style="margin: auto">
+                <input type="text" name="username" placeholder="用户名">
+                <input type="password" name="password"  placeholder="密码">
+                <a th:href="@{/regist}"><input type="button" class="button button-3d button-plain button-border button-royal"  value="注册"></a>
+                <a th:href="@{/login}"><input type="button" class="button button-3d button-plain button-border button-royal"  value="登录"></a>
+            </form>
         </div>
     </div>
-    <script type="text/javascript" th:src="@{js/jquery-2.1.1.min.js}"></script>
+</div>
+    <script type="text/javascript" th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
     <!-- Javascript -->
-    <script type="text/javascript" th:src="@{js/jquery-1.8.2.min.js}"></script>
-    <script type="text/javascript" th:src="@{js/supersized.3.2.7.min.js}"></script>
-    <script type="text/javascript" th:src="@{js/supersized-init.js}"></script>
-    <script type="text/javascript" th:src="@{js/scripts.js}"></script>
+    <script type="text/javascript" th:src="@{assets/js/jquery-1.8.2.min.js}"></script>
+    <script type="text/javascript" th:src="@{assets/js/supersized.3.2.7.min.js}"></script>
+    <script type="text/javascript" th:src="@{assets/js/supersized-init.js}"></script>
+    <script type="text/javascript" th:src="@{assets/js/scripts.js}"></script>
 
 </body>
 </html>
