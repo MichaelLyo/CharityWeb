@@ -25,6 +25,9 @@ public class User {
     @NotNull
     private String sex;
 
+    @NotNull
+    private String rank;
+
     private String address;
 
     private String phone;
@@ -35,18 +38,27 @@ public class User {
 
     private String description;
 
-    @NotNull
-    private String rank;
+
 
 
     // Public methods
 
+    //Constructors
     public User() { }
 
     public User(String email, String name)
     {
         this.email = email;
         this.name = name;
+    }
+
+    public User(String email, String name, String password, String sex, String rank)
+    {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.sex = sex;
+        this.rank = rank;
     }
 
     //getters
