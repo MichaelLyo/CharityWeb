@@ -1,19 +1,18 @@
-
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>ªÓ∂Ø</title>
+    <title>Ê¥ªÂä®</title>
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="../assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
-
-    <script src="../assets/js/jquery-2.1.1.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.min.js}"></script>
     <!-- animation-effect -->
-    <link href="../assets/css/animate.min.css" rel="stylesheet">
-    <link href="../assets/css/participateStyle.css" rel="stylesheet">
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/stickup.css" rel="stylesheet">
-    <link href="../assets/css/button.css" rel="stylesheet">
-    <script src="../assets/js/wow.min.js"></script>
+    <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/style.css}" rel="stylesheet">
+    <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+    <link th:href="@{assets/css/button.css}" rel="stylesheet">
+    <script th:src="@{assets/js/wow.min.js}"></script>
     <script>
         new WOW().init();
     </script>
@@ -31,26 +30,26 @@
         </button>
 
         <ul class="animenu__nav">
-            <li><img src="../assets/img/logo.jpg"></li>
+            <li><img th:src="@{assets/img/logo.jpg}"></li>
             <li>
-                <a href="../index.html"> ◊“≥</a>
+                <a th:href="@{/me}">È¶ñÈ°µ</a>
             </li>
             <li>
-                <a href="../hotspot/hotspot-index.html">»»µ„</a>
+                <a th:href="@{/hotspot}">ÁÉ≠ÁÇπ</a>
             </li>
             <li>
-                <a href="#">‘⁄––∂Ø</a>
+                <a href="#">Âú®Ë°åÂä®</a>
                 <ul class="animenu__nav__child">
-                    <li><a href="caiyun-index.html">≤ ‘∆÷Æƒœ</a></li>
-                    <li><a href="chunhui-index.html">¥∫ÍÕ÷Æ…˘</a></li>
-                    <li><a href="cat-index.html">≥ËŒÔ÷Æº“</a></li>
+                    <li><a th:href="@{/caiyun}">ÂΩ©‰∫ëÊîØÂçó</a></li>
+                    <li><a th:href="@{/chunhui}">Êò•Êôñ‰πãÂ£∞</a></li>
+                    <li><a th:href="@{/cat}">ÂÆ†Áâ©‰πãÂÆ∂</a></li>
                 </ul>
             </li>
             <li>
-                <a href="../participate/participate-index.html">‘⁄≤Œ”Î</a>
+                <a th:href="@{/participate}">Âú®ÂèÇ‰∏é</a>
             </li>
-            <button onclick="window.location='../Login/regist.html'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">◊¢≤·</button>
-            <button onclick="window.location='../login.html'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">µ«¬º</button>
+            <a th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="Ê≥®ÂÜå"></a>
+            <a th:href="@{/login}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="ÁôªÂΩï"></a>
         </ul>
     </nav>
     <!-- End Navbar -->
@@ -60,20 +59,20 @@
 <!--start-news-->
 <div class="news two">
     <div class="container">
-        <h3 class="tittle">ªÓ∂Ø</h3>
+        <h3 class="tittle">Ê¥ªÂä®</h3>
         <div class="news-article">
             <div class="article-post">
-                <img style="width: 1100px;height: 500px" src="../assets/img/chunhui-participate.jpg"/>
+                <img style="width: 1100px;height: 500px" th:src="@{assets/img/chunhui-participate.jpg}"/>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="#" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a th:href="@{/userInfo}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
-                        <li>21 Aug'15</li>
-                        <li> <a href="../Login/userInfo.html">Õ˙◊–≈£ƒÃ</a></li>
-                        <li style="color:#FCB2B2;"> 23 ∆¿¬€</li>
+                        <li>2017  10.20</li>
+                        <li> <a th:href="@{/userInfo}">Áâõ‰π¶Âáâ</a></li>
+                        <li style="color:#FCB2B2;"> 24 ËØÑËÆ∫</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
@@ -86,52 +85,54 @@
 
 
                 <div class="col-md-10 data">
-                    <h5 class="m_26" style="float: left;width: 100px;text-align: center;font-size: 18px;"> <a href="donate.html"> æË øÓ </a></h5>
+                    <h5 class="m_26" style="float: left;width: 100px;text-align: center;font-size: 18px;"> <a th:href="@{/donate}"> Êçê Ê¨æ </a></h5>
+                    <h5 class="m_26" style="float: left;width: 100px;text-align: center;font-size: 18px;"> <a th:href="@{/donate}"> ÂÖ≥ Ê≥® </a></h5>
+                    <h5 class="m_26" style="float: left;width: 100px;text-align: center;font-size: 18px;"> <a th:href="@{/donate}"> ÂèÇ ‰∏é </a></h5>
                 </div>
                 <div class="clearfix"> </div>
             </div>
         </div>
         <div class="single">
             <div class="leave">
-                <h4>¡Ù œ¬ ∆¿ ¬€</h4>
+                <h4> ËØÑ ËÆ∫ </h4>
             </div>
             <form id="commentform">
                     <textarea style="width: 1000px"></textarea>
                 <div class="clearfix"></div>
                 <p class="form-submit">
-                    <input name="submit" type="submit" id="submit" value="∆¿¬€">
+                    <input name="submit" type="submit" id="submit" value="ËØÑ  ËÆ∫">
                 </p>
                 <div class="clearfix"></div>
             </form>
             <div class="single_grid2">
                 <h4 class="tz-title-4 tzcolor-blue">
-                    ∆‰À˚»Àµƒ∆¿¬€
+                     ËØÑ ËÆ∫ Âå∫
                 </h4>
                 <ul class="list">
                     <li>
-                        <div class="col-md-2 preview"><a href="../Login/userInfo.html"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
+                        <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
-                            <div class="title"><a href="../Login/userInfo.html">donator</a><br><span class="m_14">Aug 30, 2015</span></div>
+                            <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Aug 30, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
-                            <h5 class="m_26"> <a href="#">ªÿ∏¥</a></h5>
+                            <h5 class="m_26"> <a href="#">ÂõûÂ§ç</a></h5>
                         </div>
                         <div class="clearfix"></div>
                     </li>
                     <li>
-                        <div class="col-md-2 preview"><a href="../Login/userInfo.html"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
+                        <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
-                            <div class="title"><a href="../Login/userInfo.html">donator</a><br><span class="m_14">Sep 2, 2015</span></div>
+                            <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Sep 2, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
-                            <h5 class="m_26"> <a href="#">ªÿ∏¥</a></h5>
+                            <h5 class="m_26"> <a href="#">ÂõûÂ§ç</a></h5>
                         </div>
                         <div class="clearfix"></div>
                     </li>
                     <li>
-                        <div class="col-md-2 preview"><a href="../Login/userInfo.html"><img src="../assets/img/co.png" class="img-responsive" alt=""></a></div>
+                        <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
-                            <div class="title"><a href="../Login/userInfo.html">donator</a><br><span class="m_14">Nov 2, 2015</span></div>
+                            <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Nov 2, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
-                            <h5 class="m_26"> <a href="#">ªÿ∏¥</a></h5>
+                            <h5 class="m_26"> <a href="#">ÂõûÂ§ç</a></h5>
                         </div>
                         <div class="clearfix"></div>
                     </li>
@@ -140,7 +141,60 @@
         </div>
     </div>
 </div>
+<!--footer-->
+<div class="footer text-center">
+    <div class="container">
+        <div class="footer-grids">
+            <div class="col-md-4 footer-text">
+                <h3>About Us</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's.</p>
+            </div>
+            <div class="col-md-4 footer-flickr">
+                <h3>Flickr Feed</h3>
+                <div class="flickr-grids">
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/t1.jpg}" alt=""/></a>
+                    </div>
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/c2.jpg}" alt=""/></a>
+                    </div>
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/c1.jpg}" alt=""/></a>
+                    </div>
+                    <div class="clearfix"> </div>
 
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/c2.jpg}" alt=""/></a>
+                    </div>
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/c1.jpg}" alt=""/></a>
+                    </div>
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/t1.jpg}" alt=""/></a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-info">
+                <h3>Get In Touch</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since, </p>
+                <div class="support">
+                    <form>
+                        <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                        <input type="submit" value="SUBSCRIBE">
+                    </form>
+                </div>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+        <div class="copy">
+            <p>&copy; 2015 Generous. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
+        </div>
+        <!--footer-->
+    </div>
+</div>
 <!--start-smoth-scrolling-->
 <script type="text/javascript">
     jQuery(document).ready(function($) {

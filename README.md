@@ -187,3 +187,9 @@ springBoot + hibernate
 ## Intelij Idea使用技巧
 - [常用细节设置](http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/settings-introduce-1.html)
 - [高效率配置及常用快捷键](https://itjh.net/2016/08/18/idea-good-conf/)
+
+# Git
+
+## issue相关
+- [github中使用issue](http://www.jianshu.com/p/5ba1e7f5ad70)
+- [关于issue的理解](http://note.openmindclub.com/power/github-issue.html)
