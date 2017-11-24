@@ -1,26 +1,28 @@
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>����֮��</title>
+
+    <title>春晖之声</title>
+
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="../assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
-    <link href="css/communitystyle.css" rel='stylesheet'/>
-    <script src="../assets/js/jquery-2.1.1.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <link th:href="@{action/css/communitystyle.css}" rel='stylesheet'/>
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.min.js}"></script>
     <!-- animation-effect -->
-    <link href="../assets/css/animate.min.css" rel="stylesheet">
-    <link href="../assets/css/participateStyle.css" rel="stylesheet">
-    <script src="../assets/js/wow.min.js"></script>
+    <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
+    <script th:src="@{assets/js/wow.min.js}"></script>
     <script>
         new WOW().init();
     </script>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<link href="../assets/css/style.css" rel="stylesheet">
-<link href="../assets/css/stickup.css" rel="stylesheet">
-<link href="../assets/css/button.css" rel="stylesheet">
+<link th:href="@{assets/css/style.css}" rel="stylesheet">
+<link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+<link th:href="@{assets/css/button.css}" rel="stylesheet">
 <div class="navbar-wrapper" id="animenu">
 
     <nav class="animenu">
@@ -31,26 +33,28 @@
         </button>
 
         <ul class="animenu__nav">
-            <li><img src="../assets/img/logo.jpg"></li>
+            <li><img th:src="@{assets/img/logo.jpg}"></li>
             <li>
-                <a href="../index.html">��ҳ</a>
+
+                <a th:href="@{/me}">首页</a>
             </li>
             <li>
-                <a href="../hotspot/hotspot-index.html">�ȵ�</a>
+                <a th:href="@{/hotspot}">热点</a>
             </li>
             <li>
-                <a href="#">���ж�</a>
+                <a href="#">在行动</a>
                 <ul class="animenu__nav__child">
-                    <li><a href="caiyun-index.html">����֮��</a></li>
-                    <li><a href="chunhui-index.html">����֮��</a></li>
-                    <li><a href="cat-index.html">����֮��</a></li>
+                    <li><a th:href="@{/caiyun}">彩云支南</a></li>
+                    <li><a th:href="@{/chunhui}">春晖之声</a></li>
+                    <li><a th:href="@{/cat}">宠物之家</a></li>
                 </ul>
             </li>
             <li>
-                <a href="../participate/participate-index.html">�ڲ���</a>
+                <a th:href="@{/participate}">在参与</a>
             </li>
-            <button onclick="window.location='../Login/regist.html'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 10px 10px;">ע��</button>
-            <button onclick="window.location='../login.html'" class="button button-normal button-plain button-border button-square" style="float: right;margin: 5px 5px 10px;">��¼</button>
+            <a th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
+            <a th:href="@{/login}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
+
         </ul>
     </nav>
     <!-- End Navbar -->
@@ -68,14 +72,16 @@
                 <div class="tc-ch wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
 
                     <div class="tch-img">
-                        <img src="../assets/img/chunhui-participate.jpg" style="width:1000px;height:450px;">
+                        <img th:src="@{assets/img/chunhui-participate.jpg}" style="width:1000px;height:450px;">
                     </div>
 
-                    <h3>��  ��  ֮  ��</h3>
-                    <h6>�������;��񣬼��д������
+
+                    <h3>春 晖 之 声</h3>
+                    <h6>同济大学春晖社团
                     </h6>
-                    <p>ͬ�ô�ѧ���������ڹ���ʡ��ί����Ĵ�����ṫ�������������ж�����Ӱ���£���ͬ�ô�ѧУ��ί��׼������ѧ���������š�</p>
-                    <p>���������ڴ������;��񣬼��д������Ϊ��ѧ�����빫�桢������ᴴ�������ƽ̨��</p>
+                    <p>传播春晖精神，践行春晖理念。</p>
+                    <p>同济大学春晖社是在贵州省团委发起的大型社会公益活动——“春晖行动”的影响下，经同济大学校团委批准成立的学生公益社团。社团致力于传播春晖精神，践行春晖理念，为大学生参与公益、反哺社会创造机会与平台。</p>
+
 
                     <div class="soci">
                         <ul>
@@ -93,15 +99,17 @@
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="activity.html"><img src="images/f1.jpg" class="img-responsive" alt=""></a>
+                            <a th:href="@{/activity}"><img th:src="@{action/images/f1.jpg}" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-                        <h3><a href="activity.html">Lorem Ipsum is simply</a></h3>
-                        <h6>BY <a href="../Login/userInfo.html">ADAM ROSE </a>JULY 10 2016.</h6>
+                        <h3><a th:href="@{/activity}">Lorem Ipsum is simply</a></h3>
+                        <h6>BY <a th:href="@{/userInfo}">ADAM ROSE </a>JULY 10 2016.</h6>
                         <p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris .</p>
                         <div class="bht1">
-                            <a href="activity.html">�˽����</a>
+
+                            <a th:href="@{/activity}">查看详情</a>
+
                         </div>
                         <div class="soci">
                             <ul>
@@ -118,15 +126,17 @@
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="activity.html"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
+                            <a th:href="@{/activity}"><img th:src="@{action/images/f2.jpg}" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-                        <h3><a href="activity.html">Lorem Ipsum is simply</a></h3>
-                        <h6>BY <a href="../Login/userInfo.html">ADAM ROSE </a>JULY 10 2016.</h6>
+                        <h3><a th:href="@{/activity}">Lorem Ipsum is simply</a></h3>
+                        <h6>BY <a th:href="@{/userInfo}">ADAM ROSE </a>JULY 10 2016.</h6>
                         <p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris .</p>
                         <div class="bht1">
-                            <a href="activity.html">�˽����</a>
+
+                            <a th:href="@{/activity}">查看详情</a>
+
                         </div>
                         <div class="soci">
                             <ul>
@@ -142,15 +152,17 @@
                 <div class="wthree">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a href="activity.html"><img src="images/f3.jpg" class="img-responsive" alt=""></a>
+                            <a th:href="@{/activity}"><img th:src="@{action/images/f3.jpg}" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-                        <h3><a href="activity.html">Lorem Ipsum is simply</a></h3>
-                        <h6>BY <a href="../Login/userInfo.html">ADAM ROSE </a>JULY 10 2016.</h6>
+                        <h3><a th:href="@{/activity}">Lorem Ipsum is simply</a></h3>
+                        <h6>BY <a th:href="@{/userInfo}">ADAM ROSE </a>JULY 10 2016.</h6>
                         <p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris.</p>
                         <div class="bht1">
-                            <a href="activity.html">�˽����</a>
+
+                            <a th:href="@{/activity}">查看详情</a>
+
                         </div>
                         <div class="soci">
                             <ul>
@@ -171,14 +183,18 @@
     <!--start-blog-pagenate-->
     <div class="blog-pagenat">
         <ul>
-            <li><a class="frist" href="#">��һҳ</a></li>
+
+            <li><a class="frist" href="#">上一页</a></li>
+
             <li><a href="#">1</a></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
             <li><a href="#">6</a></li>
-            <li><a class="last" href="#">��һҳ</a></li>
+
+            <li><a class="last" href="#">下一页</a></li>
+
             <div class="clearfix"> </div>
         </ul>
     </div>
@@ -186,6 +202,60 @@
     <div class="clearfix"></div>
     <!-- technology-right -->
 </div>
+</div>
+<!--footer-->
+<div class="footer text-center">
+    <div class="container">
+        <div class="footer-grids">
+            <div class="col-md-4 footer-text">
+                <h3>About Us</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's.</p>
+            </div>
+            <div class="col-md-4 footer-flickr">
+                <h3>Flickr Feed</h3>
+                <div class="flickr-grids">
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/t1.jpg}" alt=""/></a>
+                    </div>
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/c2.jpg}" alt=""/></a>
+                    </div>
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/c1.jpg}" alt=""/></a>
+                    </div>
+                    <div class="clearfix"> </div>
+
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/c2.jpg}" alt=""/></a>
+                    </div>
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/c1.jpg}" alt=""/></a>
+                    </div>
+                    <div class="flickr-grid">
+                        <a href="#"><img th:src="@{hotspot/images/t1.jpg}" alt=""/></a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-info">
+                <h3>Get In Touch</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since, </p>
+                <div class="support">
+                    <form>
+                        <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                        <input type="submit" value="SUBSCRIBE">
+                    </form>
+                </div>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+        <div class="copy">
+            <p>&copy; 2015 Generous. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
+        </div>
+        <!--footer-->
+    </div>
 </div>
 <!--start-smoth-scrolling-->
 <script type="text/javascript">
