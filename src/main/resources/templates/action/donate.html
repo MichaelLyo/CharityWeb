@@ -1,6 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <title>捐款页面</title>
+
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
     <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
@@ -303,6 +305,7 @@
         <ul class="animenu__nav">
             <li><img th:src="@{assets/img/logo.jpg}"></li>
             <li>
+
                 <a th:href="@{/me}">首页</a>
             </li>
             <li>
@@ -321,6 +324,7 @@
             </li>
             <a th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
             <a th:href="@{/login}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
+
         </ul>
     </nav>
     <!-- End Navbar -->
@@ -330,6 +334,7 @@
 
 <div class="donation">
     <div class="container">
+
         <h3 class="tittle"></h3>
         <div class="donation-content">
             <div class="donation-header">
@@ -362,6 +367,7 @@
                         </div>
                         <div class="donate">
                             <input type="submit" style="font-size: 18px;" id="donate" value="捐款">
+
                         </div>
                     </div>
                 </div>
@@ -427,7 +433,9 @@
 <script type="text/javascript">
     $(function(){
         $('#donate').click(function(){
+
             alert('捐款成功！');
+
             location.href = "donate.html";
         })
     })

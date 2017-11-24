@@ -2,7 +2,7 @@ package com.tongji.charityweb.service;
 
 
 import com.tongji.charityweb.model.User;
-import com.tongji.charityweb.model.UserDao;
+import com.tongji.charityweb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,13 +14,14 @@ import java.util.List;
 @Component
 public class UserService {
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     public  List<HashMap<String,String>> showAllUser()
     {
-        List<User> userDaoList =  (List<User>) userDao.findAll();
+        List<User> repositoryAll =  userRepository.findAll();
+
         ArrayList<HashMap<String,String>> userList = new ArrayList<>();
-       for(User x :userDaoList)
+       for(User x :repositoryAll)
        {
            HashMap<String, String>user = new HashMap<>();
            user.put("id",String.valueOf(x.getId()));
@@ -34,8 +35,7 @@ public class UserService {
     public boolean deleteById(Long id)
     {
        try{
-           User user = new User(id);
-           userDao.delete(user);
+           userRepository.delete(id);
            return true;
        }
        catch(Exception ex)

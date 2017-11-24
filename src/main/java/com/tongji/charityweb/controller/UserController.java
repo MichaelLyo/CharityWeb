@@ -1,7 +1,7 @@
 package com.tongji.charityweb.controller;
 
 import com.tongji.charityweb.model.User;
-import com.tongji.charityweb.model.UserDao;
+import com.tongji.charityweb.repository.UserRepository;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
     /**
      * GET /create  --> Create a new user and save it in the database.
      */
@@ -28,7 +28,7 @@ public class UserController {
         String userId = "";
         try {
             User user = new User(email, name);
-            userDao.save(user);
+            userRepository.save(user);
             userId = String.valueOf(user.getId());
         }
         catch (Exception ex) {
@@ -72,7 +72,7 @@ public class UserController {
     public String getByEmail(String email) {
         String userId = "";
         try {
-            User user = userDao.findByEmail(email);
+            User user = userRepository.findByEmail(email);
             userId = String.valueOf(user.getId());
         }
         catch (Exception ex) {
@@ -89,10 +89,10 @@ public class UserController {
     @ResponseBody
     public String updateUser(Long id, String email, String name) {
         try {
-            User user = userDao.findOne(id);
+            User user = userRepository.findOne(id);
             user.setEmail(email);
             user.setName(name);
-            userDao.save(user);
+            userRepository.save(user);
         }
         catch (Exception ex) {
             return "Error updating the user: " + ex.toString();
