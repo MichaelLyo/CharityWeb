@@ -77,13 +77,12 @@ springBoot + hibernate
         -->
     </servers>
 
-    repository
+    
     <mirrors>
-        repository
 
         <mirror>
             <id>alimaven</id>
-            <repositoryName>aliyun maven</repositoryName>
+            <name>aliyun maven</name>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
             <mirrorOf>central</mirrorOf>
         </mirror>
@@ -91,20 +90,20 @@ springBoot + hibernate
         <mirror>
             <id>uk</id>
             <mirrorOf>central</mirrorOf>
-            <repositoryName>Human Readable Name for this Mirror.</repositoryName>
+            <name>Human Readable Name for this Mirror.</name>
             <url>http://uk.maven.org/maven2/</url>
         </mirror>
 
         <mirror>
             <id>CN</id>
-            <repositoryName>OSChina Central</repositoryName>
+            <name>OSChina Central</name>
             <url>http://maven.oschina.net/content/groups/public/</url>
             <mirrorOf>central</mirrorOf>
         </mirror>
 
         <mirror>
             <id>nexus</id>
-            <repositoryName>internal nexus repository</repositoryName>
+            <name>internal nexus repository</name>
             <!-- <url>http://192.168.1.100:8081/nexus/content/groups/public/</url>-->
             <url>http://repo.maven.apache.org/maven2</url>
             <mirrorOf>central</mirrorOf>
