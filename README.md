@@ -56,7 +56,7 @@ springBoot + hibernate
     <servers>
         <!-- server
          | Specifies the authentication information to use when connecting to a particular server, identified by
-         | a unique repositoryName within the system (referred to by the 'id' attribute below).
+         | a unique name within the system (referred to by the 'id' attribute below).
          |
          | NOTE: You should either specify username/password OR privateKey/passphrase, since these pairings are
          |       used together.
