@@ -9,7 +9,7 @@
     <table class="user-show-table" th:each="user:${userList}">
         <tr class="user-item">
             <td class="user-id" th:text="${user.id}"></td>
-            <td class="user-name" th:text="${user.name}"></td>
+            <td class="user-repositoryName" th:text="${user.repositoryName}"></td>
             <td class="user-email" th:text="${user.email}"></td>
         </tr>
     </table>

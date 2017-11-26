@@ -1,7 +1,7 @@
 package com.tongji.charityweb.controller;
 
-import com.tongji.charityweb.model.User;
-import com.tongji.charityweb.repository.UserRepository;
+import com.tongji.charityweb.model.user.User;
+import com.tongji.charityweb.repository.user.UserRepository;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

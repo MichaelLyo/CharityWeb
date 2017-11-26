@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>charityweb</name>
+	<repositoryName>charityweb</repositoryName>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -91,7 +91,7 @@
     <repositories>
         <repository>
             <id>spring-milestones</id>
-            <name>Spring Milestones</name>
+            <repositoryName>Spring Milestones</repositoryName>
             <url>https://repo.spring.io/libs-milestone</url>
             <snapshots>
                 <enabled>false</enabled>

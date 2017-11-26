@@ -56,7 +56,7 @@ springBoot + hibernate
     <servers>
         <!-- server
          | Specifies the authentication information to use when connecting to a particular server, identified by
-         | a unique name within the system (referred to by the 'id' attribute below).
+         | a unique repositoryName within the system (referred to by the 'id' attribute below).
          |
          | NOTE: You should either specify username/password OR privateKey/passphrase, since these pairings are
          |       used together.
@@ -77,34 +77,13 @@ springBoot + hibernate
         -->
     </servers>
 
-    <!-- mirrors
-     | This is a list of mirrors to be used in downloading artifacts from remote repositories.
-     |
-     | It works like this: a POM may declare a repository to use in resolving certain artifacts.
-     | However, this repository may have problems with heavy traffic at times, so people have mirrored
-     | it to several places.
-     |
-     | That repository definition will have a unique id, so we can create a mirror reference for that
-     | repository, to be used as an alternate download site. The mirror site will be the preferred
-     | server for that repository.
-     |-->
+    repository
     <mirrors>
-        <!-- mirror
-         | Specifies a repository mirror site to use instead of a given repository. The repository that
-         | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used
-         | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
-         |
-        <mirror>
-          <id>mirrorId</id>
-          <mirrorOf>repositoryId</mirrorOf>
-          <name>Human Readable Name for this Mirror.</name>
-          <url>http://my.repository.com/repo/path</url>
-        </mirror>
-         -->
+        repository
 
         <mirror>
             <id>alimaven</id>
-            <name>aliyun maven</name>
+            <repositoryName>aliyun maven</repositoryName>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
             <mirrorOf>central</mirrorOf>
         </mirror>
@@ -112,20 +91,20 @@ springBoot + hibernate
         <mirror>
             <id>uk</id>
             <mirrorOf>central</mirrorOf>
-            <name>Human Readable Name for this Mirror.</name>
+            <repositoryName>Human Readable Name for this Mirror.</repositoryName>
             <url>http://uk.maven.org/maven2/</url>
         </mirror>
 
         <mirror>
             <id>CN</id>
-            <name>OSChina Central</name>
+            <repositoryName>OSChina Central</repositoryName>
             <url>http://maven.oschina.net/content/groups/public/</url>
             <mirrorOf>central</mirrorOf>
         </mirror>
 
         <mirror>
             <id>nexus</id>
-            <name>internal nexus repository</name>
+            <repositoryName>internal nexus repository</repositoryName>
             <!-- <url>http://192.168.1.100:8081/nexus/content/groups/public/</url>-->
             <url>http://repo.maven.apache.org/maven2</url>
             <mirrorOf>central</mirrorOf>
@@ -175,7 +154,7 @@ springBoot + hibernate
 ### Genaral
 
 - [Spring boot / hibernate tutorial](https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/)
-
+- [annotations](http://blog.csdn.net/weixin_35852328/article/details/73649232)
 *************
 以下内容为spring MVC部分，已摒弃
 *************

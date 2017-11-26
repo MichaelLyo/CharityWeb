@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 
 //Enable JPA Auditing
 @EnableJpaAuditing
-
 @SpringBootApplication
 public class WebApplication
 {

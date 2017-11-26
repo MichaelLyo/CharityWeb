@@ -1,7 +1,8 @@
-package com.tongji.charityweb.model;
+package com.tongji.charityweb.model.project;
 
 import com.sun.istack.internal.NotNull;
-import org.springframework.data.annotation.CreatedDate;
+import com.tongji.charityweb.model.user.User;
+
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,16 +16,15 @@ public class Project
 {
 	// columns
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@NotNull
 	private String projectName;
 
-	//@NotNull
-	//private String ownerID;
-
-	@ManyToOne(cascade=CascadeType.ALL)
+	//外码约束。在数据库中表现为owner_id。
+	//CascadeType设置级联删除
+	@ManyToOne(cascade=CascadeType.REMOVE)
 	@PrimaryKeyJoinColumn
 	private User owner;
 
@@ -42,7 +42,6 @@ public class Project
 	private String projectType;
 
 	private String descriptionPictureUrl;
-
 
 
 	//constructor
