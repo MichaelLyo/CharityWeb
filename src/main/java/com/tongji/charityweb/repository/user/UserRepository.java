@@ -1,6 +1,6 @@
-package com.tongji.charityweb.repository;
+package com.tongji.charityweb.repository.user;
 
-import com.tongji.charityweb.model.User;
+import com.tongji.charityweb.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

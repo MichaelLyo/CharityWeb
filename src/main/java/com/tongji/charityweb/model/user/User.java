@@ -1,4 +1,4 @@
-package com.tongji.charityweb.model;
+package com.tongji.charityweb.model.user;
 
 
 import javax.persistence.*;
@@ -10,7 +10,7 @@ public class User {
 
     // columns
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
