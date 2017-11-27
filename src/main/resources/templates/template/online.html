@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>在线状态</title>
+</head>
+<body>
+<div th:fragment="online">
+    <div class="navbar-wrapper" id="animenu">
+
+        <nav class="animenu">
+            <button class="animenu__toggle">
+                <span class="animenu__toggle__bar"></span>
+                <span class="animenu__toggle__bar"></span>
+                <span class="animenu__toggle__bar"></span>
+            </button>
+
+            <ul class="animenu__nav">
+                <li><img th:src="@{assets/img/logo.jpg}"></li>
+                <li>
+
+                    <a th:href="@{/me}">首页</a>
+                </li>
+                <li>
+                    <a th:href="@{/hotspot}">热点</a>
+                </li>
+                <li>
+                    <a>在行动</a>
+                    <ul class="animenu__nav__child" style="text-align: center">
+                        <li><a th:href="@{/caiyun}">彩云支南</a></li>
+                        <li><a th:href="@{/chunhui}">春晖之声</a></li>
+                        <li><a th:href="@{/cat}">宠物之家</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a th:href="@{/participate}">在参与</a>
+                </li>
+<!--                <a style="right:-280px;width: 40px;top:10px;" th:href="@{/userInfo}"><img th:src="@{Login/images/p10.jpg}" alt=" " class="img-responsive" ></a>-->
+                <li style="right: -280px;">
+                    <a th:href="@{/userInfo}">MilkMan</a>
+                    <ul class="animenu__nav__child" style="text-align: center">
+                        <li><a>仓库管理</a></li>
+                        <li><a>项目管理</a></li>
+                        <li><a>捐款管理</a></li>
+                        <li><a>新建仓库</a></li>
+                        <li><a>新建管理</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- End Navbar -->
+    </div> <!-- END NAVBAR -->
+    <div class="banner two"></div>
+</div>
+</body>
+</html>

@@ -31,7 +31,7 @@ public class IndexController {
     }
     @RequestMapping(value = "login")
     public String login(){
-        return "login";
+        return "login/login";
     }
     @RequestMapping(value = "regist")
     public String regist(){
