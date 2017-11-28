@@ -14,6 +14,10 @@
     <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
     <link th:href="@{assets/css/button.css}" rel="stylesheet">
     <script th:src="@{assets/js/wow.min.js}"></script>
+    <link rel="stylesheet" th:href="@{Login/css/owl.carousel.css}" type="text/css" media="all">
+    <link th:href="@{Login/css/owl.theme.css}" rel="stylesheet">
+    <link th:href="@{Login/css/style.css}" rel="stylesheet">
+
     <script>
         new WOW().init();
     </script>
@@ -50,6 +54,24 @@
                 <!--post-details-->
                 <div class="clearfix"> </div>
 
+                <div class="col-md-6 wthree-about-left">
+                    <h3>项目参与度</h3>
+                    <div class="skills-bar">
+                        <section class='bar'>
+                            <section class='wrap'>
+                                <div class='wrap_right'>
+                                    <div class='bar_group'>
+                                        <div class='bar_group__bar thin' label='累计捐款金额' show_values='true' tooltip='true' value='10'></div>
+                                        <div class='bar_group__bar thin' label='参与人数' show_values='true' tooltip='true' value='235'></div>
+                                        <div class='bar_group__bar thin' label='关注人数' show_values='true' tooltip='true' value='20'></div>
+                                        <div class='bar_group__bar thin' label='进度' show_values='true' tooltip='true' value='456'></div>
+                                    </div>
+                                </div>
+                                <div class='clear'></div>
+                            </section>
+                        </section>
+                    </div>
+                </div >
 
                 <div class="col-md-10 data">
 
@@ -130,6 +152,16 @@
             event.preventDefault();
             $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
         });
+    });
+</script>
+<script th:src="@{Login/js/jquery.tools.min.js}"></script>
+<script th:src="@{Login/js/jquery.mobile.custom.min.js}"></script>
+<script th:src="@{Login/js/jquery.cm-overlay.js}"></script>
+<script th:src="@{Login/js/bars.js}"></script>
+<script th:src="@{Login/js/owl.carousel.js}"></script>
+<script>
+    $(document).ready(function(){
+        $('.cm-overlay').cmOverlay();
     });
 </script>
 <a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

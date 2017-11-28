@@ -61,4 +61,12 @@ public class IndexController {
     public String editInfo(){
         return "login/editInfo";
     }
+    @RequestMapping(value = "addRepository")
+    public String addRepository(){
+        return "action/addRepository";
+    }
+    @RequestMapping(value = "addProject")
+    public String addProject(){
+        return "action/addProject";
+    }
 }
