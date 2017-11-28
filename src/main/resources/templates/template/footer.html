@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>页脚</title>
+</head>
+<body>
+<!--footer-->
+<div th:fragment="copyright">
+    <div class="footer text-center">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-4 footer-text">
+                    <h3>关于我们</h3>
+                        <p>该项目由同济大学软件学院本科生开发的公益网站，面向同济大学学生至全社会对公益事业有热心的人士。</p>
+                        <p>网站包括同济大学公益社团、公益项目、公益组织，用户注册后可参与并捐款给各个公益项目</p>
+                    </div>
+                    <div class="col-md-4 footer-flickr">
+                        <h3>合作方</h3>
+                        <div class="flickr-grids">
+                            <div class="flickr-grid">
+                                <img th:src="@{assets/img/caiyun-logo.jpg}" alt=""/>
+                            </div>
+                            <div class="flickr-grid">
+                                <img th:src="@{assets/img/chunhui-logo.jpg}" alt=""/>
+                            </div>
+                            <div class="flickr-grid">
+                                <img th:src="@{assets/img/cat-logo.jpg}" alt=""/>
+                            </div>
+                        <div class="clearfix"> </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-info">
+                    <h3>与我们联系</h3>
+                    <p>上海市同济大学嘉定校区曹安公路4800号 </p>
+                    <div class="support">
+                        <form>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>
+            <div class="copy">
+                <p>&copy; 2017 Generous. All Rights Reserved | Design by MilkMan </p>
+            </div>
+        <!--footer-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

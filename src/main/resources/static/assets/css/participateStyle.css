@@ -1163,7 +1163,6 @@ h3.tittle.two {
    position: relative;
 }
 .view a.info {
-   background:url(../img/link.png) center no-repeat;
    display: inline-block;
    text-decoration: none;
    padding:0;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+</head>
+<body>
+<div th:fragment="navbar">
+<div class="navbar-wrapper" id="animenu">
+
+    <nav class="animenu">
+        <button class="animenu__toggle">
+            <span class="animenu__toggle__bar"></span>
+            <span class="animenu__toggle__bar"></span>
+            <span class="animenu__toggle__bar"></span>
+        </button>
+
+        <ul class="animenu__nav">
+            <li><img th:src="@{assets/img/logo.jpg}"></li>
+            <li>
+
+                <a th:href="@{/me}">首页</a>
+            </li>
+            <li>
+                <a th:href="@{/hotspot}">热点</a>
+            </li>
+            <li>
+                <a>在行动</a>
+                <ul class="animenu__nav__child" style="text-align: center">
+                    <li><a th:href="@{/caiyun}">彩云支南</a></li>
+                    <li><a th:href="@{/chunhui}">春晖之声</a></li>
+                    <li><a th:href="@{/cat}">宠物之家</a></li>
+                </ul>
+            </li>
+            <li>
+                <a th:href="@{/participate}">在参与</a>
+            </li>
+            <a th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
+            <a th:href="@{/login}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
+
+        </ul>
+    </nav>
+    <!-- End Navbar -->
+</div> <!-- END NAVBAR -->
+<div class="banner two"></div>
+</div>
+</body>
+</html>
