@@ -16,7 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" th:href="@{Login/css/owl.carousel.css}" type="text/css" media="all">
     <link th:href="@{Login/css/owl.theme.css}" rel="stylesheet">
     <link type="text/css" rel="stylesheet" th:href="@{Login/css/cm-overlay.css}" />
-
+    <link th:href="@{assets/css/participateStyle.css}" rel='stylesheet' type='text/css' />
 
     <script th:src="@{Login/js/jquery-1.11.1.min.js}"></script>
     <script th:src="@{Login/js/bootstrap.js}"></script>
@@ -327,8 +327,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <li>
                 <a th:href="@{/participate}">在参与</a>
             </li>
-            <a th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
-            <a th:href="@{/login}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
+            <a th:href="@{/regist}" style="right:-620px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
+            <a th:href="@{/login}" style="right:-620px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
         </ul>
     </nav>
     <!-- End Navbar -->
@@ -426,9 +426,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active" style="width:80px;"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">所有</a></li>
-            <li role="presentation" style="width:80px;"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">活动</a></li>
-            <li role="presentation" style="width:80px;"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">文章</a></li>
-            <li role="presentation" style="width:80px;"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">评论</a></li>
+            <li role="presentation" style="width:80px;"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">仓库</a></li>
+            <li role="presentation" style="width:80px;"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">项目</a></li>
+            <li role="presentation" style="width:80px;"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">捐款</a></li>
             <li role="presentation" style="width:80px;"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">其他</a></li>
         </ul>
         <div id="myTabContent" class="tab-content">
@@ -436,8 +436,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="w3_tab_img">
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
-                            <a class="cm-overlay" th:href="@{Login/images/p1.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p1.jpg}" alt=" " class="img-responsive" th:href="@{/activity}"/>
+                            <a class="cm-overlay" th:src="@{Login/images/p1.jpg}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p1.jpg}" alt=" " class="img-responsive" /></a>
                                 </figure>
                             </a>
                         </div>
@@ -445,7 +445,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p2.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p2.jpg}" alt=" " class="img-responsive" th:href="@{/activity}"/>
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p2.jpg}" alt=" " class="img-responsive" /></a>
                                 </figure>
                             </a>
                         </div>
@@ -453,7 +453,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p3.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p3.jpg}" alt=" " class="img-responsive" th:href="@{/activity}"/>
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p3.jpg}" alt=" " class="img-responsive" /></a>
                                 </figure>
                             </a>
                         </div>
@@ -461,7 +461,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p4.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p4.jpg}" alt=" " class="img-responsive" th:href="@{/activity}"/>
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p4.jpg}" alt=" " class="img-responsive" /></a>
                                 </figure>
                             </a>
                         </div>
@@ -469,7 +469,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p5.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p5.jpg}" alt=" " class="img-responsive" th:href="@{/activity}"/>
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p5.jpg}" alt=" " class="img-responsive" /></a>
                                 </figure>
                             </a>
                         </div>
@@ -477,7 +477,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p6.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p6.jpg}" alt=" " class="img-responsive" th:href="@{/activity}"/>
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p6.jpg}" alt=" " class="img-responsive" /></a>
                                 </figure>
                             </a>
                         </div>
@@ -485,7 +485,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p7.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p7.jpg}" alt=" " class="img-responsive" th:href="@{/activity}"/>
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p7.jpg}" alt=" " class="img-responsive" /></a>
                                 </figure>
                             </a>
                         </div>
@@ -493,7 +493,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p8.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p8.jpg}" alt=" " class="img-responsive" th:href="@{/activity}"/>
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p8.jpg}" alt=" " class="img-responsive" /></a>
                                 </figure>
                             </a>
                         </div>
@@ -506,7 +506,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p6.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p6.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p6.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -514,7 +514,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p9.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p9.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p9.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -527,7 +527,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p1.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p1.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p1.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -535,7 +535,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p5.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p5.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p5.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -543,7 +543,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p7.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p7.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p7.jpg}" alt=" " class="img-responsive"></a>
                                 </figure>
                             </a>
                         </div>
@@ -551,7 +551,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p3.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p3.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p3.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -564,7 +564,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p2.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p2.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p2.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -572,7 +572,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p4.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p4.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p4.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -580,7 +580,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p10.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p10.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p10.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -593,7 +593,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-3 w3_tab_img_left">
                         <div class="demo">
                             <a class="cm-overlay" th:href="@{Login/images/p8.jpg}">
-                                <figure class="imghvr-shutter-in-out-diag-2"><img th:src="@{Login/images/p8.jpg}" alt=" " class="img-responsive" th:href="@{/activity}">
+                                <figure class="imghvr-shutter-in-out-diag-2"><a th:href="@{/activity}"><img th:src="@{Login/images/p8.jpg}" alt=" " class="img-responsive" ></a>
                                 </figure>
                             </a>
                         </div>
@@ -612,6 +612,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 </div>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 <!-- //feedback -->
 <script th:src="@{Login/js/bars.js}"></script>
 <script th:src="@{Login/js/owl.carousel.js}"></script>

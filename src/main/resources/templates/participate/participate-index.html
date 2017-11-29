@@ -1,6 +1,6 @@
 <html  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Generous a Charity Category Flat Bootstarp Resposive Website Template | Blog :: w3layouts</title>
+    <title>在参与</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Generous Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
@@ -17,44 +17,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link th:href="@{assets/css/style.css}" rel="stylesheet">
 <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
 <link th:href="@{assets/css/button.css}" rel="stylesheet">
-        <div class="navbar-wrapper" id="home">
-
-            <nav class="animenu">
-                <button class="animenu__toggle">
-                    <span class="animenu__toggle__bar"></span>
-                    <span class="animenu__toggle__bar"></span>
-                    <span class="animenu__toggle__bar"></span>
-                </button>
-
-                <ul class="animenu__nav">
-                    <li><img th:src="@{assets/img/logo.jpg}"></li>
-                    <li>
-                        <a th:href="@{/me}">首页</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/hotspot}">热点</a>
-                    </li>
-                    <li>
-                        <a href="#">在行动</a>
-                        <ul class="animenu__nav__child">
-                            <li><a th:href="@{/caiyun}">彩云之南</a></li>
-                            <li><a th:href="@{/chunhui}">春晖之声</a></li>
-                            <li><a th:href="@{/cat}">宠物之家</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="participate-index.html">在参与</a>
-                    </li>
-                    <a th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
-                    <a th:href="@{/login}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
-                </ul>
-            </nav>
-            <!-- End Navbar -->
-        </div> <!-- END NAVBAR -->
-
-    <div class="banner two">
-    </div>
-
+<div th:include="template/navbar :: navbar"></div>
 <!--start-news-->
 <div class="news two">
     <div class="container">
@@ -235,60 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </div>
-<!--footer-->
-<div class="footer text-center">
-    <div class="container">
-        <div class="footer-grids">
-            <div class="col-md-4 footer-text">
-                <h3>About Us</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's.</p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's.</p>
-            </div>
-            <div class="col-md-4 footer-flickr">
-                <h3>Flickr Feed</h3>
-                <div class="flickr-grids">
-                    <div class="flickr-grid">
-                        <a href="#"><img th:src="@{participate/images/t1.jpg}" alt=""/></a>
-                    </div>
-                    <div class="flickr-grid">
-                        <a href="#"><img th:src="@{participate/images/c2.jpg}" alt=""/></a>
-                    </div>
-                    <div class="flickr-grid">
-                        <a href="#"><img th:src="@{participate/images/c1.jpg}" alt=""/></a>
-                    </div>
-                    <div class="clearfix"> </div>
-
-                    <div class="flickr-grid">
-                        <a href="#"><img th:src="@{participate/images/c2.jpg}" alt=""/></a>
-                    </div>
-                    <div class="flickr-grid">
-                        <a href="#"><img th:src="@{participate/images/c1.jpg}" alt=""/></a>
-                    </div>
-                    <div class="flickr-grid">
-                        <a href="#"><img th:src="@{participate/images/t1.jpg}" alt=""/></a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-4 footer-info">
-                <h3>Get In Touch</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since, </p>
-                <div class="support">
-                    <form>
-                        <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
-                        <input type="submit" value="SUBSCRIBE">
-                    </form>
-                </div>
-            </div>
-
-            <div class="clearfix"> </div>
-        </div>
-        <div class="copy">
-            <p>&copy; 2015 Generous. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
-        </div>
-        <!--footer-->
-    </div>
-</div>
+<div th:include="template/footer :: copyright"></div>
 <!--start-smoth-scrolling-->
 <script type="text/javascript">
     jQuery(document).ready(function($) {
@@ -298,23 +208,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     });
 </script>
-<!--start-smoth-scrolling-->
-<script type="text/javascript">
-    $(document).ready(function() {
-        /*
-        var defaults = {
-              containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-         };
-        */
-
-        $().UItoTop({ easingType: 'easeOutQuart' });
-
-    });
-</script>
-<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 </body>
 </html>

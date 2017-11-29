@@ -31,7 +31,7 @@ public class IndexController {
     }
     @RequestMapping(value = "login")
     public String login(){
-        return "login";
+        return "login/login";
     }
     @RequestMapping(value = "regist")
     public String regist(){ return "login/regist"; }
@@ -58,5 +58,13 @@ public class IndexController {
     @RequestMapping(value = "editInfo")
     public String editInfo(){
         return "login/editInfo";
+    }
+    @RequestMapping(value = "addRepository")
+    public String addRepository(){
+        return "action/addRepository";
+    }
+    @RequestMapping(value = "addProject")
+    public String addProject(){
+        return "action/addProject";
     }
 }
