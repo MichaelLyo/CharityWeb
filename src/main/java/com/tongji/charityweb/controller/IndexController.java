@@ -41,7 +41,7 @@ public class IndexController {
     }
     @RequestMapping(value = "userInfo")
     public String userInfo(){
-        return "login/userInfo";
+        return "management/userInfo";
     }
     @RequestMapping(value = "hotspot")
     public String hotspot(){
@@ -61,10 +61,10 @@ public class IndexController {
     }
     @RequestMapping(value = "addRepository")
     public String addRepository(){
-        return "action/addRepository";
+        return "management/addRepository";
     }
     @RequestMapping(value = "addProject")
     public String addProject(){
-        return "action/addProject";
+        return "management/addProject";
     }
 }
