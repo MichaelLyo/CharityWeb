@@ -1,0 +1,94 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>填写个人信息</title>
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:href="@{assets/css/anticipate.css}"></script>
+    <!-- animation-effect -->
+    <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
+
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+    <link th:href="@{assets/css/button.css}" rel="stylesheet">
+    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link th:href="@{assets/css/style.css}" rel="stylesheet">
+
+</head>
+<body>
+<div th:include="template/navbar :: navbar"></div>
+<div class="donation">
+    <div class="container">
+
+        <h3 class="tittle"></h3>
+        <div class="donation-content" style="text-align: left;">
+            <div class="donation-header">
+                <h3 class="d-tittle"> 个 人 信 息 填 写 </h3>
+            </div>
+            <div class="donation-body">
+                <div class="form-group">
+                    <h6 class="modal-subtitle">个人信息</h6>
+                    <div class="dt-inner">
+                        <div class="dt">
+                            <textarea style="min-height: 15px;color: #0D0D0D" name="nickname" placeholder="昵称"></textarea>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <td><!--单元格开始-->
+                            <label>
+                                <select name="sex" style="color: #0D0D0D;width: 100px;height: 30px;border: 1px solid #DADADA;">
+                                    <option>性别</option>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </label>
+                        </td>
+                        <div class="dt">
+                            <textarea style="min-height: 15px;color: #0D0D0D" name="email" placeholder="邮箱"></textarea>
+                            <!--错误输入处理--><!--<span style="font-weight: 500;margin-top: 20px;float: right;margin-right: 415px;font-size: 17px;color: #FF0000;">邮箱填写有误</span>-->
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="dt">
+                            <textarea style="min-height: 15px;color: #0D0D0D" name="phone" placeholder="联系方式"></textarea>
+                            <!--错误输入处理<span style="font-weight: 500;margin-top: 20px;float: right;margin-right: 380px;font-size: 17px;color: #FF0000;">联系方式填写有误</span>-->
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="dt">
+                            <textarea style="color: #0D0D0D" name="address" placeholder="地址"></textarea>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="dt">
+                            <textarea style="color: #0D0D0D"  name="introduction" placeholder="简介"></textarea>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="dt">
+                            <textarea style="color: #0D0D0D" name="description" placeholder="个人详细介绍"></textarea>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="donate">
+                            <input type="submit" th:href="@{/userInfo}" style="font-size: 18px;" id="donate" value="提交">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//donation-->
+<!--footer-->
+<div th:include="template/footer :: copyright"></div>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>
