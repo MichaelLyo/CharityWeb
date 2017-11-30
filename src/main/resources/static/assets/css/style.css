@@ -459,3 +459,86 @@ button:active {
     top: -200px;
     z-index: -1;
 }
+/*仓库、项目管理*/
+.twenty{
+    width:13%;
+    float:left;
+}
+.events h3{
+    font-size:1.8em;
+    font-weight:400;
+    color:#4999AF;
+}
+.sunday{
+    float:left;
+}
+.mor{
+    width:50%;
+    float:left;
+    text-align:right;
+}
+.family {
+    padding: 2em 0em;
+    border-top: 1px solid #E5E4E4;
+}
+.twenty h4{
+    font-size:2em;
+    font-weight:400;
+    color:#668333;
+    margin:0em;
+}
+.twenty p{
+    font-size:1em;
+    font-weight:400;
+    color:#668333;
+    line-height:1.8em;
+}
+.sunday h5{
+    font-size:1.3em;
+    font-weight:400;
+    color:#F1715E;
+}
+.sunday p{
+    font-size:1.1em;
+    font-weight:400;
+    color:#5F5F5F;
+    line-height:1.8em;
+}
+a.more {
+    background: #4999AF;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0.2em 1.2em;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 3px;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -msborder-radius: 3px;
+    margin: 1em 0em 0em;
+}
+a.more:hover{
+    background: #F1715E;
+    color: #fff;
+}
+.oaks p{
+    font-size:1.1em;
+    font-weight:400;
+    color:#5F5F5F;
+    margin:1em 0em;
+    line-height:1.8em;
+}
+a.read {
+    font-size:1.2em;
+    font-weight:400;
+    color:#F1715E;
+    text-decoration:none;
+}
+a.read:hover{
+    color:#668333;
+}
+/* --events-- */
