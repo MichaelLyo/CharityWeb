@@ -57,7 +57,7 @@ public class IndexController {
     }
     @RequestMapping(value = "editInfo")
     public String editInfo(){
-        return "login/editInfo";
+        return "management/editInfo";
     }
     @RequestMapping(value = "addRepository")
     public String addRepository(){
@@ -66,5 +66,13 @@ public class IndexController {
     @RequestMapping(value = "addProject")
     public String addProject(){
         return "management/addProject";
+    }
+    @RequestMapping(value = "mgtRepository")
+    public String mgtRepository(){
+        return "management/mgtRepository";
+    }
+    @RequestMapping(value = "mgtProject")
+    public String mgtProject(){
+        return "management/mgtProject";
     }
 }

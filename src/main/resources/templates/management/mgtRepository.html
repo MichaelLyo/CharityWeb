@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>仓库管理</title>
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link th:href="@{action/css/communitystyle.css}" rel='stylesheet'/>
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.min.js}"></script>
+    <!-- animation-effect -->
+    <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
+    <script th:src="@{assets/js/wow.min.js}"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<link th:href="@{assets/css/style.css}" rel="stylesheet">
+<link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+<link th:href="@{assets/css/button.css}" rel="stylesheet">
+
+<div th:include="template/navbar :: navbar"></div>
+<div class="col-md-6 upcoming" style="width: 100%;">
+    <div class="family">
+        <div class="twenty">
+            <h4>20</h4>
+            <p>JULY</p>
+        </div>
+        <div class="sunday">
+            <h5>仓库名称</h5>
+            <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
+        </div>
+        <div class="mor">
+            <a class="more" th:href="@{/activity}">MORE</a>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="family">
+        <div class="twenty">
+            <h4>20</h4>
+            <p>JULY</p>
+        </div>
+        <div class="sunday">
+            <h5>FAMILY SUNDAY</h5>
+            <p>Sunday | 9:30am</p>
+        </div>
+        <div class="mor">
+            <a class="more" th:href="@{/activity}">MORE</a>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="family">
+        <div class="twenty">
+            <h4>20</h4>
+            <p>JULY</p>
+        </div>
+        <div class="sunday">
+            <h5>FAMILY SUNDAY</h5>
+            <p>Sunday | 9:30am</p>
+        </div>
+        <div class="mor">
+            <a class="more" th:href="@{/activity}">MORE</a>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="blog-pagenat">
+        <ul>
+            <li><a class="frist" href="#">上一页</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a class="last" href="#">下一页</a></li>
+            <div class="clearfix"> </div>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div th:include="template/footer :: copyright"></div>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+</body>
+</html>
