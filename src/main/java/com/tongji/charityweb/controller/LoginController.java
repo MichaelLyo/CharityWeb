@@ -18,7 +18,7 @@ public class LoginController {
     private User user;
 
     /* regist */
-    @RequestMapping(value = "/regist.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/regist", method = RequestMethod.POST)
     public String regist(HttpServletRequest request, Model model) {
         Boolean span1, span2;
         try {
@@ -34,7 +34,7 @@ public class LoginController {
             if (password.equals(password2)) {
                 user = new User("", username, password, "", "user");
                 userRepository.save(user);
-                return "login/editInfo";
+                return "management/editInfo";
             } else {
                 span2 = true;
                 model.addAttribute("span2", span2);
@@ -46,7 +46,7 @@ public class LoginController {
     }
 
     /* editInfo */
-    @RequestMapping(value = "/editInfo.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/editInfo", method = RequestMethod.POST)
     public String editInfo(HttpServletRequest request) {
         try {
             String sex = request.getParameter("sex");
@@ -70,7 +70,7 @@ public class LoginController {
     }
 
     /* login */
-    @RequestMapping(value = "/login.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model){
         boolean span;
         try {
