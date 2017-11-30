@@ -1,8 +1,11 @@
 package com.tongji.charityweb.model.user;
 
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @Table(name = "User")

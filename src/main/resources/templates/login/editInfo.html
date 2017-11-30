@@ -15,15 +15,15 @@
     <div class="wrapper">
         <div class="container" style="height: 600px;">
             <strong><span style="font-weight: bold;font-size: 30px;">填写个人信息</span></strong>
-            <form class="form"  method="post" style="margin: auto">
-                <input type="text" placeholder="姓名">
-                <input type="text" placeholder="性别">
-                <input type="text" placeholder="地址">
-                <input type="text" placeholder="联系方式">
-                <input type="text" placeholder="邮箱">
-                <input type="text" placeholder="简介">
-                <input type="text" placeholder="个人介绍">
-                <a th:href="@{/me}"><input type="button" class="button button-royal" style="margin-top: 20px;margin-left: 20px;float: left;" value="提交"></a>
+            <form class="form" action="editInfo.do" method="post" style="margin: auto">
+                <input type="text" name="name" placeholder="姓名">
+                <input type="text" name="sex" placeholder="性别">
+                <input type="text" name="address" placeholder="地址">
+                <input type="text" name="phone" placeholder="联系方式">
+                <input type="text" name="email" placeholder="邮箱">
+                <input type="text" name="introduction" placeholder="简介">
+                <input type="text" name="description" placeholder="个人介绍">
+                <a th:href="@{/me}"><input type="submit" class="button button-royal" style="margin-top: 20px;margin-left: 20px;float: left;" value="提交"></a>
             </form>
         </div>
     </div>
