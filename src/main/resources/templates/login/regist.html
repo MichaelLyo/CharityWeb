@@ -14,13 +14,15 @@
     <div class="wrapper">
         <div class="container">
             <strong><span style="font-weight: bold;font-size: 30px;">注    册</span></strong>
-            <form class="form" method="post" style="margin: auto">
+            <form class="form" action="regist" method="post" style="margin: auto">
                 <input type="text" name="username" placeholder="用户名">
                 <input type="password" name="password"  placeholder="密码">
-                <input type="password" name="password"  placeholder="再次输入密码">
-                <!--<span style="font-weight: 500;margin-left:90px;margin-top: 20px;float: left;font-size: 17px;color:#FF0000">用户名已被注册</span>-->
-                <span style="font-weight: 500;margin-left:100px;margin-top: 20px;float: left;font-size: 17px;color:#FF0000">密码输入不同</span>
-                <a th:href="@{/editInfo}"><input type="button" class="button button-royal" style="margin-top: 20px;margin-left: 20px;float: left;" value="注册"></a>
+                <input type="password" name="password2"  placeholder="再次输入密码">
+                <!--/*@thymesVar id="span1" type="java.lang.Boolean"*/-->
+                <span th:if="${span1}" style="font-weight: 500;margin-left:90px;margin-top: 20px;float: left;font-size: 17px;color:#FF0000">用户名已被注册</span>
+                <!--/*@thymesVar id="span2" type="java.lang.Boolean"*/-->
+                <span th:if="${span2}" style="font-weight: 500;margin-left:100px;margin-top: 20px;float: left;font-size: 17px;color:#FF0000">密码输入不同</span>
+                <a th:href="@{/editInfo}"><input type="submit" class="button button-royal" style="margin-top: 20px;margin-left: 20px;float: left;" value="注册"></a>
             </form>
         </div>
     </div>

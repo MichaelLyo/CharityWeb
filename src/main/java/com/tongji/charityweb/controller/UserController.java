@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,23 +19,6 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserRepository userRepository;
-
-    /* login */
-    @RequestMapping(value = "/login.do")
-    public String login(HttpServletRequest request){
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        System.out.println(username);
-        System.out.println(password);
-        User user = userRepository.findByNameAndPassword(username, password);
-        String str = "";
-        if (user != null){
-            str = "login/showUser";
-        }else {
-            str = "login/failLogin";
-        }
-        return str;
-    }
 
     /**
      * GET /create  --> Create a new user and save it in the database.
@@ -110,7 +92,7 @@ public class UserController {
         try {
             User user = userRepository.findOne(id);
             user.setEmail(email);
-            user.setName(name);
+            user.setUsername(name);
             userRepository.save(user);
         }
         catch (Exception ex) {
