@@ -33,7 +33,7 @@
                     <h6 class="modal-subtitle">个人信息</h6>
                     <div class="dt-inner">
                         <div class="dt">
-                            <textarea style="min-height: 15px;color: #0D0D0D" id="name" placeholder="姓名"></textarea>
+                            <textarea style="min-height: 15px;color: #0D0D0D; width: 100px;" id="name" placeholder="姓名"></textarea>
                             <div class="clearfix"> </div>
                         </div>
                         <td><!--单元格开始-->
@@ -46,21 +46,21 @@
                             </label>
                         </td>
                         <div class="dt">
-                            <textarea style="min-height: 15px;color: #0D0D0D" placeholder="邮箱"></textarea>
+                            <textarea style="min-height: 15px;color: #0D0D0D;width: 200px;" placeholder="邮箱"></textarea>
                             <span style="font-weight: 500;margin-top: 20px;float: right;margin-right: 415px;font-size: 17px;color: #FF0000;">邮箱填写有误</span>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="dt">
-                            <textarea style="min-height: 15px;color: #0D0D0D" placeholder="联系方式"></textarea>
+                            <textarea style="min-height: 15px;width:200px;color: #0D0D0D" placeholder="联系方式"></textarea>
                             <span style="font-weight: 500;margin-top: 20px;float: right;margin-right: 380px;font-size: 17px;color: #FF0000;">联系方式填写有误</span>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="dt">
-                            <textarea style="color: #0D0D0D" id="address" placeholder="地址"></textarea>
+                            <textarea style="color: #0D0D0D;min-height: 50px;" id="address" placeholder="地址"></textarea>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="dt">
-                            <textarea style="color: #0D0D0D"  placeholder="简介"></textarea>
+                            <textarea style="color: #0D0D0D;min-height: 70px;"  placeholder="简介"></textarea>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="dt">
@@ -68,7 +68,7 @@
                             <div class="clearfix"> </div>
                         </div>
                         <div class="donate">
-                            <input type="submit" th:href="@{/userInfo}" style="font-size: 18px;" id="donate" value="提交">
+                            <a th:href="@{/userInfo}"><input type="submit" style="font-size: 18px;" id="donate" value="提交"></a>
                         </div>
                     </div>
                 </div>
