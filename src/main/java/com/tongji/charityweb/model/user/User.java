@@ -1,14 +1,11 @@
 package com.tongji.charityweb.model.user;
 
 
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Entity
-@Table(name = "User")
+@Table(name = "User",uniqueConstraints = {@UniqueConstraint(columnNames = "username")})
 public class User {
 
     // columns
@@ -20,7 +17,8 @@ public class User {
     private String email;
 
     @NotNull
-    private String name;
+
+    private String username;
 
     @NotNull
     private String password;
@@ -30,6 +28,8 @@ public class User {
 
     @NotNull
     private String rank;
+
+    private String nickname;
 
     private String address;
 
@@ -49,16 +49,16 @@ public class User {
     //Constructors
     public User() { }
 
-    public User(String email, String name)
+    public User(String email, String username)
     {
         this.email = email;
-        this.name = name;
+        this.username = username;
     }
 
-    public User(String email, String name, String password, String sex, String rank)
+    public User(String email, String username, String password, String sex, String rank)
     {
         this.email = email;
-        this.name = name;
+        this.username = username;
         this.password = password;
         this.sex = sex;
         this.rank = rank;
@@ -69,9 +69,9 @@ public class User {
         return id;
     }
 
-    public String getName()
+    public String getUsername()
     {
-        return name;
+        return username;
     }
 
     public String getEmail()
@@ -119,6 +119,10 @@ public class User {
         return sex;
     }
 
+    public String getNickname()
+    {
+        return nickname;
+    }
 
     //setters
     public void setId(long id) {
@@ -129,8 +133,8 @@ public class User {
         this.email = email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setAddress(String address)
@@ -173,4 +177,8 @@ public class User {
         this.sex = sex;
     }
 
+    public void setNickname(String nickname)
+    {
+        this.nickname = nickname;
+    }
 }

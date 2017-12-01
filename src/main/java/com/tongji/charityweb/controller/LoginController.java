@@ -1,5 +1,6 @@
 package com.tongji.charityweb.controller;
 
+import com.tongji.charityweb.config.HttpSessionConfig;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,8 @@ public class LoginController {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String password2 = request.getParameter("password2");
-            User SameName = userRepository.findByName(username);
+
+            User SameName = userRepository.findByUsername(username);
             if(SameName != null) {
                 span1 = true;
                 model.addAttribute("span1", span1);
@@ -73,15 +75,17 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model){
         boolean span;
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         try {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            user = userRepository.findByNameAndPassword(username, password);
+            user = userRepository.findByUsernameAndPassword(username, password);
         } catch (Exception ex) {
             return "Error login";
         }
         String str = "";
         if (user != null){
+            request.getSession().setAttribute(HttpSessionConfig.SESSION_USERNAME,username);
+            //model.addAttribute("username",request.getSession().getAttribute(HttpSessionConfig.SESSION_USERNAME));
             str = "index";
         }else {
             span = true;
@@ -90,5 +94,6 @@ public class LoginController {
         }
         return str;
     }
+
 
 }
