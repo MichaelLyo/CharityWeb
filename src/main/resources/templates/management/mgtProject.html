@@ -24,6 +24,8 @@
 <link th:href="@{assets/css/button.css}" rel="stylesheet">
 
 <div th:include="template/navbar :: navbar"></div>
+<div class="clearfix"></div>
+<div class="banner two"></div>
 <div class="col-md-6 upcoming" style="width: 100%;">
     <div class="family">
         <div class="twenty">
@@ -31,7 +33,7 @@
             <p>JULY</p>
         </div>
         <div class="sunday">
-            <h5 th:href="@{/activity}">项目名称</h5>
+            <a th:href="@{/activity}"><h5>项目名称</h5></a>
             <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
         </div>
          
@@ -43,7 +45,7 @@
             <p>JULY</p>
         </div>
         <div class="sunday">
-            <h5 th:href="@{/activity}">项目名称</h5>
+            <a th:href="@{/activity}"><h5>项目名称</h5></a>
             <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
         </div>
           
@@ -55,7 +57,7 @@
             <p>JULY</p>
         </div>
         <div class="sunday">
-            <h5 th:href="@{/activity}">项目名称</h5>
+            <a th:href="@{/activity}"><h5>项目名称</h5></a>
             <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
         </div>
        
