@@ -10,55 +10,43 @@ import javax.persistence.*;
 public class UserFollower
 {
 	// columns
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long userFollowerID;
 
-	@ManyToOne(cascade=CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private User user;
+	private String username;
 
-	@ManyToOne(cascade= CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private User follower;
+	private String followername;
 
-	public UserFollower(User user, User follower)
-	{
-		this.user = user;
-		this.follower = follower;
+	public long getUserFollowerID() {
+		return userFollowerID;
 	}
 
-	public UserFollower()
-	{
+	public void setUserFollowerID(long userFollowerID) {
+		this.userFollowerID = userFollowerID;
 	}
 
-	public long getId()
-	{
-		return id;
+	public String getUsername() {
+		return username;
 	}
 
-	public User getUser()
-	{
-		return user;
+	public UserFollower(String username, String followername) {
+		this.username = username;
+		this.followername = followername;
 	}
 
-	public User getFollower()
-	{
-		return follower;
+	public void setUsername(String username) {
+
+		this.username = username;
 	}
 
-	public void setId(long id)
-	{
-		this.id = id;
+	public String getFollowername() {
+		return followername;
 	}
 
-	public void setUser(User user)
-	{
-		this.user = user;
-	}
-
-	public void setFollower(User follower)
-	{
-		this.follower = follower;
+	public void setFollowername(String followername) {
+		this.followername = followername;
 	}
 }

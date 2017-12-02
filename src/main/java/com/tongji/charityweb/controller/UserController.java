@@ -30,7 +30,6 @@ public class UserController {
         try {
             User user = new User(email, name);
             userRepository.save(user);
-            userId = String.valueOf(user.getId());
         }
         catch (Exception ex) {
             return "Error creating the user: " + ex.toString();
@@ -42,9 +41,9 @@ public class UserController {
      * GET /delete  --> Delete the user having the passed id.
      */
     @RequestMapping("/delete")
-    public ModelAndView delete(Long id) {
+    public ModelAndView delete(String name) {
         ModelAndView mav = new ModelAndView();
-       if(userService.deleteById(id))
+       if(userService.deleteByUserName(name))
        {
            mav.setViewName("redirect:/showUsers");
            return mav;
@@ -74,7 +73,6 @@ public class UserController {
         String userId = "";
         try {
             User user = userRepository.findByEmail(email);
-            userId = String.valueOf(user.getId());
         }
         catch (Exception ex) {
             return "User not found";
@@ -90,9 +88,8 @@ public class UserController {
     @ResponseBody
     public String updateUser(Long id, String email, String name) {
         try {
-            User user = userRepository.findOne(id);
+            User user = userRepository.findOne(name);
             user.setEmail(email);
-            user.setUsername(name);
             userRepository.save(user);
         }
         catch (Exception ex) {

@@ -21,23 +21,21 @@ public class UserService {
     public  List<HashMap<String,String>> showAllUser()
     {
         List<User> repositoryAll =  userRepository.findAll();
-
         ArrayList<HashMap<String,String>> userList = new ArrayList<>();
        for(User x :repositoryAll)
        {
            HashMap<String, String>user = new HashMap<>();
-           user.put("id",String.valueOf(x.getId()));
-           user.put("name",x.getUsername());
+           user.put("userName",x.getUserName());
            user.put("email",x.getEmail());
            userList.add(user);
        }
        return userList;
     }
 
-    public boolean deleteById(Long id)
+    public boolean deleteByUserName(String userName)
     {
        try{
-           userRepository.delete(id);
+           userRepository.delete(userName);
            return true;
        }
        catch(Exception ex)
