@@ -49,15 +49,6 @@ public class WebApplicationTests
 
 
 	@Test
-	public void testDbMapping()
-	{
-		User newUser = new User("511231530@qq.com","lsl","lsldhr666","male","member");
-		Project newProject = new Project("testPro",newUser);
-		userRepository.save(newUser);
-		projectRepository.save(newProject);
-	}
-
-	@Test
 	public void testDatabase()
 	{
 		User newUser = new User("511231530@qq.com","lsl","lsldhr666","male","member");
