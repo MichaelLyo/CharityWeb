@@ -50,6 +50,8 @@
 </head>
 <body>
 <div th:include="template/navbar :: navbar"></div>
+<div class="clearfix"></div>
+<div class="banner two"></div>
 <div class="donation">
     <div class="container">
 
@@ -62,7 +64,16 @@
                 <div class="form-group pricing">
                     <h6 class="modal-subtitle">项目名</h6>
                     <div class="btn-group">
-                        <textarea style="width: 300px;min-height: 15px;color: #0D0D0D" placeholder="请输入项目名"></textarea>
+                        <textarea style="width: 300px;min-height: 15px;color: #0D0D0D;" placeholder="请输入项目名"></textarea>
+                    </div>
+                </div>
+                <div class="form-group pricing">
+                    <h6 class="modal-subtitle">项目起止时间</h6>
+                    <div class="btn-group">
+                        <input style="color: #0D0D0D;float: left;background: #fff; border: 1px solid #DADADA;width: 150px;" type="date"/>
+                        <p style="color: #0D0D0D;float: left;margin: 35px 10px;">—</p>
+                        <input style="color: #0D0D0D;float:left; background: #fff; border: 1px solid #DADADA;width: 150px;" type="date"/>
+                        <div class="clearfix"> </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -75,15 +86,7 @@
                             </a>
                         </div>
                         <div class="dt">
-                            <textarea style="min-height: 15px;color: #0D0D0D" id="name" placeholder="项目组织者姓名"></textarea>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="dt">
-                            <textarea style="min-height: 15px;color: #0D0D0D"  placeholder="开始时间"></textarea>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="dt">
-                            <textarea style="min-height: 15px;color: #0D0D0D" placeholder="结束时间"></textarea>
+                            <textarea style="width: 300px;min-height: 15px;color: #0D0D0D" id="name" placeholder="项目组织者姓名"></textarea>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="dt">

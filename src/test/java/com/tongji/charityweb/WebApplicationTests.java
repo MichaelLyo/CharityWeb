@@ -40,13 +40,6 @@ public class WebApplicationTests
 
 
 	@Test
-	public void testDbMapping()
-	{
-		User newUser = new User("511231530@qq.com","lsl","刘书良","lsldhr666","male","member");
-		userRepository.save(newUser);
-	}
-
-	@Test
 	public void testDatabase()
 	{
 		User newUser = new User("511231530@qq.com","lsl","刘书良","lsldhr666","male","member");
