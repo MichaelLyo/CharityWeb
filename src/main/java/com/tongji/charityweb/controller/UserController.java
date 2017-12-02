@@ -5,10 +5,13 @@ import com.tongji.charityweb.repository.user.UserRepository;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,86 +23,21 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    /**
-     * GET /create  --> Create a new user and save it in the database.
-     */
-    @RequestMapping("/create")
-    @ResponseBody
-    public String create(String email, String name) {
-        String userId = "";
-        try {
-            User user = new User(email, name);
-            userRepository.save(user);
-            userId = String.valueOf(user.getId());
-        }
-        catch (Exception ex) {
-            return "Error creating the user: " + ex.toString();
-        }
-        return "User succesfully created with id = " + userId;
-    }
 
-    /**
-     * GET /delete  --> Delete the user having the passed id.
-     */
-    @RequestMapping("/delete")
-    public ModelAndView delete(Long id) {
-        ModelAndView mav = new ModelAndView();
-       if(userService.deleteById(id))
-       {
-           mav.setViewName("redirect:/showUsers");
-           return mav;
-       }
-       mav.setViewName("error");
-       return mav;
-    }
-
-  /*  show all users*/
-    @RequestMapping("/showUsers")
-    public ModelAndView showAllUsers()
+    @RequestMapping(value = "/userInfo")
+    public String DisplayUserInfo(HttpServletRequest request, Model model)
     {
-        List<HashMap<String,String>> userList = userService.showAllUser();
-        ModelAndView mav = new ModelAndView();
-
-        mav.setViewName("pages/userList");
-        mav.addObject("userList",userList);
-        return mav;
+        User userInSession = userService.getUserInSession(request.getSession());
+        if(userInSession == null)
+        {
+            //登录失效
+            return "login/sessionLost";
+        }
+        else
+        {
+            model.addAttribute("thisUser",userInSession);
+            return "management/userInfo";
+        }
     }
-    /**
-     * GET /get-by-email  --> Return the id for the user having the passed
-     * email.
-     */
-    @RequestMapping("/get-by-email")
-    @ResponseBody
-    public String getByEmail(String email) {
-        String userId = "";
-        try {
-            User user = userRepository.findByEmail(email);
-            userId = String.valueOf(user.getId());
-        }
-        catch (Exception ex) {
-            return "User not found";
-        }
-        return "The user id is: " + userId;
-    }
-
-    /**
-     * GET /update  --> Update the email and the name for the user in the
-     * database having the passed id.
-     */
-    @RequestMapping("/update")
-    @ResponseBody
-    public String updateUser(Long id, String email, String name) {
-        try {
-            User user = userRepository.findOne(id);
-            user.setEmail(email);
-            user.setUsername(name);
-            userRepository.save(user);
-        }
-        catch (Exception ex) {
-            return "Error updating the user: " + ex.toString();
-        }
-        return "User succesfully updated!";
-    }
-
 
 }

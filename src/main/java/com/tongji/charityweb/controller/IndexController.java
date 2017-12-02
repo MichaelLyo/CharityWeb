@@ -39,10 +39,6 @@ public class IndexController {
     public String activity(){
         return "action/activity";
     }
-    @RequestMapping(value = "userInfo")
-    public String userInfo(){
-        return "management/userInfo";
-    }
     @RequestMapping(value = "hotspot")
     public String hotspot(){
         return "hotspot/hotspot-index";
