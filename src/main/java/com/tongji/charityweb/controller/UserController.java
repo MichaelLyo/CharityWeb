@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,19 +25,25 @@ public class UserController {
     private UserRepository userRepository;
 
 
-    @RequestMapping(value = "/userInfo")
-    public String DisplayUserInfo(HttpServletRequest request, Model model)
+    @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
+    public String DisplayUserInfo(HttpSession session, Model model)
     {
-        User userInSession = userService.getUserInSession(request.getSession());
+        User userInSession = userService.getUserInSession(session);
         if(userInSession == null)
         {
             //登录失效
             return "login/sessionLost";
-
-        }
+         }
         else
         {
-            model.addAttribute("thisUser",userInSession);
+            //model.addAttribute("username",userInSession.getUsername());
+            //model.addAttribute("email", userInSession.getEmail());
+            //model.addAttribute("description", userInSession.getDescription());
+            //model.addAttribute("introduction", userInSession.getIntroduction());
+            //model.addAttribute("sex", userInSession.getSex());
+            //model.addAttribute("address",userInSession.getAddress());
+            //model.addAttribute("phone", userInSession.getPhone());
+            model.addAttribute("thisUser", userInSession);
             return "management/userInfo";
         }
     }

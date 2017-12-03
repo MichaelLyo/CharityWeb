@@ -26,7 +26,7 @@ public class UserService {
        for(User x :repositoryAll)
        {
            HashMap<String, String>user = new HashMap<>();
-           user.put("userName",x.getUserName());
+           user.put("userName",x.getUsername());
            user.put("email",x.getEmail());
            userList.add(user);
        }
@@ -50,5 +50,14 @@ public class UserService {
         String username = (String) session.getAttribute(HttpSessionConfig.SESSION_USERNAME);
         User userInSession = userRepository.findByUsername(username);
         return userInSession;
+    }
+
+    public void userLogin(User userToLogin,HttpSession session)
+    {
+        session.setAttribute(HttpSessionConfig.SESSION_USERNAME,userToLogin.getUsername());
+    }
+    public void userLogout(HttpSession session)
+    {
+        session.removeAttribute(HttpSessionConfig.SESSION_USERNAME);
     }
 }
