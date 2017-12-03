@@ -1,8 +1,11 @@
 package com.tongji.charityweb.model.user;
 
 
+import com.tongji.charityweb.model.repository.Repository;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "User",uniqueConstraints = {@UniqueConstraint(columnNames = "username")})
@@ -10,15 +13,13 @@ public class User {
 
     // columns
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private String username;
 
     @NotNull
     private String email;
 
     @NotNull
-
-    private String username;
+    private String name;
 
     @NotNull
     private String password;
@@ -41,13 +42,62 @@ public class User {
 
     private String description;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "username",referencedColumnName = "username")
+    private List<Donate> donates;
 
+
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="username",referencedColumnName = "username")
+    private List<UserFollower> followers;
+
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "username",referencedColumnName = "username")
+    private List<Repository>repositories;
 
 
     // Public methods
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public List<Repository> getRepositories() {
+        return repositories;
+    }
+
+    public List<Donate> getDonate()
+    {
+        return donates;
+    }
+
+    public void setRepositories(List<Repository> repositories) {
+        this.repositories = repositories;
+    }
+
     //Constructors
+
+
+
+
+    public List<UserFollower>getFollowers()
+    {
+        return followers;
+    }
+
     public User() { }
+
 
     public User(String email, String username)
     {
@@ -55,23 +105,24 @@ public class User {
         this.username = username;
     }
 
-    public User(String email, String username, String password, String sex, String rank)
+    public User(String email, String userName,String name, String password, String sex, String rank)
     {
         this.email = email;
-        this.username = username;
+        this.username = userName;
         this.password = password;
         this.sex = sex;
         this.rank = rank;
     }
 
     //getters
-    public long getId() {
-        return id;
+
+    public String getUserName() {
+        return username;
     }
 
-    public String getUsername()
+    public String getName()
     {
-        return username;
+        return name;
     }
 
     public String getEmail()
@@ -125,17 +176,15 @@ public class User {
     }
 
     //setters
-    public void setId(long id) {
-        this.id = id;
+    public void setUserName(String userName) {
+        this.username = userName;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+
 
     public void setAddress(String address)
     {

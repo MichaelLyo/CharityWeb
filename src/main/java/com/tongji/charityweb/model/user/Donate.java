@@ -19,15 +19,11 @@ public class Donate
 	// columns
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long donateID;
 
-	@ManyToOne(cascade=CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private User donor;
+	private String username;
 
-	@ManyToOne(cascade=CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private Project project;
+	private long projectID;
 
 	//@Column(nullable=false,columnDefinition="INT default 0")
 	private int amount;
@@ -37,30 +33,21 @@ public class Donate
 	@CreatedDate
 	private Date createdAt;
 
-	public Donate(User donor, Project project, int amount)
-	{
-		this.donor = donor;
-		this.project = project;
-		this.amount = amount;
-	}
-
 	public Donate()
 	{
 	}
+	public Donate(String username, long projectID, int amount)
+	{
+		this.username=username;
+		this.projectID=projectID;
+		this.amount = amount;
+	}
+
+
 
 	public long getId()
 	{
-		return id;
-	}
-
-	public User getDonor()
-	{
-		return donor;
-	}
-
-	public Project getProject()
-	{
-		return project;
+		return donateID;
 	}
 
 	public int getAmount()
@@ -73,20 +60,22 @@ public class Donate
 		return createdAt;
 	}
 
-	public void setId(long id)
-	{
-		this.id = id;
+
+	public Long getDonateID() {
+		return donateID;
 	}
 
-	public void setDonor(User donor)
-	{
-		this.donor = donor;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setProject(Project project)
-	{
-		this.project = project;
+
+
+	public long getProjectID() {
+		return projectID;
 	}
+
 
 	public void setAmount(int amount)
 	{
@@ -96,5 +85,17 @@ public class Donate
 	public void setCreatedAt(Date createdAt)
 	{
 		this.createdAt = createdAt;
+	}
+
+	public void setDonateID(long donateID)
+	{
+		this.donateID= donateID;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public void setProjectID(long projectID) {
+		this.projectID = projectID;
 	}
 }

@@ -34,7 +34,7 @@ public class LoginController {
                 return "login/regist";
             }
             if (password.equals(password2)) {
-                user = new User("", username, password, "", "user");
+                user = new User("", username,username, password, "", "user");
                 userRepository.save(user);
                 return "management/editInfo";
             } else {
@@ -57,7 +57,6 @@ public class LoginController {
             String email = request.getParameter("email");
             String introduction = request.getParameter("introduction");
             String description = request.getParameter("description");
-            user = userRepository.findOne(user.getId());
             user.setSex(sex);
             user.setAddress(address);
             user.setPhone(phone);
