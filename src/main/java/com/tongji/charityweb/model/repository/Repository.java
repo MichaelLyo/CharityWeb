@@ -1,11 +1,16 @@
 package com.tongji.charityweb.model.repository;
 
 import com.sun.istack.internal.NotNull;
+import com.tongji.charityweb.model.comment.RepositoryComment;
+import com.tongji.charityweb.model.project.Project;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by LSL on 2017/11/21
@@ -13,29 +18,46 @@ import java.util.Date;
 @Entity
 @Table(name = "Repository")
 @EntityListeners(AuditingEntityListener.class)
-public class Repository
+public class Repository implements Serializable
 {
-	// columns
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
 
+
+	@Id
 	@NotNull
 	private String repositoryName;
 
-	//@Column(nullable = false, updatable = false)
-	//@Temporal(TemporalType.TIMESTAMP)
+	private String username;
+
 	@CreatedDate
 	private Date createdAt;
 
 	private String descriptionPictureUrl;
 
+
+	@OneToMany
+	@JoinColumn(name="repositoryName")
+	private List<Project> projects;
+
+	@OneToMany
+	@JoinColumn(name = "repositoryName")
+	private List<RepositoryComment>comments;
+
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public List<RepositoryComment> getComments() {
+		return comments;
+	}
+
 	public Repository()
 	{
 	}
 
-	public Repository(String repositoryName)
+	public Repository(String repositoryName,String username)
 	{
+		this.username=username;
 		this.repositoryName = repositoryName;
 	}
 
@@ -45,9 +67,8 @@ public class Repository
 		return createdAt;
 	}
 
-	public long getId()
-	{
-		return id;
+	public String getUsername() {
+		return username;
 	}
 
 	public String getDescriptionPictureUrl()
@@ -67,12 +88,15 @@ public class Repository
 	{
 		this.descriptionPictureUrl = descriptionPictureUrl;
 	}
-
-	public void setId(long id)
-	{
-		this.id = id;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
+
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
 	public void setRepositoryName(String repositoryName)
 	{
 		this.repositoryName = repositoryName;

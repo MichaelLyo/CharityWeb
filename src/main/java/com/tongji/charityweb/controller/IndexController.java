@@ -71,4 +71,8 @@ public class IndexController {
     public String mgtProject(){
         return "management/mgtProject";
     }
+    @RequestMapping(value = "mgtDonate")
+    public String mgtDonate(){
+        return "management/mgtDonate";
+    }
 }

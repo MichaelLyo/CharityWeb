@@ -1,8 +1,11 @@
 package com.tongji.charityweb.model.project;
 
+import com.sun.org.apache.xml.internal.utils.SerializableLocatorImpl;
 import com.tongji.charityweb.model.user.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * Created by LSL on 2017/11/24
@@ -11,56 +14,53 @@ import javax.persistence.*;
 @Table(name = "ProjectFollower")
 public class ProjectFollower
 {
-	// columns
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@ManyToOne(cascade= CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private User follower;
 
-	@ManyToOne(cascade=CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private Project project;
+	@NotNull
+	private String folleredID;
 
-	public ProjectFollower(User follower, Project project)
-	{
-		this.follower = follower;
-		this.project = project;
+
+	@NotNull
+	private String followerID;
+
+	public ProjectFollower(long id, String folleredID, String followerID) {
+		this.id = id;
+		this.folleredID = folleredID;
+		this.followerID = followerID;
 	}
 
-	public ProjectFollower()
-	{
+	public ProjectFollower() {
 	}
 
-	public long getId()
-	{
+
+	public long	 getId() {
 		return id;
 	}
 
-	public User getFollower()
-	{
-		return follower;
-	}
-
-	public Project getProject()
-	{
-		return project;
-	}
-
-	public void setId(long id)
-	{
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public void setFollower(User follower)
-	{
-		this.follower = follower;
+	public String getFolleredID() {
+		return folleredID;
 	}
 
-	public void setProject(Project project)
-	{
-		this.project = project;
+	public void setFolleredID(String folleredID) {
+		this.folleredID = folleredID;
 	}
+
+	public String getFollowerID() {
+		return followerID;
+	}
+
+	public void setFollowerID(String followerID) {
+		this.followerID = followerID;
+	}
+
+
+
+
+
 }

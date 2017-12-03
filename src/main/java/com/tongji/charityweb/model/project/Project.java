@@ -1,11 +1,14 @@
 package com.tongji.charityweb.model.project;
 
 import com.sun.istack.internal.NotNull;
+import com.tongji.charityweb.model.comment.ProjectComment;
 import com.tongji.charityweb.model.user.User;
+
 
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by LSL on 2017/11/21
@@ -14,19 +17,49 @@ import java.util.Date;
 @Table(name = "Project")
 public class Project
 {
+
 	// columns
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@NotNull
+	private String repositoryName;
+
+	@NotNull
 	private String projectName;
 
-	//外码约束。在数据库中表现为owner_id。
-	//CascadeType设置级联删除
-	@ManyToOne(cascade=CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private User owner;
+
+	@OneToMany
+	@JoinColumn(name="id")
+	List<ProjectFollower>followers;
+
+
+	@OneToMany
+	@JoinColumn(name="id")
+	List<Participate>participates;
+
+
+
+	@OneToMany
+	@JoinColumn(name="projectID",referencedColumnName = "id")
+	List<ProjectComment>projectComments;
+
+	public List<Participate> getParticipates() {
+		return participates;
+	}
+	public List<ProjectFollower> getFollowers() {
+		return followers;
+	}
+
+	public List<ProjectComment> getProjectComments() {
+		return projectComments;
+	}
+
+	public void setFollowers(List<ProjectFollower> followers) {
+		this.followers = followers;
+	}
+
 
 	private String context;
 
@@ -45,16 +78,21 @@ public class Project
 
 
 	//constructor
-	public Project(String projectName, User owner)
-	{
+
+
+	public Project(String repositoryName, String projectName) {
+		this.repositoryName = repositoryName;
 		this.projectName = projectName;
-		this.owner = owner;
 	}
 
 	//getters
-	public User getOwner()
-	{
-		return owner;
+
+	public long getId() {
+		return id;
+	}
+
+	public String getRepositoryName() {
+		return repositoryName;
 	}
 
 	public String getDescriptionPictureUrl()
@@ -77,14 +115,13 @@ public class Project
 		return followerNum;
 	}
 
+	public void setRepositoryName(String repositoryName) {
+		this.repositoryName = repositoryName;
+	}
+
 	public int getParticipateNum()
 	{
 		return participateNum;
-	}
-
-	public long getId()
-	{
-		return id;
 	}
 
 	public String getContext()
@@ -108,11 +145,7 @@ public class Project
 	}
 
 
-	//setters
-	public void setOwner(User owner)
-	{
-		this.owner = owner;
-	}
+
 
 	public void setContext(String context)
 	{

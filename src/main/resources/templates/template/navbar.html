@@ -40,8 +40,9 @@
                 <ul class="animenu__nav__child" style="text-align: center">
                     <li><a th:href="@{/mgtRepository}">仓库管理</a></li>
                     <li><a th:href="@{/mgtProject}">项目管理</a></li>
-                    <li><a>捐款管理</a></li>
+                    <li><a th:href="@{/mgtDonate}">捐款管理</a></li>
                     <li><a th:href="@{/addRepository}">新建仓库</a></li>
+                    <li><a th:href="@{/me}">退出</a></li>
                 </ul>
             </li>
             <a th:if="${session.username == null}" th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>

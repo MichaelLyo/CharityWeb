@@ -1,7 +1,9 @@
 package com.tongji.charityweb.model.comment;
 
-import com.tongji.charityweb.model.project.Project;
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by LSL on 2017/11/24
@@ -11,69 +13,89 @@ import javax.persistence.*;
 public class ProjectComment
 {
 	// columns
+	// columns
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@ManyToOne(cascade= CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private Project project;
+	private long projectID;
 
-	@ManyToOne(cascade=CascadeType.REMOVE)
-	@PrimaryKeyJoinColumn
-	private Comment comment;
+	private String repositoryName;
 
+	private String content;
 
-	private int num;
-
-	public ProjectComment(Project project, Comment comment, int num)
-	{
-		this.project = project;
-		//this.comment = comment;
-		this.num = num;
-	}
-
-	public ProjectComment()
-	{
-	}
-
-	public long getId()
-	{
+	public long getId() {
 		return id;
 	}
 
-	public Project getProject()
-	{
-		return project;
-	}
-
-	public Comment getComment()
-	{
-		return comment;
-	}
-
-	public int getNum()
-	{
-		return num;
-	}
-
-	public void setId(long id)
-	{
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public void setProject(Project project)
-	{
-		this.project = project;
+	public long getProjectID() {
+		return projectID;
 	}
 
-	public void setComment(Comment comment)
-	{
-		this.comment = comment;
+	public void setProjectID(long projectID) {
+		this.projectID = projectID;
 	}
 
-	public void setNum(int num)
-	{
+	public String getRepositoryName() {
+		return repositoryName;
+	}
+
+	public void setRepositoryName(String repositoryName) {
+		this.repositoryName = repositoryName;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public String getPictureUrls() {
+		return pictureUrls;
+	}
+
+	public void setPictureUrls(String pictureUrls) {
+		this.pictureUrls = pictureUrls;
+	}
+
+	public int getUpvote() {
+		return upvote;
+	}
+
+	public void setUpvote(int upvote) {
+		this.upvote = upvote;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
 		this.num = num;
 	}
+
+	@CreatedDate
+	private Date createdAt;
+
+	private String pictureUrls;
+
+	private int upvote;
+
+	//编号
+	private int num;
+
 }
