@@ -29,8 +29,9 @@ public class IndexController {
     public String cat(){
         return "action/cat-index";
     }
-    @RequestMapping(value = "login")
+    @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login(){
+        //System.out.println("login method: get");
         return "login/login";
     }
     @RequestMapping(value = "regist")
@@ -51,10 +52,13 @@ public class IndexController {
     public String donate(){
         return "action/donate";
     }
-    @RequestMapping(value = "editInfo")
+
+    @RequestMapping(value = "editInfo",method = RequestMethod.GET)
     public String editInfo(){
+        System.out.println("edit get");
         return "management/editInfo";
     }
+
     @RequestMapping(value = "addRepository")
     public String addRepository(){
         return "management/addRepository";
