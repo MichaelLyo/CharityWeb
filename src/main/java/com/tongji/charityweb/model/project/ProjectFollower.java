@@ -19,15 +19,15 @@ public class ProjectFollower
 
 
 	@NotNull
-	private String folleredID;
+	private String projectID;
 
 
 	@NotNull
 	private String followerID;
 
-	public ProjectFollower(long id, String folleredID, String followerID) {
+	public ProjectFollower(long id, String projectID, String followerID) {
 		this.id = id;
-		this.folleredID = folleredID;
+		this.projectID = projectID;
 		this.followerID = followerID;
 	}
 
@@ -43,12 +43,12 @@ public class ProjectFollower
 		this.id = id;
 	}
 
-	public String getFolleredID() {
-		return folleredID;
+	public String getProjectID() {
+		return projectID;
 	}
 
-	public void setFolleredID(String folleredID) {
-		this.folleredID = folleredID;
+	public void setProjectID(String folleredID) {
+		this.projectID = folleredID;
 	}
 
 	public String getFollowerID() {

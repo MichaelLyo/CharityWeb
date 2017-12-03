@@ -93,4 +93,12 @@ public class RepositoryComment
 	public void setNum(int num) {
 		this.num = num;
 	}
+
+	public String getRepositoryName() {
+		return repositoryName;
+	}
+
+	public void setRepositoryName(String repositoryName) {
+		this.repositoryName = repositoryName;
+	}
 }

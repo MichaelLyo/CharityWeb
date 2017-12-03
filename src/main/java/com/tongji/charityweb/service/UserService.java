@@ -4,6 +4,8 @@ package com.tongji.charityweb.service;
 import com.tongji.charityweb.config.HttpSessionConfig;
 import com.tongji.charityweb.controller.LoginController;
 import com.tongji.charityweb.model.user.User;
+import com.tongji.charityweb.model.user.UserFollower;
+import com.tongji.charityweb.repository.user.UserFollowerRepository;
 import com.tongji.charityweb.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,8 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserFollowerRepository userFollowerRepository;
 
     public  List<HashMap<String,String>> showAllUser()
     {
@@ -59,5 +63,41 @@ public class UserService {
     public void userLogout(HttpSession session)
     {
         session.removeAttribute(HttpSessionConfig.SESSION_USERNAME);
+    }
+
+    public boolean createUserFollower(String userName, String followerName) {
+        try {
+            UserFollower newUserFollower = new UserFollower(userName, followerName);
+            userFollowerRepository.save(newUserFollower);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteUserFollower(String userName, String followerName) {
+        try {
+            userFollowerRepository.delete(userFollowerRepository.findByUsernameAndFollowername(userName, followerName));
+            return true;
+        } catch  (Exception e) {
+            return false;
+        }
+    }
+
+    public String showAllFollower(String userName) {
+        try {
+            List<UserFollower> followerList;
+            User user = userRepository.findByUsername(userName);
+            followerList = user.getFollowers();
+
+            String followers = "";
+            for(UserFollower x : followerList) {
+                followers += x.getFollowername()+"\n";
+            }
+            return followers;
+        } catch (Exception e) {
+            return "showAllFollower error";
+        }
     }
 }

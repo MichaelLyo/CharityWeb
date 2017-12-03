@@ -8,4 +8,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface UserFollowerRepository  extends JpaRepository<UserFollower, Long> {
+    public UserFollower findByUsernameAndFollowername(String username, String followername);
 }

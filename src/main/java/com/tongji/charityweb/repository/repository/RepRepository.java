@@ -7,4 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @org.springframework.stereotype.Repository
 public interface RepRepository  extends JpaRepository<Repository,String> {
+    public Repository findByRepositoryName(String repName);
 }
