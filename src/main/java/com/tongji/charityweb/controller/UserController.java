@@ -33,13 +33,6 @@ public class UserController {
          }
         else
         {
-            //model.addAttribute("username",userInSession.getUsername());
-            //model.addAttribute("email", userInSession.getEmail());
-            //model.addAttribute("description", userInSession.getDescription());
-            //model.addAttribute("introduction", userInSession.getIntroduction());
-            //model.addAttribute("sex", userInSession.getSex());
-            //model.addAttribute("address",userInSession.getAddress());
-            //model.addAttribute("phone", userInSession.getPhone());
             model.addAttribute("thisUser", userInSession);
             return "management/userInfo";
         }

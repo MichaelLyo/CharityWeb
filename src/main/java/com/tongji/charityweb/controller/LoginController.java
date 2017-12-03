@@ -76,6 +76,7 @@ public class LoginController {
             user.setIntroduction(introduction);
             user.setDescription(description);
             userRepository.save(user);
+            model.addAttribute("thisUser",user);
         } catch (Exception ex) {
             return "error";
         }
