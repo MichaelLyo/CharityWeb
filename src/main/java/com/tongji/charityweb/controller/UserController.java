@@ -21,9 +21,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private UserRepository userRepository;
-
 
     @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
     public String DisplayUserInfo(HttpSession session, Model model)
@@ -45,6 +42,53 @@ public class UserController {
             //model.addAttribute("phone", userInSession.getPhone());
             model.addAttribute("thisUser", userInSession);
             return "management/userInfo";
+        }
+    }
+
+    @RequestMapping(value = "/createUserFol",method = RequestMethod.POST)
+    @ResponseBody
+    public String createUserFol(HttpServletRequest request)
+    {
+        try {
+            String username = request.getParameter("username");
+            String followername = request.getParameter("followername");
+            if (userService.createUserFollower(username, followername))
+                return "create UserFollower succeed!";
+            else
+                return "create fail";
+        } catch (Exception e) {
+            System.out.println("para from createUserFol error");
+            return "create UserFollower fail!";
+        }
+    }
+
+    @RequestMapping(value = "/deleteUserFol",method = RequestMethod.POST)
+    @ResponseBody
+    public String deleteUserFol(HttpServletRequest request)
+    {
+        try {
+            String username = request.getParameter("username");
+            String followername = request.getParameter("followername");
+            if (userService.deleteUserFollower(username, followername))
+                return "delete UserFollower succeed!";
+            else
+                return "delete fail";
+        } catch (Exception e) {
+            System.out.println("para from deleteUserFol error");
+            return "delete UserFollower fail!";
+        }
+    }
+
+    @RequestMapping(value = "/showUserFol",method= RequestMethod.POST)
+    @ResponseBody
+    public String showUserFol(HttpServletRequest request)
+    {
+        try {
+            String username = request.getParameter("username");
+            return userService.showAllFollower(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error showUserFol";
         }
     }
 
