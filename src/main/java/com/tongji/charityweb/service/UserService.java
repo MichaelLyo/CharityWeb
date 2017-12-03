@@ -2,6 +2,7 @@ package com.tongji.charityweb.service;
 
 
 import com.tongji.charityweb.config.HttpSessionConfig;
+import com.tongji.charityweb.controller.LoginController;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
