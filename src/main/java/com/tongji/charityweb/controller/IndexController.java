@@ -55,7 +55,6 @@ public class IndexController {
 
     @RequestMapping(value = "editInfo",method = RequestMethod.GET)
     public String editInfo(){
-        System.out.println("edit get");
         return "management/editInfo";
     }
 

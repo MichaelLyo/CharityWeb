@@ -56,7 +56,6 @@ public class LoginController {
     /* editInfo */
     @RequestMapping(value = "editInfo",method = RequestMethod.POST)
     public String editInfo(HttpServletRequest request, Model model) {
-        System.out.println("edit POST");
         try {
 
             String sex = request.getParameter("sex");
