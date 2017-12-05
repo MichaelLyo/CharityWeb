@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>error page</title>
+    <title>Leaf 404 Error Page Flat Responsive Widget Template :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Leaf 404 Error Page template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link th:href="@{assets/css/errorstyle.css}" rel="stylesheet">
+
 </head>
 <body>
-<div>
-    <text>
-        <p>这是一个荒无人烟的地方QAQ</p>
-        <p>可能的原因是，找不到您要访问的页面</p>
-    </text>
+<!-- main -->
+<div class="agileits-main">
+    <div class="agileinfo-row">
+        <div class="w3top-nav">
+            <div class="w3top-nav-right">
+                <h6 style="color: #0a0a0a">联系我们: +1 222 3333 333 </h6>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="w3layouts-errortext">
+            <h2><span>4</span> <span>0</span> <span>4</span></h2>
+            <h3 style="color: #0a0a0a">抱歉！你所查找的页面不存在 <br><a th:href="@{/me}">回到主页</a></h3>
+        </div>
+    </div>
 </div>
+<!-- //main -->
+<!-- copyright -->
+<div class="copyright w3-agile">
+    <p style="color: #0a0a0a">© 2017 404 Error Page . All rights reserved | Design by MILKMAN</p>
+</div>
+<!-- //copyright -->
 </body>
 </html>
