@@ -1,0 +1,29 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;  charset=UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" th:href="@{assets/css/reset.css}">
+    <link rel="stylesheet" th:href="@{assets/css/supersized.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/button.css}">
+</head>
+<body>
+
+<div class="page-container">
+    <div class="wrapper">
+        <div class="container">
+            <strong><span style="font-weight: bold;font-size: 30px;color: #f10d45;float: left;margin-left: 440px;margin-top: 100px;">您的登录状态已过期，请重新登录</span></strong>
+            <a th:href="@{/login}"><input type="button" class="button button-royal" style="margin-top: 70px;margin-left: 520px;float: left;" value="重新登陆"></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+<!-- Javascript -->
+<script type="text/javascript" th:src="@{assets/js/jquery-1.8.2.min.js}"></script>
+<script type="text/javascript" th:src="@{assets/js/supersized.3.2.7.min.js}"></script>
+<script type="text/javascript" th:src="@{assets/js/supersized-init.js}"></script>
+<script type="text/javascript" th:src="@{assets/js/scripts.js}"></script>
+
+</body>
+</html>

@@ -5,10 +5,14 @@ import com.tongji.charityweb.repository.user.UserRepository;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,86 +21,68 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private UserRepository userRepository;
 
-    /**
-     * GET /create  --> Create a new user and save it in the database.
-     */
-    @RequestMapping("/create")
-    @ResponseBody
-    public String create(String email, String name) {
-        String userId = "";
-        try {
-            User user = new User(email, name);
-            userRepository.save(user);
-        }
-        catch (Exception ex) {
-            return "Error creating the user: " + ex.toString();
-        }
-        return "User succesfully created with id = " + userId;
-    }
-
-    /**
-     * GET /delete  --> Delete the user having the passed id.
-     */
-    @RequestMapping("/delete")
-    public ModelAndView delete(String name) {
-        ModelAndView mav = new ModelAndView();
-       if(userService.deleteByUserName(name))
-       {
-           mav.setViewName("redirect:/showUsers");
-           return mav;
-       }
-       mav.setViewName("error");
-       return mav;
-    }
-
-  /*  show all users*/
-    @RequestMapping("/showUsers")
-    public ModelAndView showAllUsers()
+    @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
+    public String DisplayUserInfo(HttpSession session, Model model)
     {
-        List<HashMap<String,String>> userList = userService.showAllUser();
-        ModelAndView mav = new ModelAndView();
-
-        mav.setViewName("pages/userList");
-        mav.addObject("userList",userList);
-        return mav;
+        User userInSession = userService.getUserInSession(session);
+        if(userInSession == null)
+        {
+            //登录失效
+            return "login/sessionLost";
+         }
+        else
+        {
+            model.addAttribute("thisUser", userInSession);
+            return "management/userInfo";
+        }
     }
-    /**
-     * GET /get-by-email  --> Return the id for the user having the passed
-     * email.
-     */
-    @RequestMapping("/get-by-email")
+
+    @RequestMapping(value = "/createUserFol",method = RequestMethod.POST)
     @ResponseBody
-    public String getByEmail(String email) {
-        String userId = "";
+    public String createUserFol(HttpServletRequest request)
+    {
         try {
-            User user = userRepository.findByEmail(email);
+            String username = request.getParameter("username");
+            String followername = request.getParameter("followername");
+            if (userService.createUserFollower(username, followername))
+                return "create UserFollower succeed!";
+            else
+                return "create fail";
+        } catch (Exception e) {
+            System.out.println("para from createUserFol error");
+            return "create UserFollower fail!";
         }
-        catch (Exception ex) {
-            return "User not found";
-        }
-        return "The user id is: " + userId;
     }
 
-    /**
-     * GET /update  --> Update the email and the name for the user in the
-     * database having the passed id.
-     */
-    @RequestMapping("/update")
+    @RequestMapping(value = "/deleteUserFol",method = RequestMethod.POST)
     @ResponseBody
-    public String updateUser(Long id, String email, String name) {
+    public String deleteUserFol(HttpServletRequest request)
+    {
         try {
-            User user = userRepository.findOne(name);
-            user.setEmail(email);
-            userRepository.save(user);
+            String username = request.getParameter("username");
+            String followername = request.getParameter("followername");
+            if (userService.deleteUserFollower(username, followername))
+                return "delete UserFollower succeed!";
+            else
+                return "delete fail";
+        } catch (Exception e) {
+            System.out.println("para from deleteUserFol error");
+            return "delete UserFollower fail!";
         }
-        catch (Exception ex) {
-            return "Error updating the user: " + ex.toString();
-        }
-        return "User succesfully updated!";
     }
 
+    @RequestMapping(value = "/showUserFol",method= RequestMethod.POST)
+    @ResponseBody
+    public String showUserFol(HttpServletRequest request)
+    {
+        try {
+            String username = request.getParameter("username");
+            return userService.showAllFollower(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error showUserFol";
+        }
+    }
 
 }

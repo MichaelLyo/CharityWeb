@@ -47,9 +47,56 @@
             color: #fff;
         }
     </style>
+    <style type="text/css">
+        .file {
+            font-size: 0.9em;
+            background: #FCB2B2;
+            padding: 0.7em 1em;
+            text-align: center;
+            color: #fff;
+            border: none;
+            outline: none;
+            position: relative;
+            text-transform: uppercase;
+            -webkit-appearance: none;
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+            text-decoration: none;
+            -ms-transition: 0.5s all;
+        }
+        .file input {
+            position: absolute;
+            text-decoration: none;
+            top: -26px;
+            width: 75px;
+            height: 34px;
+            opacity: 0;
+        }
+        .file:hover {
+            background:#53d0c6;
+            text-decoration: none;
+            color: #fff;
+        }
+        input::-webkit-input-placeholder { /* WebKit browsers */
+            color:#999;
+        }
+        input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:#999;
+        }
+        input::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:#999;
+        }
+        input:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color:#999;
+        }
+    </style>
 </head>
 <body>
 <div th:include="template/navbar :: navbar"></div>
+<div class="clearfix"></div>
+<div class="banner two"></div>
 <div class="donation">
     <div class="container">
 
@@ -59,23 +106,27 @@
                 <h3 class="d-tittle"> 新 建 仓 库 </h3>
             </div>
             <div class="donation-body">
+                <form class="form" method="post" >
                 <div class="form-group pricing">
-                    <h6 class="modal-subtitle">仓库名</h6>
+                    <h6 class="modal-subtitle" style="float: left;margin-bottom: 20px;">仓库名</h6>
                     <div class="btn-group">
-                        <textarea style="width: 300px;min-height: 15px;color: #0D0D0D" placeholder="请输入仓库名"></textarea>
+                        <p style="color: #0D0D0D;float: left;margin-left: -34px;">仓库名： </p>
+                        <input style="margin-top: -10px;color: #0D0D0D;width: 200px;float:left;background: #fff;" placeholder="请输入仓库名">
                     </div>
                 </div>
                 <div class="form-group">
-                    <h6 class="modal-subtitle">仓库信息</h6>
+                    <h6 class="modal-subtitle" style="float: left;margin-top: -60px;">仓库信息</h6>
                     <div class="dt-inner">
-                        <div id="click" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
-                        <div style="margin-top: 10px;margin-bottom: 10px;">
+                        <p style="color: #0D0D0D;float: left;margin-left: -130px;">仓库宣传图： </p>
+                        <div id="click" style="margin-top: 100px;width: 200px; height: 200px; border: 1px solid #000;margin-left: 65px"></div>
+                        <div style="margin-top: 10px;margin-bottom: 20px;margin-left: -60px;">
                             <a href="javascript:;" class="file">上传仓库宣传图
-                                <input type="file" id="photo"/>
+                                <input style="margin-left: 150px;float: left;" type="file" id="photo"/>
                             </a>
                         </div>
                         <div class="dt">
-                            <textarea style="min-height: 15px;color: #0D0D0D" placeholder="仓库描述"></textarea>
+                            <p style="color: #0D0D0D;float: left;margin-top: 34px;">仓库介绍： </p>
+                            <textarea style="width:400px;color: #0D0D0D;float:left;margin-top: -30px;margin-left: 70px;" name="description" placeholder="仓库介绍"></textarea>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="donate">
@@ -83,6 +134,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>

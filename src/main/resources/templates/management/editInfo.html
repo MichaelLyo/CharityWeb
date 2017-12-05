@@ -16,10 +16,56 @@
     <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link th:href="@{assets/css/style.css}" rel="stylesheet">
-
+    <style type="text/css">
+        .file {
+            font-size: 0.9em;
+            background: #FCB2B2;
+            padding: 0.7em 1em;
+            text-align: center;
+            color: #fff;
+            border: none;
+            outline: none;
+            position: relative;
+            text-transform: uppercase;
+            -webkit-appearance: none;
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+            text-decoration: none;
+            -ms-transition: 0.5s all;
+        }
+        .file input {
+            position: absolute;
+            text-decoration: none;
+            top: -26px;
+            width: 75px;
+            height: 34px;
+            opacity: 0;
+        }
+        .file:hover {
+            background:#53d0c6;
+            text-decoration: none;
+            color: #fff;
+        }
+        input::-webkit-input-placeholder { /* WebKit browsers */
+            color:#999;
+            }
+        input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:#999;
+            }
+        input::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:#999;
+            }
+        input:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color:#999;
+            }
+    </style>
 </head>
 <body>
 <div th:include="template/navbar :: navbar"></div>
+<div class="clearfix"></div>
+<div class="banner two"></div>
 <div class="donation">
     <div class="container">
 
@@ -30,54 +76,67 @@
             </div>
             <div class="donation-body">
                 <div class="form-group">
-                    <h6 class="modal-subtitle">个人信息</h6>
-                    <div class="dt-inner">
-                        <div class="dt">
+                    <h6 class="modal-subtitle" style="margin-bottom: 30px;">个人信息</h6>
+                    <form class="form" action="editInfo" method="post" >
+                        <div class="dt-inner" style="width: 800px;">
+                            <div class="dt">
+                                <p style="color: #0D0D0D;float: left;">昵称： </p>
+                                <input style="margin-top: -10px;color: #0D0D0D;width: 200px;float:left;background: #fff;" name="nickname" placeholder="昵称">
+                                <div class="clearfix"> </div>
+                            </div>
+                            <p style="color: #0D0D0D;float: left;margin-top: 20px;">头像： </p>
+                            <div id="click" style="margin-top: 30px;width: 200px; height: 200px; border: 1px solid #000;margin-left: 45px"></div>
+                            <div style="margin-top: 10px;margin-bottom: 20px;margin-left: -610px;">
+                                <a href="javascript:;" class="file">上传个人头像
+                                    <input style="margin-left: 670px;float: left;" type="file" id="photo"/>
+                                </a>
+                            </div>
+                            <td><!--单元格开始-->
+                                <label style="float: left;">
+                                    <p style="color: #0D0D0D;float: left;margin-top: 20px;font-weight: normal;">性别： </p>
+                                    <select name="sex" style="color: #0D0D0D;width: 100px;height: 30px;border: 1px solid #DADADA;margin-top: 14px;">
+                                        <option>性别</option>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
+                                </label>
+                            </td>
+                            <div class="dt">
+                                <p style="color: #0D0D0D;float: left;margin-top: 80px;margin-left: -142px;">邮箱： </p>
+                                <input style="float:left;;color: #0D0D0D;width: 200px;margin-top: 70px;background: #fff;margin-left: -100px;" name="email" placeholder="邮箱">
+                                <!--错误输入处理--><span style="font-weight: 500;margin-top: 80px;float: left;font-size: 17px;color: #FF0000;">邮箱填写有误</span>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="dt">
+                                <p style="color: #0D0D0D;float: left;margin-top: 34px;margin-left: -27px;">联系方式： </p>
+                                <input style="float:left;;color: #0D0D0D;width: 200px;background: #fff;" name="phone" placeholder="联系方式">
+                                <!--错误输入处理--><span style="font-weight: 500;margin-top: 35px;float: left;font-size: 17px;color: #FF0000;">联系方式填写有误</span>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="dt">
+                                <p style="color: #0D0D0D;float: left;margin-top: 34px;">地址： </p>
+                                <input style="float:left;;color: #0D0D0D;width: 200px;background: #fff;" name="address" placeholder="地址">
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="dt">
+                                <p style="color: #0D0D0D;float: left;margin-top: 24px;">简介： </p>
+                                <textarea style="width:400px;color: #0D0D0D;min-height: 70px;float:left;margin-top: 30px;"  name="introduction" placeholder="简介"></textarea>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="dt">
+                                <p style="color: #0D0D0D;float: left;margin-left:-25px;margin-top: 34px;">个人介绍： </p>
+                                <textarea style="width:400px;color: #0D0D0D;float:left;margin-top: 40px;" name="description" placeholder="个人详细介绍"></textarea>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="donate">
 
-                            <textarea style="min-height: 15px;color: #0D0D0D; width: 100px;" name="nickname" placeholder="昵称"></textarea>
-
-                            <div class="clearfix"> </div>
-                        </div>
-                        <td><!--单元格开始-->
-                            <label>
-                                <select name="sex" style="color: #0D0D0D;width: 100px;height: 30px;border: 1px solid #DADADA;">
-                                    <option>性别</option>
-                                    <option value="男">男</option>
-                                    <option value="女">女</option>
-                                </select>
-                            </label>
-                        </td>
-                        <div class="dt">
-
-                            <textarea style="min-height: 15px;color: #0D0D0D;width: 200px;" name="email" placeholder="邮箱"></textarea>
-                            <!--错误输入处理--><!--<span style="font-weight: 500;margin-top: 20px;float: right;margin-right: 415px;font-size: 17px;color: #FF0000;">邮箱填写有误</span>-->
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="dt">
-                            <textarea style="min-height: 15px;color: #0D0D0D;width: 200px;" name="phone" placeholder="联系方式"></textarea>
-                            <!--错误输入处理<span style="font-weight: 500;margin-top: 20px;float: right;margin-right: 380px;font-size: 17px;color: #FF0000;">联系方式填写有误</span>-->
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="dt">
-                            <textarea style="color: #0D0D0D;min-height: 50px;" name="address" placeholder="地址"></textarea>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="dt">
-                            <textarea style="color: #0D0D0D;min-height: 70px;"  name="introduction" placeholder="简介"></textarea>
-
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="dt">
-                            <textarea style="color: #0D0D0D" name="description" placeholder="个人详细介绍"></textarea>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="donate">
-
-                            <a th:href="@{/userInfo}"><input type="submit" style="font-size: 18px;"   value="提交"></a>
+                                <a th:href="@{/userInfo}"><input type="submit" style="font-size: 18px;"   value="提交"></a>
 
 
+                            </div>
+
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -93,6 +152,29 @@
             event.preventDefault();
             $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
         });
+    });
+</script>
+<script>
+    document.getElementById('photo').addEventListener('change',function(e){
+
+        var files = this.files;
+        var img = new Image();
+        var reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onload = function(e){
+            var mb = (e.total/1024)/1024;
+            if(mb>= 2){
+                alert('文件大小大于2M');
+                return;
+            }
+            img.src = this.result;
+            img.style.width = "100%";
+            img.style.height = "100%";
+            document.getElementById('click').style.width="200px";
+            document.getElementById('click').style.height="200px";
+            document.getElementById('click').innerHTML = '';
+            document.getElementById('click').appendChild(img);
+        }
     });
 </script>
 <a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

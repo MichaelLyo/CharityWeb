@@ -3,6 +3,7 @@ package com.tongji.charityweb.controller;
 import com.tongji.charityweb.config.HttpSessionConfig;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.user.UserRepository;
+import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserService userService;
+
     private User user;
 
     /* regist */
@@ -36,6 +41,7 @@ public class LoginController {
             if (password.equals(password2)) {
                 user = new User("", username,username, password, "", "user");
                 userRepository.save(user);
+                userService.userLogin(user,request.getSession());
                 return "management/editInfo";
             } else {
                 span2 = true;
@@ -43,20 +49,25 @@ public class LoginController {
                 return "login/regist";
             }
         } catch (Exception ex) {
-            return "Error regist";
+            return "Error";
         }
     }
 
     /* editInfo */
-    @RequestMapping(value = "/editInfo", method = RequestMethod.POST)
-    public String editInfo(HttpServletRequest request) {
+    @RequestMapping(value = "editInfo",method = RequestMethod.POST)
+    public String editInfo(HttpServletRequest request, Model model) {
         try {
+
             String sex = request.getParameter("sex");
             String address = request.getParameter("address");
             String phone = request.getParameter("phone");
             String email = request.getParameter("email");
             String introduction = request.getParameter("introduction");
             String description = request.getParameter("description");
+            System.out.println(sex);
+            System.out.println(address);
+            System.out.println(phone);
+            user = userService.getUserInSession(request.getSession());
             user.setSex(sex);
             user.setAddress(address);
             user.setPhone(phone);
@@ -64,27 +75,28 @@ public class LoginController {
             user.setIntroduction(introduction);
             user.setDescription(description);
             userRepository.save(user);
+            model.addAttribute("thisUser",user);
         } catch (Exception ex) {
-            return "Error edit info";
+            return "error";
         }
-        return "index";
+        return "management/userInfo";
     }
 
     /* login */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model){
+        //System.out.println("login method: post");
         boolean span;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         try {
             user = userRepository.findByUsernameAndPassword(username, password);
         } catch (Exception ex) {
-            return "Error login";
+            return "error";
         }
         String str = "";
         if (user != null){
-            request.getSession().setAttribute(HttpSessionConfig.SESSION_USERNAME,username);
-            //model.addAttribute("username",request.getSession().getAttribute(HttpSessionConfig.SESSION_USERNAME));
+            userService.userLogin(user,request.getSession());
             str = "index";
         }else {
             span = true;
@@ -94,5 +106,11 @@ public class LoginController {
         return str;
     }
 
+    @RequestMapping(value = "logout",method = RequestMethod.GET)
+    public String logout(HttpSession session)
+    {
+        userService.userLogout(session);
+        return "index";
+    }
 
 }

@@ -496,12 +496,16 @@ button:active {
 .sunday h5{
     font-size:1.3em;
     font-weight:400;
+    color:#0a0a0a;
+    text-align:left;
+}
+.sunday h5:hover{
     color:#F1715E;
 }
 .sunday p{
     font-size:1.1em;
     font-weight:400;
-    color:#5F5F5F;
+    color:#9d9d9d;
     line-height:1.8em;
 }
 a.more {

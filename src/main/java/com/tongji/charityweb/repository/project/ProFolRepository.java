@@ -9,4 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface ProFolRepository  extends JpaRepository<ProjectFollower,Long> {
+    public ProjectFollower findByProjectIDAndFollowerID(String projectID, String followerID);
 }

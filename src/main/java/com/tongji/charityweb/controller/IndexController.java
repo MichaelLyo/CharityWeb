@@ -29,8 +29,9 @@ public class IndexController {
     public String cat(){
         return "action/cat-index";
     }
-    @RequestMapping(value = "login")
+    @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login(){
+        //System.out.println("login method: get");
         return "login/login";
     }
     @RequestMapping(value = "regist")
@@ -38,10 +39,6 @@ public class IndexController {
     @RequestMapping(value = "activity")
     public String activity(){
         return "action/activity";
-    }
-    @RequestMapping(value = "userInfo")
-    public String userInfo(){
-        return "management/userInfo";
     }
     @RequestMapping(value = "hotspot")
     public String hotspot(){
@@ -55,10 +52,12 @@ public class IndexController {
     public String donate(){
         return "action/donate";
     }
-    @RequestMapping(value = "editInfo")
+
+    @RequestMapping(value = "editInfo",method = RequestMethod.GET)
     public String editInfo(){
         return "management/editInfo";
     }
+
     @RequestMapping(value = "addRepository")
     public String addRepository(){
         return "management/addRepository";
@@ -74,5 +73,9 @@ public class IndexController {
     @RequestMapping(value = "mgtProject")
     public String mgtProject(){
         return "management/mgtProject";
+    }
+    @RequestMapping(value = "mgtDonate")
+    public String mgtDonate(){
+        return "management/mgtDonate";
     }
 }

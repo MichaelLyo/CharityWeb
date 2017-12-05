@@ -112,13 +112,11 @@ public class User {
         this.password = password;
         this.sex = sex;
         this.rank = rank;
+        this.name=name;
     }
 
     //getters
 
-    public String getUserName() {
-        return username;
-    }
 
     public String getName()
     {
@@ -176,9 +174,6 @@ public class User {
     }
 
     //setters
-    public void setUserName(String userName) {
-        this.username = userName;
-    }
 
     public void setEmail(String email) {
         this.email = email;
