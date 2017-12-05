@@ -26,6 +26,11 @@
 <div th:include="template/navbar :: navbar"></div>
 <div class="clearfix"></div>
 <div class="banner two"></div>
+<h3 class="tittle" style="float: left;margin-left: 30px;">我创建的项目</h3>
+<!--<h3 class="tittle" style="float: left;margin-left: 30px;">我参与的项目</h3>-->
+<div class="donate">
+    <a th:href="@{/addProject}"><input type="submit" style="font-size: 18px;float: right;margin-right: 20px;width: 150px;" value="新建项目"></a>
+</div>
 <div class="col-md-6 upcoming" style="width: 100%;">
     <div class="family">
         <div class="twenty">
