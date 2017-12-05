@@ -21,8 +21,12 @@ import java.util.List;
 public class Repository implements Serializable
 {
 
-
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
+
+
 	@NotNull
 	private String repositoryName;
 
@@ -62,6 +66,11 @@ public class Repository implements Serializable
 	}
 
 	//getters
+	public long getId() {
+		return id;
+	}
+
+
 	public Date getCreatedAt()
 	{
 		return createdAt;
@@ -83,7 +92,9 @@ public class Repository implements Serializable
 
 	//setters
 	//createdAt是不可更新的，所以不设置setter
-
+	public void setId(long id) {
+		this.id = id;
+	}
 	public void setDescriptionPictureUrl(String descriptionPictureUrl)
 	{
 		this.descriptionPictureUrl = descriptionPictureUrl;
@@ -92,11 +103,6 @@ public class Repository implements Serializable
 		this.username = username;
 	}
 
-
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
 	public void setRepositoryName(String repositoryName)
 	{
 		this.repositoryName = repositoryName;
