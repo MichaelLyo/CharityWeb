@@ -15,6 +15,7 @@
     <link th:href="@{assets/css/style.css}" rel="stylesheet">
     <link th:href="@{assets/css/layout.css}" rel="stylesheet">
     <link th:href="@{assets/css/anticipate.css}" rel="stylesheet">
+    <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
 
 </head>
 <body>
@@ -34,14 +35,14 @@
                         </button>
 
                         <ul class="animenu__nav">
-                            <li><img th:src="@{assets/img/logo.jpg}"></li>
-                            <li>
+                            <li style="float:left;right: 0;"><img th:src="@{assets/img/logo.jpg}"></li>
+                            <li style="float: left;right: 0;">
                                 <a href="#home">首页</a>
                             </li>
-                            <li>
+                            <li style="float: left;right: 0;">
                                 <a href="#features">热点</a>
                             </li>
-                            <li>
+                            <li style="float: left;right: 0;">
                                 <a href="#updates">在行动</a>
                                 <ul class="animenu__nav__child">
                                     <li><a th:href="@{/caiyun}">彩云支南</a></li>
@@ -49,11 +50,16 @@
                                     <li><a th:href="@{/cat}">宠物之家</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <li style="float: left;right: 0;">
                                 <a href="#installation">在参与</a>
                             </li>
-
-                            <li th:if="${session.username != null}" style="right: -280px;">
+                            <li class="s-bar" style="right:-120px;width:0;">
+                                <form>
+                                    <input style="float: right;margin-right: 240px;margin-top: -3px;" type="text" value="搜索" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '搜索';}">
+                                    <input style="float: right;margin-right: 175px;margin-top: -42px;background: #eee;background-color: #428bca" type="submit"  value="搜索"/>
+                                </form>
+                            </li>
+                            <li th:if="${session.username != null}" style="right: -310px;top: -24px;">
                                 <a th:text="${session.username}"  th:href="@{/userInfo}">MilkMan</a>
                                 <ul class="animenu__nav__child" style="text-align: center">
                                     <li><a th:href="@{/mgtRepository}">仓库管理</a></li>
@@ -63,9 +69,8 @@
                                     <li><a th:href="@{/logout}">退出</a></li>
                                 </ul>
                             </li>
-                            <a th:if="${session.username == null}" th:href="@{/regist}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
-                            <a th:if="${session.username == null}" th:href="@{/login}" style="right:-300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
-
+                            <a th:if="${session.username == null}" th:href="@{/regist}" style="right: -300px;top: -24px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
+                            <a th:if="${session.username == null}" th:href="@{/login}" style="right: -300px;top: -24px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
 
                         </ul>
                     </nav>
