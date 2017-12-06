@@ -17,7 +17,7 @@
     <link rel="stylesheet" th:href="@{Login/css/owl.carousel.css}" type="text/css" media="all">
     <link th:href="@{Login/css/owl.theme.css}" rel="stylesheet">
     <link th:href="@{Login/css/style.css}" rel="stylesheet">
-
+    <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
     <script>
         new WOW().init();
     </script>
@@ -51,12 +51,14 @@
                 </div>
                 <div class="col-md-9 post-details">
                     <h3>To Protect Humanity</h3>
+                    <!--<h6 style="color: #53d0c6;font-size: 1.1em;">状态：进行中</h6>--> <!--此处后端进行判断活动状态为何-->
+                    <h6 style="color: #F1715E;font-size: 1.1em;">状态：已结束</h6>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus porta. Fusce suscipit varius mi. nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna in 2001 donec accumsan malesuada orci. Donec sit amet eros.  Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                 </div>
                 <!--post-details-->
                 <div class="clearfix"> </div>
 
-                <div class="col-md-6 wthree-about-left">
+                <div class="col-md-6 wthree-about-left" style="margin-top: 50px;">
                     <h3>项目参与度</h3>
                     <div class="skills-bar">
                         <section class='bar'>
@@ -88,14 +90,14 @@
         <div class="single">
             <div class="leave">
 
-                <h4> 评 论 </h4>
+                <h4> 留 言 </h4>
             </div>
             <form id="commentform">
                     <textarea style="width: 1000px"></textarea>
                 <div class="clearfix"></div>
                 <p class="form-submit">
 
-                    <input name="submit" type="submit" id="submit" value="评  论">
+                    <input name="submit" type="submit" id="submit" value="留  言">
 
                 </p>
                 <div class="clearfix"></div>
@@ -103,39 +105,39 @@
             <div class="single_grid2">
                 <h4 class="tz-title-4 tzcolor-blue">
 
-                     评 论 区
+                     留 言 区
 
                 </h4>
                 <ul class="list">
-                    <li>
+                    <li style="margin-bottom: 30px;">
                         <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
                             <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Aug 30, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
 
-                            <h5 class="m_26"> <a href="#">回复</a></h5>
+                            <!--<h5 class="m_26"> <a href="#">回复</a></h5>-->
 
                         </div>
                         <div class="clearfix"></div>
                     </li>
-                    <li>
+                    <li style="margin-bottom: 30px;">
                         <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
                             <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Sep 2, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
 
-                            <h5 class="m_26"> <a href="#">回复</a></h5>
+                            <!--<h5 class="m_26"> <a href="#">回复</a></h5>-->
 
                         </div>
                         <div class="clearfix"></div>
                     </li>
-                    <li>
+                    <li style="margin-bottom: 30px;">
                         <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
                             <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Nov 2, 2015</span></div>
                             <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
 
-                            <h5 class="m_26"> <a href="#">回复</a></h5>
+                            <!--<h5 class="m_26"> <a href="#">回复</a></h5>-->
 
                         </div>
                         <div class="clearfix"></div>

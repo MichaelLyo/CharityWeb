@@ -20,7 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <script th:src="@{Login/js/jquery-1.11.1.min.js}"></script>
     <script th:src="@{Login/js/bootstrap.js}"></script>
-
+    <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
     <link rel="stylesheet" th:href="@{assets/css/button.css}">
     <style type="text/css">
         button {
@@ -319,7 +319,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"> </div>
                 <div class="w3-button">
                     <div class="w3-button-info m_nav_item">
+                        <!--此处后端需要判断，如果进入的是自己的信息界面，则显示“修改个人信息”，进入他人的信息界面，显示“关注该用户”-->
                         <a class="hvr-sweep-to-bottom" th:href="@{/editInfo}">修改个人信息</a>
+                        <!--<a class="hvr-sweep-to-bottom" th:href="@{/editInfo}">关注该用户</a>-->
                     </div>
                 </div>
 
