@@ -23,6 +23,37 @@ public class UserService {
     @Autowired
     private UserFollowerRepository userFollowerRepository;
 
+    public boolean createUser( String userName,String email, String name, String password, String sex, String rank)
+    {
+        try{
+           User newUser = new User(userName);
+           newUser.setName(name);
+           newUser.setEmail(email);
+           newUser.setPassword(password);
+           newUser.setSex(sex);
+           newUser.setRank(rank);
+           userRepository.save(newUser);
+            return true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return   false;
+        }
+    }
+
+    public boolean deleteUser(String userName)
+    {
+        try{
+            userRepository.deleteByUsername(userName);
+            return true;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+
     public  List<HashMap<String,String>> showAllUser()
     {
         List<User> repositoryAll =  userRepository.findAll();

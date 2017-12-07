@@ -19,9 +19,11 @@ public class ProjectController {
     public String createProFol(HttpServletRequest request)
     {
         try {
-            String projectID = request.getParameter("projectID");
-            String followerID = request.getParameter("followerID");
-            if (projectService.createProFollower(projectID, followerID))
+            String projectName = request.getParameter("projectName");
+            String repName =  request.getParameter("repName");
+            String followerName =  request.getParameter("followerName");
+            String userName = request.getParameter("userName");
+            if (projectService.createProFollower(projectName, repName, followerName, userName))
                 return "create ProjectFollower succeed!";
             else
                 return "create fail";
@@ -36,9 +38,11 @@ public class ProjectController {
     public String deleteProFol(HttpServletRequest request)
     {
         try {
-            String projectID = request.getParameter("projectID");
-            String followerID = request.getParameter("followerID");
-            if (projectService.deleteProFollower(projectID, followerID))
+            String projName = request.getParameter("projName");
+            String repName = request.getParameter("repName");
+            String followerName = request.getParameter("followerName");
+            String userName = request.getParameter("userName");
+            if (projectService.deleteProFollower(projName, repName, followerName, userName))
                 return "delete ProjectFollower succeed!";
             else
                 return "delete fail";
@@ -53,8 +57,10 @@ public class ProjectController {
     public String showProFol(HttpServletRequest request)
     {
         try {
-            String projectID = request.getParameter("projectID");
-            return projectService.showAllProFollower(projectID);
+            String userName = request.getParameter("userName");
+            String repName = request.getParameter("repName");
+            String projName = request.getParameter("projName");
+            return projectService.showAllProFollower(userName, repName, projName);
         } catch (Exception e) {
             e.printStackTrace();
             return "error showProFol";

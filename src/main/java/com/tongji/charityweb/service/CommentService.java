@@ -1,9 +1,13 @@
 package com.tongji.charityweb.service;
 
 import com.tongji.charityweb.model.comment.ProjectComment;
+import com.tongji.charityweb.model.comment.ProjectCommentID;
 import com.tongji.charityweb.model.comment.RepositoryComment;
+import com.tongji.charityweb.model.comment.RepositoryCommentID;
 import com.tongji.charityweb.model.project.Project;
+import com.tongji.charityweb.model.project.ProjectID;
 import com.tongji.charityweb.model.repository.Repository;
+import com.tongji.charityweb.model.repository.RepositoryID;
 import com.tongji.charityweb.repository.comment.ProjectCommentRepository;
 import com.tongji.charityweb.repository.comment.RepComRepository;
 import com.tongji.charityweb.repository.project.ProjectRepository;
@@ -25,13 +29,17 @@ public class CommentService {
     @Autowired
     private ProjectCommentRepository projectCommentRepository;
 
-    public boolean createRepComment(String repName, String content) {
+    public boolean createRepComment(String repName,String userName, String content) {
         try {
+            Repository repository = repRepository.findOne(new RepositoryID(repName, userName));
+
             Date createDate = new Date();
-            RepositoryComment newRepCom = new RepositoryComment();
-            newRepCom.setRepositoryName(repName);
+            RepositoryComment newRepCom = new RepositoryComment( repName, userName);
             newRepCom.setContent(content);
-            repComRepository.save(newRepCom);
+
+            repository.addComment(newRepCom);
+
+            repRepository.save(repository);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,20 +47,20 @@ public class CommentService {
         }
     }
 
-    public boolean deleteRepComment(long id) {
+    public boolean deleteRepComment(String repName,String userName, int num) {
         try {
-            repComRepository.delete(id);
+            repComRepository.delete(new RepositoryCommentID(num, repName, userName));
             return true;
         } catch  (Exception e) {
             return false;
         }
     }
 
-    public String showAllComByRepName(String repName)
+    public String showAllComByRepName(String repName, String userName)
     {
         try {
             List<RepositoryComment> repositoryCommentList;
-            Repository repository = repRepository.findByRepositoryName(repName);
+            Repository repository = repRepository.findOne(new RepositoryID(userName,repName));
             repositoryCommentList = repository.getComments();
 
             String comments = "";
@@ -65,34 +73,35 @@ public class CommentService {
         }
     }
 
-    public boolean createProComment(long projectID, String repositoryName, String content) {
+    public boolean createProComment(String projName, String repName, String userName, String content) {
         try {
-            ProjectComment newProCom = new ProjectComment();
-            newProCom.setProjectID(projectID);
-            newProCom.setRepositoryName(repositoryName);
+            Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
+
+            ProjectComment newProCom = new ProjectComment(projName, repName, userName);
             newProCom.setContent(content);
-            projectCommentRepository.save(newProCom);
+
+            project.addProjectComment(newProCom);
+            projectRepository.save(project);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }
 
-    public boolean deleteProComment(long id) {
+    public boolean deleteProComment(String projName, String repName, String userName,int num) {
         try {
-            projectCommentRepository.delete(id);
+            projectCommentRepository.delete( new ProjectCommentID(projName, repName, userName, num));
             return true;
         } catch  (Exception e) {
             return false;
         }
     }
 
-    public String showAllComByProID(long projectID)
+    public String showAllComByProID(String projName, String repName, String userName)
     {
         try {
             List<ProjectComment> projectCommentList;
-            Project project = projectRepository.findOne(projectID);
+            Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
             projectCommentList = project.getProjectComments();
 
             String comments = "";

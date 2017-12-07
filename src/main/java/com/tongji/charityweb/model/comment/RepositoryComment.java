@@ -4,54 +4,86 @@ import com.tongji.charityweb.model.repository.Repository;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.sql.Struct;
 import java.util.Date;
 
 /**
  * Created by LSL on 2017/11/24
  */
 @Entity
+@IdClass(RepositoryCommentID.class)
 @Table(name = "RepositoryComment")
 public class RepositoryComment
 {
+
 	// columns
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int num;
 
-	private String repositoryName;
+	@Id
+	private String repName;
+
+	@Id
+	private String userName;
 
 	private String content;
 
 	@CreatedDate
-	private Date createdAt;
+	private Date createdDate;
 
 	private String pictureUrls;
 
 	private int upvote;
 
-	//编号
-	private int num;
 
-	public RepositoryComment(String content, Date createdAt, String pictureUrls, int upvote, int num) {
-		this.content = content;
-		this.createdAt = createdAt;
-		this.pictureUrls = pictureUrls;
-		this.upvote = upvote;
-		this.num = num;
-	}
 
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Repository repository;
 
 
 	public RepositoryComment()
 	{
 	}
-
-	public long getId() {
-		return id;
+	public RepositoryComment(String repName, String userName) {
+		this.repName = repName;
+		this.userName = userName;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+
+	public Repository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(Repository repository){
+		this.repository = repository;
+		if(!repository.getProjects().contains(this)){
+			repository.getComments().add(this);
+		}
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public String getRepName() {
+		return repName;
+	}
+
+	public void setRepName(String repName) {
+		this.repName = repName;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getContent() {
@@ -62,12 +94,12 @@ public class RepositoryComment
 		this.content = content;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	public String getPictureUrls() {
@@ -86,19 +118,4 @@ public class RepositoryComment
 		this.upvote = upvote;
 	}
 
-	public int getNum() {
-		return num;
-	}
-
-	public void setNum(int num) {
-		this.num = num;
-	}
-
-	public String getRepositoryName() {
-		return repositoryName;
-	}
-
-	public void setRepositoryName(String repositoryName) {
-		this.repositoryName = repositoryName;
-	}
 }

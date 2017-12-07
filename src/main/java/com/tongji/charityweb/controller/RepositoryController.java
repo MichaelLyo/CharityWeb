@@ -29,9 +29,9 @@ public class RepositoryController {
     public String createRep(HttpServletRequest request, Model model)
     {
         try {
-            String userID = request.getParameter("userName");
+            String userName = request.getParameter("userName");
             String repName = request.getParameter("repName");
-            if( repService.createRepository(userID,repName))
+            if( repService.createRepository(userName,repName))
                   return "create Res succeed!";
             else
                 return "create fail";

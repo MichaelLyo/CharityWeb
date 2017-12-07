@@ -10,53 +10,77 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "Participate")
+@IdClass(ProjectParticipateID.class)
 public class Participate {
-	// columns
 	@Id
-	private long id;
+	private String userName;
+	@Id
+	private String repName;
+	@Id
+	private String projName;
+	@Id
+	private String parName;
 
 
-	@NotNull
-	private String userID;
 
 
-	@NotNull
-	private String parID;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Project project;
 
-
-	public Participate(long id, String userID, String parID) {
-		this.userID = userID;
-		this.parID = parID;
-		this.id = id;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getUserID() {
-		return userID;
-	}
-
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
-
-	public String getParID() {
-		return parID;
-	}
-
-	public void setParID(String parID) {
-		this.parID = parID;
-	}
 
 	public Participate()
 	{
 
 	}
 
+	public Participate(String userName, String repName, String projName, String parName) {
+		this.userName = userName;
+		this.repName = repName;
+		this.projName = projName;
+		this.parName = parName;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project)
+	{
+		this.project = project;
+		if(!project.getParticipates().contains(this)){
+			project.getParticipates().add(this);
+		}
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getRepName() {
+		return repName;
+	}
+
+	public void setRepName(String repName) {
+		this.repName = repName;
+	}
+
+	public String getProjName() {
+		return projName;
+	}
+
+	public void setProjName(String projName) {
+		this.projName = projName;
+	}
+
+	public String getParName() {
+		return parName;
+	}
+
+	public void setParName(String parName) {
+		this.parName = parName;
+	}
 }
