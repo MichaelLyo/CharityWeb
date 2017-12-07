@@ -11,6 +11,10 @@ public class UserFollower
 {
 	// columns
 
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="USER_ID")
+	private User owner;
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +23,18 @@ public class UserFollower
 	private String username;
 
 	private String followername;
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner)
+	{
+		this.owner = owner;
+		if(!owner.getFollowers().contains(this)){
+			owner.getFollowers().add(this);
+		}
+	}
 
 	public long getUserFollowerID() {
 		return userFollowerID;

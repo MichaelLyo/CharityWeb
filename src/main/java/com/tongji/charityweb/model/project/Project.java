@@ -2,8 +2,9 @@ package com.tongji.charityweb.model.project;
 
 import com.sun.istack.internal.NotNull;
 import com.tongji.charityweb.model.comment.ProjectComment;
+import com.tongji.charityweb.model.repository.Repository;
 import com.tongji.charityweb.model.user.User;
-
+import com.tongji.charityweb.repository.comment.RepComRepository;
 
 
 import javax.persistence.*;
@@ -14,52 +15,18 @@ import java.util.List;
  * Created by LSL on 2017/11/21
  */
 @Entity
+@IdClass(ProjectID.class)
 @Table(name = "Project")
 public class Project
 {
-
-	// columns
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private String userName;
 
-	@NotNull
-	private String repositoryName;
+	@Id
+	private String repName;
 
-	@NotNull
-	private String projectName;
-
-
-	@OneToMany
-	@JoinColumn(name="id")
-	List<ProjectFollower>followers;
-
-
-	@OneToMany
-	@JoinColumn(name="id")
-	List<Participate>participates;
-
-
-
-	@OneToMany
-	@JoinColumn(name="projectID",referencedColumnName = "id")
-	List<ProjectComment>projectComments;
-
-	public List<Participate> getParticipates() {
-		return participates;
-	}
-	public List<ProjectFollower> getFollowers() {
-		return followers;
-	}
-
-	public List<ProjectComment> getProjectComments() {
-		return projectComments;
-	}
-
-	public void setFollowers(List<ProjectFollower> followers) {
-		this.followers = followers;
-	}
-
+	@Id
+	private String projName;
 
 	private String context;
 
@@ -76,23 +43,109 @@ public class Project
 
 	private String descriptionPictureUrl;
 
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Repository repository;
+
+
+	@OneToMany(mappedBy="project")
+	List<ProjectFollower>followers;
+
+
+	@OneToMany(mappedBy="project")
+	List<Participate>participates;
+
+
+	@OneToMany(mappedBy="project")
+	List<ProjectComment>projectComments;
+
+	public List<Participate> getParticipates() {
+		return participates;
+	}
+
+	public void addParticipate(Participate participate) {
+		this.participates.add(participate);
+		if(participate.getProject() != this){
+			participate.setProject(this);
+		}
+	}
+
+	public  boolean deleteParticipate(Participate participate){
+		if(this.participates.contains(participate)){
+			this.participates.remove(participate);
+			return true;
+		}
+		return false;
+	}
+	public List<ProjectFollower> getFollowers() {
+		return followers;
+	}
+
+	public void addFollower(ProjectFollower follower){
+		this.followers.add(follower);
+		if(follower.getProject() != this){
+			follower.setProject(this);
+		}
+	}
+
+	public boolean deleteFollower(ProjectFollower follower) {
+		if(this.followers.contains(follower)){
+			this.followers.remove(follower);
+			return true;
+		}
+		return false;
+	}
+	public List<ProjectComment> getProjectComments() {
+		return projectComments;
+	}
+
+	public void addProjectComment(ProjectComment comment){
+		this.projectComments.add(comment);
+		if(comment.getProject() != this){
+			comment.setProject(this);
+		}
+	}
+
+	public boolean deleteProjectComment(ProjectComment comment){
+		if(this.projectComments.contains(comment)){
+			this.projectComments.add(comment);
+			return true;
+		}
+		return false;
+	}
+
+
+
+	public void setFollowers(List<ProjectFollower> followers) {
+		this.followers = followers;
+	}
+
+
+
+
 
 	//constructor
-
-
-	public Project(String repositoryName, String projectName) {
-		this.repositoryName = repositoryName;
-		this.projectName = projectName;
+	public Project(String repName, String projName, String userName) {
+		this.repName = repName;
+		this.projName = projName;
+		this.userName =userName;
 	}
 
 	//getters
 
-	public long getId() {
-		return id;
+	public Repository getRepository() {
+		return repository;
 	}
 
+	public void setRepository(Repository repository){
+		this.repository = repository;
+		if(!repository.getProjects().contains(this)){
+			repository.getProjects().add(this);
+		}
+	}
+
+
 	public String getRepositoryName() {
-		return repositoryName;
+		return repName;
 	}
 
 	public String getDescriptionPictureUrl()
@@ -115,8 +168,8 @@ public class Project
 		return followerNum;
 	}
 
-	public void setRepositoryName(String repositoryName) {
-		this.repositoryName = repositoryName;
+	public void setRepositoryName(String repName) {
+		this.repName = repName;
 	}
 
 	public int getParticipateNum()
@@ -131,7 +184,7 @@ public class Project
 
 	public String getProjectName()
 	{
-		return projectName;
+		return projName;
 	}
 
 	public String getProjectType()
@@ -157,14 +210,10 @@ public class Project
 		this.descriptionPictureUrl = descriptionPictureUrl;
 	}
 
-	public void setId(long id)
-	{
-		this.id = id;
-	}
 
 	public void setProjectName(String projectName)
 	{
-		this.projectName = projectName;
+		this.projName = projName;
 	}
 
 	public void setParticipateNum(int participateNum)

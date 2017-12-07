@@ -1,6 +1,7 @@
 package com.tongji.charityweb.controller;
 
 import com.tongji.charityweb.service.CommentService;
+import jdk.internal.org.objectweb.asm.tree.IincInsnNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +20,10 @@ public class CommentController {
     public String createRepCom(HttpServletRequest request)
     {
         try {
+            String userName =  request.getParameter("userName");
             String repName = request.getParameter("repName");
             String content = request.getParameter("content");
-            if (commentService.createRepComment(repName, content))
+            if (commentService.createRepComment(repName, userName, content))
                 return "create RepComment succeed!";
             else
                 return "create fail";
@@ -36,8 +38,10 @@ public class CommentController {
     public String deleteRepCom(HttpServletRequest request)
     {
         try {
-            String id = request.getParameter("repComID");
-            if (commentService.deleteRepComment(Long.valueOf(id)))
+            String repName = request.getParameter("repName");
+            String userName = request.getParameter("userName");
+            Integer num = Integer.valueOf(request.getParameter("num"));
+            if (commentService.deleteRepComment(repName, userName,num))
                 return "delete RepComment succeed!";
             else
                 return "delete fail";
@@ -53,7 +57,8 @@ public class CommentController {
     {
         try {
             String repName = request.getParameter("repName");
-            return commentService.showAllComByRepName(repName);
+            String userName = request.getParameter("userName");
+            return commentService.showAllComByRepName(repName, userName);
         } catch (Exception e) {
             e.printStackTrace();
             return "error showRepComment";
@@ -65,10 +70,11 @@ public class CommentController {
     public String createProCom(HttpServletRequest request)
     {
         try {
-            String projectID = request.getParameter("id");
+            String projectName = request.getParameter("id");
             String repName = request.getParameter("repName");
+            String userName = request.getParameter("userName");
             String content = request.getParameter("content");
-            if (commentService.createProComment(Long.valueOf(projectID), repName, content))
+            if (commentService.createProComment(projectName,repName,userName,content))
                 return "create ProComment succeed!";
             else
                 return "create fail";
@@ -83,8 +89,11 @@ public class CommentController {
     public String deleteProCom(HttpServletRequest request)
     {
         try {
-            String id = request.getParameter("id");
-            if (commentService.deleteProComment(Long.valueOf(id)))
+            String projName = request.getParameter("projName");
+            String repName = request.getParameter("repName");
+            String userName = request.getParameter("userName");
+            int num =Integer.valueOf( request.getParameter("num"));
+            if (commentService.deleteProComment(projName, repName, userName, num))
                 return "delete ProComment succeed!";
             else
                 return "delete fail";
@@ -99,8 +108,12 @@ public class CommentController {
     public String showProCom(HttpServletRequest request)
     {
         try {
-            String id = request.getParameter("id");
-            return commentService.showAllComByProID(Long.valueOf(id));
+
+            String projName = request.getParameter("projName");
+            String repName = request.getParameter("repName");
+            String userName = request.getParameter("userName");
+
+            return commentService.showAllComByProID(projName, repName, userName);
         } catch (Exception e) {
             e.printStackTrace();
             return "error showProComment";

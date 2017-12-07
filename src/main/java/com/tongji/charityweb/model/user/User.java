@@ -5,6 +5,7 @@ import com.tongji.charityweb.model.repository.Repository;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -42,66 +43,29 @@ public class User {
 
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "username",referencedColumnName = "username")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="donator")
     private List<Donate> donates;
 
 
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="username",referencedColumnName = "username")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="owner")
     private List<UserFollower> followers;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "username",referencedColumnName = "username")
-    private List<Repository>repositories;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="user")
+    private List<Repository>repositories ;
 
 
     // Public methods
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public List<Repository> getRepositories() {
-        return repositories;
-    }
-
-    public List<Donate> getDonate()
-    {
-        return donates;
-    }
-
-    public void setRepositories(List<Repository> repositories) {
-        this.repositories = repositories;
-    }
 
     //Constructors
-
-
-
-
-    public List<UserFollower>getFollowers()
+    public User()
     {
-        return followers;
+
     }
-
-    public User() { }
-
-
-    public User(String email, String username)
+    public User( String username)
     {
-        this.email = email;
         this.username = username;
     }
 
@@ -117,6 +81,72 @@ public class User {
 
     //getters
 
+    public String getUsername() {
+        return username;
+    }
+
+    public List<Repository> getRepositories() {
+        return repositories;
+    }
+
+    public void addRepository(Repository repository) {
+        this.repositories.add(repository);
+        if(repository.getUser() != this){
+            repository.setUser(this);
+        }
+    }
+
+
+    public boolean deleteRepository(Repository repository) {
+        if(this.repositories.contains(repository))
+        {
+            this.repositories.remove(repository);
+            return true;
+        }
+        return false;
+    }
+
+    public void addFollower(UserFollower follower) {
+        this.followers.add(follower);
+        if(follower.getOwner() != this){
+            follower.setOwner(this);
+        }
+    }
+
+    public boolean deleteFollower(UserFollower follower) {
+        if(this.followers.contains(follower))
+        {
+            this.followers.remove(follower);
+            return true;
+        }
+        return false;
+    }
+
+    public void addDonate(Donate donate) {
+        this.donates.add(donate);
+        if( donate.getDonator() != this){
+            donate.setDonator(this);
+        }
+    }
+
+
+    public boolean deleteDonate(Donate donate){
+        if(this.donates.contains(donate)){
+            this.donates.remove(donate);
+            return true;
+        }
+        return false;
+    }
+
+
+    public List<Donate> getDonates() {
+        return donates;
+    }
+
+    public List<UserFollower>getFollowers()
+    {
+        return followers;
+    }
 
     public String getName()
     {
@@ -179,8 +209,6 @@ public class User {
         this.email = email;
     }
 
-
-
     public void setAddress(String address)
     {
         this.address = address;
@@ -224,5 +252,14 @@ public class User {
     public void setNickname(String nickname)
     {
         this.nickname = nickname;
+    }
+
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

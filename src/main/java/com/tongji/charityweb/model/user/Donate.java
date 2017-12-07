@@ -16,7 +16,10 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Donate
 {
+
+
 	// columns
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long donateID;
@@ -33,6 +36,10 @@ public class Donate
 	@CreatedDate
 	private Date createdAt;
 
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="USER_ID")
+	private User donator;
+
 	public Donate()
 	{
 	}
@@ -44,6 +51,16 @@ public class Donate
 	}
 
 
+	public User getDonator() {
+		return donator;
+	}
+
+	public void setDonator(User donator){
+		this.donator = donator;
+		if(!donator.getDonates().contains(this)){
+			donator.getDonates().add(this);
+		}
+	}
 
 	public long getId()
 	{

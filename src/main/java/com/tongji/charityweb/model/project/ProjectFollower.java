@@ -2,9 +2,13 @@ package com.tongji.charityweb.model.project;
 
 import com.sun.org.apache.xml.internal.utils.SerializableLocatorImpl;
 import com.tongji.charityweb.model.user.User;
+import org.omg.CORBA.DATA_CONVERSION;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,55 +16,92 @@ import java.util.List;
  */
 @Entity
 @Table(name = "ProjectFollower")
+@IdClass(ProjectID.class)
 public class ProjectFollower
 {
+
 	@Id
-	private long id;
-
-
 	@NotNull
-	private String projectID;
+	private String userName;
 
-
+	@Id
 	@NotNull
-	private String followerID;
+	private String repName;
 
-	public ProjectFollower(long id, String projectID, String followerID) {
-		this.id = id;
-		this.projectID = projectID;
-		this.followerID = followerID;
+	@Id
+	@NotNull
+	private String projName;
+
+	@Id
+	@NotNull
+	private String followerName;
+
+	@CreatedDate
+	@NotNull
+	private Date followDate;
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Project project;
+
+	public ProjectFollower(String userName, String repName, String projName, String followerName) {
+		this.userName = userName;
+		this.repName = repName;
+		this.projName = projName;
+		this.followerName = followerName;
 	}
 
 	public ProjectFollower() {
 	}
 
-
-	public long	 getId() {
-		return id;
+	public Project getProject() {
+		return project;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setProject(Project project) {
+		this.project = project;
+		if(!project.getFollowers().contains(this))
+		{
+			project.getFollowers().add(this);
+		}
 	}
 
-	public String getProjectID() {
-		return projectID;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setProjectID(String folleredID) {
-		this.projectID = folleredID;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getFollowerID() {
-		return followerID;
+	public String getRepName() {
+		return repName;
 	}
 
-	public void setFollowerID(String followerID) {
-		this.followerID = followerID;
+	public void setRepName(String repName) {
+		this.repName = repName;
 	}
 
+	public String getProjName() {
+		return projName;
+	}
 
+	public void setProjName(String projName) {
+		this.projName = projName;
+	}
 
+	public String getFollowerName() {
+		return followerName;
+	}
 
+	public void setFollowerName(String followerName) {
+		this.followerName = followerName;
+	}
 
+	public Date getFollowDate() {
+		return followDate;
+	}
+
+	public void setFollowDate(Date followDate) {
+		this.followDate = followDate;
+	}
 }

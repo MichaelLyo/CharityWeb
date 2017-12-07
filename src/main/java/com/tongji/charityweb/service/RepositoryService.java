@@ -1,6 +1,10 @@
 package com.tongji.charityweb.service;
 
+import ch.qos.logback.classic.turbo.TurboFilter;
+import com.tongji.charityweb.model.project.Project;
+import com.tongji.charityweb.model.project.ProjectID;
 import com.tongji.charityweb.model.repository.Repository;
+import com.tongji.charityweb.model.repository.RepositoryID;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.comment.RepComRepository;
 import com.tongji.charityweb.repository.project.ProjectRepository;
@@ -18,19 +22,28 @@ public class RepositoryService {
     RepRepository repRepository;
 
     @Autowired
+    ProjectRepository projectRepository;
+
+    @Autowired
     RepComRepository repComRepository;
 
     @Autowired
     UserRepository userRepository;
 
+
+
+
     public boolean createRepository(String userName, String repName)
     {
         try {
+            User user = userRepository.findByUsername(userName);
+
             Date createDate = new Date();
-            Repository newRep = new Repository();
-            newRep.setRepositoryName(repName);
-            newRep.setUsername(userName);
-            repRepository.save(newRep);
+            Repository newRep = new Repository(repName, userName);
+
+            user.addRepository(newRep);
+
+            userRepository.save(user);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,7 +55,8 @@ public class RepositoryService {
     {
         try
         {
-            repRepository.delete(repName);
+            RepositoryID repositoryID = new RepositoryID(userName, repName);
+            repRepository.delete(repositoryID);
             return true;
         }
         catch  (Exception e)
