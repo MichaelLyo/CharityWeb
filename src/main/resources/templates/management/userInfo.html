@@ -310,7 +310,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="w3l-banner-grids">
             <div class="col-md-8 w3ls-banner-right">
                 <div class="banner-right-img">
-                    <img th:src="@{Login/images/1.jpg}" alt="" />
+                    <img th:src="@{Login/images/1.jpg}"  th:src="${thisUser.hpPictureUrl}"  alt="" />
                 </div>
                 <div class="banner-right-info">
                     <h2>简介</h2>

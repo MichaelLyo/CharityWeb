@@ -25,3 +25,6 @@ nbdist/
 
 ### Spring boot ###
 src/main/resources/application.properties
+
+### files ###
+uploadedFiles/

@@ -1,14 +1,16 @@
 package com.tongji.charityweb.controller;
 
-import com.tongji.charityweb.config.HttpSessionConfig;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.user.UserRepository;
+import com.tongji.charityweb.service.FileService;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,6 +22,8 @@ public class LoginController {
     private UserRepository userRepository;
     @Autowired
     private UserService userService;
+    @Autowired
+    private FileService fileService;
 
     private User user;
 
@@ -55,7 +59,7 @@ public class LoginController {
 
     /* editInfo */
     @RequestMapping(value = "editInfo",method = RequestMethod.POST)
-    public String editInfo(HttpServletRequest request, Model model) {
+    public String editInfo(HttpServletRequest request,@RequestParam("file") MultipartFile file) {
         try {
 
             String sex = request.getParameter("sex");
@@ -64,10 +68,27 @@ public class LoginController {
             String email = request.getParameter("email");
             String introduction = request.getParameter("introduction");
             String description = request.getParameter("description");
+            //MultipartFile file = (MultipartFile) request.getAttribute("file");
+            //System.out.println(fileService.uploadUserPicture(file));
+
             System.out.println(sex);
-            System.out.println(address);
-            System.out.println(phone);
             user = userService.getUserInSession(request.getSession());
+
+            if (user == null)
+            {
+                return "redirect:/sessionLost";
+            }
+
+            String uploadInfo = fileService.uploadUserPicture(file,user);
+            if(uploadInfo.contains("upload failed,"))
+            {
+                //上传失败前端要干啥？
+            }
+            else
+            {
+                user.setHpPictureUrl(uploadInfo);
+            }
+
             user.setSex(sex);
             user.setAddress(address);
             user.setPhone(phone);
@@ -75,11 +96,10 @@ public class LoginController {
             user.setIntroduction(introduction);
             user.setDescription(description);
             userRepository.save(user);
-            model.addAttribute("thisUser",user);
         } catch (Exception ex) {
             return "error";
         }
-        return "management/userInfo";
+        return "redirect:/userInfo";
     }
 
     /* login */

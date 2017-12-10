@@ -136,13 +136,6 @@ public class Project
 		return repository;
 	}
 
-	public void setRepository(Repository repository){
-		this.repository = repository;
-		if(!repository.getProjects().contains(this)){
-			repository.getProjects().add(this);
-		}
-	}
-
 
 	public String getRepositoryName() {
 		return repName;
@@ -197,8 +190,22 @@ public class Project
 		return status;
 	}
 
+	public String getUserName()
+	{
+		return userName;
+	}
 
+	public String getRepName()
+	{
+		return repName;
+	}
 
+	public String getProjName()
+	{
+		return projName;
+	}
+
+	//setters
 
 	public void setContext(String context)
 	{
@@ -210,6 +217,12 @@ public class Project
 		this.descriptionPictureUrl = descriptionPictureUrl;
 	}
 
+	public void setRepository(Repository repository){
+		this.repository = repository;
+		if(!repository.getProjects().contains(this)){
+			repository.getProjects().add(this);
+		}
+	}
 
 	public void setProjectName(String projectName)
 	{
