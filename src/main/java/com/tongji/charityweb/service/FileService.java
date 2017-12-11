@@ -26,6 +26,7 @@ public class FileService
 			String originFileName = file.getOriginalFilename();
 			//做了路径的拼接和文件名的拼接
 			File newFile = new File(parentUploadDirectory + uploadedFilesDirectory + path,fileName+originFileName.substring(originFileName.lastIndexOf(".")));
+			//File newFile = new File(parentUploadDirectory + uploadedFilesDirectory + path,originFileName);
 			if(!newFile.exists())
 			{
 				if(!newFile.getParentFile().mkdirs())
