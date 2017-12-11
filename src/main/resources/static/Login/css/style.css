@@ -87,6 +87,7 @@ body{
 .banner-right-img{
     float: left;
     width: 30%;
+    overflow: hidden;
 }
 .banner-right-img img{
     width: 100%;
