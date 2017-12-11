@@ -78,4 +78,9 @@ public class IndexController {
     public String mgtDonate(){
         return "management/mgtDonate";
     }
+
+    @RequestMapping(value = "sessionLost")
+    public String lostSession(){
+        return "login/sessionLost";
+    }
 }
