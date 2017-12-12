@@ -30,7 +30,6 @@ public class LoginController {
     /* regist */
     @RequestMapping(value = "/regist", method = RequestMethod.POST)
     public String regist(HttpServletRequest request, Model model) {
-        Boolean span1, span2;
         try {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
@@ -38,8 +37,7 @@ public class LoginController {
 
             User SameName = userRepository.findByUsername(username);
             if(SameName != null) {
-                span1 = true;
-                model.addAttribute("span1", span1);
+                model.addAttribute("span1", true);
                 return "login/regist";
             }
             if (password.equals(password2)) {
@@ -48,8 +46,7 @@ public class LoginController {
                 userService.userLogin(user,request.getSession());
                 return "management/editInfo";
             } else {
-                span2 = true;
-                model.addAttribute("span2", span2);
+                model.addAttribute("span2", true);
                 return "login/regist";
             }
         } catch (Exception ex) {
@@ -106,7 +103,6 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model){
         //System.out.println("login method: post");
-        boolean span;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         try {
@@ -119,8 +115,7 @@ public class LoginController {
             userService.userLogin(user,request.getSession());
             str = "index";
         }else {
-            span = true;
-            model.addAttribute("span", span);
+            model.addAttribute("span", true);
             str = "login/login";
         }
         return str;

@@ -321,8 +321,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="w3-button">
                     <div class="w3-button-info m_nav_item">
                         <!--此处后端需要判断，如果进入的是自己的信息界面，则显示“修改个人信息”，进入他人的信息界面，显示“关注该用户”-->
-                        <a class="hvr-sweep-to-bottom" th:href="@{/editInfo}">修改个人信息</a>
-                        <!--<a class="hvr-sweep-to-bottom" th:href="@{/editInfo}">关注该用户</a>-->
+                        <a class="hvr-sweep-to-bottom" th:if="${edit}" th:href="@{/editInfo}">修改个人信息</a>
+                        <a class="hvr-sweep-to-bottom" th:if="${not edit}" href="#">关注该用户</a>
                     </div>
                 </div>
 
