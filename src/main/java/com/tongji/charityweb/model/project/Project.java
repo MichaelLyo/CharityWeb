@@ -58,6 +58,8 @@ public class Project
 	@OneToMany(mappedBy="project")
 	List<ProjectComment>projectComments;
 
+	public Project() {}
+
 	public List<Participate> getParticipates() {
 		return participates;
 	}

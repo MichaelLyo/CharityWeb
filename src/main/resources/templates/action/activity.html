@@ -34,7 +34,8 @@
         <h3 class="tittle">活动</h3>
         <div class="news-article">
             <div class="article-post">
-                <img style="width: 1100px;height: 500px" th:src="@{assets/img/chunhui-participate.jpg}"/>
+                <!--/*@thymesVar id="project" type="package.Object"*/-->
+                <img style="width: 1100px;height: 500px" th:src="@{${project.descriptionPictureUrl}}"/>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
@@ -43,17 +44,17 @@
                     </div>
                     <ul class="ad-info">
 
-                        <li>2017  10.20</li>
-                        <li> <a th:href="@{/userInfo}">牛书凉</a></li>
-                        <li style="color:#FCB2B2;"> 24 评论</li>
+                        <li th:text="${project.startDate}">2017  10.20</li>
+                        <li> <a th:href="@{/userInfo}" th:text="${project.userName}">牛书凉</a></li>
+                        <li th:text="${#lists.isEmpty(project.projectComments)}?0评论:${#lists.size(project.projectComments)}+评论" style="color:#FCB2B2;"> 24 评论</li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <h3>To Protect Humanity</h3>
+                    <h3 th:text="${project.projName}">To Protect Humanity</h3>
                     <!--<h6 style="color: #53d0c6;font-size: 1.1em;">状态：进行中</h6>--> <!--此处后端进行判断活动状态为何-->
-                    <h6 style="color: #F1715E;font-size: 1.1em;">状态：已结束</h6>
-                    <p>Nam nec tellus a odio tincidunt auctor a ornare odio.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus porta. Fusce suscipit varius mi. nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna in 2001 donec accumsan malesuada orci. Donec sit amet eros.  Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
+                    <h6 th:text="状态：+${project.status}" style="color: #F1715E;font-size: 1.1em;">状态：已结束</h6>
+                    <p th:text="${project.context}">Nam nec tellus a odio tincidunt auctor a ornare odio.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus porta. Fusce suscipit varius mi. nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna in 2001 donec accumsan malesuada orci. Donec sit amet eros.  Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                 </div>
                 <!--post-details-->
                 <div class="clearfix"> </div>
@@ -66,8 +67,8 @@
                                 <div class='wrap_right'>
                                     <div class='bar_group'>
                                         <div class='bar_group__bar thin' label='累计捐款金额' show_values='true' tooltip='true' value='10'></div>
-                                        <div class='bar_group__bar thin' label='参与人数' show_values='true' tooltip='true' value='235'></div>
-                                        <div class='bar_group__bar thin' label='关注人数' show_values='true' tooltip='true' value='20'></div>
+                                        <div class='bar_group__bar thin' label='参与人数' show_values='true' tooltip='true' th:value="${project.participateNum}" value="20"></div>
+                                        <div class='bar_group__bar thin' label='关注人数' show_values='true' tooltip='true' th:value="${project.followerNum}" value="100"></div>
                                         <div class='bar_group__bar thin' label='进度' show_values='true' tooltip='true' value='456'></div>
                                     </div>
                                 </div>

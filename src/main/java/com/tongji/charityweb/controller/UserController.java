@@ -28,6 +28,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private RepositoryService repositoryService;
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping(value = "/createUser",method ={RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
@@ -65,17 +67,22 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
-    public String DisplayUserInfo(HttpSession session, Model model)
+    public String DisplayUserInfo(HttpSession session, Model model, String username)
     {
         User userInSession = userService.getUserInSession(session);
-        if(userInSession == null)
-        {
+        if(userInSession == null) {
             //登录失效
             return "login/sessionLost";
-         }
-        else
-        {
+        }
+        if (username == null || username.equals(userInSession.getUsername())) {
             model.addAttribute("thisUser", userInSession);
+            model.addAttribute("edit", true);
+            return "management/userInfo";
+        }
+        else {
+            User user = userRepository.findOne(username);
+            model.addAttribute("thisUser", user);
+            model.addAttribute("edit", false);
             return "management/userInfo";
         }
     }

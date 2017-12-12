@@ -1,5 +1,6 @@
 package com.tongji.charityweb.service;
 
+import com.tongji.charityweb.model.comment.ProjectComment;
 import com.tongji.charityweb.model.project.*;
 import com.tongji.charityweb.model.repository.Repository;
 import com.tongji.charityweb.model.repository.RepositoryID;
@@ -9,9 +10,11 @@ import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.repository.repository.RepRepository;
 import org.hibernate.validator.internal.metadata.core.AnnotationProcessingOptionsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -72,7 +75,13 @@ public class ProjectService {
 
     }
 
+    public List<Project> getAllProjectsOrderByParNum() {
+        return projectRepository.findAll(new Sort(Sort.Direction.DESC, "participateNum"));
+    }
 
+    public List<Project> getAllProjectsOrderByFolNum() {
+        return projectRepository.findAll(new Sort(Sort.Direction.DESC, "followerNum"));
+    }
 
     public boolean createProFollower(String projName, String repName,  String followerName, String userName) {
         try {
