@@ -113,7 +113,7 @@ public class LoginController {
         String str = "";
         if (user != null){
             userService.userLogin(user,request.getSession());
-            str = "index";
+            str = "redirect:/me";
         }else {
             model.addAttribute("span", true);
             str = "login/login";
@@ -125,7 +125,7 @@ public class LoginController {
     public String logout(HttpSession session)
     {
         userService.userLogout(session);
-        return "index";
+        return "redirect:/";
     }
 
 }
