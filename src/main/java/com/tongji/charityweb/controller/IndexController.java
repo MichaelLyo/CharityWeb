@@ -27,8 +27,14 @@ public class IndexController {
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
         List<Project> projects = projectService.getAllProjectsOrderByFolNum();
-        model.addAttribute("project1", projects.get(0));
-        model.addAttribute("project2", projects.get(1));
+        if(projects.size()>1)
+        {
+            model.addAttribute("project1", projects.get(0));
+            model.addAttribute("project2", projects.get(1));
+        }
+        else {
+            //错误处理
+        }
         return "index";
     }
 
