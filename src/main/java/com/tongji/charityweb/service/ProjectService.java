@@ -76,11 +76,19 @@ public class ProjectService {
     }
 
     public List<Project> getAllProjectsOrderByParNum() {
-        return projectRepository.findAll(new Sort(Sort.Direction.DESC, "participateNum"));
+        try {
+            return projectRepository.findAll(new Sort(Sort.Direction.DESC, "participateNum"));
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public List<Project> getAllProjectsOrderByFolNum() {
-        return projectRepository.findAll(new Sort(Sort.Direction.DESC, "followerNum"));
+        try {
+            return projectRepository.findAll(new Sort(Sort.Direction.DESC, "followerNum"));
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public boolean createProFollower(String projName, String repName,  String followerName, String userName) {
