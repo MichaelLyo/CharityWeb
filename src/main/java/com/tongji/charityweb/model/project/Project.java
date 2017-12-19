@@ -58,8 +58,15 @@ public class Project
 	@OneToMany(mappedBy="project")
 	List<ProjectComment>projectComments;
 
+	//constructor
+
 	public Project() {}
 
+	public Project(String repName, String projName, String userName) {
+		this.repName = repName;
+		this.projName = projName;
+		this.userName =userName;
+	}
 	public List<Participate> getParticipates() {
 		return participates;
 	}
@@ -125,12 +132,7 @@ public class Project
 
 
 
-	//constructor
-	public Project(String repName, String projName, String userName) {
-		this.repName = repName;
-		this.projName = projName;
-		this.userName =userName;
-	}
+
 
 	//getters
 

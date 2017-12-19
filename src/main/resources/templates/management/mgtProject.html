@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
     <title>项目管理</title>
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+    <link th:href="@{assets/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{assets/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/static/assets/css/bootstrap.min.css"  rel="stylesheet">
+    <link  th:href="@{assets/css/project.css}" rel="stylesheet">
     <!-- Custom Theme files -->
     <link th:href="@{action/css/communitystyle.css}" rel='stylesheet'/>
     <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
@@ -13,82 +16,88 @@
     <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
     <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
     <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/style.css}" rel="stylesheet">
+    <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+    <link th:href="@{assets/css/button.css}" rel="stylesheet">
     <script th:src="@{assets/js/wow.min.js}"></script>
+    <script th:src="@{assets/js/project.js}"></script>
     <script>
         new WOW().init();
     </script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"  charset="UTF-8">
 </head>
 <body>
-<link th:href="@{assets/css/style.css}" rel="stylesheet">
-<link th:href="@{assets/css/stickup.css}" rel="stylesheet">
-<link th:href="@{assets/css/button.css}" rel="stylesheet">
-
 <div th:include="template/navbar :: navbar"></div>
 <div class="banner two"></div>
-<h3 class="tittle" style="float: left;margin-left: 30px;">我创建的项目</h3>
+<div class="main">
+    <div class="container " >
+        <div class="row">
+            <div class="col-md-3 col-md-offset-1">
+                <div class="row " >
+                    <div class="col-md-12 col-md-offset-2">
+                            <img class="project-image" src= "//localhost:9090/spring-boot/assets/img/action.jpg">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="user-name-div text-left">
+                            <span class="user-name ">RepName</span>
+                            <span class="user-nickname ">NickName</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-md-7 ">
+                <div class="search-project-div" >
+                    <form   class="form-inline" style="width: 100%" name="searchAndNew" id="searchAndNew" >
+                        <div class="form-group"  >
+                            <label for="exampleInputName2">Name</label>
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="search projects" style="width: 200px;  margin-right: 20px;margin-left: 0px;">
+                        </div>
+                        <button type="submit" class="btn btn-default btn-sm button-submit" id="search"  name="search" onclick="buttonSubmit(this)">搜索</button>
+                        <button type="submit" class="btn btn-default btn-sm button-submit" id="new" name="new" onclick="buttonSubmit(this)">新建</button>
+                    </form>
+                </div>
+                <ul >
+                    <li class="repository-div">
+                        <ul  >
+                                <div class="margin-top-div text-left"  style="padding-left: 0px " >
+                                    <h3 class="project-name-h3">project-name</h3>
+                                </div>
+                                <div class="margin-top-div text-left">
+                                    <p class="project-description">project description</p>
+                                </div>
+                                <ul class="list-inline margin-top-div left row" >
+                                    <li class="svg col-md-2">
+                                        <svg aria-label="star"  height="16" role="img" version="1.1"  width="14" >
+                                            <path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path>
+                                        </svg>
+                                        <strong>11</strong>
+                                    </li>
+
+                                    <li class="participate-li col-md-1">
+                                        <svg  version="1.1" width="14" height="16"
+                                              xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="6" cy="9    " r="5" stroke="black"
+                                                    stroke-width="2" fill="red"/>
+                                        </svg>
+                                        <strong>20</strong>
+                                    </li>
+                                    <li class="create-date-li col-md-3">create-date</li>
+                                </ul>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 <!--<h3 class="tittle" style="float: left;margin-left: 30px;">我参与的项目</h3>-->
-<div class="donate">
-    <a th:href="@{/addProject}"><input type="submit" style="font-size: 18px;float: right;margin-right: 20px;width: 150px;" value="新建项目"></a>
-</div>
-<div class="col-md-6 upcoming" style="width: 100%;">
-    <div class="family">
-        <div class="twenty">
-            <h4>20</h4>
-            <p>JULY</p>
-        </div>
-        <div class="sunday">
-            <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
-        </div>
-         
-        <div class="clearfix"> </div>
-    </div>
-    <div class="family">
-        <div class="twenty">
-            <h4>20</h4>
-            <p>JULY</p>
-        </div>
-        <div class="sunday">
-            <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
-        </div>
-          
-        <div class="clearfix"> </div>
-    </div>
-    <div class="family">
-        <div class="twenty">
-            <h4>20</h4>
-            <p>JULY</p>
-        </div>
-        <div class="sunday">
-            <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
-        </div>
-       
-        <div class="clearfix"> </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="blog-pagenat">
-        <ul>
 
-            <li><a style="background-color: rgba(0,0,0,.2);color: #FFF;" >上一页</a></li>
-
-            <li><a style="background-color: rgba(0,0,0,.2);color: #FFF;">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-
-            <li><a class="last" href="#">下一页</a></li>
-
-            <div class="clearfix"> </div>
-        </ul>
-    </div>
-    <div class="clearfix"></div>
-</div>
-<div class="clearfix"></div>
 <div th:include="template/footer :: copyright"></div>
 <!--start-smoth-scrolling-->
 <script type="text/javascript">

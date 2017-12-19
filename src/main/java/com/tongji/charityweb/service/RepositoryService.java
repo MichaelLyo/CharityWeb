@@ -33,16 +33,15 @@ public class RepositoryService {
 
 
 
-    public boolean createRepository(String userName, String repName)
+    public boolean createRepository( String repName, String description, User user)
     {
         try {
-            User user = userRepository.findByUsername(userName);
 
             Date createDate = new Date();
-            Repository newRep = new Repository(repName, userName);
+            Repository newRep = new Repository(repName, user.getUsername());
+            newRep.setDescription(description);
 
             user.addRepository(newRep);
-
             userRepository.save(user);
             return true;
         } catch (Exception e) {
@@ -64,6 +63,7 @@ public class RepositoryService {
             return false;
         }
     }
+
 
     public String showAllRepByUserName(String userName)
     {
