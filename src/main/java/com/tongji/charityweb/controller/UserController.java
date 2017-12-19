@@ -2,6 +2,8 @@ package com.tongji.charityweb.controller;
 
 import com.sun.org.apache.regexp.internal.RE;
 import com.tongji.charityweb.model.user.User;
+import com.tongji.charityweb.model.user.UserFollower;
+import com.tongji.charityweb.repository.user.UserFollowerRepository;
 import com.tongji.charityweb.repository.user.UserRepository;
 import com.tongji.charityweb.service.RepositoryService;
 import com.tongji.charityweb.service.UserService;
@@ -76,26 +78,29 @@ public class UserController {
         }
         if (username == null || username.equals(userInSession.getUsername())) {
             model.addAttribute("thisUser", userInSession);
-            model.addAttribute("edit", true);
+            model.addAttribute("button", 1);
             return "management/userInfo";
         }
         else {
             User user = userRepository.findOne(username);
             model.addAttribute("thisUser", user);
-            model.addAttribute("edit", false);
+
+            UserFollower userFollower = userService.findOneFollower(username, userInSession.getUsername());
+            if (userFollower == null)
+                model.addAttribute("button",2);
+            else
+                model.addAttribute("button",3);
             return "management/userInfo";
         }
     }
 
-    @RequestMapping(value = "/createUserFol",method = RequestMethod.POST)
-    @ResponseBody
-    public String createUserFol(HttpServletRequest request)
+    @RequestMapping(value = "/createUserFol",method = RequestMethod.GET)
+    public String createUserFol(String username, HttpSession session)
     {
         try {
-            String username = request.getParameter("username");
-            String followername = request.getParameter("followername");
+            String followername = userService.getUserInSession(session).getUsername();
             if (userService.createUserFollower(username, followername))
-                return "create UserFollower succeed!";
+                return "redirect:/userInfo?username="+username;
             else
                 return "create fail";
         } catch (Exception e) {
@@ -104,15 +109,13 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/deleteUserFol",method = RequestMethod.POST)
-    @ResponseBody
-    public String deleteUserFol(HttpServletRequest request)
+    @RequestMapping(value = "/deleteUserFol",method = RequestMethod.GET)
+    public String deleteUserFol(String username, HttpSession session)
     {
         try {
-            String username = request.getParameter("username");
-            String followername = request.getParameter("followername");
+            String followername = userService.getUserInSession(session).getUsername();
             if (userService.deleteUserFollower(username, followername))
-                return "delete UserFollower succeed!";
+                return "redirect:/userInfo?username="+username;
             else
                 return "delete fail";
         } catch (Exception e) {
