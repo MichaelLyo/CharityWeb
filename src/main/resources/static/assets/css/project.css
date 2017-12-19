@@ -1,0 +1,65 @@
+.project-image{
+    height: 220px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.user-name-div{
+    margin-top: 6px;
+}
+.user-name{
+    margin-left: 20px;
+    font-size: 26px;
+    line-height: 30px;
+    display: block;
+}
+
+.user-nickname{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    display: block;
+    margin-left: 20px;
+    font-weight: lighter;
+}
+
+.repository-div{
+    margin-top: 20px;
+    border-bottom: solid 1px #d1d5da;
+    width:100%;
+}
+
+.margin-top-div{
+    margin-top: 20px;
+}
+
+
+.project-name-h3{
+    color:#0366d6;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.project-description{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.search-project-div{
+    position: relative !important;
+    border-bottom: solid;
+    border-top-width: 2px;
+    border-color:#0a0a0a;
+    border-bottom-width: 2px;
+}
+
+.button-submit{
+   width: 100px;
+    margin: 5px;
+    height: 80%;
+    font-weight: 400;
+    font-size: medium;
+    color:#1B9AF7;
+    border-radius: 6px;
+}
