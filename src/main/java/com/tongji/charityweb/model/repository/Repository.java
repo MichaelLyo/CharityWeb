@@ -32,8 +32,11 @@ public class Repository implements Serializable
 	@CreatedDate
 	private Date createdAt;
 
+
+
 	private String descriptionPictureUrl;
 
+	private String description;
 
 	@OneToMany(cascade = CascadeType.ALL,mappedBy="repository")
 	private List<Project> projects;
@@ -141,5 +144,13 @@ public class Repository implements Serializable
 	public void setRepositoryName(String repositoryName)
 	{
 		this.repName = repositoryName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }
