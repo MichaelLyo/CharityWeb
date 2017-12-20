@@ -7,7 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
-    <script th:href="@{assets/css/anticipate.css}"></script>
+    <script th:src="@{assets/js/project.js}"></script>
+    <link th:href="@{assets/css/anticipate.css}" rel="stylesheet"></link>
     <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
     <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
     <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
@@ -106,48 +107,49 @@
                 <h3 class="d-tittle"> 新 建 项 目 </h3>
             </div>
             <div class="donation-body">
-                <form class="form" method="post" >
+                <form class="form" method="post" action="examCreateProject" id="project-form" enctype="multipart/form-data" >
                 <div class="form-group pricing">
                     <h6 class="modal-subtitle" style="float: left">项目名</h6>
                     <div class="btn-group" style="margin-top: 25px;">
                         <p style="color: #0D0D0D;float: left;margin-left: -34px;">项目名： </p>
-                        <input style="margin-top: -10px;color: #0D0D0D;width: 200px;float:left;background: #fff;" placeholder="请输入项目名">
+                        <input style="margin-top: -10px;color: #0D0D0D;width: 200px;float:left;background: #fff;" placeholder="请输入项目名" id="projName" name="projName">
                     </div>
                 </div>
                 <div class="form-group pricing">
                     <h6 class="modal-subtitle" style="float: left;margin-bottom: -10px;">项目起止时间</h6>
                     <div class="btn-group">
-                        <input style="color: #0D0D0D;float: left;background: #fff; border: 1px solid #DADADA;width: 150px;" type="date"/>
+                        <input style="color: #0D0D0D;float: left;background: #fff; border: 1px solid #DADADA;width: 150px;" type="date" id="startDate" name="endDate"/>
                         <p style="color: #0D0D0D;float: left;margin: 35px 10px;">—</p>
                         <input style="color: #0D0D0D;float:left; background: #fff; border: 1px solid #DADADA;width: 150px;margin-left: 180px;margin-top: -65px;" type="date"/>
                         <div class="clearfix"> </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <h6 class="modal-subtitle" style="float: left;">项目信息</h6>
-                    <div class="dt-inner">
-                        <p style="color: #0D0D0D;float: left;margin-left: -160px;margin-top: 70px;">项目宣传图： </p>
-                        <div id="click" style="width: 200px; height: 200px; border: 1px solid #000;float: left;margin-top: 30px;"></div>
-                        <div style="margin-top: 10px;margin-bottom: 10px;float: left;margin-left: 55px;width: 150px;">
-                            <a href="javascript:;" class="file">上传项目宣传图
-                                <input type="file" id="photo" style="width: 130px;"/>
-                            </a>
+                </div >
+                        <div class="form-group ">
+                            <h6 class="modal-subtitle" style="float: left;">项目信息</h6>
+                            <div class="dt-inner">
+                                <p style="color: #0D0D0D;float: left;margin-left: -160px;margin-top: 70px;">项目宣传图： </p>
+                                <div id="click" style="width: 200px; height: 200px; border: 1px solid #000;float: left;margin-top: 30px;"></div>
+                                <div style="margin-top: 10px;margin-bottom: 10px;float: left;margin-left: 55px;width: 150px;">
+                                    <a href="javascript:;" class="file">上传项目宣传图
+                                        <input type="file" id="photo" name="photo" style="width: 130px;"/>
+                                    </a>
+                                </div>
+                                <div class="dt">
+                                    <p style="color: #0D0D0D;float: left;margin-left: -240px;margin-top: 80px;">项目组织者： </p>
+                                    <input style="color: #0D0D0D;width: 200px;float:left;background: #fff;" placeholder="项目组织者">
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="dt" style="margin-top: 20px;">
+                                    <p style="color: #0D0D0D;float: left;margin-left: -20px;">项目内容： </p>
+                                    <textarea id="context" name="context" style=" color: #0D0D0D;width: 1050px;height: 300px;margin-top: 20px;"placeholder="项目内容"></textarea>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="donate">
+                                    <a ><input type="submit" style="font-size: 18px;" value="创建完成" onclick="projectSubmmit(this)"></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="dt">
-                            <p style="color: #0D0D0D;float: left;margin-left: -240px;margin-top: 80px;">项目组织者： </p>
-                            <input style="color: #0D0D0D;width: 200px;float:left;background: #fff;" placeholder="项目组织者">
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="dt" style="margin-top: 20px;">
-                            <p style="color: #0D0D0D;float: left;margin-left: -20px;">项目内容： </p>
-                            <textarea style="color: #0D0D0D;width: 1050px;height: 300px;margin-top: 20px;" placeholder="项目内容"></textarea>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="donate">
-                            <a th:href="@{/activity}"><input type="submit" style="font-size: 18px;" value="创建完成"></a>
-                        </div>
-                    </div>
-                </div>
+
                 </form>
             </div>
         </div>
