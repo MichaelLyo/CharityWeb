@@ -47,15 +47,15 @@ public class Project
 	private Repository repository;
 
 
-	@OneToMany(mappedBy="project")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy="project")
 	List<ProjectFollower>followers;
 
 
-	@OneToMany(mappedBy="project")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy="project")
 	List<Participate>participates;
 
 
-	@OneToMany(mappedBy="project")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy="project")
 	List<ProjectComment>projectComments;
 
 	//constructor

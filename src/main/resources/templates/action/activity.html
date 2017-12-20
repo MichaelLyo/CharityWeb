@@ -26,6 +26,7 @@
 <body>
 <div th:include="template/navbar :: navbar"></div>
 <!--start-news-->
+<!--/*@thymesVar id="project" type="package.Object"*/-->
 <div class="clearfix"></div>
 <div class="banner two"></div>
 <div class="news two">
@@ -34,7 +35,6 @@
         <h3 class="tittle">活动</h3>
         <div class="news-article">
             <div class="article-post">
-                <!--/*@thymesVar id="project" type="package.Object"*/-->
                 <img style="width: 1100px;height: 500px" th:src="@{${project.descriptionPictureUrl}}"/>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
@@ -93,8 +93,11 @@
 
                 <h4> 留 言 </h4>
             </div>
-            <form id="commentform">
-                    <textarea style="width: 1000px"></textarea>
+            <form action="createProCom" method="post" id="commentform">
+                <input type="hidden" name="projName" th:value="${project.projName}">
+                <input type="hidden" name="repName" th:value="${project.repName}">
+                <input type="hidden" name="userName" th:value="${project.userName}">
+                <textarea name="content" style="width: 1000px"></textarea>
                 <div class="clearfix"></div>
                 <p class="form-submit">
 
@@ -110,39 +113,40 @@
 
                 </h4>
                 <ul class="list">
-                    <li style="margin-bottom: 30px;">
-                        <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
+                    <li style="margin-bottom: 30px;" th:each="comment:${project.projectComments}">
+                        <div class="col-md-2 preview">
+                        <a th:href="@{/userInfo(username=${comment.commenterName})}"><img th:src="@{${comment.pictureUrls}}" class="img-responsive" alt=""></a></div>
                         <div class="col-md-10 data">
-                            <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Aug 30, 2015</span></div>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
+                            <div class="title"><a th:href="@{/userInfo(username=${comment.commenterName})}" th:text="${comment.commenterName}">donator</a><br><span class="m_14" th:text="${comment.createdAt}">Aug 30, 2015</span></div>
+                            <p th:text="${comment.content}">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
 
                             <!--<h5 class="m_26"> <a href="#">回复</a></h5>-->
 
                         </div>
                         <div class="clearfix"></div>
                     </li>
-                    <li style="margin-bottom: 30px;">
-                        <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
-                        <div class="col-md-10 data">
-                            <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Sep 2, 2015</span></div>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
+                    <!--<li style="margin-bottom: 30px;">-->
+                        <!--<div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>-->
+                        <!--<div class="col-md-10 data">-->
+                            <!--<div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Sep 2, 2015</span></div>-->
+                            <!--<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>-->
 
-                            <!--<h5 class="m_26"> <a href="#">回复</a></h5>-->
+                            <!--&lt;!&ndash;<h5 class="m_26"> <a href="#">回复</a></h5>&ndash;&gt;-->
 
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li style="margin-bottom: 30px;">
-                        <div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
-                        <div class="col-md-10 data">
-                            <div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Nov 2, 2015</span></div>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
+                        <!--</div>-->
+                        <!--<div class="clearfix"></div>-->
+                    <!--</li>-->
+                    <!--<li style="margin-bottom: 30px;">-->
+                        <!--<div class="col-md-2 preview"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>-->
+                        <!--<div class="col-md-10 data">-->
+                            <!--<div class="title"><a th:href="@{/userInfo}">donator</a><br><span class="m_14">Nov 2, 2015</span></div>-->
+                            <!--<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>-->
 
-                            <!--<h5 class="m_26"> <a href="#">回复</a></h5>-->
+                            <!--&lt;!&ndash;<h5 class="m_26"> <a href="#">回复</a></h5>&ndash;&gt;-->
 
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
+                        <!--</div>-->
+                        <!--<div class="clearfix"></div>-->
+                    <!--</li>-->
                 </ul>
             </div>
         </div>

@@ -98,7 +98,10 @@ public class UserController {
     public String createUserFol(String username, HttpSession session)
     {
         try {
-            String followername = userService.getUserInSession(session).getUsername();
+            User user = userService.getUserInSession(session);
+            if(user == null)
+                return "login/sessionLost";
+            String followername = user.getUsername();
             if (userService.createUserFollower(username, followername))
                 return "redirect:/userInfo?username="+username;
             else
@@ -113,7 +116,10 @@ public class UserController {
     public String deleteUserFol(String username, HttpSession session)
     {
         try {
-            String followername = userService.getUserInSession(session).getUsername();
+            User user = userService.getUserInSession(session);
+            if(user == null)
+                return "login/sessionLost";
+            String followername = user.getUsername();
             if (userService.deleteUserFollower(username, followername))
                 return "redirect:/userInfo?username="+username;
             else
