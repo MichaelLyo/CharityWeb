@@ -49,23 +49,23 @@
             </div>
             <div class="col-md-offset-1 col-md-7 ">
                 <div class="search-project-div" >
-                    <form   class="form-inline" style="width: 100%" name="searchAndNew" id="searchAndNew" >
+                    <form   class="form-inline" style="width: 100%" name="searchAndNew" id="searchAndNew" action="createProject" >
                         <div class="form-group"  >
                             <label for="exampleInputName2">Name</label>
-                            <input type="text" class="form-control" id="exampleInputName2" placeholder="search projects" style="width: 200px;  margin-right: 20px;margin-left: 0px;">
+                            <input type="text" class="form-control" id="projName" name ="projName" placeholder="search projects" style="width: 200px;  margin-right: 20px;margin-left: 0px;">
                         </div>
                         <button type="submit" class="btn btn-default btn-sm button-submit" id="search"  name="search" onclick="buttonSubmit(this)">搜索</button>
-                        <button type="submit" class="btn btn-default btn-sm button-submit" id="new" name="new" onclick="buttonSubmit(this)">新建</button>
+                        <button type="submit" class="btn btn-default btn-sm button-submit" id="new" name ="new" onclick="buttonSubmit(this)">新建</button>
                     </form>
                 </div>
                 <ul >
-                    <li class="repository-div">
+                    <li class="repository-div" th:each="project : ${projects}">
                         <ul  >
                                 <div class="margin-top-div text-left"  style="padding-left: 0px " >
-                                    <h3 class="project-name-h3">project-name</h3>
+                                    <h3 class="project-name-h3" th:text="${project.getProjName()}">project-name</h3>
                                 </div>
                                 <div class="margin-top-div text-left">
-                                    <p class="project-description">project description</p>
+                                    <p class="project-description" th:text="${project.getContext()}">project description</p>
                                 </div>
                                 <ul class="list-inline margin-top-div left row" >
                                     <li class="svg col-md-2">
