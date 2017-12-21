@@ -73,17 +73,19 @@ public class CommentService {
         }
     }
 
-    public boolean createProComment(String projName, String repName, String userName, String content) {
+    public boolean createProComment(String projName, String repName, String userName, String content, String commenterName) {
         try {
             Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
 
             ProjectComment newProCom = new ProjectComment(projName, repName, userName);
             newProCom.setContent(content);
+            newProCom.setCommenterName(commenterName);
 
             project.addProjectComment(newProCom);
             projectRepository.save(project);
             return true;
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }

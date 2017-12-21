@@ -5,6 +5,7 @@ import com.tongji.charityweb.model.project.Project;
 import com.tongji.charityweb.model.user.Donate;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.project.ProjectRepository;
+import com.tongji.charityweb.repository.repository.RepRepository;
 import com.tongji.charityweb.repository.user.DonateRepository;
 import com.tongji.charityweb.repository.user.UserRepository;
 import org.junit.Test;
@@ -25,6 +26,9 @@ public class WebApplicationTests
 
 	@Autowired
 	private ProjectRepository projectRepository;
+
+	@Autowired
+	private RepRepository repRepository;
 
 
 	@Autowired
@@ -53,4 +57,17 @@ public class WebApplicationTests
 //		Repository newRep = new Repository("Hope School");
 	}
 
+	@Test
+	public void testProject()
+	{
+		User newUser = new User("511231530@qq.com","lsl","刘书良","lsldhr666","male","member");
+		userRepository.save(newUser);
+		Repository newRepository = new Repository("myRepo","lsl");
+		Project newProject1 = new Project("myRep","myPro1","lsl");
+		Project newProject2 = new Project("myRep","myPro2","lsl");
+		repRepository.save(newRepository);
+		projectRepository.save(newProject1);
+		projectRepository.save(newProject2);
+
+	}
 }

@@ -21,11 +21,12 @@ public class ProjectComment
 	private String repName;
 	//编号
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int num;
 
 	@Id
 	private String userName;
+
+	private String commenterName;
 
 	private String content;
 
@@ -49,6 +50,7 @@ public class ProjectComment
 	public ProjectComment(String projName, String repName, String userName) {
 		this.projName = projName;
 		this.repName = repName;
+		this.userName = userName;
 	}
 
 	public Project getProject() {
@@ -62,6 +64,13 @@ public class ProjectComment
 		}
 	}
 
+	public String getCommenterName() {
+		return commenterName;
+	}
+
+	public void setCommenterName(String commenterName) {
+		this.commenterName = commenterName;
+	}
 
 	public String  getProjName() {
 		return projName;

@@ -1,6 +1,8 @@
 package com.tongji.charityweb.controller;
 
+import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.service.CommentService;
+import com.tongji.charityweb.service.UserService;
 import jdk.internal.org.objectweb.asm.tree.IincInsnNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class CommentController {
     @Autowired
     CommentService commentService;
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "/createRepCom",method = RequestMethod.POST)
     @ResponseBody
@@ -66,16 +71,19 @@ public class CommentController {
     }
 
     @RequestMapping(value = "/createProCom",method = RequestMethod.POST)
-    @ResponseBody
     public String createProCom(HttpServletRequest request)
     {
         try {
-            String projectName = request.getParameter("id");
+            User user = userService.getUserInSession(request.getSession());
+            if(user==null)
+                return "login/sessionLost";
+            String projectName = request.getParameter("projName");
             String repName = request.getParameter("repName");
             String userName = request.getParameter("userName");
             String content = request.getParameter("content");
-            if (commentService.createProComment(projectName,repName,userName,content))
-                return "create ProComment succeed!";
+            String commenterName = user.getUsername();
+            if (commentService.createProComment(projectName,repName,userName,content,commenterName))
+                return "redirect:/activity?projName="+projectName+"&repName="+repName+"&userName="+userName;
             else
                 return "create fail";
         } catch (Exception e) {

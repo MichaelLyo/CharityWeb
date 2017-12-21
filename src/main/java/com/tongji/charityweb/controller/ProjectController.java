@@ -158,16 +158,16 @@ public class ProjectController {
 
     }
 
-    @RequestMapping(value = "/createProFol",method = RequestMethod.POST)
-    public String createProFol(HttpServletRequest request)
+    @RequestMapping(value = "/createProFol",method = RequestMethod.GET)
+    public String createProFol(String projName, String repName, String userName, HttpServletRequest request)
     {
         try {
-            String projectName = request.getParameter("projectName");
-            String repName =  request.getParameter("repName");
-            String followerName =  request.getParameter("followerName");
-            String userName = request.getParameter("userName");
-            if (projectService.createProFollower(projectName, repName, followerName, userName))
-                return "create ProjectFollower succeed!";
+            User user = userService.getUserInSession(request.getSession());
+            if(user==null)
+                return "login/sessionLost";
+            String followerName = user.getUsername();
+            if (projectService.createProFollower(projName, repName, followerName, userName))
+                return "redirect:/activity?projName="+projName+"&repName="+repName+"&userName="+userName;
             else
                 return "create fail";
         } catch (Exception e) {
@@ -216,17 +216,17 @@ public class ProjectController {
         return  "management/mgtProject";
     }
 
-    @RequestMapping(value = "/deleteProFol",method = RequestMethod.POST)
-    @ResponseBody
-    public String deleteProFol(HttpServletRequest request)
+
+    @RequestMapping(value = "/deleteProFol",method = RequestMethod.GET)
+    public String deleteProFol(String projName, String repName, String userName, HttpServletRequest request)
     {
         try {
-            String projName = request.getParameter("projName");
-            String repName = request.getParameter("repName");
-            String followerName = request.getParameter("followerName");
-            String userName = request.getParameter("userName");
+            User user = userService.getUserInSession(request.getSession());
+            if(user==null)
+                return "login/sessionLost";
+            String followerName = user.getUsername();
             if (projectService.deleteProFollower(projName, repName, followerName, userName))
-                return "delete ProjectFollower succeed!";
+                return "redirect:/activity?projName="+projName+"&repName="+repName+"&userName="+userName;
             else
                 return "delete fail";
         } catch (Exception e) {

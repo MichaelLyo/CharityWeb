@@ -172,57 +172,34 @@
                     <img th:src="@{assets/img/font-hotnew.png}">
                     <div class="news-article">
 
-                        <div class="col-md-6 article-post">
-                            <a th:href="@{/activity(projName=${project1.projName}, repName=${project1.repName}, userName=${project1.userName})}"><img th:src="@{${project1.descriptionPictureUrl}}" alt="img07"/></a>
+                        <!--/*@thymesVar id="projects" type="java.util.List"*/-->
+                        <div class="col-md-6 article-post" th:each="project,projectStat:${projects}" th:if="${projectStat.index}<2">
+                            <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" alt="img07"/></a>
                             <div class="col-md-3 post-meta">
                                 <div class="meta-icon">
                                     <div class="pic">
-                                        <a th:href="@{/userInfo(username=${project1.userName})}" > <i class="glyphicon glyphicon-picture"></i></a>
+                                        <a th:href="@{/userInfo(username=${project.userName})}" > <i class="glyphicon glyphicon-picture"></i></a>
                                     </div>
                                 </div>
                                 <ul class="ad-info">
-                                    <li th:text="${project1.startDate}">21 Aug'15</li>
-                                    <li> <a th:href="@{/userInfo(username=${project1.userName})}" th:text="${project1.userName}">旺仔牛奶</a></li>
-                                    <li th:text="${#lists.isEmpty(project1.projectComments)}?0评论:${#lists.size(project1.projectComments)}+评论" style="color:#FCB2B2;"> 0 评论</li>
+                                    <li th:text="${project.startDate}">21 Aug'15</li>
+                                    <li> <a th:href="@{/userInfo(username=${project.userName})}" th:text="${project.userName}">旺仔牛奶</a></li>
+                                    <li th:text="${#lists.isEmpty(project.projectComments)}?0评论:${#lists.size(project.projectComments)}+评论" style="color:#FCB2B2;"> 0 评论</li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="col-md-9 post-details">
-                                <a th:href="@{/activity(projName=${project1.projName}, repName=${project1.repName}, userName=${project1.userName})}"><h3 th:text="${project1.projName}">To Protect Humanity</h3></a>
-                                <p th:text="${project1.context}">Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
+                                <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><h3 th:text="${project.projName}">To Protect Humanity</h3></a>
+                                <p th:text="${project.context}">Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                                 <div>
-                                    <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity(projName=${project1.projName}, repName=${project1.repName}, userName=${project1.userName})}" role="button">查看详情</a>
+                                    <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}" role="button">查看详情</a>
                                 </div>
                             </div>
                             <!--post-details-->
                             <div class="clearfix"> </div>
                         </div>
 
-                        <div class="col-md-6 article-post">
-                            <a th:href="@{/activity(projName=${project2.projName}, repName=${project2.repName}, userName=${project2.userName})}"><img th:src="@{${project2.descriptionPictureUrl}}" alt="img07"/></a>
-                            <div class="col-md-3 post-meta">
-                                <div class="meta-icon">
-                                    <div class="pic">
-                                        <a th:href="@{/userInfo(username=${project2.userName})}" > <i class="glyphicon glyphicon-picture"></i></a>
-                                    </div>
-                                </div>
-                                <ul class="ad-info">
-                                    <li th:text="${project2.startDate}">21 Aug'15</li>
-                                    <li> <a th:href="@{/userInfo(username=${project2.userName})}" th:text="${project2.userName}">旺仔牛奶</a></li>
-                                    <li th:text="${#lists.isEmpty(project2.projectComments)}?0评论:${#lists.size(project2.projectComments)}+评论" style="color:#FCB2B2;"> 0 评论</li>
-                                </ul>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="col-md-9 post-details">
-                                <a th:href="@{/activity(projName=${project2.projName}, repName=${project2.repName}, userName=${project2.userName})}"><h3 th:text="${project2.projName}">To Protect Humanity</h3></a>
-                                <p th:text="${project2.context}">Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
-                                <div>
-                                    <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity(projName=${project2.projName}, repName=${project2.repName}, userName=${project2.userName})}" role="button">查看详情</a>
-                                </div>
-                            </div>
-                            <!--post-details-->
-                            <div class="clearfix"> </div>
-                        </div>
+                        <div class="clearfix"> </div>
 
                         <!--<div class="col-md-6 article-post">-->
                             <!--<a th:href="@{/activity}" ><img th:src="@{assets/img/cat-top.jpg}" alt="img07"/></a>-->
