@@ -41,8 +41,7 @@
                 <div class="row ">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="user-name-div text-left">
-                            <span class="user-name ">RepName</span>
-                            <span class="user-nickname ">NickName</span>
+                            <span class="user-name " id="repNameShow" name="repNameShow" th:text="${repName}">RepName</span>
                         </div>
                     </div>
                 </div>
@@ -55,8 +54,10 @@
                             <input type="text" class="form-control" id="projName" name ="projName" placeholder="search projects" style="width: 200px;  margin-right: 20px;margin-left: 0px;">
                         </div>
                         <button type="submit" class="btn btn-default btn-sm button-submit" id="search"  name="search" onclick="buttonSubmit(this)">搜索</button>
+                        <input type="hidden"  id="repName" name="repName"></input>
                         <button type="submit" class="btn btn-default btn-sm button-submit" id="new" name ="new" onclick="buttonSubmit(this)">新建</button>
                     </form>
+
                 </div>
                 <ul >
                     <li class="repository-div" th:each="project : ${projects}">
@@ -72,7 +73,7 @@
                                         <svg aria-label="star"  height="16" role="img" version="1.1"  width="14" >
                                             <path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path>
                                         </svg>
-                                        <strong>11</strong>
+                                        <strong th:text="${project.getFollowers().size()}">0</strong>
                                     </li>
 
                                     <li class="participate-li col-md-1">
@@ -81,9 +82,9 @@
                                             <circle cx="6" cy="9    " r="5" stroke="black"
                                                     stroke-width="2" fill="red"/>
                                         </svg>
-                                        <strong>20</strong>
+                                        <strong th:text="${project.getParticipates().size()}">0</strong>
                                     </li>
-                                    <li class="create-date-li col-md-3">create-date</li>
+                                    <li class="create-date-li col-md-4"  th:text="'create-date: '+${project.getEndDate().toString().replace(' 00:00:00.0','')}"> </li>
                                 </ul>
                         </ul>
                     </li>

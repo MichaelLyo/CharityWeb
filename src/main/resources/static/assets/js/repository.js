@@ -12,7 +12,7 @@ function getRepDescription(obj) {
 
 function getProjects(obj) {
     var repName = obj.innerText;
-    console.log(repName);
-    $("#jsRepositoryName").val(repName);
+    $("#repName").val(repName);
+    $("#userName").val($("#userNameShow").text());
     $("#hiddenForm").submit();
 }

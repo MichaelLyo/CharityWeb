@@ -2,10 +2,14 @@ package com.tongji.charityweb.controller;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.concurrent.Callable;
 
+import com.tongji.charityweb.model.project.Project;
 import com.tongji.charityweb.model.repository.Repository;
 import com.tongji.charityweb.model.user.User;
+import com.tongji.charityweb.repository.project.ProjectRepository;
+import com.tongji.charityweb.repository.user.UserRepository;
 import com.tongji.charityweb.service.RepositoryService;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +34,8 @@ public class RepositoryController {
     RepositoryService repService;
     @Autowired
     UserService userService;
+    @Autowired
+    UserRepository userRepository;
 
 
     @RequestMapping(value = "/createRep",method = RequestMethod.POST)
@@ -67,12 +73,15 @@ public class RepositoryController {
         }
     }
 
+
+
     @RequestMapping(value = "/showRes",method= {RequestMethod.POST,RequestMethod.GET})
     public String showRepByUser(HttpServletRequest request, Model model)
     {
         try {
             User userInSession = userService.getUserInSession(request.getSession());
             if(userInSession == null) {
+                System.out.println("showRes user session lost");
                 return "login/sessionLost";
             }
             model.addAttribute("repositorylist",userInSession.getRepositories());
