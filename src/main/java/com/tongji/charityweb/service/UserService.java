@@ -98,8 +98,11 @@ public class UserService {
 
     public boolean createUserFollower(String userName, String followerName) {
         try {
+            User user = userRepository.findByUsername(userName);
             UserFollower newUserFollower = new UserFollower(userName, followerName);
-            userFollowerRepository.save(newUserFollower);
+            user.addFollower(newUserFollower);
+            newUserFollower.setOwner(user);
+            userRepository.save(user);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -109,10 +112,24 @@ public class UserService {
 
     public boolean deleteUserFollower(String userName, String followerName) {
         try {
-            userFollowerRepository.delete(userFollowerRepository.findByUsernameAndFollowername(userName, followerName));
+            UserFollower userFollower = userFollowerRepository.findByUsernameAndFollowername(userName, followerName);
+            User user = userRepository.findByUsername(userName);
+            if(userFollower == null || user == null)
+                return false;
+            user.deleteFollower(userFollower);
+            userRepository.save(user);
+            userFollowerRepository.delete(userFollower);
             return true;
         } catch  (Exception e) {
             return false;
+        }
+    }
+
+    public UserFollower findOneFollower(String username, String followername) {
+        try {
+            return userFollowerRepository.findByUsernameAndFollowername(username, followername);
+        } catch (Exception e) {
+            return null;
         }
     }
 

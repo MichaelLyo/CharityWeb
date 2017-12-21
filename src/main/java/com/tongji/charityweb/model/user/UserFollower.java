@@ -48,6 +48,8 @@ public class UserFollower
 		return username;
 	}
 
+	public UserFollower() {}
+
 	public UserFollower(String username, String followername) {
 		this.username = username;
 		this.followername = followername;

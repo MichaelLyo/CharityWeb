@@ -98,10 +98,11 @@ public class ProjectService {
             ProjectFollower projectFollower = new ProjectFollower(userName, repName,projName, followerName);
             Project project = projectRepository.findOne(projectID);
             project.addFollower(projectFollower);
-
-           projectRepository.save(project);
+            projectFollower.setProject(project);
+            projectRepository.save(project);
             return true;
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }
