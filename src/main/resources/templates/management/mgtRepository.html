@@ -37,7 +37,7 @@
                 <img class="user-image" src="//localhost:9090/spring-boot/assets/img/action.jpg" alt="no image">
             </div>
             <div>
-                <h3  style="text-align: center" th:text="${user.getUsername()}">JinWeiShen</h3>
+                <h3  style="text-align: center" th:text="${user.getUsername()}" id="userNameShow" name="userNameShow">JinWeiShen</h3>
                 <h6 style="text-align: center" th:text="${user.getNickname()}">jumpjumpdog</h6>
                 <a  style="text-align: center">add a bio</a>
             </div>
@@ -66,7 +66,8 @@
 
                                     </p>
                                     <form action="showProjects" method="post" id="hiddenForm" name ="hiddenForm">
-                                        <input style="display: none" id="jsRepositoryName"  name="jsRepositoryName" ></input>
+                                        <input style="display: none" id="repName"  name="repName" type="hidden"></input>
+                                        <input style="display: none" id="userName"  name="userName" type="hidden"></input>
                                     </form>
                                 </a>
                                 <div style="display: none;"><p th:text="${repository.getDescription()}" th:id="description+${repositoryStat.index}"  ></p></div>

@@ -1,8 +1,9 @@
 function buttonSubmit(obj){
     var type = obj.id.toString();
-    console.log(type);
     if(type == "search"){
         $("#searchAndNew").attr("action","searchProject");
+        $("#repName").val($("#repNameShow").text());
+        console.log($("#repNameShow").text());
         $("#searchAndNew").attr("method","post");
         $("#search").submit();
 

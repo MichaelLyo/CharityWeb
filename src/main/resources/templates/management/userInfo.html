@@ -7,6 +7,7 @@
     <meta name="keywords" content="Creative Resume Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script  th:src="@{assets/js/user.js}"></script>
     <!-- bootstrap-css -->
     <link th:href="@{Login/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
     <!--// bootstrap-css -->
@@ -331,7 +332,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-4 w3ls-banner-left">
                 <div class="w3ls-banner-left-info">
                     <h4>用户名</h4>
-                    <p th:text="${thisUser.username}">尚未填写</p>
+                    <p th:text="${thisUser.username}" id="userNameShow" >尚未填写</p>
                 </div>
                 <div class="w3ls-banner-left-info">
                     <h4>性别</h4>
@@ -398,10 +399,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active" style="width:80px;"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">所有</a></li>
-            <li role="presentation" style="width:80px;"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">仓库</a></li>
-            <li role="presentation" style="width:80px;"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">项目</a></li>
+            <li role="presentation" style="width:80px;"><a  role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning"  >关注项目</a></li>
+            <li role="presentation" style="width:80px;"><a  role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">参与项目</a></li>
             <li role="presentation" style="width:80px;"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">捐款</a></li>
             <li role="presentation" style="width:80px;"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">其他</a></li>
+            <form id="hiddenForm" name="hiddenForm" method="post">
+                <input id="userName" name="userName" type="hidden">
+                <input id="repName" name="repName" type="hidden">
+                <input id="projName" name="projName" type="hidden">
+            </form>
         </ul>
         <div id="myTabContent" class="tab-content">
             <div role="tabpanel" class="tab-pane fade in active" id="home-main" aria-labelledby="home-tab">
@@ -592,6 +598,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
         });
     });
+    $(document).ready(
+        showFollowProjects()
+    );
+    $(document).ready(
+        showParProjects()
+    );
+
 </script>
 <a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 <!-- //feedback -->
