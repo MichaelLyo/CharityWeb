@@ -26,7 +26,9 @@ public class Donate
 
 	private String username;
 
-	private long projectID;
+	private String projName;
+
+	private String repName;
 
 	//@Column(nullable=false,columnDefinition="INT default 0")
 	private int amount;
@@ -43,11 +45,12 @@ public class Donate
 	public Donate()
 	{
 	}
-	public Donate(String username, long projectID, int amount)
+	public Donate(String username, String projName,String repName, int amount)
 	{
 		this.username=username;
-		this.projectID=projectID;
+		this.projName=projName;
 		this.amount = amount;
+		this.repName = repName;
 	}
 
 
@@ -87,10 +90,13 @@ public class Donate
 		return username;
 	}
 
+	public String getRepName()
+	{
+		return repName;
+	}
 
-
-	public long getProjectID() {
-		return projectID;
+	public String getProjName() {
+		return projName;
 	}
 
 
@@ -112,7 +118,7 @@ public class Donate
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public void setProjectID(long projectID) {
-		this.projectID = projectID;
+	public void setProjName(String projectName) {
+		this.projName = projectName;
 	}
 }

@@ -2,11 +2,8 @@ package com.tongji.charityweb.controller;
 
 import com.tongji.charityweb.model.project.Project;
 import com.tongji.charityweb.model.project.ProjectFollower;
-import com.tongji.charityweb.model.project.ProjectFollowerID;
-import com.tongji.charityweb.model.project.ProjectID;
 import com.tongji.charityweb.model.user.User;
-import com.tongji.charityweb.repository.project.ProFolRepository;
-import com.tongji.charityweb.repository.project.ProjectRepository;
+import com.tongji.charityweb.service.DonateService;
 import com.tongji.charityweb.service.ProjectService;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.Collections;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -27,7 +24,9 @@ public class IndexController {
     @Autowired
     ProjectService projectService;
     @Autowired
-    UserService userService;
+    private UserService userService;
+    @Autowired
+    private DonateService donateService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
@@ -90,11 +89,6 @@ public class IndexController {
         return "participate/participate-index";
     }
 
-    @RequestMapping(value = "donate")
-    public String donate(){
-        return "action/donate";
-    }
-
     @RequestMapping(value = "editInfo",method = RequestMethod.GET)
     public String editInfo(){
         return "management/editInfo";
@@ -124,5 +118,36 @@ public class IndexController {
     @RequestMapping(value = "sessionLost")
     public String lostSession(){
         return "login/sessionLost";
+    }
+
+    //donate相关
+    @RequestMapping(value = "donate",method = RequestMethod.GET)
+    public String donate(String projName, String repName, String userName, Model model)
+    {
+        Project project = projectService.findOneProject(projName,repName,userName);
+        model.addAttribute("project", project);
+        return "action/donate";
+    }
+    @RequestMapping(value = "donate",method = RequestMethod.POST)
+    public String donate(String projName, String repName, String userName,HttpServletRequest request,Model model)
+    {
+        User user = userService.getUserInSession(request.getSession());
+        Project project = projectService.findOneProject(projName,repName,userName);
+        if (user == null)
+        {
+            return "redirect:/login";
+        }
+        int amount = 10;
+        if (request.getParameter("amount")!=null)
+        {
+            //amount=Integer.getInteger();
+            amount = Integer.parseInt(request.getParameter("amount"));
+        }
+        else {
+            System.out.println("amount is null");
+        }
+        donateService.newDonate(user,project,amount);
+        model.addAttribute("project", project);
+        return "action/activity";
     }
 }
