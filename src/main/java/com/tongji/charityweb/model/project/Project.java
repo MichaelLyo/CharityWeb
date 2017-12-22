@@ -30,6 +30,8 @@ public class Project
 
 	private String context;
 
+	private int donateAmount;
+
 	private int participateNum;
 
 	private int followerNum;
@@ -60,12 +62,15 @@ public class Project
 
 	//constructor
 
-	public Project() {}
+	public Project() {
+		donateAmount = 0;
+	}
 
 	public Project(String repName, String projName, String userName) {
 		this.repName = repName;
 		this.projName = projName;
 		this.userName =userName;
+		donateAmount =0;
 	}
 	public List<Participate> getParticipates() {
 		return participates;
@@ -128,13 +133,21 @@ public class Project
 		this.followers = followers;
 	}
 
+	public void setDonateAmount(int donateAmount)
+	{
+		this.donateAmount = donateAmount;
+	}
 
-
-
-
-
+	public void addDonateAmount(int added)
+	{
+		this.donateAmount+=added;
+	}
 
 	//getters
+	public int getDonateAmount()
+	{
+		return donateAmount;
+	}
 
 	public Repository getRepository() {
 		return repository;
