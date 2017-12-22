@@ -1,9 +1,8 @@
 package com.tongji.charityweb.controller;
 
 import com.tongji.charityweb.model.project.Project;
-import com.tongji.charityweb.model.project.ProjectID;
+import com.tongji.charityweb.model.project.ProjectFollower;
 import com.tongji.charityweb.model.user.User;
-import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.service.DonateService;
 import com.tongji.charityweb.service.ProjectService;
 import com.tongji.charityweb.service.UserService;
@@ -14,8 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -24,8 +23,6 @@ public class IndexController {
 
     @Autowired
     ProjectService projectService;
-    @Autowired
-    ProjectRepository projectRepository;
     @Autowired
     private UserService userService;
     @Autowired
@@ -59,16 +56,22 @@ public class IndexController {
     }
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login(){
-        //System.out.println("login method: get");
         return "login/login";
     }
     @RequestMapping(value = "regist")
     public String regist(){ return "login/regist"; }
 
     @RequestMapping(value = "activity",method = RequestMethod.GET)
-    public String activity(String projName, String repName, String userName, Model model){
-        Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
+    public String activity(String projName, String repName, String userName, Model model, HttpSession session){
+        Project project = projectService.findOneProject(projName,repName,userName);
         model.addAttribute("project", project);
+
+        User user = userService.getUserInSession(session);
+        model.addAttribute("user", user);
+        if (user != null) {
+            ProjectFollower projectFollower = projectService.findOneFollower(projName,repName,userName,user.getUsername());
+            model.addAttribute("isFollower", projectFollower);
+        }
         return "action/activity";
     }
 
@@ -121,7 +124,7 @@ public class IndexController {
     @RequestMapping(value = "donate",method = RequestMethod.GET)
     public String donate(String projName, String repName, String userName, Model model)
     {
-        Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
+        Project project = projectService.findOneProject(projName,repName,userName);
         model.addAttribute("project", project);
         return "action/donate";
     }
@@ -129,7 +132,7 @@ public class IndexController {
     public String donate(String projName, String repName, String userName,HttpServletRequest request,Model model)
     {
         User user = userService.getUserInSession(request.getSession());
-        Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
+        Project project = projectService.findOneProject(projName,repName,userName);
         if (user == null)
         {
             return "redirect:/login";
