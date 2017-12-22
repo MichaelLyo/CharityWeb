@@ -10,6 +10,9 @@ import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.repository.repository.RepRepository;
 import org.hibernate.validator.internal.metadata.core.AnnotationProcessingOptionsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
@@ -87,6 +90,24 @@ public class ProjectService {
     public List<Project> getAllProjectsOrderByFolNum() {
         try {
             return projectRepository.findAll(new Sort(Sort.Direction.DESC, "followerNum"));
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Page<Project> getProjectPageOrderByFolNum(int page, int size) {
+        try {
+            Pageable pageable = new PageRequest(page,size, Sort.Direction.DESC,"followerNum");
+            return projectRepository.findAll(pageable);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Page<Project> getProjectPageOrderByParNum(int page, int size) {
+        try {
+            Pageable pageable = new PageRequest(page,size, Sort.Direction.DESC,"participateNum");
+            return projectRepository.findAll(pageable);
         } catch (Exception e) {
             return null;
         }

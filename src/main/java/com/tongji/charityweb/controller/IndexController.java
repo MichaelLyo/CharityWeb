@@ -5,12 +5,11 @@ import com.tongji.charityweb.model.project.ProjectID;
 import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -66,16 +65,16 @@ public class IndexController {
     }
 
     @RequestMapping(value = "hotspot",method = RequestMethod.GET)
-    public String hotspot(Model model){
-        List<Project> projects = projectService.getAllProjectsOrderByFolNum();
-        model.addAttribute("projects", projects);
+    public String hotspot(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size){
+        Page<Project> projects = projectService.getProjectPageOrderByFolNum(page, size);
+        modelMap.addAttribute("projects", projects);
         return "hotspot/hotspot-index";
     }
 
     @RequestMapping(value = "participate",method = RequestMethod.GET)
-    public String participate(Model model){
-        List<Project> projects = projectService.getAllProjectsOrderByParNum();
-        model.addAttribute("projects", projects);
+    public String participate(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size){
+        Page<Project> projects = projectService.getProjectPageOrderByParNum(page, size);
+        modelMap.addAttribute("projects", projects);
         return "participate/participate-index";
     }
 
