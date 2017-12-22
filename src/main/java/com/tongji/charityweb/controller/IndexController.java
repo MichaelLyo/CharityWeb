@@ -1,9 +1,14 @@
 package com.tongji.charityweb.controller;
 
 import com.tongji.charityweb.model.project.Project;
+import com.tongji.charityweb.model.project.ProjectFollower;
+import com.tongji.charityweb.model.project.ProjectFollowerID;
 import com.tongji.charityweb.model.project.ProjectID;
+import com.tongji.charityweb.model.user.User;
+import com.tongji.charityweb.repository.project.ProFolRepository;
 import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.service.ProjectService;
+import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -11,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.List;
 
@@ -21,7 +27,7 @@ public class IndexController {
     @Autowired
     ProjectService projectService;
     @Autowired
-    ProjectRepository projectRepository;
+    UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
@@ -51,16 +57,22 @@ public class IndexController {
     }
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login(){
-        //System.out.println("login method: get");
         return "login/login";
     }
     @RequestMapping(value = "regist")
     public String regist(){ return "login/regist"; }
 
     @RequestMapping(value = "activity",method = RequestMethod.GET)
-    public String activity(String projName, String repName, String userName, Model model){
-        Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
+    public String activity(String projName, String repName, String userName, Model model, HttpSession session){
+        Project project = projectService.findOneProject(projName,repName,userName);
         model.addAttribute("project", project);
+
+        User user = userService.getUserInSession(session);
+        model.addAttribute("user", user);
+        if (user != null) {
+            ProjectFollower projectFollower = projectService.findOneFollower(projName,repName,userName,user.getUsername());
+            model.addAttribute("isFollower", projectFollower);
+        }
         return "action/activity";
     }
 

@@ -2,6 +2,7 @@ package com.tongji.charityweb.model.comment;
 
 import com.tongji.charityweb.model.repository.Repository;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.sql.Struct;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Entity
 @IdClass(RepositoryCommentID.class)
 @Table(name = "RepositoryComment")
+@EntityListeners(AuditingEntityListener.class)
 public class RepositoryComment
 {
 

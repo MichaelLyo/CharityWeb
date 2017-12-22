@@ -5,6 +5,7 @@ import com.tongji.charityweb.model.user.User;
 import org.omg.CORBA.DATA_CONVERSION;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,7 +17,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "ProjectFollower")
-@IdClass(ProjectID.class)
+@IdClass(ProjectFollowerID.class)
+@EntityListeners(AuditingEntityListener.class)
 public class ProjectFollower
 {
 

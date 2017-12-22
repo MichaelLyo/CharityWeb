@@ -79,6 +79,15 @@ public class ProjectService {
 
     }
 
+    public Project findOneProject(String projName, String repName, String userName) {
+        try {
+            return projectRepository.findOne(new ProjectID(projName, repName, userName));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public List<Project> getAllProjectsOrderByParNum() {
         try {
             return projectRepository.findAll(new Sort(Sort.Direction.DESC, "participateNum"));
@@ -130,11 +139,20 @@ public class ProjectService {
 
     public boolean deleteProFollower(String projName, String repName,  String followerName, String userName) {
         try {
-            ProjectFollower projectFollower = proFolRepository.findOne(new ProjectFollowerID(projName, repName, followerName, userName));
+            ProjectFollower projectFollower = proFolRepository.findOne(new ProjectFollowerID(userName, repName, projName, followerName));
             proFolRepository.delete(projectFollower);
             return true;
         } catch  (Exception e) {
             return false;
+        }
+    }
+
+    public ProjectFollower findOneFollower(String projName, String repName, String userName, String followerName) {
+        try {
+            return proFolRepository.findOne(new ProjectFollowerID(userName,repName,projName,followerName));
+        } catch (Exception e) {
+            e.printStackTrace();;
+            return null;
         }
     }
 
