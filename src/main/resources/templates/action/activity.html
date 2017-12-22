@@ -39,13 +39,13 @@
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a th:href="@{/userInfo}" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a th:href="@{/userInfo(username=${project.userName})}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
 
                         <li th:text="${project.startDate}">2017  10.20</li>
-                        <li> <a th:href="@{/userInfo}" th:text="${project.userName}">牛书凉</a></li>
+                        <li> <a th:href="@{/userInfo(username=${project.userName})}" th:text="${project.userName}">牛书凉</a></li>
                         <li th:text="${#lists.isEmpty(project.projectComments)}?0评论:${#lists.size(project.projectComments)}+评论" style="color:#FCB2B2;"> 24 评论</li>
                     </ul>
                     <div class="clearfix"> </div>

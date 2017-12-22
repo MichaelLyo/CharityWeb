@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>分页模块</title>
+</head>
+<body>
+<div th:fragment="pager">
+    <div class="blog-pagenat" th:with="baseUrl=${#httpServletRequest.getRequestURL().toString()},pars=${#httpServletRequest.getQueryString() eq null ? '' : new String(#httpServletRequest.getQueryString().getBytes('iso8859-1'), 'UTF-8')}">
+        <ul th:with="newPar=${new java.lang.String(pars eq null ? '' : pars).replace('page='+(projects.number), '')},
+                                                curTmpUrl=${baseUrl+'?'+newPar},
+                                                curUrl=${curTmpUrl.endsWith('?')||curTmpUrl.endsWith('&') ? curTmpUrl.substring(34, curTmpUrl.length()-1):curTmpUrl.substring(34, curTmpUrl.length())}" >
+            <!--<li th:text="${curUrl}"></li>-->
+
+            <li><a th:href="@{${curUrl}(page=0)}">首页</a></li>
+            <li>
+                <a th:if="${projects.hasPrevious()}" th:href="@{${curUrl}(page=${projects.number-1})}">上一页</a>
+                <a th:if="${not projects.hasPrevious()}" href="javascript:void(0);" style="background-color: rgba(0,0,0,.2);color: #FFF;">上一页</a>
+            </li>
+
+            <!--总页数小于等于10-->
+            <div th:if="${(projects.totalPages le 10) and (projects.totalPages gt 0)}" th:remove="tag">
+                <div th:each="pg : ${#numbers.sequence(0, projects.totalPages - 1)}" th:remove="tag">
+                        <span th:if="${pg eq projects.getNumber()}" th:remove="tag">
+                            <li><a href="javascript:void(0);" style="background-color: rgba(0,0,0,.2);color: #FFF;" th:text="${pg+1}"></a></li>
+                        </span>
+                    <span th:unless="${pg eq projects.getNumber()}" th:remove="tag">
+                            <li><a th:href="@{${curUrl}(page=${pg})}" th:text="${pg+1}"></a></li>
+                        </span>
+                </div>
+            </div>
+
+            <!-- 总数数大于10时 -->
+            <div th:if="${projects.totalPages gt 10}" th:remove="tag">
+                <li th:unless="${projects.number==0 || projects.number==1 || projects.number==2}"><span>···</span></li>
+                <li th:if="${projects.number-2 ge 0}"><a th:href="@{${curUrl}(page=${projects.number}-2)}" th:text="${projects.number-1}"></a></li>
+                <li th:if="${projects.number-1 ge 0}"><a th:href="@{${curUrl}(page=${projects.number}-1)}" th:text="${projects.number}"></a></li>
+                <li><a href="javascript:void(0);" style="background-color: rgba(0,0,0,.2);color: #FFF;" th:text="${projects.number+1}"></a></li>
+                <li th:if="${projects.number+1 lt projects.totalPages}"><a th:href="@{${curUrl}(page=${projects.number}+1)}" th:text="${projects.number+2}"></a></li>
+                <li th:if="${projects.number+2 lt projects.totalPages}"><a th:href="@{${curUrl}(page=${projects.number}+2)}" th:text="${projects.number+3}"></a></li>
+                <li th:unless="${projects.number==projects.totalPages-3 || projects.number==projects.totalPages-2 || projects.number==projects.totalPages-1}"><span>···</span></li>
+            </div>
+
+
+            <li>
+                <a th:if="${projects.hasNext()}" th:href="@{${curUrl}(page=${projects.number+1})}">下一页</a>
+                <a th:if="${not projects.hasNext()}" href="javascript:void(0);" style="background-color: rgba(0,0,0,.2);color: #FFF;">下一页</a>
+            </li>
+            <li>
+                <a th:unless="${projects.totalPages le 0}" th:href="@{${curUrl}(page=${projects.totalPages-1})}">尾页</a>
+                <a th:if="${projects.totalPages le 0}" th:href="@{${curUrl}(page=0)}">尾页</a>
+            </li>
+
+            <li><span th:utext="'共'+${projects.totalPages}+'页 / '+${projects.totalElements}+' 项'"></span></li>
+
+            <div class="clearfix"> </div>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

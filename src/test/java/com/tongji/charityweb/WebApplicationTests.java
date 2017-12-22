@@ -63,11 +63,16 @@ public class WebApplicationTests
 		User newUser = new User("511231530@qq.com","lsl","刘书良","lsldhr666","male","member");
 		userRepository.save(newUser);
 		Repository newRepository = new Repository("myRepo","lsl");
-		Project newProject1 = new Project("myRep","myPro1","lsl");
-		Project newProject2 = new Project("myRep","myPro2","lsl");
 		repRepository.save(newRepository);
-		projectRepository.save(newProject1);
-		projectRepository.save(newProject2);
+		for (int i=1; i<=30; i++) {
+			Project newProject = new Project("myRep","myPro"+i, "lsl");
+			projectRepository.save(newProject);
+		}
+//		Project newProject1 = new Project("myRep","myPro1","lsl");
+//		Project newProject2 = new Project("myRep","myPro2","lsl");
+		repRepository.save(newRepository);
+//		projectRepository.save(newProject1);
+//		projectRepository.save(newProject2);
 
 	}
 }
