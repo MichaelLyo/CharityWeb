@@ -84,10 +84,10 @@ public class UserController {
     public String DisplayUserInfo(HttpSession session, Model model, String username)
     {
         User userInSession = userService.getUserInSession(session);
-        if(userInSession == null) {
-            //登录失效
-            return "login/sessionLost";
-        }
+        //if(userInSession == null) {
+        //    //登录失效
+        //    return "login/sessionLost";
+        //}
         if (username == null || username.equals(userInSession.getUsername())) {
             //获取当前捐款总额
             List<Donate> donates = donateRepository.findByUsername(userInSession.getUsername());
