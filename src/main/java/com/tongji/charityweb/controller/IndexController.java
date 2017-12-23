@@ -39,13 +39,6 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping(value = "me",method = RequestMethod.GET)
-    public String me(Model model) {
-        List<Project> projects = projectService.getAllProjectsOrderByFolNum();
-        model.addAttribute("projects", projects);
-        return "index";
-    }
-
     @RequestMapping(value = "caiyun")
     public String caiyun(){
         return "action/caiyun-index";
