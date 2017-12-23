@@ -48,21 +48,21 @@ public class IndexController {
 
     @RequestMapping(value = "caiyun", method = RequestMethod.GET)
     public String caiyun(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
-        Page<Repository> repositories = repositoryService.getRepPageByUserName("caiyun",page,size);
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("彩云支南",page,size);
         modelMap.addAttribute("projects", repositories);
         return "action/caiyun-index";
     }
 
     @RequestMapping(value = "chunhui", method = RequestMethod.GET)
     public String chunhui(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
-        Page<Repository> repositories = repositoryService.getRepPageByUserName("chunhui",page,size);
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("春晖之声",page,size);
         modelMap.addAttribute("projects", repositories);
         return "action/chunhui-index";
     }
 
     @RequestMapping(value = "cat", method = RequestMethod.GET)
     public String cat(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
-        Page<Repository> repositories = repositoryService.getRepPageByUserName("cat",page,size);
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("宠物之家",page,size);
         modelMap.addAttribute("projects", repositories);
         return "action/cat-index";
     }
