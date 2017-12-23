@@ -153,5 +153,9 @@ public class UserService {
         }
     }
 
+    public List<User> findUserContains(String toSearch)
+    {
+        return userRepository.findByUsernameLike(toSearch);
+    }
 
 }
