@@ -166,22 +166,25 @@ public class IndexController {
 
     //搜索相关
     @RequestMapping(value = "search",method = RequestMethod.POST)
-    public String search(HttpServletRequest request)
+    public String search(HttpServletRequest request,Model model)
     {
         //给带搜索的字符串加上搜索匹配修饰符
         String toSearch = "%" + request.getParameter("toSearch") + "%";
         List<User> users = userService.findUserContains(toSearch);
         List<Project> projects = projectService.findProjNameLike(toSearch);
         List<Repository> repositories = repositoryService.findRepositoryLike(toSearch);
-        if (users.isEmpty()){
-            System.out.println("search not found");
-        }
-        else {
-            for(User user:users)
-            {
-                System.out.println(user.getUsername());
-            }
-        }
+        model.addAttribute("users", users);
+        model.addAttribute("projects", projects);
+        model.addAttribute("repositories", repositories);
+        //if (users.isEmpty()){
+        //    System.out.println("search not found");
+        //}
+        //else {
+        //    for(User user:users)
+        //    {
+        //        System.out.println(user.getUsername());
+        //    }
+        //}
         return "management/searchOutput";
 
     }
