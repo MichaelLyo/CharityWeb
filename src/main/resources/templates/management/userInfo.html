@@ -312,7 +312,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-8 w3ls-banner-right">
                 <div class="banner-right-img">
                     <!--<img th:if="${thisUser.hpPictureUrl == null}" th:src="@{Login/images/1.jpg}"   alt="" />-->
-                    <img style="height: 250px;" th:src="@{${thisUser.hpPictureUrl}}"  alt="" />
+                    <img style="height: 150px;width:100%;" th:src="'http://localhost:9090/spring-boot/'+${thisUser.hpPictureUrl}"  alt="" />
                 </div>
                 <div class="banner-right-info">
                     <h2>简介</h2>
@@ -371,11 +371,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <section class='wrap'>
                             <div class='wrap_right'>
                                 <div class='bar_group' style="text-align: left;">
-                                    <div class='bar_group__bar thin' label='参与活动数' show_values='true' tooltip='true' value='10'></div>
-                                    <div class='bar_group__bar thin' label='发表文章数' show_values='true' tooltip='true' value='235'></div>
+                                    <div class='bar_group__bar thin' label='参与活动数' show_values='true' tooltip='true' value='10' th:value="${donateAmount}" ></div>
                                     <div class='bar_group__bar thin' label='捐款金额' show_values='true' tooltip='true' value='20'></div>
                                     <div class='bar_group__bar thin' label='评论数' show_values='true' tooltip='true' value='456'></div>
-                                    <div class='bar_group__bar thin' label='HTML' show_values='true' tooltip='true' value='245'></div>
                                 </div>
                             </div>
                             <div class='clear'></div>
@@ -398,11 +396,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active" style="width:80px;"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">所有</a></li>
-            <li role="presentation" style="width:80px;"><a  role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning"  >关注项目</a></li>
-            <li role="presentation" style="width:80px;"><a  role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">参与项目</a></li>
-            <li role="presentation" style="width:80px;"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">捐款</a></li>
-            <li role="presentation" style="width:80px;"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">其他</a></li>
+            <li role="presentation" class="active"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">所有</a></li>
+            <li role="presentation"><a  role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning"  >关注项目</a></li>
+            <li role="presentation"><a  role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">参与项目</a></li>
+            <li role="presentation"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">捐款</a></li>
+            <li role="presentation"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">其他</a></li>
             <form id="hiddenForm" name="hiddenForm" method="post">
                 <input id="userName" name="userName" type="hidden">
                 <input id="repName" name="repName" type="hidden">

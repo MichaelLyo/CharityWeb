@@ -1,13 +1,17 @@
 package com.tongji.charityweb.controller;
 
 import com.sun.org.apache.regexp.internal.RE;
+import com.tongji.charityweb.model.user.Donate;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.model.user.UserFollower;
+import com.tongji.charityweb.repository.user.DonateRepository;
 import com.tongji.charityweb.repository.user.UserFollowerRepository;
 import com.tongji.charityweb.repository.user.UserRepository;
+import com.tongji.charityweb.service.FileService;
 import com.tongji.charityweb.service.RepositoryService;
 import com.tongji.charityweb.service.UserService;
 import org.apache.xerces.util.SynchronizedSymbolTable;
+import org.dom4j.dom.DOMAttributeNodeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.persistence.ManyToOne;
@@ -32,10 +38,14 @@ public class UserController {
     private RepositoryService repositoryService;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private DonateRepository donateRepository;
+    @Autowired
+    private FileService fileService;
 
     @RequestMapping(value = "/createUser",method ={RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
-    public String createUser(HttpServletRequest request, Model model)
+    public String createUser(HttpServletRequest request, Model model, MultipartHttpServletRequest mulRequest)
     {
         try {
             String userName = request.getParameter("username");
@@ -44,9 +54,11 @@ public class UserController {
             String rank = request.getParameter("rank");
             String name = request.getParameter("name");
             String sex = request.getParameter("sex");
-            System.out.println("username"+userName);
-            if(userService.createUser(userName, email, name, password, sex, rank))
+            MultipartFile file = mulRequest.getFile("file");
+
+            if(userService.createUser(userName, email, name, password, sex, rank,file)){
                 return "create user succeed";
+            }
             return "create user error";
         }
         catch  (Exception e){
@@ -72,17 +84,30 @@ public class UserController {
     public String DisplayUserInfo(HttpSession session, Model model, String username)
     {
         User userInSession = userService.getUserInSession(session);
-        if(userInSession == null) {
-            //登录失效
-            return "login/sessionLost";
-        }
+        //if(userInSession == null) {
+        //    //登录失效
+        //    return "login/sessionLost";
+        //}
         if (username == null || username.equals(userInSession.getUsername())) {
+            //获取当前捐款总额
+            List<Donate> donates = donateRepository.findByUsername(userInSession.getUsername());
+            int donateAmount = 0;
+            for(Donate donate:donates){
+                donateAmount+=donate.getAmount();
+            }
             model.addAttribute("thisUser", userInSession);
             model.addAttribute("button", 1);
+            model.addAttribute("donateAmount",donateAmount);
             return "management/userInfo";
         }
         else {
             User user = userRepository.findOne(username);
+            List<Donate> donates = donateRepository.findByUsername(user.getUsername());
+            int donateAmount = 0;
+            for(Donate donate:donates){
+                donateAmount+=donate.getAmount();
+            }
+            model.addAttribute("donateAmount",donateAmount);
             model.addAttribute("thisUser", user);
 
             UserFollower userFollower = userService.findOneFollower(username, userInSession.getUsername());

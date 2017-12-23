@@ -15,7 +15,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.channels.MulticastChannel;
 import java.util.Date;
 import java.util.List;
 
@@ -33,18 +35,30 @@ public class RepositoryService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    FileService fileService;
 
 
 
-    public boolean createRepository( String repName, String description, User user)
+
+    public boolean createRepository(String repName, String description, User user, MultipartFile file)
     {
         try {
 
             Date createDate = new Date();
             Repository newRep = new Repository(repName, user.getUsername());
             newRep.setDescription(description);
-
             user.addRepository(newRep);
+
+            String uploadInfo =  fileService.uploadRepositoryPicture(file, newRep);;
+            if(uploadInfo.contains("upload failed,"))
+            {
+                //上传失败前端要干啥？
+            }
+            else
+            {
+                newRep.setDescriptionPictureUrl(uploadInfo);
+            }
             userRepository.save(user);
             return true;
         } catch (Exception e) {
@@ -110,11 +124,16 @@ public class RepositoryService {
 
     public Page<Repository> getRepPageByUserName(String userName, int page, int size) {
         try {
-            Pageable pageable = new PageRequest(page,size);
-            return repRepository.findAllByUserName(userName,pageable);
+            Pageable pageable = new PageRequest(page, size);
+            return repRepository.findAllByUserName(userName, pageable);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public List<Repository> findRepositoryLike(String toSearch)
+    {
+        return repRepository.findByRepNameLike(toSearch);
     }
 }

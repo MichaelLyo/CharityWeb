@@ -65,8 +65,7 @@ public class LoginController {
             String email = request.getParameter("email");
             String introduction = request.getParameter("introduction");
             String description = request.getParameter("description");
-            //MultipartFile file = (MultipartFile) request.getAttribute("file");
-            //System.out.println(fileService.uploadUserPicture(file));
+            System.out.println(fileService.uploadUserPicture(file, userService.getUserInSession(request.getSession())));
 
             System.out.println(sex);
             user = userService.getUserInSession(request.getSession());
@@ -113,7 +112,7 @@ public class LoginController {
         String str = "";
         if (user != null){
             userService.userLogin(user,request.getSession());
-            str = "redirect:/me";
+            str = "redirect:/";
         }else {
             model.addAttribute("span", true);
             str = "login/login";

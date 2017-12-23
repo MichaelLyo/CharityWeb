@@ -15,4 +15,5 @@ import java.util.List;
 public interface RepRepository  extends JpaRepository<Repository,RepositoryID> {
     public Repository findByRepNameAndUserName(String repName, String userName);
     public Page<Repository> findAllByUserName(String userName, Pageable pageable);
+    public List<Repository> findByRepNameLike(String repName);
 }

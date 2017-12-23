@@ -29,8 +29,6 @@
 <body>
 <div th:include="template/navbar :: navbar"></div>
 <div class="banner two"></div>
-<h3 class="tittle" style="float: left;margin-left: 30px;">我创建的项目</h3>
-<!--<h3 class="tittle" style="float: left;margin-left: 30px;">搜索结果</h3>-->
 <!--<h3 class="tittle" style="float: left;margin-left: 30px;">我参与的项目</h3>-->
 <div class="main">
     <div class="container " >
@@ -38,13 +36,13 @@
             <div class="col-md-3 col-md-offset-1">
                 <div class="row " >
                     <div class="col-md-12 col-md-offset-2">
-                            <img class="project-image" src= "//localhost:9090/spring-boot/assets/img/action.jpg">
+                            <img class="project-image" th:src="${pictureUrl}">
                     </div>
                 </div>
                 <div class="row ">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="user-name-div text-left">
-                            <span class="user-name " id="repNameShow" name="repNameShow" th:text="${repName}">RepName</span>
+                            <span class="user-name " id="repNameShow" name="repNameShow" th:text="${pictureName}">RepName</span>
                         </div>
                     </div>
                 </div>
