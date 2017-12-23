@@ -154,6 +154,7 @@ public class IndexController {
         model.addAttribute("project", project);
         return "action/activity";
     }
+
     //搜索相关
     @RequestMapping(value = "search",method = RequestMethod.POST)
     public String search(HttpServletRequest request)
@@ -173,6 +174,7 @@ public class IndexController {
             }
         }
 
-        return "index";
+        return "management/searchOutput";
+
     }
 }

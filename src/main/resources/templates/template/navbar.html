@@ -30,12 +30,14 @@
                 <a th:href="@{/participate}">在参与</a>
             </li>
             <li class="s-bar" style="right:-120px;width:0;">
-                <form class="form" action="search" method="post">
-                    <input style="float: right;margin-right: 240px;margin-top: -3px;" type="text" name="toSearch" value="查找用户、项目、仓库" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '查找用户、项目、仓库';}">
-                    <input style="float: right;margin-right: 175px;margin-top: -42px;background: #eee;background-color: #428bca" type="submit"  value="搜索"/>
+
+                <form th:action="@{/search}">
+                    <input style="float: right;margin-right: 260px;margin-top: -3px;" type="text" value="搜索" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '搜索';}">
+                    <input style="float:right;margin-right:200px;margin-top: -42px;background: #eee;background-color: #428bca;width: 60px;" type="submit"  value="搜索"/>
+
                 </form>
             </li>
-            <li th:if="${session.username != null}" style="right: -310px;top: -24px;">
+            <li th:if="${session.username != null}" style="right: -310px;top:-25px;">
                 <a th:text="${session.username}"  th:href="@{/userInfo}">MilkMan</a>
                 <ul class="animenu__nav__child" style="text-align: center">
                     <li><a th:href="@{/showRes}">仓库管理</a></li>
@@ -45,8 +47,8 @@
                     <li><a th:href="@{/logout}">退出</a></li>
                 </ul>
             </li>
-            <a th:if="${session.username == null}" th:href="@{/regist}" style="right: -300px;top: -24px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
-            <a th:if="${session.username == null}" th:href="@{/login}" style="right: -300px;top: -24px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
+            <a th:if="${session.username == null}" th:href="@{/regist}" style="right: -300px;top:-25px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
+            <a th:if="${session.username == null}" th:href="@{/login}" style="right: -300px;top:-25px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
 
 
         </ul>
