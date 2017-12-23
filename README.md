@@ -30,7 +30,8 @@ springBoot + hibernate
 - PPT的第一页要包含项目的名字以及所有成员的学号姓名
 - PPT用英文写作，提交PDF版
 
-# 文档和PPT的准备
+# 准备
+## presentation准备
 项目得分中占比最重的为Final Presentation。所以只要答辩讲得好就行。
 其中答辩中占分最高的是`System functionalities implemented`和`Architectural and component design`。
 三十分钟以内的答辩时间，有Q&A环节，presentation为英文演讲。
@@ -40,3 +41,9 @@ presentation展示的内容与文档中的内容基本一致，因此PPT可以�
 - 展示服务端的系统结构和组成的设计、展示服务端主要组成成分的函数和接口的设计、数据库设计以及它们背后的设计逻辑。[参考文档第3、4、5条]
 - 展示团队合作模型、方法、成员技能、合作方式等。[参考proposal]
 - 展示系统设计和实现过程中涉及到的比较重要的问题，以及对应的解决方案。[需要讨论]
+
+## 分工
+- 王一同：文档2、3前半部分
+- 沈金伟：文档5、6
+- 刘书良：文档其它部分
+- 李航：文档汇总、PPT制作（复制proposal的PPT内容以及文档内容就差不多了）
