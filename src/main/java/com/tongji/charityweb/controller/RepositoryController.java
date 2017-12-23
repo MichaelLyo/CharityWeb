@@ -7,18 +7,23 @@ import java.util.concurrent.Callable;
 
 import com.tongji.charityweb.model.project.Project;
 import com.tongji.charityweb.model.repository.Repository;
+import com.tongji.charityweb.model.repository.RepositoryID;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.project.ProjectRepository;
+import com.tongji.charityweb.repository.repository.RepRepository;
 import com.tongji.charityweb.repository.user.UserRepository;
 import com.tongji.charityweb.service.RepositoryService;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.mobile.DeviceDelegatingViewResolverAutoConfiguration;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
@@ -91,5 +96,14 @@ public class RepositoryController {
             e.printStackTrace();
             return "error";
         }
+    }
+
+    @RequestMapping(value = "/showRepDetail",method = RequestMethod.GET)
+    public String showRepDetail(String repName, String userName, Model model) {
+        List<Project> projects = repService.findAllProjectsInRep(repName, userName);
+        model.addAttribute("projects", projects);
+        Repository repository = repService.findOneRepository(repName, userName);
+        model.addAttribute("repository", repository);
+        return "action/repDetail";
     }
 }

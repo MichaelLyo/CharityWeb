@@ -2,9 +2,11 @@ package com.tongji.charityweb.controller;
 
 import com.tongji.charityweb.model.project.Project;
 import com.tongji.charityweb.model.project.ProjectFollower;
+import com.tongji.charityweb.model.repository.Repository;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.service.DonateService;
 import com.tongji.charityweb.service.ProjectService;
+import com.tongji.charityweb.service.RepositoryService;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,6 +29,8 @@ public class IndexController {
     private UserService userService;
     @Autowired
     private DonateService donateService;
+    @Autowired
+    private RepositoryService repositoryService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
@@ -42,18 +46,27 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping(value = "caiyun")
-    public String caiyun(){
+    @RequestMapping(value = "caiyun", method = RequestMethod.GET)
+    public String caiyun(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("caiyun",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/caiyun-index";
     }
-    @RequestMapping(value = "chunhui")
-    public String chunhui(){
+
+    @RequestMapping(value = "chunhui", method = RequestMethod.GET)
+    public String chunhui(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("chunhui",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/chunhui-index";
     }
-    @RequestMapping(value = "cat")
-    public String cat(){
+
+    @RequestMapping(value = "cat", method = RequestMethod.GET)
+    public String cat(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("cat",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/cat-index";
     }
+
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login(){
         return "login/login";

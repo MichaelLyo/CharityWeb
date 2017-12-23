@@ -13,9 +13,9 @@ import com.tongji.charityweb.repository.comment.RepComRepository;
 import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.repository.repository.RepRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
 import java.util.List;
 
 @Component
@@ -29,19 +29,27 @@ public class CommentService {
     @Autowired
     private ProjectCommentRepository projectCommentRepository;
 
-    public boolean createRepComment(String repName,String userName, String content) {
+    public boolean createRepComment(String repName, String userName, String content, String commenterName, String pictureUrl) {
         try {
-            Repository repository = repRepository.findOne(new RepositoryID(repName, userName));
+            Repository repository = repRepository.findOne(new RepositoryID(userName, repName));
 
-            Date createDate = new Date();
             RepositoryComment newRepCom = new RepositoryComment( repName, userName);
             newRepCom.setContent(content);
+            newRepCom.setCommenterName(commenterName);
+            newRepCom.setPictureUrls(pictureUrl);
+
+            List<RepositoryComment> lists = repComRepository.findAll(new Sort(Sort.Direction.DESC, "num"));
+            if (lists.isEmpty())
+                newRepCom.setNum(0);
+            else
+                newRepCom.setNum(lists.get(0).getNum()+1);
 
             repository.addComment(newRepCom);
 
             repRepository.save(repository);
             return true;
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
             return false;
         }
@@ -73,13 +81,20 @@ public class CommentService {
         }
     }
 
-    public boolean createProComment(String projName, String repName, String userName, String content, String commenterName) {
+    public boolean createProComment(String projName, String repName, String userName, String content, String commenterName, String pictureUrl) {
         try {
             Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
 
             ProjectComment newProCom = new ProjectComment(projName, repName, userName);
             newProCom.setContent(content);
             newProCom.setCommenterName(commenterName);
+            newProCom.setPictureUrls(pictureUrl);
+
+            List<ProjectComment> lists = projectCommentRepository.findAll(new Sort(Sort.Direction.DESC, "num"));
+            if (lists==null)
+                newProCom.setNum(0);
+            else
+                newProCom.setNum(lists.get(0).getNum()+1);
 
             project.addProjectComment(newProCom);
             projectRepository.save(project);
@@ -90,7 +105,7 @@ public class CommentService {
         }
     }
 
-    public boolean deleteProComment(String projName, String repName, String userName,int num) {
+    public boolean deleteProComment(String projName, String repName, String userName ,int num) {
         try {
             projectCommentRepository.delete( new ProjectCommentID(projName, repName, userName, num));
             return true;

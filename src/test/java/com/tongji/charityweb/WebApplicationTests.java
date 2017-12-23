@@ -62,8 +62,28 @@ public class WebApplicationTests
 	{
 		User newUser = new User("511231530@qq.com","lsl","刘书良","lsldhr666","male","member");
 		userRepository.save(newUser);
+		User caiyun = new User("caiyun@163.com","caiyun","彩云","caiyun","male","member");
+		User cat = new User("cat@163.com","cat","猫咪","cat","male","member");
+		User chunhui = new User("caiyun@163.com","chunhui","春晖","chunhui","male","member");
+		userRepository.save(caiyun);
+		userRepository.save(cat);
+		userRepository.save(chunhui);
 		Repository newRepository = new Repository("myRepo","lsl");
 		repRepository.save(newRepository);
+		Repository caiyunRep1 = new Repository("caiyunRep1","caiyun");
+		for (int i=1; i<=10; i++) {
+			Repository caiyunRep = new Repository("caiyunRep"+i,"caiyun");
+			Repository catRep = new Repository("catRep"+i,"cat");
+			Repository chunhuiRep = new Repository("chunhuiRep"+i,"chunhui");
+			repRepository.save(caiyunRep);
+			repRepository.save(catRep);
+			repRepository.save(chunhuiRep);
+		}
+		for (int i=1; i<=5; ++i) {
+			Project caiyunPro = new Project("caiyunRep1","caiyunPro"+i,"caiyun");
+			projectRepository.save(caiyunPro);
+		}
+		repRepository.save(caiyunRep1);
 		for (int i=1; i<=30; i++) {
 			Project newProject = new Project("myRep","myPro"+i, "lsl");
 			projectRepository.save(newProject);
