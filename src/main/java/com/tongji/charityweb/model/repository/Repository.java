@@ -122,6 +122,15 @@ public class Repository implements Serializable
 		return repName;
 	}
 
+	public String getUserName()
+	{
+		return userName;
+	}
+
+	public String getRepName()
+	{
+		return repName;
+	}
 	//setters
 	//createdAt是不可更新的，所以不设置setter
 
