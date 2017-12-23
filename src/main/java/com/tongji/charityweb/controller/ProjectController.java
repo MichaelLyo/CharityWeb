@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import redis.clients.jedis.BinaryClient;
 import sun.util.resources.CalendarData;
 
 import javax.jws.WebParam;
@@ -69,10 +70,14 @@ public class ProjectController {
             String projName = request.getParameter("projName");
             String repName = request.getParameter("repName");
             String userName =request.getSession().getAttribute(HttpSessionConfig.SESSION_USERNAME).toString();
-
-            Project project = projectRepository.findOne(new ProjectID( projName ,repName, userName));
             List<Project> projects = new ArrayList<>() ;
-            projects.add(project);
+            if(repName == null){
+                projects = projectRepository.findByUserName(userName);
+            }
+            else{
+                Project project = projectRepository.findOne(new ProjectID( projName ,repName, userName));
+                projects.add(project);
+            }
             model.addAttribute("projects", projects);
             return "management/mgtProject";
         }
@@ -124,7 +129,11 @@ public class ProjectController {
             Repository repository = repRepository.findOne(new RepositoryID(userName, repName));
             List<Project> projects = repository.getProjects();
 
+            String pictureUrl = repository.getDescriptionPictureUrl();
+            String pictureName = repository.getRepositoryName();
             model.addAttribute("projects", projects);
+            model.addAttribute("pictureUrl",pictureUrl);
+            model.addAttribute("pictureName",pictureName);
             return "management/mgtProject";
         }
         catch (Exception e){
@@ -132,6 +141,33 @@ public class ProjectController {
             return "error";
         }
     }
+
+    @RequestMapping(value = "showOwnerProjects",method = {RequestMethod.POST, RequestMethod.GET})
+    public String showOwnerProjects(HttpServletRequest request, Model model){
+        try{
+
+            HttpSession session = request.getSession();
+            User userInsession = userService.getUserInSession(session);
+            if(userInsession == null)
+                return "login/sessionLost";
+
+            List<Project> projects = projectRepository.findByUserName(userInsession.getUsername());
+            String pictureUrl = userInsession.getHpPictureUrl();
+            String pictureName = userInsession.getUsername();
+            model.addAttribute("projects", projects);
+            model.addAttribute("pictureUrl",pictureUrl);
+            model.addAttribute("pictureName",pictureName);
+
+
+            return "management/mgtProject";
+        }
+        catch (Exception e){
+            System.out.println("showProjects");
+            return "error";
+        }
+
+    }
+
     @RequestMapping(value = "showProjects",method = {RequestMethod.POST, RequestMethod.GET})
     public String showProjects(HttpServletRequest request, Model model){
         try{
@@ -146,7 +182,8 @@ public class ProjectController {
             List<Project> projects = repository.getProjects();
 
             model.addAttribute("projects", projects);
-            model.addAttribute("repName",repName);
+            model.addAttribute("pictureUrl",repository.getDescriptionPictureUrl());
+            model.addAttribute("pictureName",repName);
 
 
             return "management/mgtProject";

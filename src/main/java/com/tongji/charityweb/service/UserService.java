@@ -9,6 +9,7 @@ import com.tongji.charityweb.repository.user.UserFollowerRepository;
 import com.tongji.charityweb.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -22,8 +23,10 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private UserFollowerRepository userFollowerRepository;
+    @Autowired
+    private FileService fileService;
 
-    public boolean createUser( String userName,String email, String name, String password, String sex, String rank)
+    public boolean createUser(String userName, String email, String name, String password, String sex, String rank, MultipartFile file)
     {
         try{
            User newUser = new User(userName);
@@ -33,6 +36,7 @@ public class UserService {
            newUser.setSex(sex);
            newUser.setRank(rank);
            userRepository.save(newUser);
+           fileService.uploadUserPicture(file, newUser);
             return true;
         }
         catch(Exception e)

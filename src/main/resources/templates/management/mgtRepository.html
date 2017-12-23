@@ -29,17 +29,15 @@
 
 <div th:include="template/navbar :: navbar"></div>
 <div class="banner two"></div>
-<h3 class="tittle" style="float: left;margin-left: 30px;">我的仓库</h3>
 <div role="main" class="main container">
     <div class="row">
         <div class="col-md-3 col-md-offset-2">
             <div >
-                <img class="user-image" src="//localhost:9090/spring-boot/assets/img/action.jpg" alt="no image">
+                <img class="user-image" th:src="${user.getHpPictureUrl()}" alt="no image">
             </div>
             <div>
                 <h3  style="text-align: center" th:text="${user.getUsername()}" id="userNameShow" name="userNameShow">JinWeiShen</h3>
                 <h6 style="text-align: center" th:text="${user.getNickname()}">jumpjumpdog</h6>
-                <a  style="text-align: center">add a bio</a>
             </div>
         </div>
         <div class="col-md-6" >
@@ -84,7 +82,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 repository-image">
-                    <img class="repository-image" src="//localhost:9090/spring-boot/assets/img/action.jpg" alt="//localhost:9090/spring-boot/assets/img/banner2.jpg">
+                    <img class="repository-image" th:src="${repository.getDescriptionPictureUrl()}" >
                 </div>
             </div>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
