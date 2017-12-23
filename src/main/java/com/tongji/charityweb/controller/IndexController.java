@@ -150,4 +150,9 @@ public class IndexController {
         model.addAttribute("project", project);
         return "action/activity";
     }
+
+    @RequestMapping(value = "search")
+    public String search(){
+        return "management/searchOutput";
+    }
 }
