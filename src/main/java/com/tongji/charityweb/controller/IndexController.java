@@ -176,16 +176,15 @@ public class IndexController {
         model.addAttribute("users", users);
         model.addAttribute("projects", projects);
         model.addAttribute("repositories", repositories);
-
-        if (users.isEmpty()){
-            System.out.println("search not found");
-        }
-        else {
-            for(User user:users)
-            {
-                System.out.println(user.getUsername());
-            }
-        }
+        //if (users.isEmpty()){
+        //    System.out.println("search not found");
+        //}
+        //else {
+        //    for(User user:users)
+        //    {
+        //        System.out.println(user.getUsername());
+        //    }
+        //}
         return "management/searchOutput";
 
     }
