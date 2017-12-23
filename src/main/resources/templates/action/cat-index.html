@@ -66,11 +66,11 @@
                 <div class="wthree" th:each="repository:${projects}">
                     <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
                         <div class="tch-img">
-                            <a th:href="@{/activity}"><img th:src="@{${repository.getDescriptionPictureUrl()}}" class="img-responsive" alt=""></a>
+                            <a th:href="@{/showRepDetail(repName=${repository.getRepositoryName()},userName=${repository.getUsername()})}"><img th:src="@{${repository.getDescriptionPictureUrl()}}" class="img-responsive" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-                        <h3><a th:href="@{/activity}" th:text="${repository.getRepositoryName()}">Lorem Ipsum is simply</a></h3>
+                        <h3><a th:href="@{/showRepDetail(repName=${repository.getRepositoryName()},userName=${repository.getUsername()})}" th:text="${repository.getRepositoryName()}">Lorem Ipsum is simply</a></h3>
                         <h6>BY <a th:href="@{/userInfo(username=${repository.getUsername()})}" th:text="${repository.getUsername()}">ADAM ROSE </a> <span th:text="${repository.getCreatedAt()}">JULY 10 2016.</span></h6>
                         <p th:text="${repository.getDescription()}">Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris .</p>
                         <div class="bht1">
