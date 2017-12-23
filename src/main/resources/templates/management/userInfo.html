@@ -312,7 +312,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-8 w3ls-banner-right">
                 <div class="banner-right-img">
                     <!--<img th:if="${thisUser.hpPictureUrl == null}" th:src="@{Login/images/1.jpg}"   alt="" />-->
-                    <img style="height: 250px;" th:src="@{${thisUser.hpPictureUrl}}"  alt="" />
+                    <img style="height: 150px;width:100%;" th:src="'http://localhost:9090/spring-boot/'+${thisUser.hpPictureUrl}"  alt="" />
                 </div>
                 <div class="banner-right-info">
                     <h2>简介</h2>
@@ -371,11 +371,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <section class='wrap'>
                             <div class='wrap_right'>
                                 <div class='bar_group' style="text-align: left;">
-                                    <div class='bar_group__bar thin' label='参与活动数' show_values='true' tooltip='true' value='10'></div>
-                                    <div class='bar_group__bar thin' label='发表文章数' show_values='true' tooltip='true' value='235'></div>
+                                    <div class='bar_group__bar thin' label='参与活动数' show_values='true' tooltip='true' value='10' th:value="${donateAmount}" ></div>
                                     <div class='bar_group__bar thin' label='捐款金额' show_values='true' tooltip='true' value='20'></div>
                                     <div class='bar_group__bar thin' label='评论数' show_values='true' tooltip='true' value='456'></div>
-                                    <div class='bar_group__bar thin' label='HTML' show_values='true' tooltip='true' value='245'></div>
                                 </div>
                             </div>
                             <div class='clear'></div>

@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartRequest;
 import sun.misc.Request;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import javax.swing.plaf.multi.MultiFileChooserUI;
 
 @Controller
@@ -46,7 +47,7 @@ public class RepositoryController {
             String repName = request.getParameter("repName");
             String description = request.getParameter("description");
             MultipartFile file = mulRequest.getFile("photo");
-            if( repService.createRepository(repName,description,userInSession))
+            if( repService.createRepository(repName,description,userInSession, file))
                   return "redirect:/showRes";
             else
                   return "error";
