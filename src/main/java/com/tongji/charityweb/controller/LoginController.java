@@ -112,7 +112,7 @@ public class LoginController {
         String str = "";
         if (user != null){
             userService.userLogin(user,request.getSession());
-            str = "redirect:/me";
+            str = "redirect:/";
         }else {
             model.addAttribute("span", true);
             str = "login/login";
