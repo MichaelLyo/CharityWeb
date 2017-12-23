@@ -20,7 +20,6 @@ public class RepositoryComment
 
 	// columns
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int num;
 
 	@Id
@@ -28,6 +27,8 @@ public class RepositoryComment
 
 	@Id
 	private String userName;
+
+	private String commenterName;
 
 	private String content;
 
@@ -62,6 +63,14 @@ public class RepositoryComment
 		if(!repository.getProjects().contains(this)){
 			repository.getComments().add(this);
 		}
+	}
+
+	public String getCommenterName() {
+		return commenterName;
+	}
+
+	public void setCommenterName(String commenterName) {
+		this.commenterName = commenterName;
 	}
 
 	public int getNum() {

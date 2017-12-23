@@ -4,6 +4,7 @@ import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.service.CommentService;
 import com.tongji.charityweb.service.UserService;
 import jdk.internal.org.objectweb.asm.tree.IincInsnNode;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,15 +22,19 @@ public class CommentController {
     UserService userService;
 
     @RequestMapping(value = "/createRepCom",method = RequestMethod.POST)
-    @ResponseBody
     public String createRepCom(HttpServletRequest request)
     {
         try {
+            User user = userService.getUserInSession(request.getSession());
+            if(user==null)
+                return "login/sessionLost";
             String userName =  request.getParameter("userName");
             String repName = request.getParameter("repName");
             String content = request.getParameter("content");
-            if (commentService.createRepComment(repName, userName, content))
-                return "create RepComment succeed!";
+            String commenterName = user.getUsername();
+            String pictureUrl = user.getHpPictureUrl();
+            if (commentService.createRepComment(repName, userName, content, commenterName, pictureUrl))
+                return "redirect:/showRepDetail?repName="+repName+"&userName="+userName;
             else
                 return "create fail";
         } catch (Exception e) {
@@ -46,7 +51,7 @@ public class CommentController {
             String repName = request.getParameter("repName");
             String userName = request.getParameter("userName");
             Integer num = Integer.valueOf(request.getParameter("num"));
-            if (commentService.deleteRepComment(repName, userName,num))
+            if (commentService.deleteRepComment(repName, userName, num))
                 return "delete RepComment succeed!";
             else
                 return "delete fail";
@@ -82,7 +87,8 @@ public class CommentController {
             String userName = request.getParameter("userName");
             String content = request.getParameter("content");
             String commenterName = user.getUsername();
-            if (commentService.createProComment(projectName,repName,userName,content,commenterName))
+            String pictureUrl = user.getHpPictureUrl();
+            if (commentService.createProComment(projectName,repName,userName,content,commenterName,pictureUrl))
                 return "redirect:/activity?projName="+projectName+"&repName="+repName+"&userName="+userName;
             else
                 return "create fail";

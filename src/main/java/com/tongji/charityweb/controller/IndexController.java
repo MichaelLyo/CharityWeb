@@ -39,18 +39,34 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping(value = "caiyun")
-    public String caiyun(){
+    @RequestMapping(value = "me",method = RequestMethod.GET)
+    public String me(Model model) {
+        List<Project> projects = projectService.getAllProjectsOrderByFolNum();
+        model.addAttribute("projects", projects);
+        return "index";
+    }
+
+    @RequestMapping(value = "caiyun", method = RequestMethod.GET)
+    public String caiyun(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("caiyun",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/caiyun-index";
     }
-    @RequestMapping(value = "chunhui")
-    public String chunhui(){
+
+    @RequestMapping(value = "chunhui", method = RequestMethod.GET)
+    public String chunhui(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("chunhui",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/chunhui-index";
     }
-    @RequestMapping(value = "cat")
-    public String cat(){
+
+    @RequestMapping(value = "cat", method = RequestMethod.GET)
+    public String cat(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("cat",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/cat-index";
     }
+
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login(){
         return "login/login";
