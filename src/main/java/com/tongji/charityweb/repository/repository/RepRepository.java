@@ -6,8 +6,11 @@ import com.tongji.charityweb.model.repository.RepositoryID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 @org.springframework.stereotype.Repository
 public interface RepRepository  extends JpaRepository<Repository,RepositoryID> {
     public Repository findByRepNameAndUserName(String repName, String userName);
+    public List<Repository> findByRepNameLike(String repName);
 }

@@ -100,4 +100,8 @@ public class RepositoryService {
             return "showAllRepByUserName error";
         }
     }
+    public List<Repository> findRepositoryLike(String toSearch)
+    {
+        return repRepository.findByRepNameLike(toSearch);
+    }
 }
