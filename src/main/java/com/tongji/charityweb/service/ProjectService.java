@@ -128,6 +128,7 @@ public class ProjectService {
             ProjectFollower projectFollower = new ProjectFollower(userName, repName,projName, followerName);
             Project project = projectRepository.findOne(projectID);
             project.addFollower(projectFollower);
+            project.setFollowerNum(project.getFollowerNum()+1);
             projectFollower.setProject(project);
             projectRepository.save(project);
             return true;
