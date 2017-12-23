@@ -166,7 +166,6 @@ public class IndexController {
                 System.out.println(user.getUsername());
             }
         }
-
         return "management/searchOutput";
 
     }

@@ -54,8 +54,8 @@
                                 <a href="#installation">在参与</a>
                             </li>
                             <li class="s-bar" style="right:-120px;width:0;">
-                                <form th:action="@{/search}">
-                                    <input style="float: right;margin-right: 260px;margin-top: -3px;" type="text" value="搜索" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '搜索';}">
+                                <form class="form" th:action="@{/search}" method="post">
+                                    <input style="float: right;margin-right: 260px;margin-top: -3px;" type="text" name="toSearch" value="搜索" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '搜索';}">
                                     <input style="margin-right:151px;margin-top: -42px;background: #eee;background-color: #428bca;width: 60px;" type="submit"  value="搜索"/>
                                 </form>
                             </li>

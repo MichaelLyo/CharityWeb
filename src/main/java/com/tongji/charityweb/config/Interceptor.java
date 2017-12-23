@@ -18,7 +18,7 @@ public class Interceptor implements HandlerInterceptor
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		boolean flag =true;
-		String username = (String) request.getSession().getAttribute(HttpSessionConfig.SESSION_USERNAME);
+		String username = (String)request.getSession().getAttribute(HttpSessionConfig.SESSION_USERNAME);
 		if(null==username){
 			//System.out.println("intercepted!");
 			response.sendRedirect("sessionLost");
