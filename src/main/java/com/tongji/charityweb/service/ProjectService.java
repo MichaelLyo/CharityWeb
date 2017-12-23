@@ -199,4 +199,9 @@ public class ProjectService {
             return "showAllProFollower error";
         }
     }
+
+    public List<Project> findProjNameLike(String toSearch)
+    {
+        return projectRepository.findByProjNameLike(toSearch);
+    }
 }

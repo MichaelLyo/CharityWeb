@@ -2,9 +2,11 @@ package com.tongji.charityweb.controller;
 
 import com.tongji.charityweb.model.project.Project;
 import com.tongji.charityweb.model.project.ProjectFollower;
+import com.tongji.charityweb.model.repository.Repository;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.service.DonateService;
 import com.tongji.charityweb.service.ProjectService;
+import com.tongji.charityweb.service.RepositoryService;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,11 +24,13 @@ import java.util.List;
 public class IndexController {
 
     @Autowired
-    ProjectService projectService;
+    private ProjectService projectService;
     @Autowired
     private UserService userService;
     @Autowired
     private DonateService donateService;
+    @Autowired
+    private RepositoryService repositoryService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
@@ -154,8 +158,21 @@ public class IndexController {
     @RequestMapping(value = "search",method = RequestMethod.POST)
     public String search(HttpServletRequest request)
     {
-        System.out.println("jinlaile");
-        System.out.println(request.getParameter("toSearch"));
+        //给带搜索的字符串加上搜索匹配修饰符
+        String toSearch = "%" + request.getParameter("toSearch") + "%";
+        List<User> users = userService.findUserContains(toSearch);
+        List<Project> projects = projectService.findProjNameLike(toSearch);
+        List<Repository> repositories = repositoryService.findRepositoryLike(toSearch);
+        if (users.isEmpty()){
+            System.out.println("search not found");
+        }
+        else {
+            for(User user:users)
+            {
+                System.out.println(user.getUsername());
+            }
+        }
+
         return "index";
     }
 }
