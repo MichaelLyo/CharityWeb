@@ -301,39 +301,39 @@
 
 <div th:include="template/navbar :: navbar"></div>
 <div class="banner two"></div>
-<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="用户">
-<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="项目">
-<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="仓库">
+<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="用户" onClick="toggle('user')">
+<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="项目" onClick="toggle('project')">
+<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="仓库" onClick="toggle('repository')">
 <div class="col-md-6 upcoming" style="width: 100%;">
-    <div class="family">
+    <div class="family" id="user">
         <div class="twenty">
-            <h4>捐款数</h4>
+            <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
         </div>
         <div class="sunday">
-            <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>一段项目描述（五十字）</p>
+            <a th:href="@{/activity}"><h5>用户名</h5></a>
+            <p>用户个人介绍</p>
         </div>
 
         <div class="clearfix"> </div>
     </div>
-    <div class="family">
+    <div class="family" id="project">
         <div class="twenty">
-            <h4>$20</h4>
+            <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
         </div>
         <div class="sunday">
             <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
+            <p>项目介绍 </p>
         </div>
 
         <div class="clearfix"> </div>
     </div>
-    <div class="family">
+    <div class="family" id="repository">
         <div class="twenty">
-            <h4>$30000</h4>
+            <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
         </div>
         <div class="sunday">
-            <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
+            <a th:href="@{/activity}"><h5>仓库名称</h5></a>
+            <p>一段仓库介绍</p>
         </div>
 
         <div class="clearfix"> </div>
@@ -368,6 +368,17 @@
             $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
         });
     });
+</script>
+<script type="text/javascript">
+    function toggle(id){
+        var user=document.getElementById('user');
+        var project=document.getElementById('project');
+        var repository=document.getElementById('repository');
+        if(id==='user') {project.style.display='none';repository.style.display='none';user.style.display='block';}
+        if(id==='project') {user.style.display='none';repository.style.display='none';project.style.display='block';}
+        if(id==='repository'){project.style.display='none';user.style.display='none';repository.style.display='block';}
+
+    }
 </script>
 <a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 </body>
