@@ -30,8 +30,8 @@
                 <a th:href="@{/participate}">在参与</a>
             </li>
             <li class="s-bar" style="right:-120px;width:0;">
-                <form>
-                    <input style="float: right;margin-right: 240px;margin-top: -3px;" type="text" value="搜索" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '搜索';}">
+                <form class="form" action="search" method="post">
+                    <input style="float: right;margin-right: 240px;margin-top: -3px;" type="text" name="toSearch" value="查找用户、项目、仓库" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '查找用户、项目、仓库';}">
                     <input style="float: right;margin-right: 175px;margin-top: -42px;background: #eee;background-color: #428bca" type="submit"  value="搜索"/>
                 </form>
             </li>

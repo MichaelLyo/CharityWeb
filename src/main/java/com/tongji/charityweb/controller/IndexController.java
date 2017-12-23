@@ -150,4 +150,12 @@ public class IndexController {
         model.addAttribute("project", project);
         return "action/activity";
     }
+    //搜索相关
+    @RequestMapping(value = "search",method = RequestMethod.POST)
+    public String search(HttpServletRequest request)
+    {
+        System.out.println("jinlaile");
+        System.out.println(request.getParameter("toSearch"));
+        return "index";
+    }
 }
