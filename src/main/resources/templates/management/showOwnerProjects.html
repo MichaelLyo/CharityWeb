@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>项目管理</title>
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{assets/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{assets/css/bootstrap.min.css}" rel="stylesheet">
+    <link  th:href="@{assets/css/project.css}" rel="stylesheet">
+    <!-- Custom Theme files -->
+    <link th:href="@{action/css/communitystyle.css}" rel='stylesheet'/>
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.min.js}"></script>
+    <!-- animation-effect -->
+    <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/style.css}" rel="stylesheet">
+    <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+    <link th:href="@{assets/css/button.css}" rel="stylesheet">
+    <script th:src="@{assets/js/wow.min.js}"></script>
+    <script th:src="@{assets/js/project.js}"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"  charset="UTF-8">
+</head>
+<body>
+<div th:include="template/navbar :: navbar"></div>
+<div class="banner two"></div>
+<!--<h3 class="tittle" style="float: left;margin-left: 30px;">搜索结果</h3>-->
+<!--<h3 class="tittle" style="float: left;margin-left: 30px;">我参与的项目</h3>-->
+<div class="main">
+    <div class="container " >
+        <div class="row">
+            <div class="col-md-3 col-md-offset-1">
+                <div class="row " >
+                    <div class="col-md-12 col-md-offset-2">
+                        <img class="project-image" th:src="${pictureUrl}">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="user-name-div text-left">
+                            <span class="user-name " id="repNameShow" name="repNameShow" th:text="${pictureName}">RepName</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-md-7 ">
+                <div class="search-project-div" >
+                    <form   class="form-inline" style="width: 100%" name="searchAndNew" id="searchAndNew" >
+                        <div class="form-group"  >
+                            <input type="hidden" class="form-control" id="projName" name ="projName" placeholder="search projects" style="width: 200px;  margin-right: 20px;margin-left: 0px;">
+                        </div>
+                          <input type="hidden"  id="repName" name="repName" >
+                         <input type="hidden" id="userName" name="userName">
+                    </form>
+
+                </div>
+                <ul >
+                    <li class="repository-div" th:each="project : ${projects}">
+                        <ul  >
+                            <div class="margin-top-div text-left"  style="padding-left: 0px " >
+                                <a name="showDetailButton2" id="showDetailButton2" onclick="showProject(this)">
+                                    <h3 th:text="${project.getRepositoryName()}" class="repository-name-h3">RepName</h3>
+                                </a>
+                                <a  name="showDetailButton" id="showDetailButton"  onclick="showDetailFunction(this)" >
+                                    <h3 class="project-name-h3" th:text="${project.getProjName()}" id="projectNameShow">project-name</h3>
+                                </a>
+                                </a>
+                            </div>
+                            <div class="margin-top-div text-left">
+                                <p class="project-description" th:text="${project.getContext()}">project description</p>
+                            </div>
+                            <ul class="list-inline margin-top-div  row"  >
+                                <li class="svg col-md-2" style="padding-left: 5px;width: 50px;">
+                                    <svg aria-label="star"  height="16" role="img" version="1.1"  width="14" >
+                                        <path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path>
+                                    </svg>
+                                    <strong th:text="${project.getFollowers().size()}" >0</strong>
+                                </li>
+
+                                <li class="participate-li col-md-1">
+                                    <svg  version="1.1" width="16" height="16"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="9    " r="7" stroke="black"
+                                                stroke-width="0" fill="red"/>
+                                    </svg>
+                                    <strong th:text="${project.getParticipates().size()}">0</strong>
+                                </li>
+                                <li class="create-date-li col-md-4"  th:text="${project.getEndDate().toString().replace(' 00:00:00.0','')}" style="margin-right: 100px; ;"> </li>
+                            </ul>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<h3 class="tittle" style="float: left;margin-left: 30px;">我参与的项目</h3>-->
+
+<div th:include="template/footer :: copyright"></div>
+
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+</body>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+    function showDetailFunction(obj) {
+        $("#repName").val($(obj).prev().text());
+        $("#projName").val($(obj).text());
+        $("#userName").val($("#repNameShow").text());
+        $("#searchAndNew").attr("method","post");
+        $("#searchAndNew").attr("action","showProjectDetail").submit();
+    }
+
+    function  showProject(obj) {
+        $("#repName").val($(obj).text());
+        $("#userName").val($("#repNameShow").text());
+        $("#searchAndNew").attr("method","post");
+        $("#searchAndNew").attr("action","showProjects").submit();
+    }
+
+</script>
+</html>
