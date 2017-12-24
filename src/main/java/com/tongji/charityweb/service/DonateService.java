@@ -8,6 +8,8 @@ import com.tongji.charityweb.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * Created by LSL on 2017/12/21
  */
@@ -23,11 +25,21 @@ public class DonateService
 	{
 		if(donor!=null && project!=null)
 		{
-			Donate newDonate = new Donate(donor.getUsername(), project.getProjectName(),project.getRepName(),amount);
+			Donate newDonate = new Donate(project.getUserName(), project.getProjectName(),project.getRepName(),amount);
 			donor.addDonate(newDonate);
 			userRepository.save(donor);
 		}
 
 	}
+	public List<Donate> getDonateRecordsByUser(User user)
+	{
+		if (user!=null)
+		{
+			return user.getDonates();
+		}
+		else {
+			return null;
+		}
+	}
 
-}
+ }

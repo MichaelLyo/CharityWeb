@@ -28,8 +28,6 @@ public class IndexController {
     @Autowired
     private UserService userService;
     @Autowired
-    private DonateService donateService;
-    @Autowired
     private RepositoryService repositoryService;
 
     @RequestMapping(method = RequestMethod.GET)
@@ -133,36 +131,6 @@ public class IndexController {
         return "login/sessionLost";
     }
 
-    //donate相关
-    @RequestMapping(value = "donate",method = RequestMethod.GET)
-    public String donate(String projName, String repName, String userName, Model model)
-    {
-        Project project = projectService.findOneProject(projName,repName,userName);
-        model.addAttribute("project", project);
-        return "action/donate";
-    }
-    @RequestMapping(value = "donate",method = RequestMethod.POST)
-    public String donate(String projName, String repName, String userName,HttpServletRequest request,Model model)
-    {
-        User user = userService.getUserInSession(request.getSession());
-        Project project = projectService.findOneProject(projName,repName,userName);
-        if (user == null)
-        {
-            return "redirect:/login";
-        }
-        int amount = 10;
-        if (request.getParameter("amount")!=null)
-        {
-            //amount=Integer.getInteger();
-            amount = Integer.parseInt(request.getParameter("amount"));
-        }
-        else {
-            System.out.println("amount is null");
-        }
-        donateService.newDonate(user,project,amount);
-        model.addAttribute("project", project);
-        return "action/activity";
-    }
 
     //搜索相关
     @RequestMapping(value = "search",method = RequestMethod.POST)
