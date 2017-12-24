@@ -55,6 +55,36 @@ function replaceProjects(data){
     );
 }
 
+function replaceProjects(data){
+    var projectLi = $("#project-list").first();
+    var projName = data.projName;
+    var followerNum = data.followerNum;
+    var participateNum = data.participateNum;
+    var context = data.context;
+    var endDate =data.endDate;
+    $("#projectUl").empty();
+    projectLi.find("h3.project-name-h3").text(projName);
+    projectLi.find("#followerNum").text(followerNum);
+    projectLi.find("#participateNum").text(participateNum);
+    projectLi.find(".project-description").text(context);
+    projectLi.find(".create-date-li").text(endDate);
+    $("#projectUl").append(
+        "<li class='repository-div' id='project-list' "+projectLi.html()+
+        "</li>"
+    );
+    $("a#projectSrc").click(
+        function () {
+            console.log("shit");
+            $("#searchAndNew").attr("action","showProjectDetail");
+            $("#searchAndNew").attr("method","post");
+            $("#repName").val($("#repNameShow").text());
+            $("#projName").val($(this).children(":first").text());
+            $("#searchAndNew").submit();
+            console.log("shit");
+        }
+    );
+}
+
 
 function searchProjectWithAjax() {
     var repName = $("#repName").val($("#repNameShow").text()).val();
@@ -65,7 +95,6 @@ function searchProjectWithAjax() {
     console.log(repName);
     console.log(projName);
 
-    console.log(window.location["origin"] + "/testAjax");
     $.ajax({
         async: true,
         type: "POST",

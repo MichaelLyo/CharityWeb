@@ -36,6 +36,15 @@
 
 
 .project-name-h3{
+    margin-top: 10px;
+    color: #0366d6;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+.repository-name-h3 {
     color:#0366d6;
     font-size: 20px;
     font-weight: 600;
@@ -44,6 +53,7 @@
 .project-description{
     font-size: 15px;
     font-weight: 400;
+    margin-top: 10px;
 }
 
 .search-project-div{

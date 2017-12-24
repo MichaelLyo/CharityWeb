@@ -212,12 +212,17 @@ public class ProjectController {
     public String showProjects(HttpServletRequest request, Model model){
         try{
 
-            HttpSession session = request.getSession();
             String repName = request.getParameter("repName");
             String userName = request.getParameter("userName");
+            repName = repName.replace(" ","");
+            userName = userName.replace(" ","");
+            repName = repName.replace("\r\n","");
+            userName = userName.replace("\r\n","");
+
 
             Repository repository = repRepository.findOne(new RepositoryID(userName, repName));
             List<Project> projects = repository.getProjects();
+
 
             model.addAttribute("projects", projects);
             model.addAttribute("pictureUrl",repository.getDescriptionPictureUrl());
@@ -239,6 +244,13 @@ public class ProjectController {
         String userName = request.getParameter("userName");
         String repName = request.getParameter("repName");
         String projName = request.getParameter("projName");
+
+        repName = repName.replace(" ","");
+        userName = userName.replace(" ","");
+        projName  = projName.replace(" ","");
+        repName = repName.replace("\r\n","");
+        userName = userName.replace("\r\n","");
+        projName  = projName.replace("\r\n","");
         Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
         model.addAttribute("project",project);
         return "action/activity";
@@ -265,13 +277,16 @@ public class ProjectController {
     public String showFollowProjects(HttpServletRequest request, Model model){
         try{
             String userName = request.getParameter("userName");
+            User user = userRepository.getOne(userName);
             List<ProjectFollower>projectFollowers  = proFolRepository.findByFollowerName(userName);
             List<Project> projects = new ArrayList<>();
             for(ProjectFollower x : projectFollowers){
                 projects.add(x.getProject());
             }
             model.addAttribute("projects", projects);
-            model.addAttribute("repName","repName");
+            model.addAttribute("pictureUrl",user.getHpPictureUrl());
+            model.addAttribute("pictureName",userName);
+            model.addAttribute("userName",userName);
 
 
             return "management/mgtProject";
@@ -281,18 +296,20 @@ public class ProjectController {
             return "error";
         }
     }
-
     @RequestMapping(value = "showParProjects", method = RequestMethod.POST)
     public String showParticipateProjects(HttpServletRequest request, Model model){
         try{
             String userName = request.getParameter("userName");
+            User user = userRepository.findOne(userName);
             List<Participate> participates = parRepository.findByParName(userName);
             List<Project> projects = new ArrayList<>();
             for(Participate x : participates){
                 projects.add(x.getProject());
             }
             model.addAttribute("projects",projects);
-            model.addAttribute("repName","repName");
+            model.addAttribute("pictureUrl",user.getHpPictureUrl());
+            model.addAttribute("pictureName",userName);
+            model.addAttribute("userName",userName);
         }
         catch (Exception e){
             System.out.println("showParticipateProjects");
@@ -300,8 +317,6 @@ public class ProjectController {
         }
         return  "management/mgtProject";
     }
-
-
     @RequestMapping(value = "/deleteProFol",method = RequestMethod.GET)
     public String deleteProFol(String projName, String repName, String userName, HttpServletRequest request)
     {
