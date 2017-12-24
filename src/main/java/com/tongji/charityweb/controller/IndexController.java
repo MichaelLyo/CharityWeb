@@ -100,11 +100,6 @@ public class IndexController {
         return "participate/participate-index";
     }
 
-    @RequestMapping(value = "editInfo",method = RequestMethod.GET)
-    public String editInfo(){
-        return "management/editInfo";
-    }
-
     @RequestMapping(value = "addRepository")
     public String addRepository(){
         return "management/addRepository";
