@@ -113,9 +113,10 @@ public class RepositoryService {
         }
     }
 
-    public List<Project> findAllProjectsInRep(String repName, String userName) {
+    public Page<Project> findAllProjectsInRep(String repName, String userName, int page, int size) {
         try {
-            return projectRepository.findAllByRepNameAndUserName(repName,userName);
+            Pageable pageable = new PageRequest(page,size);
+            return projectRepository.findAllByRepNameAndUserName(repName,userName,pageable);
         } catch (Exception e)  {
             e.printStackTrace();
             return null;

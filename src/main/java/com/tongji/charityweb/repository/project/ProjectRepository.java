@@ -14,6 +14,7 @@ import java.util.List;
 @Repository
 public interface ProjectRepository  extends JpaRepository<Project,ProjectID> {
     public List<Project> findAllByRepNameAndUserName(String repName, String userName);
+    public Page<Project> findAllByRepNameAndUserName(String repName, String userName, org.springframework.data.domain.Pageable pageable);
     public List<Project> findByUserName(String userName);
     public List<Project> findByProjNameLike(String projName);
 }
