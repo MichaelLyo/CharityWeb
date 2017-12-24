@@ -123,24 +123,6 @@ public class ProjectController {
             return "error";
         }
     }
-    @RequestMapping(value = "searchWithUserNameProject", method = RequestMethod.POST)
-    public String searchWithUserNameProject(HttpServletRequest request, Model model){
-        try{
-            String projName = request.getParameter("projName");
-            String userName =request.getParameter("userName");
-            List<Project> projects = new ArrayList<>() ;
-
-            User user = userRepository.findByUsername(userName);
-            projects = projectRepository.findByUserNameAndProjName(userName, projName);
-            model.addAttribute("projects", projects);
-            model.addAttribute("pictureUrl",user.getHpPictureUrl());
-            return "management/showOwnerProjects";
-        }
-        catch (Exception e){
-            System.out.println("??");
-            return "error";
-        }
-    }
     @RequestMapping(value = "examCreateProject", method = {RequestMethod.POST})
     public String createProject(MultipartHttpServletRequest request, Model model,MultipartHttpServletRequest mulRequest){
         try{

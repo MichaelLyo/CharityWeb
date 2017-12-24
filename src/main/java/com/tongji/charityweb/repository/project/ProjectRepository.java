@@ -13,5 +13,4 @@ import java.util.List;
 public interface ProjectRepository  extends JpaRepository<Project,ProjectID> {
 
     public List<Project> findByUserName(String userName);
-    public List<Project> findByUserNameAndProjName(String userName, String projName);
 }
