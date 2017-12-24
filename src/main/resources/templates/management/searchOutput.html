@@ -311,8 +311,8 @@
                 <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
             </div>
             <div class="sunday">
-                <a th:href="@{/userInfo(username=${user.username})}" th:text="${user.username}"><h5>用户名</h5></a>
-                <p th:text="用户个人介绍：+ ${user.introduction}">用户个人介绍</p>
+                <a style="font-size: 25px;" th:href="@{/userInfo(username=${user.username})}" th:text="${user.username}"><h5>用户名</h5></a>
+                <p style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;width:1000px;" th:text="用户个人介绍：+ ${user.introduction}">用户个人介绍</p>
             </div>
 
             <div class="clearfix"> </div>
@@ -325,8 +325,8 @@
                 <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
             </div>
             <div class="sunday">
-                <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}" th:text="${project.projName}"><h5>项目名称</h5></a>
-                <p th:text="项目介绍： + ${project.context}">项目介绍 </p>
+                <a style="font-size: 25px;" th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}" th:text="${project.projName}"><h5>项目名称</h5></a>
+                <p style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;width:1000px;" th:text="项目介绍： + ${project.context}">项目介绍 </p>
             </div>
 
             <div class="clearfix"> </div>
@@ -338,8 +338,8 @@
                 <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
             </div>
             <div class="sunday">
-                <a th:href="@{/showRepDetail(repName=${repository.repName}, userName=${repository.userName})}" th:text="${repository.repName}"><h5>仓库名称</h5></a>
-                <p th:text="仓库介绍： + ${repository.description}">一段仓库介绍</p>
+                <a style="font-size: 25px;" th:href="@{/showRepDetail(repName=${repository.repName}, userName=${repository.userName})}" th:text="${repository.repName}"><h5>仓库名称</h5></a>
+                <p style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;width:1000px;" th:text="仓库介绍： + ${repository.description}">一段仓库介绍</p>
             </div>
 
             <div class="clearfix"> </div>
