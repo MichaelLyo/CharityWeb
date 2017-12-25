@@ -131,3 +131,15 @@
 .borderBottom{
     border: 2px solid rgb(229, 229, 229);
 }
+
+.activityRightMargin{
+    margin-bottom: 20px;
+
+}
+
+.activityBeforeComma{
+    font-size: 20px;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #000008;
+    font-weight: 500;
+}
