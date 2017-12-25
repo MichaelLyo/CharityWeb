@@ -91,7 +91,7 @@ public class CommentService {
             newProCom.setPictureUrls(pictureUrl);
 
             List<ProjectComment> lists = projectCommentRepository.findAll(new Sort(Sort.Direction.DESC, "num"));
-            if (lists==null)
+            if (lists.size()==0)
                 newProCom.setNum(0);
             else
                 newProCom.setNum(lists.get(0).getNum()+1);
