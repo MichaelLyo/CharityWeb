@@ -44,7 +44,7 @@ public class LoginController {
                 user = new User("", username,username, password, "", "user");
                 userRepository.save(user);
                 userService.userLogin(user,request.getSession());
-                return "management/editInfo";
+                return "redirect:/editInfo";
             } else {
                 model.addAttribute("span2", true);
                 return "login/regist";
