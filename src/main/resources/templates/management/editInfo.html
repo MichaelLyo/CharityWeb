@@ -82,7 +82,8 @@
                         <div class="dt-inner" style="width: 800px;">
                             <div class="dt">
                                 <p style="color: #0D0D0D;float: left;">昵称： </p>
-                                <input style="margin-top: -10px;color: #0D0D0D;width: 200px;float:left;background: #fff;" name="nickname" placeholder="昵称">
+                                <input style="margin-top: -10px;color: #0D0D0D;width: 200px;float:left;background: #fff;" name="nickname" th:if="${user.nickname == null}" th:placeholder="昵称">
+                                <input style="margin-top: -10px;color: #0D0D0D;width: 200px;float:left;background: #fff;" name="nickname" th:unless="${user.nickname == null}" th:placeholder="${user.nickname}" th:text="${user.nickname}">
                                 <div class="clearfix"> </div>
                             </div>
                             <p style="color: #0D0D0D;float: left;margin-top: 20px;">头像： </p>
@@ -96,7 +97,7 @@
                                 <label style="float: left;">
                                     <p style="color: #0D0D0D;float: left;margin-top: 20px;font-weight: normal;">性别： </p>
                                     <select name="sex" style="color: #0D0D0D;width: 100px;height: 30px;border: 1px solid #DADADA;margin-top: 14px;">
-                                        <option>性别</option>
+                                        <option th:text="${user.sex}">性别</option>
                                         <option value="男">男</option>
                                         <option value="女">女</option>
                                     </select>
@@ -104,27 +105,32 @@
                             </td>
                             <div class="dt">
                                 <p style="color: #0D0D0D;float: left;margin-top: 80px;margin-left: -142px;">邮箱： </p>
-                                <input style="float:left;;color: #0D0D0D;width: 200px;margin-top: 70px;background: #fff;margin-left: -100px;" name="email" placeholder="邮箱">
+                                <input style="float:left;;color: #0D0D0D;width: 200px;margin-top: 70px;background: #fff;margin-left: -100px;" name="email" th:if="${user.email} == null" th:placeholder="邮箱">
+                                <input style="float:left;;color: #0D0D0D;width: 200px;margin-top: 70px;background: #fff;margin-left: -100px;" name="email" th:unless="${user.email} == null" th:placeholder="${user.email}">
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="dt">
                                 <p style="color: #0D0D0D;float: left;margin-top: 34px;margin-left: -31px;">联系方式： </p>
-                                <input style="float:left;;color: #0D0D0D;width: 200px;background: #fff;" name="phone" placeholder="联系方式">
+                                <input style="float:left;;color: #0D0D0D;width: 200px;background: #fff;" name="phone" th:if="${user.phone == null}" th:placeholder="联系方式">
+                                <input style="float:left;;color: #0D0D0D;width: 200px;background: #fff;" name="phone" th:unless="${user.phone == null}" th:placeholder="${user.phone}">
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="dt">
                                 <p style="color: #0D0D0D;float: left;margin-top: 34px;">地址： </p>
-                                <input style="float:left;;color: #0D0D0D;width: 200px;background: #fff;" name="address" placeholder="地址">
+                                <input style="float:left;;color: #0D0D0D;width: 200px;background: #fff;" name="address" th:if="${user.address == null}" th:placeholder="地址">
+                                <input style="float:left;;color: #0D0D0D;width: 200px;background: #fff;" name="address" th:unless="${user.address == null}" th:placeholder="${user.address}">
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="dt">
                                 <p style="color: #0D0D0D;float: left;margin-top: 24px;">简介： </p>
-                                <textarea style="width:400px;color: #0D0D0D;min-height: 70px;float:left;margin-top: 30px;"  name="introduction" placeholder="简介"></textarea>
+                                <textarea style="width:400px;color: #0D0D0D;min-height: 70px;float:left;margin-top: 30px;"  name="introduction" th:if="${user.introduction == null}" th:placeholder="简介"></textarea>
+                                <textarea style="width:400px;color: #0D0D0D;min-height: 70px;float:left;margin-top: 30px;"  name="introduction" th:unless="${user.introduction == null}" th:placeholder="${user.introduction}"></textarea>
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="dt">
                                 <p style="color: #0D0D0D;float: left;margin-left:-32px;margin-top: 34px;">个人介绍： </p>
-                                <textarea style="width:400px;color: #0D0D0D;float:left;margin-top: 40px;" name="description" placeholder="个人详细介绍"></textarea>
+                                <textarea style="width:400px;color: #0D0D0D;float:left;margin-top: 40px;" name="description" th:if="${user.description == null}"  th:placeholder="个人详细介绍"></textarea>
+                                <textarea style="width:400px;color: #0D0D0D;float:left;margin-top: 40px;" name="description" th:unless="${user.description == null}"  th:placeholder="${user.description}"></textarea>
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="donate">

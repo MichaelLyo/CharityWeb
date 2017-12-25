@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>项目管理</title>
+    <title>捐款管理</title>
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
@@ -31,31 +31,19 @@
         <div class="twenty">
             <h4>捐款数</h4>
         </div>
-        <div class="sunday">
-            <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>一段项目描述（五十字）</p>
+        <div style="margin-left: 120px;" class="twenty">
+            <h4>项目名称</h4>
         </div>
 
         <div class="clearfix"> </div>
     </div>
-    <div class="family">
+    <div class="family" th:unless="${#lists.isEmpty(donates)}" th:each="donate,donateStat:${donates}" th:if="${donateStat.index}<6">
         <div class="twenty">
-            <h4>$20</h4>
+            <h4 th:text="￥+${donate.amount}">$20</h4>
         </div>
         <div class="sunday">
-            <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
-        </div>
-
-        <div class="clearfix"> </div>
-    </div>
-    <div class="family">
-        <div class="twenty">
-            <h4>$30000</h4>
-        </div>
-        <div class="sunday">
-            <a th:href="@{/activity}"><h5>项目名称</h5></a>
-            <p>参与人数 ： | 关注人数 ： |捐款数 ： </p>
+            <a style="font-size: 25px;;" th:href="@{/activity(projName=${donate.projName}, repName=${donate.repName}, userName=${donate.username})}" th:text="${donate.projName}"><h5>项目名称</h5></a>
+            <p > <b>项目创建人：</b><em th:text="${donate.username}"></em> <b>    创建日期：</b><em th:text="${donate.createdAt}">  </em> </p>
         </div>
 
         <div class="clearfix"> </div>
