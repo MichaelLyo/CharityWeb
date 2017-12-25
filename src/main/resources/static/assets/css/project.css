@@ -108,3 +108,26 @@
     font-size: large;
     font-weight: 200;
 }
+
+.modal-button{
+    width: 60px;
+    height:auto;
+}
+
+.firstShowContent{
+    text-align: left;
+    font-size: 18px;
+    font-weight: 100;
+    color: #999999;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.firstShowBoarder{
+    margin-bottom: 10px;
+    border-right-width: 2px;
+    border-right-color: #0a0a0a;
+    border-right-style: solid;
+}
+
+.borderBottom{
+    border: 2px solid rgb(229, 229, 229);
+}

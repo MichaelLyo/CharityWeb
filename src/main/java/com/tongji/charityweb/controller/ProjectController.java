@@ -140,8 +140,8 @@ public class ProjectController {
             Project project = new Project(repName, projName, user.getUsername() );
             project.setContext(context);
             DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd");
-            Date date = fmt.parse(endDate);
-            project.setEndDate(date);
+            project.setEndDate(fmt.parse(endDate));
+            project.setStartDate(fmt.parse(startDate));
             String projectUrl = fileService.uploadProjectPicture(file, project);
             project.setDescriptionPictureUrl(projectUrl);
             Repository repository = repRepository.findOne(new RepositoryID(user.getUsername(), repName));

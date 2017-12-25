@@ -11,6 +11,5 @@ import java.util.List;
 @Transactional
 @Repository
 public interface ProjectRepository  extends JpaRepository<Project,ProjectID> {
-
     public List<Project> findByUserName(String userName);
 }
