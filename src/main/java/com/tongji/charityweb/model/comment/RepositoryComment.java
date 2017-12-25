@@ -2,6 +2,7 @@ package com.tongji.charityweb.model.comment;
 
 import com.tongji.charityweb.model.repository.Repository;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.sql.Struct;
@@ -13,12 +14,12 @@ import java.util.Date;
 @Entity
 @IdClass(RepositoryCommentID.class)
 @Table(name = "RepositoryComment")
+@EntityListeners(AuditingEntityListener.class)
 public class RepositoryComment
 {
 
 	// columns
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int num;
 
 	@Id
@@ -26,6 +27,8 @@ public class RepositoryComment
 
 	@Id
 	private String userName;
+
+	private String commenterName;
 
 	private String content;
 
@@ -60,6 +63,14 @@ public class RepositoryComment
 		if(!repository.getProjects().contains(this)){
 			repository.getComments().add(this);
 		}
+	}
+
+	public String getCommenterName() {
+		return commenterName;
+	}
+
+	public void setCommenterName(String commenterName) {
+		this.commenterName = commenterName;
 	}
 
 	public int getNum() {

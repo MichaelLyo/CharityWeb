@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索结果</title>
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link th:href="@{action/css/communitystyle.css}" rel='stylesheet'/>
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.min.js}"></script>
+    <!-- animation-effect -->
+    <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
+    <script th:src="@{assets/js/wow.min.js}"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <style type="text/css">
+        button {
+            cursor: pointer;
+            width: 300px;
+            height: 44px;
+            margin-top: 25px;
+            padding: 0;
+            background: #ef4300;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #ff730e;
+            -moz-box-shadow:
+                    0 15px 30px 0 rgba(255,255,255,.25) inset,
+                    0 2px 7px 0 rgba(0,0,0,.2);
+            -webkit-box-shadow:
+                    0 15px 30px 0 rgba(255,255,255,.25) inset,
+                    0 2px 7px 0 rgba(0,0,0,.2);
+            box-shadow:
+                    0 15px 30px 0 rgba(255,255,255,.25) inset,
+                    0 2px 7px 0 rgba(0,0,0,.2);
+            font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,.1);
+            -o-transition: all .2s;
+            -moz-transition: all .2s;
+            -webkit-transition: all .2s;
+            -ms-transition: all .2s;
+        }
+
+        button:hover {
+            -moz-box-shadow:
+                    0 15px 30px 0 rgba(255,255,255,.15) inset,
+                    0 2px 7px 0 rgba(0,0,0,.2);
+            -webkit-box-shadow:
+                    0 15px 30px 0 rgba(255,255,255,.15) inset,
+                    0 2px 7px 0 rgba(0,0,0,.2);
+            box-shadow:
+                    0 15px 30px 0 rgba(255,255,255,.15) inset,
+                    0 2px 7px 0 rgba(0,0,0,.2);
+        }
+
+        button:active {
+            -moz-box-shadow:
+                    0 15px 30px 0 rgba(255,255,255,.15) inset,
+                    0 2px 7px 0 rgba(0,0,0,.2);
+            -webkit-box-shadow:
+                    0 15px 30px 0 rgba(255,255,255,.15) inset,
+                    0 2px 7px 0 rgba(0,0,0,.2);
+            box-shadow:
+                    0 5px 8px 0 rgba(0,0,0,.1) inset,
+                    0 1px 4px 0 rgba(0,0,0,.1);
+
+            border: 0px solid #ef4300;
+        }
+
+        .animenu__toggle {
+            display: none;
+            cursor: pointer;
+            background-color: #111;
+            border: 0;
+            padding: 10px;
+            height: 40px;
+            width: 40px;
+        }
+        .animenu__toggle:hover {
+            background-color: #0186ba;
+        }
+
+        .animenu__toggle__bar {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: #fff;
+            -webkit-transition:  0.15s cubic-bezier(0.75, -0.55, 0.25, 1.55);
+            -o-transition:  0.15s cubic-bezier(0.75, -0.55, 0.25, 1.55);
+            transition:  0.15s cubic-bezier(0.75, -0.55, 0.25, 1.55);
+        }
+        .animenu__toggle__bar + .animenu__toggle__bar {
+            margin-top: 4px;
+        }
+
+        .animenu__toggle--active .animenu__toggle__bar {
+            margin: 0;
+            position: absolute;
+        }
+        .animenu__toggle--active .animenu__toggle__bar:nth-child(1) {
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        .animenu__toggle--active .animenu__toggle__bar:nth-child(2) {
+            opacity: 0;
+        }
+        .animenu__toggle--active .animenu__toggle__bar:nth-child(3) {
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .animenu {
+            display: block;
+        }
+
+        .animenu ul {
+            padding: 0;
+            list-style: none;
+        }
+        .animenu li, .animenu a {
+            display: inline-block;
+            font-size: 15px;
+        }
+        .animenu a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .animenu__nav {
+            background-color: #444444;
+            margin-bottom: 0;
+            height: 50px;
+        }
+
+        .animenu__nav > li {
+            position: relative;
+        }
+        .animenu__nav > li > a {
+            padding: 10px 30px;
+            height: 50px;
+            line-height: 30px;
+        }
+        .animenu__nav > li > button {
+
+        }
+        .animenu__nav > li > img {
+            padding: 10px 30px;
+            height: 50px;
+            line-height: 30px;
+        }
+
+        .animenu__nav > li > a:first-child:nth-last-child(2):before {
+            opacity: 0.2;
+            content: "";
+            position: absolute;
+            border: 4px solid transparent;
+            border-bottom: 0;
+            border-top-color: currentColor;
+            top: 50%;
+            margin-top: -2px;
+            right: 10px;
+        }
+        .animenu__nav > li:hover > ul {
+            opacity: 1;
+            visibility: visible;
+            margin: 0;
+        }
+        .animenu__nav > li:hover > a {
+            background-color: #0186ba;
+            border-color: #0186ba;
+            color: #fff;
+            height: 50px;
+        }
+
+        .animenu__nav__child {
+            min-width: 100%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            margin: 20px 0 0 0;
+            background-color: #373737;
+            transition: margin .15s, opacity .15s;
+        }
+        .animenu__nav__child > li {
+            width: 100%;
+            border-bottom: 1px solid #515151;
+        }
+        .animenu__nav__child > li:first-child > a:after {
+            content: '';
+            position: absolute;
+            height: 0;
+            width: 0;
+            left: 1em;
+            top: 0;
+            border: 6px solid transparent;
+            border-top: 0;
+            border-bottom-color: inherit;
+        }
+        .animenu__nav__child > li:last-child {
+            border: 0;
+        }
+        .animenu__nav__child a {
+            padding: 10px;
+            width: 100%;
+            border-color: #373737;
+        }
+        .animenu__nav__child a:hover {
+            background-color: #0186ba;
+            border-color: #0186ba;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 767px) {
+            .animenu__toggle {
+                display: inline-block;
+            }
+
+            .animenu__nav,
+            .animenu__nav__child {
+                display: none;
+            }
+
+            .animenu__nav {
+                margin: 10px 0;
+            }
+            .animenu__nav > li {
+                width: 100%;
+                border-right: 0;
+                border-bottom: 1px solid #515151;
+            }
+            .animenu__nav > li:last-child {
+                border: 0;
+            }
+            .animenu__nav > li:first-child > a:after {
+                content: '';
+                position: absolute;
+                height: 0;
+                width: 0;
+                left: 1em;
+                top: -6px;
+                border: 6px solid transparent;
+                border-top: 0;
+                border-bottom-color: inherit;
+            }
+            .animenu__nav > li > a {
+                width: 100%;
+                padding: 10px;
+                border-color: #111;
+                position: relative;
+            }
+            .animenu__nav a:hover {
+                background-color: #0186ba;
+                border-color: #0186ba;
+                color: #fff;
+            }
+
+            .animenu__nav__child {
+                position: static;
+                background-color: #373737;
+                margin: 0;
+                transition: none;
+                visibility: visible;
+                opacity: 1;
+            }
+            .animenu__nav__child > li:first-child > a:after {
+                content: none;
+            }
+            .animenu__nav__child a {
+                padding-left: 20px;
+                width: 100%;
+            }
+        }
+        .animenu__nav--open {
+            display: block !important;
+        }
+        .animenu__nav--open .animenu__nav__child {
+            display: block;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<link th:href="@{assets/css/style.css}" rel="stylesheet">
+<link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+<link th:href="@{assets/css/button.css}" rel="stylesheet">
+
+<div th:include="template/navbar :: navbar"></div>
+<div class="banner two"></div>
+<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="用户" onClick="toggle('user')">
+<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="项目" onClick="toggle('project')">
+<input type="button" class="button button-normal button-plain button-border button-square" style="width: 50px;color: #0d0d0d;height: 50px;margin: 10px;" value="仓库" onClick="toggle('repository')">
+<div class="col-md-6 upcoming" style="width: 100%;">
+    <div id="user">
+        <div class="family" th:unless="${#lists.isEmpty(users)}" th:each="user,userStat:${users}" th:if="${userStat.index}<10" >
+            <div class="twenty">
+                <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
+            </div>
+            <div class="sunday">
+                <a style="font-size: 25px;" th:href="@{/userInfo(username=${user.username})}" th:text="${user.username}"><h5>用户名</h5></a>
+                <p style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;width:1000px;" th:text="用户个人介绍：+ ${user.introduction}">用户个人介绍</p>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <div id="project">
+        <div class="family" th:unless="${#lists.isEmpty(projects)}" th:each="project,projectStat:${projects}" th:if="${projectStat.index}<10" >
+            <div class="twenty">
+                <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
+            </div>
+            <div class="sunday">
+                <a style="font-size: 25px;" th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}" th:text="${project.projName}"><h5>项目名称</h5></a>
+                <p style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;width:1000px;" th:text="项目介绍： + ${project.context}">项目介绍 </p>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div id="repository">
+        <div class="family" th:unless="${#lists.isEmpty(repositories)}" th:each="repository,repositoryStat:${repositories}"  th:if="${repositoryStat.index}<10" >
+            <div class="twenty">
+                <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
+            </div>
+            <div class="sunday">
+                <a style="font-size: 25px;" th:href="@{/showRepDetail(repName=${repository.repName}, userName=${repository.userName})}" th:text="${repository.repName}"><h5>仓库名称</h5></a>
+                <p style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;width:1000px;" th:text="仓库介绍： + ${repository.description}">一段仓库介绍</p>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="blog-pagenat">
+        <ul>
+
+            <li><a style="background-color: rgba(0,0,0,.2);color: #FFF;" >上一页</a></li>
+
+            <li><a style="background-color: rgba(0,0,0,.2);color: #FFF;">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+
+            <li><a class="last" href="#">下一页</a></li>
+
+            <div class="clearfix"> </div>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div th:include="template/footer :: copyright"></div>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<script type="text/javascript">
+    function toggle(id){
+        var user=document.getElementById('user');
+        var project=document.getElementById('project');
+        var repository=document.getElementById('repository');
+        if(id==='user') {project.style.display='none';repository.style.display='none';user.style.display='block';}
+        if(id==='project') {user.style.display='none';repository.style.display='none';project.style.display='block';}
+        if(id==='repository'){project.style.display='none';user.style.display='none';repository.style.display='block';}
+
+    }
+</script>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+</body>
+</html>

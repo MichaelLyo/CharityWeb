@@ -211,23 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="clearfix"> </div>
             <!--start-blog-pagenate-->
-            <div class="blog-pagenat">
-                <ul>
-
-                    <li><a style="background-color: rgba(0,0,0,.2);color: #FFF;" >上一页</a></li>
-
-                    <li><a style="background-color: rgba(0,0,0,.2);color: #FFF;">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-
-                    <li><a class="last" href="#">下一页</a></li>
-
-                    <div class="clearfix"> </div>
-                </ul>
-            </div>
+            <div class="blog-pagenat" th:include="template/pager :: pager" th:remove="tag"></div>
             <!--//End-blog-pagenate-->
 
         </div>

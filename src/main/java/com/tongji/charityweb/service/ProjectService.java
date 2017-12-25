@@ -10,6 +10,9 @@ import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.repository.repository.RepRepository;
 import org.hibernate.validator.internal.metadata.core.AnnotationProcessingOptionsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
@@ -76,6 +79,15 @@ public class ProjectService {
 
     }
 
+    public Project findOneProject(String projName, String repName, String userName) {
+        try {
+            return projectRepository.findOne(new ProjectID(projName, repName, userName));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public List<Project> getAllProjectsOrderByParNum() {
         try {
             return projectRepository.findAll(new Sort(Sort.Direction.DESC, "participateNum"));
@@ -92,12 +104,31 @@ public class ProjectService {
         }
     }
 
+    public Page<Project> getProjectPageOrderByFolNum(int page, int size) {
+        try {
+            Pageable pageable = new PageRequest(page,size, Sort.Direction.DESC,"followerNum");
+            return projectRepository.findAll(pageable);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Page<Project> getProjectPageOrderByParNum(int page, int size) {
+        try {
+            Pageable pageable = new PageRequest(page,size, Sort.Direction.DESC,"participateNum");
+            return projectRepository.findAll(pageable);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public boolean createProFollower(String projName, String repName,  String followerName, String userName) {
         try {
             ProjectID projectID = new ProjectID(projName,repName,  userName);
             ProjectFollower projectFollower = new ProjectFollower(userName, repName,projName, followerName);
             Project project = projectRepository.findOne(projectID);
             project.addFollower(projectFollower);
+            project.setFollowerNum(project.getFollowerNum()+1);
             projectFollower.setProject(project);
             projectRepository.save(project);
             return true;
@@ -109,11 +140,20 @@ public class ProjectService {
 
     public boolean deleteProFollower(String projName, String repName,  String followerName, String userName) {
         try {
-            ProjectFollower projectFollower = proFolRepository.findOne(new ProjectFollowerID(projName, repName, followerName, userName));
+            ProjectFollower projectFollower = proFolRepository.findOne(new ProjectFollowerID(userName, repName, projName, followerName));
             proFolRepository.delete(projectFollower);
             return true;
         } catch  (Exception e) {
             return false;
+        }
+    }
+
+    public ProjectFollower findOneFollower(String projName, String repName, String userName, String followerName) {
+        try {
+            return proFolRepository.findOne(new ProjectFollowerID(userName,repName,projName,followerName));
+        } catch (Exception e) {
+            e.printStackTrace();;
+            return null;
         }
     }
 
@@ -159,5 +199,10 @@ public class ProjectService {
         } catch (Exception e) {
             return "showAllProFollower error";
         }
+    }
+
+    public List<Project> findProjNameLike(String toSearch)
+    {
+        return projectRepository.findByProjNameLike(toSearch);
     }
 }

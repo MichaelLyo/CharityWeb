@@ -11,6 +11,9 @@ import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.repository.repository.RepRepository;
 import com.tongji.charityweb.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -99,5 +102,38 @@ public class RepositoryService {
         {
             return "showAllRepByUserName error";
         }
+    }
+
+    public Repository findOneRepository(String repName, String userName) {
+        try {
+            return repRepository.findOne(new RepositoryID(userName, repName));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Project> findAllProjectsInRep(String repName, String userName) {
+        try {
+            return projectRepository.findAllByRepNameAndUserName(repName,userName);
+        } catch (Exception e)  {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Page<Repository> getRepPageByUserName(String userName, int page, int size) {
+        try {
+            Pageable pageable = new PageRequest(page, size);
+            return repRepository.findAllByUserName(userName, pageable);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Repository> findRepositoryLike(String toSearch)
+    {
+        return repRepository.findByRepNameLike(toSearch);
     }
 }

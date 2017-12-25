@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -168,4 +169,54 @@ public class UserController {
         }
     }
 
+    /* editInfo */
+    @RequestMapping(value = "editInfo",method = RequestMethod.GET)
+    public String editInfo(HttpServletRequest request,Model model){
+        User user = userService.getUserInSession(request.getSession());
+        model.addAttribute("user", user);
+        return "management/editInfo";
+    }
+    @RequestMapping(value = "editInfo",method = RequestMethod.POST)
+    public String editInfo(HttpServletRequest request,@RequestParam("file") MultipartFile file) {
+        try {
+
+            String sex = request.getParameter("sex");
+            String address = request.getParameter("address");
+            String phone = request.getParameter("phone");
+            String email = request.getParameter("email");
+            String introduction = request.getParameter("introduction");
+            String description = request.getParameter("description");
+            String nickname = request.getParameter("nickname");
+            System.out.println(fileService.uploadUserPicture(file, userService.getUserInSession(request.getSession())));
+
+            System.out.println(sex);
+            User user = userService.getUserInSession(request.getSession());
+
+            if (user == null)
+            {
+                return "redirect:/sessionLost";
+            }
+
+            String uploadInfo = fileService.uploadUserPicture(file,user);
+            if(uploadInfo.contains("upload failed,"))
+            {
+                //上传失败
+            }
+            else
+            {
+                user.setHpPictureUrl(uploadInfo);
+            }
+            user.setNickname(nickname);
+            user.setSex(sex);
+            user.setAddress(address);
+            user.setPhone(phone);
+            user.setEmail(email);
+            user.setIntroduction(introduction);
+            user.setDescription(description);
+            userRepository.save(user);
+        } catch (Exception ex) {
+            return "error";
+        }
+        return "redirect:/userInfo";
+    }
 }

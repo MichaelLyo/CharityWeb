@@ -1,18 +1,22 @@
 package com.tongji.charityweb.controller;
 
 import com.tongji.charityweb.model.project.Project;
-import com.tongji.charityweb.model.project.ProjectID;
-import com.tongji.charityweb.repository.project.ProjectRepository;
+import com.tongji.charityweb.model.project.ProjectFollower;
+import com.tongji.charityweb.model.repository.Repository;
+import com.tongji.charityweb.model.user.User;
+import com.tongji.charityweb.service.DonateService;
 import com.tongji.charityweb.service.ProjectService;
+import com.tongji.charityweb.service.RepositoryService;
+import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -20,9 +24,11 @@ import java.util.List;
 public class IndexController {
 
     @Autowired
-    ProjectService projectService;
+    private ProjectService projectService;
     @Autowired
-    ProjectRepository projectRepository;
+    private UserService userService;
+    @Autowired
+    private RepositoryService repositoryService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
@@ -38,55 +44,60 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping(value = "caiyun")
-    public String caiyun(){
+    @RequestMapping(value = "caiyun", method = RequestMethod.GET)
+    public String caiyun(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("彩云支南",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/caiyun-index";
     }
-    @RequestMapping(value = "chunhui")
-    public String chunhui(){
+
+    @RequestMapping(value = "chunhui", method = RequestMethod.GET)
+    public String chunhui(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("春晖之声",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/chunhui-index";
     }
-    @RequestMapping(value = "cat")
-    public String cat(){
+
+    @RequestMapping(value = "cat", method = RequestMethod.GET)
+    public String cat(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "3")int size){
+        Page<Repository> repositories = repositoryService.getRepPageByUserName("宠物之家",page,size);
+        modelMap.addAttribute("projects", repositories);
         return "action/cat-index";
     }
+
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login(){
-        //System.out.println("login method: get");
         return "login/login";
     }
     @RequestMapping(value = "regist")
     public String regist(){ return "login/regist"; }
 
     @RequestMapping(value = "activity",method = RequestMethod.GET)
-    public String activity(String projName, String repName, String userName, Model model){
-        Project project = projectRepository.findOne(new ProjectID(projName, repName, userName));
+    public String activity(String projName, String repName, String userName, Model model, HttpSession session){
+        Project project = projectService.findOneProject(projName,repName,userName);
         model.addAttribute("project", project);
+
+        User user = userService.getUserInSession(session);
+        model.addAttribute("user", user);
+        if (user != null) {
+            ProjectFollower projectFollower = projectService.findOneFollower(projName,repName,userName,user.getUsername());
+            model.addAttribute("isFollower", projectFollower);
+        }
         return "action/activity";
     }
 
     @RequestMapping(value = "hotspot",method = RequestMethod.GET)
-    public String hotspot(Model model){
-        List<Project> projects = projectService.getAllProjectsOrderByFolNum();
-        model.addAttribute("projects", projects);
+    public String hotspot(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size){
+        Page<Project> projects = projectService.getProjectPageOrderByFolNum(page, size);
+        modelMap.addAttribute("projects", projects);
         return "hotspot/hotspot-index";
     }
 
     @RequestMapping(value = "participate",method = RequestMethod.GET)
-    public String participate(Model model){
-        List<Project> projects = projectService.getAllProjectsOrderByParNum();
-        model.addAttribute("projects", projects);
+    public String participate(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size){
+        Page<Project> projects = projectService.getProjectPageOrderByParNum(page, size);
+        modelMap.addAttribute("projects", projects);
         return "participate/participate-index";
-    }
-
-    @RequestMapping(value = "donate")
-    public String donate(){
-        return "action/donate";
-    }
-
-    @RequestMapping(value = "editInfo",method = RequestMethod.GET)
-    public String editInfo(){
-        return "management/editInfo";
     }
 
     @RequestMapping(value = "addRepository")
@@ -113,5 +124,31 @@ public class IndexController {
     @RequestMapping(value = "sessionLost")
     public String lostSession(){
         return "login/sessionLost";
+    }
+
+
+    //搜索相关
+    @RequestMapping(value = "search",method = RequestMethod.POST)
+    public String search(HttpServletRequest request,Model model)
+    {
+        //给带搜索的字符串加上搜索匹配修饰符
+        String toSearch = "%" + request.getParameter("toSearch") + "%";
+        List<User> users = userService.findUserContains(toSearch);
+        List<Project> projects = projectService.findProjNameLike(toSearch);
+        List<Repository> repositories = repositoryService.findRepositoryLike(toSearch);
+        model.addAttribute("users", users);
+        model.addAttribute("projects", projects);
+        model.addAttribute("repositories", repositories);
+        //if (users.isEmpty()){
+        //    System.out.println("search not found");
+        //}
+        //else {
+        //    for(User user:users)
+        //    {
+        //        System.out.println(user.getUsername());
+        //    }
+        //}
+        return "management/searchOutput";
+
     }
 }

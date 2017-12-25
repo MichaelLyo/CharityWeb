@@ -9,14 +9,13 @@
     <script th:href="@{assets/css/anticipate.css}"></script>
     <!-- animation-effect -->
     <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
-
-    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
     <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
     <link th:href="@{assets/css/button.css}" rel="stylesheet">
     <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link th:href="@{assets/css/style.css}" rel="stylesheet">
     <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
     <style type="text/css">
         .file {
             font-size: 0.9em;
@@ -81,35 +80,30 @@
                     <div class="dt-inner" style="width: 800px;">
                         <div class="dt">
                             <p style="color: #0D0D0D;float: left;">项目名： </p>
-                            <p style="color: #0D0D0D;width: 200px;float:left;background: #fff;">后端给出要捐款项目的名字</p>
+                            <p th:text="${project.projName}" style="color: #0D0D0D;width: 200px;float:left;background: #fff;">后端给出要捐款项目的名字</p>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="dt">
                             <p style="color: #0D0D0D;float: left;margin-top: 20px;margin-left: -17px;">活动日期： </p>
-                            <p style="float:left;;color: #0D0D0D;width: 200px;margin-top: 20px;">后端给出活动日期</p>
+                            <p th:text="${project.startDate}" style="float:left;;color: #0D0D0D;width: 200px;margin-top: 20px;">后端给出活动日期</p>
                             <div class="clearfix"> </div>
                         </div>
                         <div class="dt">
                             <p style="color: #0D0D0D;float: left;margin-top: 20px;margin-left: -17px;">活动内容： </p>
-                            <p style="float:left;;color: #0D0D0D;margin-top: 50px;">后的给出活动具体内容</p>
+                            <p th:text="${project.context}" style="float:left;;color: #0D0D0D;margin-top: 50px;">后的给出活动具体内容</p>
                             <div class="clearfix"> </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group pricing">
                     <h6 class="modal-subtitle">捐款金额</h6>
-                    <form class="form"  method="post" >
+                    <form class="form" th:action="@{/donate(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}" method="post" >]
                         <div class="btn-group">
                             <p style="color: #0D0D0D;float: left;margin-top: 30px;margin-left: -60px;">捐款金额： </p>
-                            <input style="color: #0D0D0D;width: 200px;float: left;background: #fff;margin-top: 20px;" placeholder="请输入捐款金额">
-                        </div>
-                        <div class="dt">
-                            <p style="color: #0D0D0D;float: left;margin-top: 15px;margin-left: 12px">备注： </p>
-                            <textarea style="width:400px;color: #0D0D0D;min-height: 70px;float:left;"  name="introduction" placeholder="备注"></textarea>
-                            <div class="clearfix"> </div>
+                            <input style="color: #0D0D0D;width: 200px;float: left;background: #fff;margin-top: 20px;" name="amount" placeholder="请输入捐款金额">
                         </div>
                         <div class="donate">
-                            <a th:href="@{/activity}"><input type="submit" style="font-size: 18px;" id="donate" value="捐款"></a>
+                            <a th:href="@{/donate(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><input type="submit" style="font-size: 18px;" id="donate" value="捐款"></a>
                         </div>
                     </form>
                 </div>

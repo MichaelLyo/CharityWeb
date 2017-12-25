@@ -54,50 +54,6 @@ public class LoginController {
         }
     }
 
-    /* editInfo */
-    @RequestMapping(value = "editInfo",method = RequestMethod.POST)
-    public String editInfo(HttpServletRequest request,@RequestParam("file") MultipartFile file) {
-        try {
-
-            String sex = request.getParameter("sex");
-            String address = request.getParameter("address");
-            String phone = request.getParameter("phone");
-            String email = request.getParameter("email");
-            String introduction = request.getParameter("introduction");
-            String description = request.getParameter("description");
-            System.out.println(fileService.uploadUserPicture(file, userService.getUserInSession(request.getSession())));
-
-            System.out.println(sex);
-            user = userService.getUserInSession(request.getSession());
-
-            if (user == null)
-            {
-                return "redirect:/sessionLost";
-            }
-
-            String uploadInfo = fileService.uploadUserPicture(file,user);
-            if(uploadInfo.contains("upload failed,"))
-            {
-                //上传失败前端要干啥？
-            }
-            else
-            {
-                user.setHpPictureUrl(uploadInfo);
-            }
-
-            user.setSex(sex);
-            user.setAddress(address);
-            user.setPhone(phone);
-            user.setEmail(email);
-            user.setIntroduction(introduction);
-            user.setDescription(description);
-            userRepository.save(user);
-        } catch (Exception ex) {
-            return "error";
-        }
-        return "redirect:/userInfo";
-    }
-
     /* login */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model){
@@ -112,7 +68,7 @@ public class LoginController {
         String str = "";
         if (user != null){
             userService.userLogin(user,request.getSession());
-            str = "redirect:/me";
+            str = "redirect:/";
         }else {
             model.addAttribute("span", true);
             str = "login/login";

@@ -54,12 +54,12 @@
                                 <a href="#installation">在参与</a>
                             </li>
                             <li class="s-bar" style="right:-120px;width:0;">
-                                <form>
-                                    <input style="float: right;margin-right: 240px;margin-top: -3px;" type="text" value="搜索" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '搜索';}">
-                                    <input style="float: right;margin-right: 175px;margin-top: -42px;background: #eee;background-color: #428bca" type="submit"  value="搜索"/>
+                                <form class="form" th:action="@{/search}" method="post">
+                                    <input style="float: right;margin-right: 260px;margin-top: -3px;" type="text" name="toSearch" value="搜索" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '搜索';}">
+                                    <input style="margin-right:151px;margin-top: -42px;background: #eee;background-color: #428bca;width: 60px;" type="submit"  value="搜索"/>
                                 </form>
                             </li>
-                            <li th:if="${session.username != null}" style="right: -310px;top: -24px;">
+                            <li th:if="${session.username != null}" style="right: -310px;">
                                 <a th:text="${session.username}"  th:href="@{/userInfo}">MilkMan</a>
                                 <ul class="animenu__nav__child" style="text-align: center">
                                     <li><a th:href="@{/showRes}">仓库管理</a></li>
@@ -69,8 +69,8 @@
                                     <li><a th:href="@{/logout}">退出</a></li>
                                 </ul>
                             </li>
-                            <a th:if="${session.username == null}" th:href="@{/regist}" style="right: -300px;top: -24px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
-                            <a th:if="${session.username == null}" th:href="@{/login}" style="right: -300px;top: -24px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
+                            <a th:if="${session.username == null}" th:href="@{/regist}" style="right: -300px;"><input type="button" class="button button-normal button-plain button-border button-square"  value="注册"></a>
+                            <a th:if="${session.username == null}" th:href="@{/login}" style="right: -300px;"><input type="button" class="button button-normal button-plain button-border button-square"   value="登录"></a>
 
                         </ul>
                     </nav>
@@ -91,7 +91,7 @@
                                                         <div class="slide-content">
                                                             <h2>我们与河西的一次约定 </h2>
                                                             <p>2015年的夏天，怀着丝丝忐忑而激动的心情，同济大学彩云支南协会河西三队的我们，如期前往了云南省大理白族自治州鹤庆县黄坪镇河西村小，赴，同他们，第三次夏天的约定。</p>
-                                                            <a th:href="@{/activity}" class="readmore">了解更多</a>
+                                                            <a href="activity?projName=我们与河西的一次约定&repName=云南支教团&userName=彩云支南" class="readmore">了解更多</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,7 +111,7 @@
                                                         <div class="slide-content">
                                                             <h2>同济大学猫咪同盟</h2>
                                                             <p>新一年的领养活动要来啦~由猫咪同盟和@二月猫爱猫驿站-上海 合作的领养日义卖活动正在准备进行中，届时欢迎前来领养小宝贝们~~</p>
-                                                            <a th:href="@{/activity}" class="readmore">了解更多</a>
+                                                            <a href="activity?projName=同济大学猫咪同盟&repName=猫咪同盟&userName=宠物之家" class="readmore">了解更多</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -131,7 +131,7 @@
                                                         <div class="slide-content">
                                                             <h2>四季春晖·爱在黔行</h2>
                                                             <p>同济志愿者们带领此高中的小小志愿者们来到社区爱心屋开展活动。他们十分开朗，在接受了大哥哥大姐姐指导后，他们也悉心地教社区年龄更小的孩子们折纸，辅导他们课业，大家亲密无间地交流、沟通。</p>
-                                                            <a th:href="@{/activity}" class="readmore">了解更多</a>
+                                                            <a href="activity?projName=四季春晖·爱在黔行&repName=爱心屋活动&userName=春晖之声" class="readmore">了解更多</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -316,7 +316,7 @@
                     <div class="col-md-5 serve-info">
                         <h5>我们会不断更新各类公益活动，在此你可以选择以任何方式参与到公益活动之中。你可以帮助幼儿、残疾人，也可以保护环境、保护自然。</h5>
                         <h3 style = "color: #2BCFC2;font-size: 40px;">本周最热活动</h3>
-                        <a th:href="@{/activity}"><img th:src="@{assets/img/action.jpg}"></a>
+                        <a href="activity?projName=To%20Protect%20Humanity&repName=云南支教团&userName=彩云支南"><img th:src="@{assets/img/action.jpg}"></a>
                         <div class="see-button">
                             <a class="btn btn-primary btn-lg see-button hvr-shutter-out-horizontal serve-button" th:href="@{/participate}" role="button">查看更多活动</a>
                         </div>

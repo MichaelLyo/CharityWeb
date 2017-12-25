@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>活动</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Generous Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link th:href="@{assets/css/participateStyle.css}" rel='stylesheet' type='text/css' />
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"> </script>
+    <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
+</head>
+
+<body>
+<link th:href="@{assets/css/style.css}" rel="stylesheet">
+<link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+<link th:href="@{assets/css/button.css}" rel="stylesheet">
+<div th:include="template/navbar :: navbar"></div>
+<div class="banner two"></div>
+<div class="news two">
+    <div class="container">
+        <h3 class="tittle">活动</h3>
+        <div class="news-article">
+            <!--/*@thymesVar id="projects" type="java.util.List"*/-->
+            <div class="col-md-6 article-post" th:each="project:${projects}">
+                <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" alt="img07"/></a>
+                <div class="col-md-3 post-meta">
+                    <div class="meta-icon">
+                        <div class="pic">
+                            <a th:href="@{/userInfo(username=${project.userName})}" > <i class="glyphicon glyphicon-picture"></i></a>
+                        </div>
+                    </div>
+                    <ul class="ad-info">
+                        <li th:text="${project.startDate}">21 Aug'15</li>
+                        <li> <a th:href="@{/userInfo(username=${project.userName})}" th:text="${project.userName}">旺仔牛奶</a></li>
+                        <li th:text="${#lists.isEmpty(project.projectComments)}?0评论:${#lists.size(project.projectComments)}+评论" style="color:#FCB2B2;"> 0 评论</li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-9 post-details">
+                    <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><h3 th:text="${project.projName}">To Protect Humanity</h3></a>
+                    <p th:text="${project.context}">Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
+                    <div>
+                        <a class="blog hvr-shutter-out-horizontal" th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}" role="button">查看详情</a>
+                    </div>
+                </div>
+                <!--post-details-->
+                <div class="clearfix"> </div>
+            </div>
+
+            <div class="clearfix"> </div>
+            <!--start-blog-pagenate-->
+            <!--<div class="blog-pagenat" th:include="template/pager :: pager" th:remove="tag"></div>-->
+            <!--//End-blog-pagenate-->
+
+            <div class="single">
+                <div class="leave">
+
+                    <h4> 留 言 </h4>
+                </div>
+                <form action="createRepCom" method="post" id="commentform">
+                    <input type="hidden" name="repName" th:value="${repository.getRepositoryName()}">
+                    <input type="hidden" name="userName" th:value="${repository.getUsername()}">
+                    <textarea name="content" style="width: 1000px"></textarea>
+                    <div class="clearfix"></div>
+                    <p class="form-submit">
+
+                        <input name="submit" type="submit" id="submit" value="留  言">
+
+                    </p>
+                    <div class="clearfix"></div>
+                </form>
+                <div class="single_grid2">
+                    <h4 class="tz-title-4 tzcolor-blue">
+
+                        留 言 区
+
+                    </h4>
+                    <ul class="list">
+                        <li style="margin-bottom: 30px;" th:each="comment:${repository.comments}">
+                            <div class="col-md-2 preview">
+                                <a th:href="@{/userInfo(username=${comment.commenterName})}"><img th:src="@{${comment.pictureUrls}}" class="img-responsive" alt=""></a></div>
+                            <div class="col-md-10 data">
+                                <div class="title"><a th:href="@{/userInfo(username=${comment.commenterName})}" th:text="${comment.commenterName}">donator</a><br><span class="m_14" th:text="${comment.createdDate}">Aug 30, 2015</span></div>
+                                <p th:text="${comment.content}">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div th:include="template/footer :: copyright"></div>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>
