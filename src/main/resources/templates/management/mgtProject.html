@@ -4,13 +4,15 @@
 <head>
     <title>项目管理</title>
     <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link th:href="@{assets/css/bootstrap.css}" rel="stylesheet">
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.min.js}"></script>
+    <script th:src="@{assets/js/wow.min.js}"></script>
+    <script th:src="@{assets/js/project.js}"></script>
+
     <link th:href="@{assets/css/bootstrap.min.css}" rel="stylesheet">
     <link  th:href="@{assets/css/project.css}" rel="stylesheet">
     <!-- Custom Theme files -->
     <link th:href="@{action/css/communitystyle.css}" rel='stylesheet'/>
-    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
-    <script th:src="@{assets/js/bootstrap.min.js}"></script>
     <!-- animation-effect -->
     <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
     <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
@@ -18,18 +20,85 @@
     <link th:href="@{assets/css/style.css}" rel="stylesheet">
     <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
     <link th:href="@{assets/css/button.css}" rel="stylesheet">
-    <script th:src="@{assets/js/wow.min.js}"></script>
-    <script th:src="@{assets/js/project.js}"></script>
+
     <script>
         new WOW().init();
     </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1"  charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 <div th:include="template/navbar :: navbar"></div>
 <div class="banner two"></div>
-<!--<h3 class="tittle" style="float: left;margin-left: 30px;">我参与的项目</h3>-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" >
+                <h4 class="modal-title" id="myModalLabel" >ProjeName</h4>
+            </div>
+            <div class="modal-body">
+                <div >
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="firstShowContent">所属项目</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" style="text-indent: 25px">
+                                <p style="text-align: left;font-size: medium; font-weight: 100" id="modalRepName">jonathan</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4  ">
+                            <p class="firstShowContent" >关注人数</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" style="text-indent: 25px">
+                            <p style="text-align: left;font-size: medium; font-weight: 100" id="modalFollowerNum">6</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 ">
+                            <p class="firstShowContent" >参与人数</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" style="text-indent: 25px">
+                            <p style="text-align: left;font-size: medium; font-weight: 100" id="modalParticipateNum">6</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">StartDate</div>
+                        <div class="col-md-4" id="modalStartDate">5-1</div>
+                        <div class="col-md-2" >EndDate</div>
+                        <div class="col-md-4" id="modalEndDate">5-2</div>
+                    </div>
+                </div>
+
+                <div >
+                    <div class="row firstShowBoarder" style="margin-top: 20px">
+                        <div class="col-md-4 ">
+                            <p class="firstShowContent">
+                                项目简介
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: left;text-indent: 25px;word-wrap:break-word;" id="modalContext">balabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 70px;">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="main" role="main">
+    <div class="container" >
+
 <div class="main">
     <div class="container " >
         <div class="row">
@@ -69,7 +138,9 @@
                                         </a>
                                 </div>
                                 <div class="margin-top-div text-left">
-                                    <p class="project-description" th:text="${project.getContext()}">project description</p>
+                                    <a onclick="projectDetail(this)" data-toggle="modal" data-target="#myModal" style="cursor: pointer">
+                                        <p class="project-description" th:text="${project.getContext()}">project description</p>
+                                    </a>
                                 </div>
                                 <ul class="list-inline margin-top-div left row" >
                                     <li class="svg col-md-2">
@@ -87,14 +158,15 @@
                                         </svg>
                                         <strong id="participateNum" th:text="${ project.getParticipates()!=null}? ${project.getParticipates().size()}:'0'">0</strong>
                                     </li>
-                                    <li class="create-date-li col-md-4"  th:text="'create-date: '+${project.getEndDate().toString().replace(' 00:00:00.0','')}"> </li>
+                                    <li class="create-date-li col-md-4"  th:text="${project.getStartDate()!=null}?'create-date: '+${project.getStartDate().toString().replace(' 00:00:00.0','')} : 'create-date: none'" id="startDate"> </li>
+                                    <li class="create-date-li col-md-4" th:text="${project.getEndDate()!=null}?'end-date: '+${project.getEndDate().toString().replace(' 00:00:00.0','')}:'endDate: none'": id="endDate"></li>
                                 </ul>
                         </ul>
                     </li>
 
                 </ul>
-            </div>
 
+            </div>
         </div>
     </div>
 </div>

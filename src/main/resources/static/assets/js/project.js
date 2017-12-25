@@ -110,3 +110,26 @@ function searchProjectWithAjax() {
 
     });
 }
+
+
+function projectDetail(obj){
+    var project = $(obj);
+    var modal = $("#myModal");
+    var projName = project.parent().prev().text().trim();
+    var repName = $("#repNameShow").text().trim();
+    var content = project.text().trim();
+
+    var ul = project.parent().next();
+    var followerNum = ul.find("#followerNum").first().text().trim();
+    var participateNum = ul.find("#participateNum").first().text().trim();
+    var startDate = ul.find("#startDate").first().text().trim();
+    var endDate = ul.find("#endDate").first().text().trim();
+
+    modal.find("#modalRepName").first().text(projName);
+    modal.find("#modalFollowerNum").first().text(followerNum);
+    modal.find("#modalParticipateNum").first().text(participateNum);
+    modal.find("#modalStartDate").first().text(startDate.substr(12));
+    modal.find("#modalEndDate").first().text(endDate.substr(8));
+    modal.find("#myModalLabel").first().text(projName);
+
+}

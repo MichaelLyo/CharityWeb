@@ -1,7 +1,6 @@
 function getRepDescription(obj) {
     var id = obj.id.toString();
     var descriptionId = "description"+id;
-    console.log(descriptionId);
 
     var obj = document.getElementById(descriptionId);
     var modal =document.getElementById("modal-content");
