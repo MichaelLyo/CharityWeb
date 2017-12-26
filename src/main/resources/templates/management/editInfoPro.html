@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet'>
+    <link th:href="@{assets/css/bootstrapValidator.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{assets/js/zh-CN.js}"></script>
+    <script  type="text/javascript" th:src="@{assets/js/bootstrapValidator.js}"></script>
+</head>
+<body>
+<div style="width: 50%; margin-left: 20%">
+    <form data-toggle="validator" role="form" style="width: 100%;" action="editInfo" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="inputName" class="control-label">Nickname</label>
+            <input type="text" class="form-control" id="inputName" name="nickname" placeholder="NickName" required th:value="${user.getNickname()==null?'':user.getNickname()}">
+        </div>
+        <div class="form-group" >
+            <label for="inputEmail" class="control-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" data-error="Bruh, that email address is invalid" required th:value="${user.getEmail()==null?'':user.getEmail()}">
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group" style="width: 100%;">
+            <label for="inputPhone" class="control-label">Phone</label>
+            <div class="input-group">
+                <input type="text" pattern="^[0-9]{11}$"  class="form-control" id="inputPhone" name = "phone" placeholder="Phone" required th:value="${user.getPhone()==null?'':user.getPhone()}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress" class="control-label">Address</label>
+            <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address" required th:value="${user.getAddress() == null?'':user.getAddress()}" >
+        </div>
+        <div class="form-group">
+            <div class="radio" >
+                <label>
+                    <input type="radio" name="sex" value="男" required >
+                     男
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="sex" value="女" required  >
+                    女
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div id="photoShow" style="width:200px;height: 200px;border: solid 1px black">
+
+            </div>
+            <input  type="file" name="file" id="photo" name="photo"/>
+
+        </div>
+        <div class="form-group">
+            <label for="inputContent" class="control-label">简介</label>
+            <input type="text" class="form-control" id="inputContent" name="introduction" placeholder="个人简介" th:value="${user.getIntroduction()==null ?'个人简介':user.getIntroduction()}" required style="height: 100px;width: 100%;">
+        </div>
+        <div class="form-group">
+            <label for="inputDescription" class="control-label">个人介绍</label>
+            <input type="text" class="form-control" id="inputDescription" name="description" placeholder="个人介绍"  th:value="${user.getDescription()==null?'个人介绍':user.getDescription()}" required style="height: 100px;width: 100%;">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+</body>
+<script>
+    $(document).ready(function() {
+        $("#photo").on("change", function (e) {
+                var files = this.files;
+                var img = new Image();
+                var reader = new FileReader();
+                reader.readAsDataURL(files[0]);
+                reader.onload = function (e) {
+                    var mb = (e.total / 1024) / 1024;
+                    if (mb >= 2) {
+                        alert('文件大小大于2M');
+                        return;
+                    }
+                    img.src = this.result;
+                    img.style.width = "100%";
+                    img.style.height = "100%";
+                    document.getElementById('photoShow').style.width = "200px";
+                    document.getElementById('photoShow').style.height = "200px";
+                    document.getElementById('photoShow').innerHTML = '';
+                    document.getElementById('photoShow').appendChild(img);
+                }
+            })
+    })
+</script>
+</html>

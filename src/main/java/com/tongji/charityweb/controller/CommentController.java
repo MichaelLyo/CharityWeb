@@ -96,6 +96,7 @@ public class CommentController {
             attr.addAttribute("userName", userName);
             if (commentService.createProComment(projectName,repName,userName,content,commenterName,pictureUrl))
                 return "redirect:/activity";
+
             else
                 return "create fail";
         } catch (Exception e) {

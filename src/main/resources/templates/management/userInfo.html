@@ -312,7 +312,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-8 w3ls-banner-right">
                 <div class="banner-right-img">
                     <!--<img th:if="${thisUser.hpPictureUrl == null}" th:src="@{Login/images/1.jpg}"   alt="" />-->
-                    <img style="height: 150px;width:100%;" th:src="'http://localhost:9090/spring-boot/'+${thisUser.hpPictureUrl}"  alt="" />
+                    <img style="height: 150px;width:100%;" th:src="'http://localhost:9090/spring-boot/'+${thisUser.getHpPictureUrl()}"  alt="" />
                 </div>
                 <div class="banner-right-info">
                     <h2>简介</h2>

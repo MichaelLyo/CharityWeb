@@ -117,6 +117,7 @@ public class ProjectController {
                 projects.add(project);
             }
             model.addAttribute("projects", projects);
+            model.addAttribute("flag",true);
             return "management/mgtProject";
         }
         catch (Exception e){
@@ -273,6 +274,7 @@ public class ProjectController {
             model.addAttribute("pictureUrl",user.getHpPictureUrl());
             model.addAttribute("pictureName",userName);
             model.addAttribute("userName",userName);
+            model.addAttribute("flag",false);
 
 
             return "management/mgtProject";
@@ -296,6 +298,7 @@ public class ProjectController {
             model.addAttribute("pictureUrl",user.getHpPictureUrl());
             model.addAttribute("pictureName",userName);
             model.addAttribute("userName",userName);
+            model.addAttribute("flag",false);
         }
         catch (Exception e){
             System.out.println("showParticipateProjects");

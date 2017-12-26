@@ -1,0 +1,43 @@
+ .file {
+                          font-size: 0.9em;
+                          background: #FCB2B2;
+                          padding: 0.7em 1em;
+                          text-align: center;
+                          color: #fff;
+                          border: none;
+                          outline: none;
+                          position: relative;
+                          text-transform: uppercase;
+                          -webkit-appearance: none;
+                          transition: 0.5s all;
+                          -webkit-transition: 0.5s all;
+                          -moz-transition: 0.5s all;
+                          -o-transition: 0.5s all;
+                          text-decoration: none;
+                          -ms-transition: 0.5s all;
+ }
+.file input {
+    position: absolute;
+    text-decoration: none;
+    top: -26px;
+    width: 75px;
+    height: 34px;
+    opacity: 0;
+}
+.file:hover {
+    background:#53d0c6;
+    text-decoration: none;
+    color: #fff;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color:#999;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#999;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#999;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#999;
+}

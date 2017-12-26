@@ -125,7 +125,7 @@
                         <button  type="button" id="search"  name="search"  class="btn btn-default btn-sm button-submit" value="搜索" th:text="搜索"></button>
                         <input type="hidden"  id="repName" name="repName" th:value="${repName}">
                         <input type="hidden" id="userName" name="userName" th:value="${userName}">
-                        <button  type="button" id="new" name ="new" class="btn btn-default btn-sm button-submit" value="新建" th:text="新建" style="margin-right: 200px"></button>
+                        <button  th:if="${flag==true}" type="button" id="new" name ="new" class="btn btn-default btn-sm button-submit" value="新建" th:text="新建" style="margin-right: 200px"></button>
                     </form>
 
                 </div>

@@ -174,11 +174,15 @@
 
                         <!--/*@thymesVar id="projects" type="java.util.List"*/-->
                         <div class="col-md-6 article-post" th:each="project,projectStat:${projects}" th:if="${projectStat.index}<2">
-                            <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" alt="img07"/></a>
+                            <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" /></a>
                             <div class="col-md-3 post-meta">
                                 <div class="meta-icon">
                                     <div class="pic">
-                                        <a th:href="@{/userInfo(username=${project.userName})}" > <i class="glyphicon glyphicon-picture"></i></a>
+                                        <a th:href="@{/userInfo(username=${project.userName})}" > 
+                                            <i class="glyphicon glyphicon-picture">
+                                                <img src="${project.}">
+                                            </i>
+                                        </a>
                                     </div>
                                 </div>
                                 <ul class="ad-info">
@@ -201,56 +205,6 @@
 
                         <div class="clearfix"> </div>
 
-                        <!--<div class="col-md-6 article-post">-->
-                            <!--<a th:href="@{/activity}" ><img th:src="@{assets/img/cat-top.jpg}" alt="img07"/></a>-->
-                            <!--<div class="col-md-3 post-meta">-->
-                                <!--<div class="meta-icon">-->
-                                    <!--<div class="pic">-->
-                                        <!--<a th:href="@{/activity}" > <i class="glyphicon glyphicon-picture"></i></a>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<ul class="ad-info">-->
-                                    <!--<li>2017  10.20</li>-->
-                                    <!--<li> <a th:href="@{/userInfo}">牛书凉</a></li>-->
-                                    <!--<li style="color:#FCB2B2;"> 24 评论</li>-->
-                                <!--</ul>-->
-                                <!--<div class="clearfix"> </div>-->
-                            <!--</div>-->
-                            <!--<div class="col-md-9 post-details">-->
-                                <!--<a th:href="@{/activity}"><h3>选择领养，选择买不到的爱</h3></a>-->
-                                <!--<p>上周六（12.6）二月猫与同济猫咪同盟将共同举的办义卖及领养日如约进行，在活动现场有六只猫咪成功领养，找到了属于它们自己的两脚兽，二月猫会持续关注它们进入家庭后的生活，让我们来看看到底是那些宝贝开启了新的喵生呢？</p>-->
-                                <!--<div>-->
-                                    <!--<a class="blog hvr-shutter-out-horizontal" th:href="@{/activity}" role="button">查看详情</a>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash;post-details&ndash;&gt;-->
-                            <!--<div class="clearfix"> </div>-->
-                        <!--</div>-->
-                        <!--<div class="col-md-6 article-post">-->
-                            <!--<a th:href="@{/activity}" ><img th:src="@{assets/img/caiyun-top.jpg}" alt="img07"/></a>-->
-                            <!--<div class="col-md-3 post-meta">-->
-                                <!--<div class="meta-icon">-->
-                                    <!--<div class="pic">-->
-                                        <!--<a th:href="@{/activity}" > <i class="glyphicon glyphicon-picture"></i></a>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<ul class="ad-info">-->
-                                    <!--<li>2017  9.23</li>-->
-                                    <!--<li> <a th:href="@{/userInfo}">旺仔牛奶</a></li>-->
-                                    <!--<li style="color:#FCB2B2;"> 23 评论</li>-->
-                                <!--</ul>-->
-                                <!--<div class="clearfix"> </div>-->
-                            <!--</div>-->
-                            <!--<div class="col-md-9 post-details">-->
-                                <!--<a th:href="@{/activity}"><h3>志愿者心语——张媛</h3></a>-->
-                                <!--<p>写下这些话已是夏令营结束之时，回想过去的十天，仿佛还有些恍惚。第一次作为领队带着十个小伙伴一起前往天池，感觉很幸运。所幸遇到了有趣又努力的小伙伴；所幸遇到了可爱又敢于尝试的孩子们……</p>-->
-                                <!--<div>-->
-                                    <!--<a class="blog hvr-shutter-out-horizontal" th:href="@{/activity}" role="button">查看详情</a>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash;post-details&ndash;&gt;-->
-                            <!--<div class="clearfix"> </div>-->
-                        <!--</div>-->
                         <div class="see-button">
                             <a class="btn btn-primary btn-lg see-button hvr-shutter-out-horizontal serve-button" th:href="@{/hotspot}" role="button">查看更多热点</a>
                         </div>
