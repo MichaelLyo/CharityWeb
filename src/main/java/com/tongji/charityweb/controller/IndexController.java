@@ -72,8 +72,12 @@ public class IndexController {
     @RequestMapping(value = "regist")
     public String regist(){ return "login/regist"; }
 
-    @RequestMapping(value = "activity",method = RequestMethod.GET)
+    @RequestMapping(value = "activity",method = {RequestMethod.GET,RequestMethod.POST})
     public String activity(String projName, String repName, String userName, Model model, HttpSession session){
+        System.out.println("here");
+        System.out.println(projName);
+        System.out.println(repName);
+        System.out.println(userName);
         Project project = projectService.findOneProject(projName,repName,userName);
         model.addAttribute("project", project);
 

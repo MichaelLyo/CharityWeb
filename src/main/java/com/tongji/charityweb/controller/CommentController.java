@@ -89,7 +89,7 @@ public class CommentController {
             String commenterName = user.getUsername();
             String pictureUrl = user.getHpPictureUrl();
             if (commentService.createProComment(projectName,repName,userName,content,commenterName,pictureUrl))
-                return "redirect:/activity?projName="+projectName+"&repName="+repName+"&userName="+userName;
+                return "redirect:/activity?projName="+projectName+"&userName="+userName+"&repName="+repName;
             else
                 return "create fail";
         } catch (Exception e) {

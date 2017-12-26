@@ -173,11 +173,12 @@ public class UserController {
     @RequestMapping(value = "editInfo",method = RequestMethod.GET)
     public String editInfo(HttpServletRequest request,Model model){
         User user = userService.getUserInSession(request.getSession());
+        System.out.println("here");
         model.addAttribute("user", user);
-        return "management/editInfo";
+        return "management/editInfoPro";
     }
     @RequestMapping(value = "editInfo",method = RequestMethod.POST)
-    public String editInfo(HttpServletRequest request,@RequestParam("file") MultipartFile file) {
+    public String editInfo(HttpServletRequest request,@RequestParam("photo") MultipartFile file) {
         try {
 
             String sex = request.getParameter("sex");
@@ -194,6 +195,7 @@ public class UserController {
 
             if (user == null)
             {
+
                 return "redirect:/sessionLost";
             }
 

@@ -27,7 +27,6 @@ public class LoginController {
 
     private User user;
 
-    /* regist */
     @RequestMapping(value = "/regist", method = RequestMethod.POST)
     public String regist(HttpServletRequest request, Model model) {
         try {
