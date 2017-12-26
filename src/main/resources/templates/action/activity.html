@@ -39,6 +39,12 @@
             </div>
             <div class="col-md-6">
 
+                <div class="row activityRightMargin">
+                    <div class="col-md-3 activityBeforeComma">活动名称</div>
+                    <div class="col-md-4">
+                        <p th:text="${project.projName}"></p>
+                    </div>
+                </div>
                 <div class="row activityRightMargin" >
                     <div class="col-md-3 activityBeforeComma">
                        <p> 创建者</p>
@@ -91,10 +97,9 @@
                             <section class='wrap'>
                                 <div class='wrap_right'>
                                     <div class='bar_group'>
-                                        <div class='bar_group__bar thin' label='累计捐款金额' show_values='true' tooltip='true' value='10'></div>
+                                        <div class='bar_group__bar thin' label='累计捐款金额' show_values='true' tooltip='true' th:value="${project.donateAmount}" value='10'></div>
                                         <div class='bar_group__bar thin' label='参与人数' show_values='true' tooltip='true' th:value="${project.participateNum}" value="20"></div>
                                         <div class='bar_group__bar thin' label='关注人数' show_values='true' tooltip='true' th:value="${project.followerNum}" value="100"></div>
-                                        <div class='bar_group__bar thin' label='进度' show_values='true' tooltip='true' value='456'></div>
                                     </div>
                                 </div>
                                 <div class='clear'></div>
