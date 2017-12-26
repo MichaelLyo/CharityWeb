@@ -8,10 +8,13 @@ import com.tongji.charityweb.service.ProjectService;
 import com.tongji.charityweb.service.RepositoryService;
 import com.tongji.charityweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -60,13 +63,13 @@ public class DonateController
 	}
 
 	@RequestMapping(value = "mgtDonate",method = RequestMethod.GET)
-	public String mgtDonate(HttpServletRequest request,Model model)
+	public String mgtDonate(HttpServletRequest request, Model model, ModelMap modelmap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size)
 	{
 		User userInSession = userService.getUserInSession(request.getSession());
 		if(userInSession!=null)
 		{
-			List<Donate> donates = donateService.getDonateRecordsByUser(userInSession);
-			model.addAttribute("donates", donates);
+			Page<Donate> donates = donateService.getDonateRecordsByUser(userInSession,page,size);
+			modelmap.addAttribute("projects", donates);
 			model.addAttribute("user", userInSession);
 			return "management/mgtDonate";
 		}

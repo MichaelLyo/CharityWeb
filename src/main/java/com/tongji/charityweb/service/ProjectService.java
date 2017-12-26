@@ -140,6 +140,10 @@ public class ProjectService {
 
     public boolean deleteProFollower(String projName, String repName,  String followerName, String userName) {
         try {
+            ProjectID projectID = new ProjectID(projName,repName,  userName);
+            Project project = projectRepository.findOne(projectID);
+            project.setFollowerNum(project.getFollowerNum()-1);
+            projectRepository.save(project);
             ProjectFollower projectFollower = proFolRepository.findOne(new ProjectFollowerID(userName, repName, projName, followerName));
             proFolRepository.delete(projectFollower);
             return true;
