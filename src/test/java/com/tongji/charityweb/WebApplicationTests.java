@@ -118,14 +118,14 @@ public class WebApplicationTests
 		projectRepository.save(pro);
 
 		// 为了展示分页而设置的很多社团活动
-		for (int i=1; i<=5; ++i) {
+		for (int i=1; i<=7; ++i) {
 			Project caiyunPro1 = new Project("彩云活动库2","彩云活动"+i,"彩云支南");
 			projectRepository.save(caiyunPro1);
 		}
 
 		//热点和在参与页面的很多活动
 		for (int i=1; i<=30; i++) {
-			Project newProject = new Project("myRep","myPro"+i, "lsl");
+			Project newProject = new Project("myRepo","myPro"+i, "lsl");
 			projectRepository.save(newProject);
 		}
 
