@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.persistence.ManyToOne;
 import javax.servlet.http.HttpServletRequest;
@@ -121,15 +122,16 @@ public class UserController {
     }
 
     @RequestMapping(value = "/createUserFol",method = RequestMethod.GET)
-    public String createUserFol(String username, HttpSession session)
+    public String createUserFol(String username, HttpSession session, RedirectAttributes attr)
     {
         try {
             User user = userService.getUserInSession(session);
             if(user == null)
                 return "login/sessionLost";
             String followername = user.getUsername();
+            attr.addAttribute("username", username);
             if (userService.createUserFollower(username, followername))
-                return "redirect:/userInfo?username="+username;
+                return "redirect:/userInfo";
             else
                 return "create fail";
         } catch (Exception e) {
@@ -139,15 +141,16 @@ public class UserController {
     }
 
     @RequestMapping(value = "/deleteUserFol",method = RequestMethod.GET)
-    public String deleteUserFol(String username, HttpSession session)
+    public String deleteUserFol(String username, HttpSession session, RedirectAttributes attr)
     {
         try {
             User user = userService.getUserInSession(session);
             if(user == null)
                 return "login/sessionLost";
             String followername = user.getUsername();
+            attr.addAttribute("username", username);
             if (userService.deleteUserFollower(username, followername))
-                return "redirect:/userInfo?username="+username;
+                return "redirect:/userInfo";
             else
                 return "delete fail";
         } catch (Exception e) {
@@ -173,11 +176,12 @@ public class UserController {
     @RequestMapping(value = "editInfo",method = RequestMethod.GET)
     public String editInfo(HttpServletRequest request,Model model){
         User user = userService.getUserInSession(request.getSession());
+        System.out.println("here");
         model.addAttribute("user", user);
-        return "management/editInfo";
+        return "management/editInfoPro";
     }
     @RequestMapping(value = "editInfo",method = RequestMethod.POST)
-    public String editInfo(HttpServletRequest request,@RequestParam("file") MultipartFile file) {
+    public String editInfo(HttpServletRequest request,@RequestParam("photo") MultipartFile file) {
         try {
 
             String sex = request.getParameter("sex");
@@ -194,6 +198,7 @@ public class UserController {
 
             if (user == null)
             {
+
                 return "redirect:/sessionLost";
             }
 

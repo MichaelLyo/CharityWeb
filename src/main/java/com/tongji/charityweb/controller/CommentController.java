@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,7 +23,7 @@ public class CommentController {
     UserService userService;
 
     @RequestMapping(value = "/createRepCom",method = RequestMethod.POST)
-    public String createRepCom(HttpServletRequest request)
+    public String createRepCom(HttpServletRequest request, RedirectAttributes attr)
     {
         try {
             User user = userService.getUserInSession(request.getSession());
@@ -33,8 +34,10 @@ public class CommentController {
             String content = request.getParameter("content");
             String commenterName = user.getUsername();
             String pictureUrl = user.getHpPictureUrl();
+            attr.addAttribute("repName", repName);
+            attr.addAttribute("userName", userName);
             if (commentService.createRepComment(repName, userName, content, commenterName, pictureUrl))
-                return "redirect:/showRepDetail?repName="+repName+"&userName="+userName;
+                return "redirect:/showRepDetail";
             else
                 return "create fail";
         } catch (Exception e) {
@@ -76,7 +79,7 @@ public class CommentController {
     }
 
     @RequestMapping(value = "/createProCom",method = RequestMethod.POST)
-    public String createProCom(HttpServletRequest request)
+    public String createProCom(HttpServletRequest request, RedirectAttributes attr)
     {
         try {
             User user = userService.getUserInSession(request.getSession());
@@ -88,8 +91,12 @@ public class CommentController {
             String content = request.getParameter("content");
             String commenterName = user.getUsername();
             String pictureUrl = user.getHpPictureUrl();
+            attr.addAttribute("projName", projectName);
+            attr.addAttribute("repName", repName);
+            attr.addAttribute("userName", userName);
             if (commentService.createProComment(projectName,repName,userName,content,commenterName,pictureUrl))
-                return "redirect:/activity?projName="+projectName+"&repName="+repName+"&userName="+userName;
+                return "redirect:/activity";
+
             else
                 return "create fail";
         } catch (Exception e) {
