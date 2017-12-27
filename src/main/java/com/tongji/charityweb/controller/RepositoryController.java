@@ -100,9 +100,9 @@ public class RepositoryController {
     }
 
     @RequestMapping(value = "/showRepDetail",method = RequestMethod.GET)
-    public String showRepDetail(String repName, String userName, Model model) {
-        List<Project> projects = repService.findAllProjectsInRep(repName, userName);
-        model.addAttribute("projects", projects);
+    public String showRepDetail(String repName, String userName, Model model, ModelMap modelmap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size) {
+        Page<Project> projects = repService.findAllProjectsInRep(repName, userName, page, size);
+        modelmap.addAttribute("projects", projects);
         Repository repository = repService.findOneRepository(repName, userName);
         model.addAttribute("repository", repository);
         return "action/repDetail";
