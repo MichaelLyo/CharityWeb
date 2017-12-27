@@ -27,4 +27,4 @@ nbdist/
 src/main/resources/application.properties
 
 ### files ###
-uploadedFiles/
+#uploadedFiles/
