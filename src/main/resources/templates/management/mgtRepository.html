@@ -61,7 +61,7 @@
                                         <input style="display: none" id="userName"  name="userName" type="hidden"></input>
                                     </form>
                                 </a>
-                                <div style="display: none;"><p th:text="${repository.getDescription()}" th:id="description+${repositoryStat.index}"  ></p></div>
+                                <div style="display: none;"><p th:text="${repository.getDescription().replace('\n\r','')}" th:id="description+${repositoryStat.index}"  ></p></div>
                             </div>
                             <div class="repository-follower" >
                                 <div class="repository-create-date" th:text="${repository.getCreatedAt()}" >createDate</div>

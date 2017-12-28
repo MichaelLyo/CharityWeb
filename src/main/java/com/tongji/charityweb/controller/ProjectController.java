@@ -324,9 +324,9 @@ public class ProjectController {
         try{
             String userName = request.getParameter("userName");
             User user = userRepository.findOne(userName);
-            List<Donate> donates = donateRepository.findByUsername(userName);
+            List<Participate> participates = parRepository.findByParName(userName);
             List<Project> projects = new ArrayList<>();
-            for(Donate x : donates){
+            for(Participate x : participates){
                 String repName =  x.getRepName();
                 String projName = x.getProjName();
                 projects.add(projectRepository.findOne(new ProjectID(projName, repName, userName)));

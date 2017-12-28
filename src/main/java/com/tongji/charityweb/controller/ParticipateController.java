@@ -17,19 +17,17 @@ public class ParticipateController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "participate", method = RequestMethod.GET)
-    public String participate(HttpServletRequest request){
+    @RequestMapping(value = "myParticipate", method = {RequestMethod.GET,RequestMethod.POST})
+    public String myParticipate(String projName,String repName, String userName ){
 
         try{
-            User userInSession  = userService.getUserInSession(request.getSession());
-            if(userInSession == null)
-                return "login/sessionLost";
+//            User userInSession  = userService.getUserInSession(request.getSession());
+//            if(userInSession == null)
+//                return "login/sessionLost";
 
-            String repName = request.getParameter("repName");
-            String projName = request.getParameter("projName");
-            String userName = request.getParameter("userName");
 
-            Participate participate = new Participate(userName, repName, projName, userInSession.getUsername());
+            System.out.println(repName+projName+userName);
+            Participate participate = new Participate(userName, repName, projName,"sjw");
             parRepository.save(participate);
             return "redirect:/";
         }
