@@ -28,7 +28,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="news-article">
             <!--/*@thymesVar id="projects" type="java.util.List"*/-->
             <div class="col-md-6 article-post" th:each="project:${projects}">
-                <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" alt="img07"/></a>
+                <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img style="width:600px;height: 300px;" th:src="@{${project.descriptionPictureUrl}}" alt="img07"/></a>
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
-                <div class="col-md-9 post-details">
+                <div class="col-md-9 post-details" style="height: 300px;">
                     <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><h3 th:text="${project.projName}">To Protect Humanity</h3></a>
                     <p th:text="${project.context}">Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div>

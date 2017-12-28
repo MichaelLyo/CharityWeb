@@ -34,9 +34,11 @@ public class IndexController {
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
         List<Project> projects = projectService.getAllProjectsOrderByFolNum();
+
         Project hotPorject = projectService.getMostHotProject();
         model.addAttribute("projects", projects);
         model.addAttribute("hotProject",hotPorject);
+
         return "index";
     }
 
@@ -103,8 +105,12 @@ public class IndexController {
     }
 
     @RequestMapping(value = "participate",method = RequestMethod.GET)
-    public String participate(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size){
-        Page<Project> projects = projectService.getProjectPageOrderByParNum(page, size);
+    public String participate(HttpSession session,ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size){
+        //Page<Project> projects = projectService.getProjectPageOrderByParNum(page, size);
+        User userInSession = userService.getUserInSession(session);
+        if (userInSession==null)
+            return "redirect:/sessionLost";
+        Page<Project> projects = projectService.getUserParticipateProject(page, size, userInSession.getUsername());
         modelMap.addAttribute("projects", projects);
         return "participate/participate-index";
     }
