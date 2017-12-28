@@ -17,6 +17,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -78,6 +79,26 @@ public class ProjectService {
         }
 
     }
+
+    public List<Project> getParticipateProjects(String parName)
+    {
+        List<Project> projects = new ArrayList<>();
+        try {
+            List<Participate> participates = parRepository.findByParName(parName);
+
+            for (Participate x : participates) {
+                String repName = x.getRepName();
+                String projName = x.getProjName();
+                String userName = x.getUserName();
+                projects.add(projectRepository.findOne(new ProjectID(projName, repName, userName)));
+            }
+        }
+        catch (Exception e){
+            return null;
+        }
+        return projects;
+    }
+
 
     public Project findOneProject(String projName, String repName, String userName) {
         try {
