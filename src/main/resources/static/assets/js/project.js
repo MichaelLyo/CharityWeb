@@ -112,9 +112,11 @@ function searchProjectWithAjax() {
 }
 function searchProjectWithAjax2() {
     var project = $("#projectSrc").first();
-    var repName = $("#repName").val(project.find("input[name='repName']").val()).val();
+    console.log(project.find("input[name='repName']").first().val());
+    console.log(project.find("input[name='userName']").first().val());
+    var repName = $("#repName").val(project.find("input[name='repName']").first().val()).val();
     var projName = $("#projName").val();
-    var userName = $("#userName").val(project.find("input[name='userName']").val()).val();
+    var userName = $("#userName").val(project.find("input[name='userName']").first().val()).val();
 
     console.log(userName);
     console.log(repName);
@@ -123,7 +125,7 @@ function searchProjectWithAjax2() {
     $.ajax({
         async: true,
         type: "POST",
-        url: "http://localhost:9090/spring-boot/testAjax",//注意路径
+        url: "http://localhost:9090/spring-boot/followerProjects",//注意路径
         data: "repName="+repName+"&userName="+userName+"&projName="+projName,
         dataType: "json",
         success: function (response) {
@@ -155,5 +157,6 @@ function projectDetail(obj){
     modal.find("#modalStartDate").first().text(startDate.substr(12));
     modal.find("#modalEndDate").first().text(endDate.substr(8));
     modal.find("#myModalLabel").first().text(projName);
+    modal.find("#modalContext").first().text(content);
 
 }

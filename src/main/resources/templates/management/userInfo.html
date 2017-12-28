@@ -398,7 +398,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <ul style="margin-left:450px;" id="myTab" class="nav nav-tabs" role="tablist">
             <li role="presentation"><a  role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning"  >关注项目</a></li>
             <li role="presentation"><a  role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">参与项目</a></li>
-            <li role="presentation"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">捐款</a></li>
+            <li role="presentation">
+                <a  id="painting-tab"   th:href="@{/mgtDonate}">捐款</a>
+            </li>
             <form id="hiddenForm" name="hiddenForm" method="post">
                 <input id="userName" name="userName" type="hidden">
                 <input id="repName" name="repName" type="hidden">
@@ -599,6 +601,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     );
     $(document).ready(
         showParProjects()
+    );
+    $(document).ready(
+        showDonate()
     );
 
 </script>

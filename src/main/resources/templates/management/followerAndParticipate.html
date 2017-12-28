@@ -85,7 +85,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12" style="text-align: left;text-indent: 25px;word-wrap:break-word;" id="modalContext">balabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                        <div class="col-md-12" style="text-align: left;text-indent: 25px;word-wrap:break-word;" id="modalContext" >
+
+                        </div>
                     </div>
                 </div>
 
@@ -190,11 +192,17 @@
     });
     $(document).ready(function () {
         $("a#projectSrc").click(
-            function () {
+            function (e) {
+                console.log($(e.target));
+                var projectName = $(e.target);
+                var repName = projectName.prev().val();
+                var projName = projectName.text();
+                var userName = projectName.prev().prev().val();
                 $("#searchAndNew").attr("action","showProjectDetail");
                 $("#searchAndNew").attr("method","post");
-                $("#repName").val($("#repNameShow").text());
-                $("#projName").val($(this).children(":first").text());
+                $("#repName").val(repName);
+                $("#projName").val(projName);
+                $("#userName").first().val(userName);m
                 $("#searchAndNew").submit();
             }
         )
