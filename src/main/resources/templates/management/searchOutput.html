@@ -308,7 +308,7 @@
     <div id="user">
         <div class="family" th:unless="${#lists.isEmpty(users)}" th:each="user,userStat:${users}" th:if="${userStat.index}<10" >
             <div class="twenty">
-                <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo(username=${user.username})}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
+                <div class="col-md-2" style="width: 100%;"><a th:href="@{/userInfo(username=${user.username})}"><img style="height: 100px;width:100px" th:src="${user.hpPictureUrl}" class="img-responsive" alt=""></a></div>
             </div>
             <div class="sunday">
                 <a style="font-size: 25px;" th:href="@{/userInfo(username=${user.username})}" th:text="${user.username}"><h5>用户名</h5></a>
@@ -322,7 +322,7 @@
     <div id="project">
         <div class="family" th:unless="${#lists.isEmpty(projects)}" th:each="project,projectStat:${projects}" th:if="${projectStat.index}<10" >
             <div class="twenty">
-                <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo(username=${project.userName})}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
+                <div class="col-md-2" style="width: 100%;"><a th:href="@{/userInfo(username=${project.userName})}"><img style="height: 100px;width:100px" th:src="${project.descriptionPictureUrl}" class="img-responsive" alt=""></a></div>
             </div>
             <div class="sunday">
                 <a style="font-size: 25px;" th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}" th:text="${project.projName}"><h5>项目名称</h5></a>
@@ -335,7 +335,7 @@
     <div id="repository">
         <div class="family" th:unless="${#lists.isEmpty(repositories)}" th:each="repository,repositoryStat:${repositories}"  th:if="${repositoryStat.index}<10" >
             <div class="twenty">
-                <div class="col-md-2 preview" style="width: 100%;"><a th:href="@{/userInfo(username=${repository.userName})}"><img th:src="@{assets/img/co.png}" class="img-responsive" alt=""></a></div>
+                <div class="col-md-2" style="width: 100%;"><a th:href="@{/userInfo(username=${repository.userName})}"><img style="height: 100px;width:100px" th:src="${repository.descriptionPictureUrl}" class="img-responsive" alt=""></a></div>
             </div>
             <div class="sunday">
                 <a style="font-size: 25px;" th:href="@{/showRepDetail(repName=${repository.repName}, userName=${repository.userName})}" th:text="${repository.repName}"><h5>仓库名称</h5></a>

@@ -174,7 +174,7 @@
 
                         <!--/*@thymesVar id="projects" type="java.util.List"*/-->
                         <div class="col-md-6 article-post" th:each="project,projectStat:${projects}" th:if="${projectStat.index}<2">
-                            <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" /></a>
+                            <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img style="width: 500px;height: 320px;" th:src="@{${project.descriptionPictureUrl}}" /></a>
                             <div class="col-md-3 post-meta">
                                 <div class="meta-icon">
                                     <div class="pic">
@@ -228,7 +228,7 @@
                             <h3>彩 云 支 南</h3>
                             <span>同济大学彩云支南协会</span>
                             <p>了解公益理念，传播公益思想。同心者同行，彩云支南，圆你一个公益梦！致力于搭建同济大学与云南地区沟通交流的公益平台。通过丰富的活动，让同济学子应用自己的专业知识或特长帮助云南乡村进入更多人视野，得到更多关注。</p>
-                            <a th:href="@{/caiyun}" class="btn  btn-1c btn1 btn-1d">点击加入</a>
+                            <a th:href="@{/caiyun}" class="btn  btn-1c btn1 btn-1d">点击进入</a>
                         </div>
                         <div class="col-md-4 ser-in post-details">
                             <a th:href="@{/chunhui}" class="b-link-stripe b-animate-go  thickbox"><div class="b-line b-line1"></div><div class="b-line b-line2"></div><div class="b-line b-line3"></div><div class="b-line b-line4"></div><div class="b-line b-line5"></div>
@@ -237,7 +237,7 @@
                             <h3><b>春 晖 之 声</b></h3>
                             <span>同济大学春晖社团</span>
                             <p>传播春晖精神，践行春晖理念。同济大学春晖社是在贵州省团委发起的大型社会公益活动——“春晖行动”的影响下，经同济大学校团委批准成立的学生公益社团。社团致力于传播春晖精神，践行春晖理念，为大学生参与公益、反哺社会创造机会与平台。</p>
-                            <a th:href="@{/chunhui}" class="btn  btn-1c btn1 btn-1d">点击加入</a>
+                            <a th:href="@{/chunhui}" class="btn  btn-1c btn1 btn-1d">点击进入</a>
                         </div>
                         <div class="col-md-4 ser-in post-details">
                             <a th:href="@{/cat}" class="b-link-stripe b-animate-go  thickbox"><div class="b-line b-line1"></div><div class="b-line b-line2"></div><div class="b-line b-line3"></div><div class="b-line b-line4"></div><div class="b-line b-line5"></div>
@@ -247,7 +247,7 @@
                             <span>同济猫盟</span>
                             <p>同济猫盟，一个致力于猫咪保护的公益类学生社团，猫盟是一个【公益实践类】社团，致力于改善同济猫咪的生存环境。我们的宗旨是：让同济的猫咪生活得更好，让同济的校园更加有爱。所有猫盟成员可以免费领取猫粮并解锁指定猫咖的优惠。
                             </p>
-                            <a th:href="@{/cat}" class="btn  btn-1c btn1 btn-1d">点击加入</a>
+                            <a th:href="@{/cat}" class="btn  btn-1c btn1 btn-1d">点击进入</a>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -269,7 +269,7 @@
                         <h3 style = "color: #2BCFC2;font-size: 40px;">本周最热活动</h3>
                         <a th:href="'activity?projName='+${hotProject.projName}+'&repName='+${hotProject.repName}+'&userName='+${hotProject.userName}"><img th:src="${hotProject.descriptionPictureUrl}"></a>
                         <div class="see-button">
-                            <a class="btn btn-primary btn-lg see-button hvr-shutter-out-horizontal serve-button" th:href="@{/participate}" role="button">查看更多活动</a>
+                            <a class="btn btn-primary btn-lg see-button hvr-shutter-out-horizontal serve-button" th:href="@{/hotspot}" role="button">查看更多活动</a>
                         </div>
                     </div>
                     <div class="col-md-7 serve-grids">

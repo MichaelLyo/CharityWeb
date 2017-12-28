@@ -125,14 +125,14 @@ function searchProjectWithAjax2() {
     $.ajax({
         async: true,
         type: "POST",
-        url: "http://localhost:9090/spring-boot/followerProjects",//注意路径
+        url: "http://0.0.0.0:9090/spring-boot/followerProjects",//注意路径
         data: "repName="+repName+"&userName="+userName+"&projName="+projName,
         dataType: "json",
         success: function (response) {
             replaceProjects(response);
         },
         error: function (response) {
-            alert(response.data);
+            replaceProjects(response);
         }
 
     });

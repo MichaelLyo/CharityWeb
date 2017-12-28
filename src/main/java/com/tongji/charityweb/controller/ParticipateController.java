@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class ParticipateController {
     @Autowired
@@ -23,8 +25,9 @@ public class ParticipateController {
 
 
     @RequestMapping(value = "/createParticipate", method = RequestMethod.GET)
-    public String createParticipate(String projName, String repName, String userName, HttpServletRequest request, RedirectAttributes attr){
+    public String createParticipate(String projName, String repName, String userName, HttpSession session, HttpServletRequest request, RedirectAttributes attr){
         try{
+
             User userInSession  = userService.getUserInSession(request.getSession());
             if(userInSession == null) {
                 return "login/sessionLost";
@@ -36,7 +39,7 @@ public class ParticipateController {
 
 
             System.out.println(repName+projName+userName);
-            Participate participate = new Participate(userName, repName, projName,"sjw");
+            Participate participate = new Participate(userName, repName, projName,userInSession.getUsername());
             parRepository.save(participate);
             return "redirect:/activity";
         } catch (Exception e){
@@ -45,9 +48,9 @@ public class ParticipateController {
     }
 
     @RequestMapping(value = "/deleteParticipate", method = RequestMethod.GET)
-    public String deleteParticipate(String projName, String repName, String userName, HttpServletRequest request, RedirectAttributes attr){
+    public String deleteParticipate(String projName, String repName, String userName,HttpSession session, HttpServletRequest request, RedirectAttributes attr){
         try{
-            User userInSession  = userService.getUserInSession(request.getSession());
+            User userInSession  = userService.getUserInSession(session);
             if(userInSession == null)
                 return "login/sessionLost";
 
