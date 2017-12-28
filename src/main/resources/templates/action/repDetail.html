@@ -28,13 +28,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--/*@thymesVar id="projects" type="java.util.List"*/-->
 
             <div class=" col-md-6 article-post" th:each="project:${projects}">
-                <div class="col-md-6">
-                    <div style="width: 200px;height: 200px;">
-                        <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img  th:src="@{${project.descriptionPictureUrl}}" alt="img07" /></a>
-                    </div>
-                </div>
+                <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img style="width:600px;height: 300px;" th:src="@{${project.descriptionPictureUrl}}" alt="img07" /></a>
                 <div class="col-md-3 post-meta">
-                    <ul class="ad-info">
+                    <ul class="ad-info" style="margin-top:80px">
                         <li th:text="${project.startDate}">21 Aug'15</li>
                         <li> <a th:href="@{/userInfo(username=${project.userName})}" th:text="${project.userName}">旺仔牛奶</a></li>
                         <li th:text="${#lists.isEmpty(project.projectComments)}?0评论:${#lists.size(project.projectComments)}+评论" style="color:#FCB2B2;"> 0 评论</li>
