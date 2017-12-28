@@ -18,7 +18,8 @@ public interface ProjectRepository  extends JpaRepository<Project,ProjectID> {
     public List<Project> findByUserName(String userName);
     public List<Project> findByProjNameLike(String projName);
     public Project findByProjName(String projName);
-    //public Page<Project> findAllByParticipatesContains(String username);
+
+    public Project findTopByOrderByFollowerNum();
     public Page<Project> findAllByUserName(String username, Pageable pageable);
-    //public Project findTopByFollowerNum();
+
 }

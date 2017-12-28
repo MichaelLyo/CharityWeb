@@ -27,14 +27,12 @@ public class ParticipateController {
     @RequestMapping(value = "/createParticipate", method = RequestMethod.GET)
     public String createParticipate(String projName, String repName, String userName, HttpSession session, HttpServletRequest request, RedirectAttributes attr){
         try{
-            User userInSession  = userService.getUserInSession(session);
-            System.out.println("qqq");
-            if(null == userInSession) {
-                System.out.println("bbb");
+
+            User userInSession  = userService.getUserInSession(request.getSession());
+            if(userInSession == null) {
                 return "login/sessionLost";
             }
 
-            System.out.println("aaa");
             attr.addAttribute("projName", projName);
             attr.addAttribute("repName", repName);
             attr.addAttribute("userName", userName);

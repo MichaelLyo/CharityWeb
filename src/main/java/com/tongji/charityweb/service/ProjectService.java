@@ -39,6 +39,7 @@ public class ProjectService {
 
 
 
+
     //类似创建有关联的表时，例如想对某位user 添加repository时，需要在user对象中添加
 //因为user 和 repository之间存在关系
     public boolean createProject( String repName, String projName, String userName,String context)
@@ -61,7 +62,11 @@ public class ProjectService {
             return false;
         }
     }
-
+    
+    public Project getMostHotProject(){
+        Project project  = projectRepository.findTopByOrderByFollowerNum();
+        return project;
+    }
 
     public boolean deleteProject(String projName, String repName,String userName) {
         try{
