@@ -41,7 +41,7 @@ public class ParticipateController {
 
 
             System.out.println(repName+projName+userName);
-            Participate participate = new Participate(userName, repName, projName,"sjw");
+            Participate participate = new Participate(userName, repName, projName,userInSession.getUsername());
             parRepository.save(participate);
             return "redirect:/activity";
         } catch (Exception e){

@@ -4,12 +4,15 @@ import com.tongji.charityweb.model.comment.ProjectComment;
 import com.tongji.charityweb.model.project.*;
 import com.tongji.charityweb.model.repository.Repository;
 import com.tongji.charityweb.model.repository.RepositoryID;
+import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.project.ParRepository;
 import com.tongji.charityweb.repository.project.ProFolRepository;
 import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.repository.repository.RepRepository;
 import org.hibernate.validator.internal.metadata.core.AnnotationProcessingOptionsImpl;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +22,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Component
@@ -139,6 +143,28 @@ public class ProjectService {
             Pageable pageable = new PageRequest(page,size, Sort.Direction.DESC,"participateNum");
             return projectRepository.findAll(pageable);
         } catch (Exception e) {
+            return null;
+        }
+    }
+    public Page<Project> getUserParticipateProject(int page,int size,String username)
+    {
+        try
+        {
+            Pageable pageable = new PageRequest(page,size);
+            Page<Participate> participates = parRepository.findAllByParName(username, pageable);
+            Page<Project> projects = participates.map(new Converter<Participate, Project>()
+            {
+                @Override
+                public Project convert(Participate participate)
+                {
+                    Project project = findOneProject(participate.getProjName(), participate.getRepName(), participate.getUserName());
+                    return project;
+                }
+            });
+
+            return projects;
+        }
+        catch (Exception e) {
             return null;
         }
     }
