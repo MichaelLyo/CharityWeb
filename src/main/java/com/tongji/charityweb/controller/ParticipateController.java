@@ -26,7 +26,7 @@ public class ParticipateController {
         try{
             User userInSession  = userService.getUserInSession(request.getSession());
             System.out.println("qqq");
-            if(userInSession == null) {
+            if(null == userInSession) {
                 System.out.println("bbb");
                 return "login/sessionLost";
             }
