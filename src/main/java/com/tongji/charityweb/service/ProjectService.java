@@ -161,6 +161,15 @@ public class ProjectService {
         }
     }
 
+    public Participate findOneParticipater(String projName, String repName, String userName, String parName) {
+        try {
+            return parRepository.findOne(new ProjectParticipateID(userName,repName,projName,parName));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public boolean participateProject(String userName, String repName, String projName, String parName)
     {
         try

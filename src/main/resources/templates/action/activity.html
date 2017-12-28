@@ -113,7 +113,8 @@
                     <h5 class="m_26" style="float: left;margin:10px;text-align: center;font-size: 18px;"> <a th:href="@{/donate(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"> 捐 款 </a></h5>
                     <h5 class="m_26" style="float: left;margin-top: 10px;margin-left: 10px;text-align: center;font-size: 18px;"> <a th:if="${user==null || isFollower==null}" th:href="@{/createProFol(projName=${project.projName},repName=${project.repName},userName=${project.userName})}"> 关 注 </a></h5>
                     <h5 class="m_26" style="float: left;margin-top: 10px;margin-right: 10px;text-align: center;font-size: 18px;"> <a th:if="${user!=null && isFollower!=null}" th:href="@{/deleteProFol(projName=${project.projName},repName=${project.repName},userName=${project.userName})}"> 取消关注 </a></h5>
-                    <h5 class="m_26" style="float: left;margin:10px;text-align: center;font-size: 18px;"> <a th:href="@{/participate(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"> 参 与 </a></h5>
+                    <h5 class="m_26" style="float: left;margin:10px;text-align: center;font-size: 18px;"> <a th:if="${user==null || isParticipater==null}" th:href="@{/createParticipate(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"> 参 与 </a></h5>
+                    <h5 class="m_26" style="float: left;margin:10px;text-align: center;font-size: 18px;"> <a th:if="${user!=null && isParticipater!=null}" th:href="@{/deleteParticipate(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"> 取消参与 </a></h5>
 
                 </div>
                 <div class="clearfix"> </div>

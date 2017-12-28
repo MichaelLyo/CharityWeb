@@ -1,5 +1,6 @@
 package com.tongji.charityweb.controller;
 
+import com.tongji.charityweb.model.project.Participate;
 import com.tongji.charityweb.model.project.Project;
 import com.tongji.charityweb.model.project.ProjectFollower;
 import com.tongji.charityweb.model.repository.Repository;
@@ -86,6 +87,8 @@ public class IndexController {
         if (user != null) {
             ProjectFollower projectFollower = projectService.findOneFollower(projName,repName,userName,user.getUsername());
             model.addAttribute("isFollower", projectFollower);
+            Participate participate = projectService.findOneParticipater(projName,repName,userName,user.getUsername());
+            model.addAttribute("isParticipater", participate);
         }
         return "action/activity";
     }
