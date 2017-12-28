@@ -104,13 +104,13 @@
         <div class="row">
             <div class="col-md-3 col-md-offset-1">
                 <div class="row " >
-                    <div class="col-md-12 col-md-offset-2">
+                    <div class="col-md-12 col-md-offset-2" style="margin-top: 10px">
                             <img class="project-image" th:src="${pictureUrl}">
                     </div>
                 </div>
                 <div class="row ">
                     <div class="col-md-8 col-md-offset-2">
-                        <div class="user-name-div text-left">
+                        <div class="user-name-div">
                             <span class="user-name " id="repNameShow" name="repNameShow" th:text="${pictureName}">RepName</span>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                         <button  type="button" id="search"  name="search"  class="btn btn-default btn-sm button-submit" value="搜索" th:text="搜索"></button>
                         <input type="hidden"  id="repName" name="repName" th:value="${repName}">
                         <input type="hidden" id="userName" name="userName" th:value="${userName}">
-                        <button  th:if="${flag==true}" type="button" id="new" name ="new" class="btn btn-default btn-sm button-submit" value="新建" th:text="新建" style="margin-right: 200px"></button>
+                        <button  th:if="${flag}=='true'" type="button" id="new" name ="new" class="btn btn-default btn-sm button-submit" value="新建" th:text="新建" style="margin-right: 200px"></button>
                     </form>
 
                 </div>
@@ -158,7 +158,7 @@
                                         </svg>
                                         <strong id="participateNum" th:text="${ project.getParticipates()!=null}? ${project.getParticipates().size()}:'0'">0</strong>
                                     </li>
-                                    <li class="create-date-li col-md-4"  th:text="${project.getStartDate()!=null}?'create-date: '+${project.getStartDate().toString().replace(' 00:00:00.0','')} : 'create-date: none'" id="startDate"> </li>
+                                    <li class="create-date-li col-md-4"  th:text="${project.getStartDate()!=null}?'start-date: '+${project.getStartDate().toString().replace(' 00:00:00.0','')} : 'create-date: none'" id="startDate"> </li>
                                     <li class="create-date-li col-md-4" th:text="${project.getEndDate()!=null}?'end-date: '+${project.getEndDate().toString().replace(' 00:00:00.0','')}:'endDate: none'": id="endDate"></li>
                                 </ul>
                         </ul>
@@ -189,13 +189,11 @@
     $(document).ready(function () {
         $("a#projectSrc").click(
             function () {
-                console.log("shit");
                 $("#searchAndNew").attr("action","showProjectDetail");
                 $("#searchAndNew").attr("method","post");
                 $("#repName").val($("#repNameShow").text());
                 $("#projName").val($(this).children(":first").text());
                 $("#searchAndNew").submit();
-                console.log("shit");
             }
         )
     })

@@ -8,11 +8,13 @@ import com.tongji.charityweb.model.project.ProjectFollower;
 import com.tongji.charityweb.model.project.ProjectID;
 import com.tongji.charityweb.model.repository.Repository;
 import com.tongji.charityweb.model.repository.RepositoryID;
+import com.tongji.charityweb.model.user.Donate;
 import com.tongji.charityweb.model.user.User;
 import com.tongji.charityweb.repository.project.ParRepository;
 import com.tongji.charityweb.repository.project.ProFolRepository;
 import com.tongji.charityweb.repository.project.ProjectRepository;
 import com.tongji.charityweb.repository.repository.RepRepository;
+import com.tongji.charityweb.repository.user.DonateRepository;
 import com.tongji.charityweb.repository.user.UserRepository;
 import com.tongji.charityweb.service.FileService;
 import com.tongji.charityweb.service.ProjectService;
@@ -61,6 +63,8 @@ public class ProjectController {
     UserRepository userRepository;
     @Autowired
     FileService fileService;
+    @Autowired
+    DonateRepository donateRepository;
 
     @RequestMapping(value = "createProject" ,method = RequestMethod.POST)
     public String getCreateProjectPage(HttpServletRequest request, Model model){
@@ -101,6 +105,35 @@ public class ProjectController {
         return map;
     }
 
+    @RequestMapping(value = "followerProjects",  method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> followerProjects(String userName,  String projName){
+        System.out.println("hello");
+        Map<String,Object> resultMap = new HashMap<String, Object>();
+        List<Project> projects = new ArrayList<>() ;
+        Project project = projectRepository.findByProjName(projName);
+        projects.add(project);
+        resultMap.put("projects", projects);
+        System.out.println(userName);
+        System.out.println(projName);
+        Map map = new HashMap();
+        if(project.getFollowers() == null)
+            map.put("followerNum",0);
+        else
+            map.put("followerNum",project.getFollowers().size());
+
+        if(project.getParticipates()==null)
+            map.put("participateNum",0);
+        else
+            map.put("participateNum",project.getParticipates().size());
+
+        map.put("projName",projName);
+        map.put("context",project.getContext());
+        map.put("endDate",project.getEndDate().toString().replace("00:00:00.0",""));
+
+
+        return map;
+    }
 
     @RequestMapping(value = "searchProject", method = RequestMethod.POST)
     public String searchProject(HttpServletRequest request, Model model){
@@ -158,6 +191,7 @@ public class ProjectController {
             model.addAttribute("pictureName",pictureName);
             model.addAttribute("userName",user.getUsername());
             model.addAttribute("repName",repName);
+            model.addAttribute("flag","true");
             return "management/mgtProject";
         }
         catch (Exception e){
@@ -213,6 +247,7 @@ public class ProjectController {
             model.addAttribute("pictureName",repName);
             model.addAttribute("userName",userName);
             model.addAttribute("repName",repName);
+            model.addAttribute("flag","true");
 
             return "management/mgtProject";
         }
@@ -277,7 +312,7 @@ public class ProjectController {
             model.addAttribute("flag",false);
 
 
-            return "management/mgtProject";
+            return "management/followerAndParticipate";
         }
         catch(Exception e ){
             System.out.println("showJoinRes Error");
@@ -289,10 +324,12 @@ public class ProjectController {
         try{
             String userName = request.getParameter("userName");
             User user = userRepository.findOne(userName);
-            List<Participate> participates = parRepository.findByParName(userName);
+            List<Donate> donates = donateRepository.findByUsername(userName);
             List<Project> projects = new ArrayList<>();
-            for(Participate x : participates){
-                projects.add(x.getProject());
+            for(Donate x : donates){
+                String repName =  x.getRepName();
+                String projName = x.getProjName();
+                projects.add(projectRepository.findOne(new ProjectID(projName, repName, userName)));
             }
             model.addAttribute("projects",projects);
             model.addAttribute("pictureUrl",user.getHpPictureUrl());
@@ -304,7 +341,7 @@ public class ProjectController {
             System.out.println("showParticipateProjects");
             return "error";
         }
-        return  "management/mgtProject";
+        return  "management/followerAndParticipate";
     }
     @RequestMapping(value = "/deleteProFol",method = RequestMethod.GET)
     public String deleteProFol(String projName, String repName, String userName, HttpServletRequest request, RedirectAttributes attr)

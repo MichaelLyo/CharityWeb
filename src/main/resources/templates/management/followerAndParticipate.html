@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>项目管理</title>
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script th:src="@{assets/js/jquery-2.1.1.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.min.js}"></script>
+    <script th:src="@{assets/js/wow.min.js}"></script>
+    <script th:src="@{assets/js/project.js}"></script>
+
+    <link th:href="@{assets/css/bootstrap.min.css}" rel="stylesheet">
+    <link  th:href="@{assets/css/project.css}" rel="stylesheet">
+    <!-- Custom Theme files -->
+    <link th:href="@{action/css/communitystyle.css}" rel='stylesheet'/>
+    <!-- animation-effect -->
+    <link th:href="@{assets/css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{assets/css/participateStyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
+    <link th:href="@{assets/css/style.css}" rel="stylesheet">
+    <link th:href="@{assets/css/stickup.css}" rel="stylesheet">
+    <link th:href="@{assets/css/button.css}" rel="stylesheet">
+
+    <script>
+        new WOW().init();
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div th:include="template/navbar :: navbar"></div>
+<div class="banner two"></div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" >
+                <h4 class="modal-title" id="myModalLabel" >ProjeName</h4>
+            </div>
+            <div class="modal-body">
+                <div >
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="firstShowContent">所属项目</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" style="text-indent: 25px">
+                            <p style="text-align: left;font-size: medium; font-weight: 100" id="modalRepName">jonathan</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4  ">
+                            <p class="firstShowContent" >关注人数</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" style="text-indent: 25px">
+                            <p style="text-align: left;font-size: medium; font-weight: 100" id="modalFollowerNum">6</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 ">
+                            <p class="firstShowContent" >参与人数</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" style="text-indent: 25px">
+                            <p style="text-align: left;font-size: medium; font-weight: 100" id="modalParticipateNum">6</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">StartDate</div>
+                        <div class="col-md-4" id="modalStartDate">5-1</div>
+                        <div class="col-md-2" >EndDate</div>
+                        <div class="col-md-4" id="modalEndDate">5-2</div>
+                    </div>
+                </div>
+
+                <div >
+                    <div class="row firstShowBoarder" style="margin-top: 20px">
+                        <div class="col-md-4 ">
+                            <p class="firstShowContent">
+                                项目简介
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: left;text-indent: 25px;word-wrap:break-word;" id="modalContext" >
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 70px;">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="main" role="main">
+    <div class="container" >
+
+        <div class="main">
+            <div class="container " >
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="row " >
+                            <div class="col-md-12 col-md-offset-2" style="margin-top: 10px">
+                                <img class="project-image" th:src="${pictureUrl}">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="user-name-div">
+                                    <span class="user-name " id="repNameShow" name="repNameShow" th:text="${pictureName}">RepName</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-1 col-md-7 ">
+                        <div class="search-project-div" >
+                            <form   class="form-inline" style="width: 100%" name="searchAndNew" id="searchAndNew"  >
+                                <div class="form-group"  >
+                                    <input type="text" class="form-control" id="projName" name ="projName" placeholder="search projects" style="width: 200px;  margin-right: 10px;margin-left: -20px;">
+                                </div>
+                                <button  type="button" id="search"  name="search"  class="btn btn-default btn-sm button-submit" value="搜索" th:text="搜索"></button>
+                                <input type="hidden"  id="repName" name="repName" th:value="${repName}">
+                                <input type="hidden" id="userName" name="userName" th:value="${userName}">
+                                <button  th:if="${flag}=='true'" type="button" id="new" name ="new" class="btn btn-default btn-sm button-submit" value="新建" th:text="新建" style="margin-right: 200px"></button>
+                            </form>
+
+                        </div>
+                        <ul id="projectUl">
+                            <li class="repository-div" th:each="project : ${projects}" id="project-list" th:name="project-list">
+                                <ul    >
+                                    <div class="margin-top-div text-left"  style="padding-left: 0px " >
+                                        <a id="projectSrc" name="projectSrc">
+                                            <input name = "userName" type="hidden" th:value="${project.getUserName()}">
+                                            <input name = "repName" type="hidden" th:value="${project.getRepName()}">
+                                            <h3 class="project-name-h3" th:text="${project.getProjName()}" >project-name</h3>
+                                        </a>
+                                    </div>
+                                    <div class="margin-top-div text-left">
+                                        <a onclick="projectDetail(this)" data-toggle="modal" data-target="#myModal" style="cursor: pointer">
+                                            <p class="project-description" th:text="${project.getContext()}">project description</p>
+                                        </a>
+                                    </div>
+                                    <ul class="list-inline margin-top-div left row" >
+                                        <li class="svg col-md-2">
+                                            <svg aria-label="star"  height="16" role="img" version="1.1"  width="14" >
+                                                <path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path>
+                                            </svg>
+                                            <strong id="followerNum" th:text="${ project.getFollowers()!=null}? ${project.getFollowers().size()}:'0'">0</strong>
+                                        </li>
+
+                                        <li class="participate-li col-md-1">
+                                            <svg  version="1.1" width="14" height="16"
+                                                  xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="6" cy="9    " r="5" stroke="black"
+                                                        stroke-width="0" fill="red"/>
+                                            </svg>
+                                            <strong id="participateNum" th:text="${ project.getParticipates()!=null}? ${project.getParticipates().size()}:'0'">0</strong>
+                                        </li>
+                                        <li class="create-date-li col-md-4"  th:text="${project.getStartDate()!=null}?'start-date: '+${project.getStartDate().toString().replace(' 00:00:00.0','')} : 'create-date: none'" id="startDate"> </li>
+                                        <li class="create-date-li col-md-4" th:text="${project.getEndDate()!=null}?'end-date: '+${project.getEndDate().toString().replace(' 00:00:00.0','')}:'endDate: none'": id="endDate"></li>
+                                    </ul>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--<h3 class="tittle" style="float: left;margin-left: 30px;">我参与的项目</h3>-->
+
+        <div th:include="template/footer :: copyright"></div>
+        <!--start-smoth-scrolling-->
+
+        <a href="#animenu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+</body>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+    $(document).ready(function () {
+        $("a#projectSrc").click(
+            function (e) {
+                console.log($(e.target));
+                var projectName = $(e.target);
+                var repName = projectName.prev().val();
+                var projName = projectName.text();
+                var userName = projectName.prev().prev().val();
+                $("#searchAndNew").attr("action","showProjectDetail");
+                $("#searchAndNew").attr("method","post");
+                $("#repName").val(repName);
+                $("#projName").val(projName);
+                $("#userName").first().val(userName);m
+                $("#searchAndNew").submit();
+            }
+        )
+    })
+    $(document).ready(function (){
+        $("#search").click(
+            function (){
+                searchProjectWithAjax2();
+            }
+        )
+    })
+    $(document).ready(function () {
+        $("#new").click(
+            function () {
+                $("#searchAndNew").attr("action","createProject").attr("method","post").submit();
+            }
+        )
+
+    })
+</script>
+</html>
