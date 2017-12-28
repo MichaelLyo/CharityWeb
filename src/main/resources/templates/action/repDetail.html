@@ -10,6 +10,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link th:href="@{assets/css/bootstrap.css}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
     <link th:href="@{assets/css/participateStyle.css}" rel='stylesheet' type='text/css' />
+    <link href="/static/assets/css/bootstrap.min.css">
     <script th:src="@{assets/js/jquery-2.1.1.min.js}"> </script>
     <link th:href="@{assets/css/searchstyle.css}" rel="stylesheet">
 </head>
@@ -25,14 +26,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <h3 class="tittle">活动</h3>
         <div class="news-article">
             <!--/*@thymesVar id="projects" type="java.util.List"*/-->
-            <div class="col-md-6 article-post" th:each="project:${projects}">
-                <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" alt="img07"/></a>
-                <div class="col-md-3 post-meta">
-                    <div class="meta-icon">
-                        <div class="pic">
-                            <a th:href="@{/userInfo(username=${project.userName})}" > <i class="glyphicon glyphicon-picture"></i></a>
-                        </div>
+
+            <div class=" col-md-6 article-post" th:each="project:${projects}">
+                <div class="col-md-6">
+                    <div style="width: 200px;height: 200px;">
+                        <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" alt="img07" /></a>
                     </div>
+                </div>
+                <div class="col-md-3 post-meta">
                     <ul class="ad-info">
                         <li th:text="${project.startDate}">21 Aug'15</li>
                         <li> <a th:href="@{/userInfo(username=${project.userName})}" th:text="${project.userName}">旺仔牛奶</a></li>

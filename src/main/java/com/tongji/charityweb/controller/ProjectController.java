@@ -158,6 +158,7 @@ public class ProjectController {
             model.addAttribute("pictureName",pictureName);
             model.addAttribute("userName",user.getUsername());
             model.addAttribute("repName",repName);
+            model.addAttribute("flag","true");
             return "management/mgtProject";
         }
         catch (Exception e){
@@ -213,6 +214,7 @@ public class ProjectController {
             model.addAttribute("pictureName",repName);
             model.addAttribute("userName",userName);
             model.addAttribute("repName",repName);
+            model.addAttribute("flag","true");
 
             return "management/mgtProject";
         }

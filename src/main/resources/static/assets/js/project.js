@@ -110,7 +110,31 @@ function searchProjectWithAjax() {
 
     });
 }
+function searchProjectWithAjax2() {
+    var project = $("#projectSrc").first();
+    var repName = $("#repName").val(project.find("input[name='repName']").val()).val();
+    var projName = $("#projName").val();
+    var userName = $("#userName").val(project.find("input[name='userName']").val()).val();
 
+    console.log(userName);
+    console.log(repName);
+    console.log(projName);
+
+    $.ajax({
+        async: true,
+        type: "POST",
+        url: "http://localhost:9090/spring-boot/testAjax",//注意路径
+        data: "repName="+repName+"&userName="+userName+"&projName="+projName,
+        dataType: "json",
+        success: function (response) {
+            replaceProjects(response);
+        },
+        error: function (response) {
+            alert(response.data);
+        }
+
+    });
+}
 
 function projectDetail(obj){
     var project = $(obj);
