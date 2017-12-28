@@ -62,9 +62,9 @@ public class ProjectService {
             return false;
         }
     }
-    
+
     public Project getMostHotProject(){
-        Project project  = projectRepository.findTopByOrderByFollowerNum();
+        Project project  = projectRepository.findTopByOrderByFollowerNumDesc();
         return project;
     }
 
