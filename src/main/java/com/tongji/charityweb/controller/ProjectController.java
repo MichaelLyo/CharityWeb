@@ -324,13 +324,8 @@ public class ProjectController {
         try{
             String userName = request.getParameter("userName");
             User user = userRepository.findOne(userName);
-            List<Donate> donates = donateRepository.findByUsername(userName);
             List<Project> projects = new ArrayList<>();
-            for(Donate x : donates){
-                String repName =  x.getRepName();
-                String projName = x.getProjName();
-                projects.add(projectRepository.findOne(new ProjectID(projName, repName, userName)));
-            }
+            projects = projectService.getParticipateProjects(userName);
             model.addAttribute("projects",projects);
             model.addAttribute("pictureUrl",user.getHpPictureUrl());
             model.addAttribute("pictureName",userName);

@@ -2,7 +2,7 @@ function showFollowProjects(){
     $("#learning-tab").click(
         function () {
             $("#hiddenForm").attr("action","showFollowProjects");
-            $("#hiddenForm").attr("method","get");
+            $("#hiddenForm").attr("method","post");
             $("#userName").val($("#userNameShow").text());
             $("#hiddenForm").submit();
         }

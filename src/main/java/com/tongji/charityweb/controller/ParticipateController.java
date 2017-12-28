@@ -21,6 +21,7 @@ public class ParticipateController {
     @Autowired
     UserService userService;
 
+
     @RequestMapping(value = "/createParticipate", method = RequestMethod.GET)
     public String createParticipate(String projName, String repName, String userName, HttpServletRequest request, RedirectAttributes attr){
         try{
@@ -36,7 +37,9 @@ public class ParticipateController {
             attr.addAttribute("repName", repName);
             attr.addAttribute("userName", userName);
 
-            Participate participate = new Participate(userName, repName, projName, userInSession.getUsername());
+
+            System.out.println(repName+projName+userName);
+            Participate participate = new Participate(userName, repName, projName,"sjw");
             parRepository.save(participate);
             return "redirect:/activity";
         } catch (Exception e){
