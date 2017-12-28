@@ -71,12 +71,12 @@
                         <h3><a th:href="@{/showRepDetail(repName=${repository.getRepositoryName()},userName=${repository.getUsername()})}" th:text="${repository.getRepositoryName()}">Lorem Ipsum is simply</a></h3>
                         <h6>BY <a th:href="@{/userInfo(username=${repository.getUsername()})}" th:text="${repository.getUsername()}">ADAM ROSE </a> <span th:text="${repository.getCreatedAt()}">JULY 10 2016.</span></h6>
                         <p th:text="${repository.getDescription()}">Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris .</p>
-                        <div class="bht1">
+                        <div style="margin-left: 190px;" class="bht1">
 
-                            <a th:href="@{/showRepDetail(repName=${repository.getRepositoryName()},userName=${repository.getUsername()})}">查看详情</a>
+                            <a  th:href="@{/showRepDetail(repName=${repository.getRepositoryName()},userName=${repository.getUsername()})}">查看详情</a>
 
                         </div>
-                        <div class="soci">
+                        <div style="margin-left: 190px;" class="soci">
                             <ul>
 
                                 <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
