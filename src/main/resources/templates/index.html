@@ -267,7 +267,7 @@
                     <div class="col-md-5 serve-info">
                         <h5>我们会不断更新各类公益活动，在此你可以选择以任何方式参与到公益活动之中。你可以帮助幼儿、残疾人，也可以保护环境、保护自然。</h5>
                         <h3 style = "color: #2BCFC2;font-size: 40px;">本周最热活动</h3>
-                        <a href="activity?projName=To%20Protect%20Humanity&repName=云南支教团&userName=彩云支南"><img th:src="@{assets/img/action.jpg}"></a>
+                        <a th:href="'activity?projName='+${hotProject.projName}+'&repName='+${hotProject.repName}+'&userName='+${hotProject.userName}"><img th:src="${hotProject.descriptionPictureUrl}"></a>
                         <div class="see-button">
                             <a class="btn btn-primary btn-lg see-button hvr-shutter-out-horizontal serve-button" th:href="@{/participate}" role="button">查看更多活动</a>
                         </div>

@@ -26,13 +26,10 @@ public class ParticipateController {
     public String createParticipate(String projName, String repName, String userName, HttpServletRequest request, RedirectAttributes attr){
         try{
             User userInSession  = userService.getUserInSession(request.getSession());
-            System.out.println("qqq");
             if(userInSession == null) {
-                System.out.println("bbb");
                 return "login/sessionLost";
             }
 
-            System.out.println("aaa");
             attr.addAttribute("projName", projName);
             attr.addAttribute("repName", repName);
             attr.addAttribute("userName", userName);

@@ -324,8 +324,9 @@ public class ProjectController {
         try{
             String userName = request.getParameter("userName");
             User user = userRepository.findOne(userName);
+            List<Participate> participates = parRepository.findByParName(userName);
             List<Project> projects = new ArrayList<>();
-            projects = projectService.getParticipateProjects(userName);
+            projectService.getParticipateProjects(userName);
             model.addAttribute("projects",projects);
             model.addAttribute("pictureUrl",user.getHpPictureUrl());
             model.addAttribute("pictureName",userName);

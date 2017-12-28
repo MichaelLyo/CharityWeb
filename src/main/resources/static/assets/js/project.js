@@ -142,7 +142,7 @@ function projectDetail(obj){
     var project = $(obj);
     var modal = $("#myModal");
     var projName = project.parent().prev().text().trim();
-    var repName = $("#repNameShow").text().trim();
+    var repName = $("#repNamaeShow").text().trim();
     var content = project.text().trim();
 
     var ul = project.parent().next();

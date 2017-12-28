@@ -34,7 +34,9 @@ public class IndexController {
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
         List<Project> projects = projectService.getAllProjectsOrderByFolNum();
+        Project hotPorject = projectService.getMostHotProject();
         model.addAttribute("projects", projects);
+        model.addAttribute("hotProject",hotPorject);
         return "index";
     }
 
