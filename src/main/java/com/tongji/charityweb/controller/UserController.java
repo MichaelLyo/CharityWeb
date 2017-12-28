@@ -92,7 +92,8 @@ public class UserController {
         }
         if (username == null || username.equals(userInSession.getUsername())) {
             //获取当前捐款总额
-            List<Donate> donates = donateRepository.findByUsername(userInSession.getUsername());
+            List<Donate> donates = userInSession.getDonates();
+
             int donateAmount = 0;
             for(Donate donate:donates){
                 donateAmount+=donate.getAmount();
