@@ -103,6 +103,7 @@ public class IndexController {
     @RequestMapping(value = "participate",method = RequestMethod.GET)
     public String participate(ModelMap modelMap, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "6")int size){
         Page<Project> projects = projectService.getProjectPageOrderByParNum(page, size);
+
         modelMap.addAttribute("projects", projects);
         return "participate/participate-index";
     }

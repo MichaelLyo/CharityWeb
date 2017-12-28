@@ -174,7 +174,7 @@
 
                         <!--/*@thymesVar id="projects" type="java.util.List"*/-->
                         <div class="col-md-6 article-post" th:each="project,projectStat:${projects}" th:if="${projectStat.index}<2">
-                            <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img th:src="@{${project.descriptionPictureUrl}}" /></a>
+                            <a th:href="@{/activity(projName=${project.projName}, repName=${project.repName}, userName=${project.userName})}"><img style="width: 500px;height: 320px;" th:src="@{${project.descriptionPictureUrl}}" /></a>
                             <div class="col-md-3 post-meta">
                                 <div class="meta-icon">
                                     <div class="pic">
