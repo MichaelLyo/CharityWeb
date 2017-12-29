@@ -28,7 +28,7 @@ public class ParticipateController {
     public String createParticipate(String projName, String repName, String userName, HttpSession session, HttpServletRequest request, RedirectAttributes attr){
         try{
 
-            User userInSession  = userService.getUserInSession(request.getSession());
+            User userInSession  = userService.getUserInSession(session);
             if(userInSession == null) {
                 return "login/sessionLost";
             }

@@ -23,8 +23,8 @@ public class WebConfig extends WebMvcConfigurerAdapter
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// addPathPatterns 用于添加拦截规则
-//		// excludePathPatterns 用户排除拦截
-//		registry.addInterceptor(new Interceptor()).addPathPatterns("/**").excludePathPatterns("/regist","/login","/sessionLost","/","/logout");
-//		super.addInterceptors(registry);
+		// excludePathPatterns 用户排除拦截
+		registry.addInterceptor(new Interceptor()).addPathPatterns("/**").excludePathPatterns("/regist","/login","/sessionLost","/","/logout");
+		super.addInterceptors(registry);
 	}
 }

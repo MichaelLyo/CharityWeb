@@ -12,7 +12,7 @@ function showFollowProjects(){
 function showParProjects (){
     $("#playing-tab").click(
         function () {
-            $("#hiddenForm").attr("action","showParProjects");
+            $("#hiddenForm").attr("action","participate");
             $("#userName").val($("#userNameShow").text());
             $("#hiddenForm").submit();
         }
